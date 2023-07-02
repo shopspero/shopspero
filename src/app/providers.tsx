@@ -29,7 +29,7 @@ const theme = extendTheme({
             position: 'absolute',
             width: '100%',
             transform: 'scaleX(0)',
-            height: '2px',
+            height: '1.5px',
             bottom: 0,
             left: 0,
             transformOrigin: 'bottom right',

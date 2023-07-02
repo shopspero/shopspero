@@ -5,7 +5,7 @@ import { Box, Center, Heading, Container, Text } from '@chakra-ui/react';
 export default function StatementOfFaith() {
   return (
     <Box>
-      <Center pt={20} pb={20} pl={5} pr={5}>
+      <Center pt={10} pb={10} pl={5} pr={5}>
         <Heading as="h1" size="2xl" textAlign="center">
           Statement of Faith
         </Heading>

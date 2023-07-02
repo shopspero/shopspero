@@ -31,8 +31,8 @@ export default function Home() {
             zIndex="overlay"
             size={{ base: 'md', sm: 'xl' }}
           >
-            Spero is a team of Cal students with a heart to share the Gospel
-            with Biblically empowered apparel.
+            Spero is a team of Cal students with a heart to share the gospel
+            with biblically empowered apparel.
           </Heading>
           <Image
             src="/images/home/fullness-1.jpg"
@@ -91,7 +91,7 @@ export default function Home() {
               We're dedicated to bridging{' '}
               <Text as="b">fashion and mission</Text>. As a Christian
               organization, our heart is to advance the gospel through apparel
-              that is empowered by Biblical truth and vision. We aim to produce
+              that is empowered by biblical truth and vision. We aim to produce
               intentional designs that spark hope through everyday wear and
               conversation. 30% of all profits are donated to various
               social-good organizations both in and outside of the Bay Area such
