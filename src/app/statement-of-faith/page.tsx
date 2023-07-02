@@ -1,3 +1,15 @@
+'use client';
+
+import { Box, Center, Heading } from '@chakra-ui/react';
+
 export default function StatementOfFaith() {
-  return <h1>Statement of Faith</h1>;
+  return (
+    <Box>
+      <Center>
+        <Heading as="h1" size="2xl">
+          Statement of Faith
+        </Heading>
+      </Center>
+    </Box>
+  );
 }

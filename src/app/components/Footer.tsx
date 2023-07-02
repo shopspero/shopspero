@@ -6,12 +6,7 @@ const tenorSans = Tenor_Sans({ subsets: ['latin'], weight: ['400'] });
 
 import {
   Box,
-  Flex,
-  chakra,
   Container,
-  Stack,
-  Text,
-  useColorModeValue,
   VisuallyHidden,
   Button,
   Link,
@@ -47,12 +42,12 @@ const socials: SocialInfo[] = [
 ];
 
 const SocialButton = (social: SocialInfo) => (
-  <Link as={'a'} href={social.href} isExternal>
+  <Link as="a" href={social.href} isExternal>
     <Button
-      size={'lg'}
+      size="lg"
       p={0}
-      rounded={'full'}
-      bg={'none'}
+      rounded="full"
+      bg="none"
       _hover={{ bg: 'gray.100', transitionDuration: '0.2s' }}
     >
       <VisuallyHidden>{social.label}</VisuallyHidden>
@@ -63,9 +58,9 @@ const SocialButton = (social: SocialInfo) => (
 
 export default function Footer() {
   return (
-    <Box as={'footer'} fontSize={'xs'}>
-      <Wrap justify={'center'} align={'flex-end'} pl={10} pr={10} pt={5}>
-        <WrapItem ml={0} mr={'auto'}>
+    <Box as="footer" fontSize="xs">
+      <Wrap justify="center" align="flex-end" pl={10} pr={10} pt={10}>
+        <WrapItem ml={0} mr="auto">
           <Container
             maxWidth={500}
             lineHeight={1.2}

@@ -49,7 +49,7 @@ export default function NavBar() {
   return (
     <>
       <Box px={12} py={10}>
-        <Flex align={'center'} justify={'space-between'}>
+        <Flex align="center" justify="space-between">
           {/* Logo */}
           <Link as={NextLink} href="/" _hover={{ textDecoration: 'none' }}>
             <HStack spacing={5}>
@@ -61,10 +61,10 @@ export default function NavBar() {
           {/* Nav items on desktop */}
           <HStack
             spacing={8}
-            alignItems={'center'}
+            alignItems="center"
             display={{ base: 'none', md: 'flex' }}
           >
-            <HStack as={'nav'} spacing={7}>
+            <HStack as="nav" spacing={7}>
               {Links.map((link) => (
                 <NavLink key={link.title} title={link.title} href={link.href} />
               ))}
@@ -73,12 +73,12 @@ export default function NavBar() {
 
           {/* Hamburger icon on mobile */}
           <IconButton
-            size={'md'}
+            size="md"
             icon={isOpen ? <SmallCloseIcon /> : <HamburgerIcon />}
-            aria-label={'Open Menu'}
+            aria-label="Open Menu"
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
-            bg={'none'}
+            bg="none"
             p={2}
             _hover={{ bg: 'gray.100', transitionDuration: '0.2s' }}
           />
@@ -87,7 +87,7 @@ export default function NavBar() {
         {/* Nav items on mobile */}
         <Collapse in={isOpen}>
           <Box mt={3} display={{ md: 'none' }}>
-            <VStack as={'nav'} align={'flex-end'}>
+            <VStack as="nav" align="flex-end">
               {Links.map((link) => (
                 <NavLink key={link.title} title={link.title} href={link.href} />
               ))}

@@ -1,12 +1,7 @@
 import { Providers } from '@/app/providers';
 
-import '@/app/globals.css';
-import { Lexend_Deca } from 'next/font/google';
-
 import NavBar from '@/app/components/NavBar';
 import Footer from '@/app/components/Footer';
-
-const lexendDeca = Lexend_Deca({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Spero',
@@ -24,7 +19,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={lexendDeca.className}>
+      <body>
         <Providers>
           <div
             style={{

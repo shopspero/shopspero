@@ -1,3 +1,13 @@
+'use client';
+
+import { Center, Heading } from '@chakra-ui/react';
+
 export default function Team() {
-  return <h1>Team</h1>;
+  return (
+    <Center>
+      <Heading as="h1" size="2xl">
+        Team
+      </Heading>
+    </Center>
+  );
 }

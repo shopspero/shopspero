@@ -1,3 +1,13 @@
+'use client';
+
+import { Center, Heading } from '@chakra-ui/react';
+
 export default function Shop() {
-  return <h1>Shop</h1>;
+  return (
+    <Center>
+      <Heading as="h1" size="2xl">
+        Shop
+      </Heading>
+    </Center>
+  );
 }
