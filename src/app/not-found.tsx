@@ -1,18 +1,9 @@
-'use client';
+import NotFound from '@/app/not-found/NotFound';
 
-import { Box, Container, Center, Heading } from '@chakra-ui/react';
+export const metadata = {
+  title: 'Not Found - Spero',
+};
 
-export default function NotFound() {
-  return (
-    <Box>
-      <Center pt={10} pb={10} pl={5} pr={5}>
-        <Heading as="h1" size="2xl" textAlign="center">
-          Uh oh, 404.
-        </Heading>
-      </Center>
-      <Container maxWidth={900} p={5} textAlign="center">
-        Looks like we couldn&apos;t find the page you were looking for :(
-      </Container>
-    </Box>
-  );
+export default function Page() {
+  return <NotFound />;
 }
