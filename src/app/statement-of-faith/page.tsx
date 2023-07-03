@@ -12,7 +12,7 @@ export default function StatementOfFaith() {
       </Center>
       <Container maxWidth={900} p={5}>
         <Heading as="h2" size="lg" pt={7} pb={2}>
-          1. The Bible is Inspired by God & Without Error
+          1. The Bible is Inspired by God &amp; Without Error
         </Heading>
         <Text>
           All Scripture is self-attesting and, being truth, requires the human
@@ -31,7 +31,7 @@ export default function StatementOfFaith() {
           substance, equal in power and glory.
         </Text>
         <Heading as="h2" size="lg" pt={5} pb={3}>
-          3. The Lord Jesus Christ is Fully God & Fully Human
+          3. The Lord Jesus Christ is Fully God &amp; Fully Human
         </Heading>
         <Text>
           The Lord Jesus Christ, the Son of God, has always existed. He too is
