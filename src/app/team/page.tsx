@@ -57,6 +57,7 @@ export default function Team() {
           as={NextLink}
           href="mailto:shopspero@gmail.com"
           variant="underline"
+          isExternal
         >
           shopspero@gmail.com
         </Link>{' '}
