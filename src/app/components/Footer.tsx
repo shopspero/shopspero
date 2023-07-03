@@ -1,7 +1,6 @@
 'use client';
 
 import { Tenor_Sans } from 'next/font/google';
-
 const tenorSans = Tenor_Sans({ subsets: ['latin'], weight: ['400'] });
 
 import {
@@ -13,9 +12,12 @@ import {
   Wrap,
   WrapItem,
   Center,
+  VStack,
+  HStack,
 } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram, FaMedium } from 'react-icons/fa';
 import { IconType } from 'react-icons/lib';
+import NextLink from 'next/link';
 
 interface SocialInfo {
   label: string;
@@ -76,14 +78,25 @@ export default function Footer() {
           </Container>
         </WrapItem>
         <WrapItem gap={1}>
-          {socials.map((social) => (
-            <SocialButton
-              key={social.label}
-              label={social.label}
-              icon={social.icon}
-              href={social.href}
-            />
-          ))}
+          <VStack>
+            <HStack>
+              {socials.map((social) => (
+                <SocialButton
+                  key={social.label}
+                  label={social.label}
+                  icon={social.icon}
+                  href={social.href}
+                />
+              ))}
+            </HStack>
+            <Link
+              as={NextLink}
+              href="mailto:shopspero@gmail.com"
+              variant="underline"
+            >
+              shopspero@gmail.com
+            </Link>
+          </VStack>
         </WrapItem>
       </Wrap>
       <Center p={2} fontWeight={300}>
