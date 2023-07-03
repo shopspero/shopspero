@@ -130,7 +130,7 @@ export default function Home() {
       </Box>
       <Box bg="gray.100" pt={20} pb={20} pl={10} pr={10}>
         <Container maxWidth={900}>
-          <Heading as="h2" textAlign="center">
+          <Heading as="h2" textAlign="center" size={{ base: 'md', sm: 'xl' }}>
             Read our{' '}
             <Link as={NextLink} href="/statement-of-faith" variant="underline">
               Statement of Faith
