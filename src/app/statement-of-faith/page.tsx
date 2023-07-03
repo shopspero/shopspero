@@ -52,59 +52,61 @@ export default function StatementOfFaith() {
           4. The Fall of Humankind in Sin
         </Heading>
         <Text>
-          “Just as through one man sin entered into the world, and death through
-          sin, and so sin spread through all men” (Romans 5:12). One of the
-          immediate effects of the Fall was that mankind was separated from God.
-          In the Garden of Eden, Adam and Eve had perfect communion and
-          fellowship with God. When they rebelled against Him, that fellowship
-          was broken. Because of the Fall, death became a reality, and all
-          creation was subject to it. “For the wages of sin is death, but the
-          free gift of God is eternal life in Christ Jesus our Lord.” (Romans
-          6:23)
+          &ldquo;Just as through one man sin entered into the world, and death
+          through sin, and so sin spread through all men&rdquo; (Romans 5:12).
+          One of the immediate effects of the Fall was that mankind was
+          separated from God. In the Garden of Eden, Adam and Eve had perfect
+          communion and fellowship with God. When they rebelled against Him,
+          that fellowship was broken. Because of the Fall, death became a
+          reality, and all creation was subject to it. &ldquo;For the wages of
+          sin is death, but the free gift of God is eternal life in Christ Jesus
+          our Lord.&rdquo; (Romans 6:23)
         </Text>
         <Heading as="h2" size="lg" pt={5} pb={3}>
           5. The Salvation of Humankind in Christ
         </Heading>
         <Text>
-          God made a way through His Son, Jesus Christ. Romans 5:8 says, “But
-          God demonstrates His own love for us in that while we were still
-          sinners Christ died for us!” You receive this gift of salvation by
-          faith alone. Ephesians 2:8 says, “For by grace you are saved, through
-          faith, and this not from yourselves; it is God's gift-not from works,
-          so that no one can boast.” Jesus Christ died in our place when He was
-          crucified on the cross. We deserved to be the ones placed on that
-          cross to die because we are the ones who live sinful lives. But Christ
-          took the punishment on Himself in our place—He substituted Himself for
-          us and took what we rightly deserved. “God made him who had no sin to
-          be sin for us, so that in him we might become the righteousness of
-          God” (2 Corinthians 5:21).
+          God made a way through His Son, Jesus Christ. Romans 5:8 says,
+          &ldquo;But God demonstrates His own love for us in that while we were
+          still sinners Christ died for us!&rdquo; You receive this gift of
+          salvation by faith alone. Ephesians 2:8 says, &ldquo;For by grace you
+          are saved, through faith, and this not from yourselves; it is
+          God&apos;s gift-not from works, so that no one can boast.&rdquo; Jesus
+          Christ died in our place when He was crucified on the cross. We
+          deserved to be the ones placed on that cross to die because we are the
+          ones who live sinful lives. But Christ took the punishment on Himself
+          in our place—He substituted Himself for us and took what we rightly
+          deserved. &ldquo;God made him who had no sin to be sin for us, so that
+          in him we might become the righteousness of God&rdquo; (2 Corinthians
+          5:21).
         </Text>
         <Heading as="h2" size="lg" pt={5} pb={3}>
           6. The Role of the Holy Spirit
         </Heading>
         <Text>
-          The Holy Spirit is the seal of man's salvation (John 14:26-27; Eph.
-          1:13). He teaches us (John 16:13) and brings revelation to us (John
-          14:26; Rom. 8:26-27). He also works out sanctification in our lives by
-          God's Word, helping us become more like Jesus (Eph. 5:26; 1 Pet. 1:2);
-          and gives spiritual gifts to us so that we might represent God's
-          kingdom to the fullest within our communities (Acts 2:1-21; 1 Cor.
-          12:4-11; Acts 4:27-31; Heb. 2:2-4; Eph. 4:7-16; 1 Pet. 4:10-11).
+          The Holy Spirit is the seal of man&apos;s salvation (John 14:26-27;
+          Eph. 1:13). He teaches us (John 16:13) and brings revelation to us
+          (John 14:26; Rom. 8:26-27). He also works out sanctification in our
+          lives by God&apos;s Word, helping us become more like Jesus (Eph.
+          5:26; 1 Pet. 1:2); and gives spiritual gifts to us so that we might
+          represent God&apos;s kingdom to the fullest within our communities
+          (Acts 2:1-21; 1 Cor. 12:4-11; Acts 4:27-31; Heb. 2:2-4; Eph. 4:7-16; 1
+          Pet. 4:10-11).
         </Text>
         <Heading as="h2" size="lg" pt={5} pb={3}>
-          7. The Blessed Hope of Christ's Return
+          7. The Blessed Hope of Christ&apos;s Return
         </Heading>
         <Text>
-          Titus 2:12-13 teaches us “to live self-controlled, upright and godly
-          lives in this present age, while we wait for the blessed hope—the
-          appearance of the glory of our great God and Savior, Jesus Christ.” We
-          will be blessed beyond measure when we see Christ. The trials of this
-          life will be over, and we will see that “our present sufferings are
-          not worth comparing with the glory that will be revealed in us”
-          (Romans 8:18). The bodies of those who have died will be raised to be
-          joined with their souls, and then the bodies of those believers still
-          living on earth will be changed into a body like the Lord's
-          resurrection body.
+          Titus 2:12-13 teaches us &ldquo;to live self-controlled, upright and
+          godly lives in this present age, while we wait for the blessed
+          hope—the appearance of the glory of our great God and Savior, Jesus
+          Christ.&rdquo; We will be blessed beyond measure when we see Christ.
+          The trials of this life will be over, and we will see that &ldquo;our
+          present sufferings are not worth comparing with the glory that will be
+          revealed in us&rdquo; (Romans 8:18). The bodies of those who have died
+          will be raised to be joined with their souls, and then the bodies of
+          those believers still living on earth will be changed into a body like
+          the Lord&apos;s resurrection body.
         </Text>
       </Container>
     </Box>

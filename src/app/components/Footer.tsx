@@ -67,10 +67,10 @@ export default function Footer() {
             letterSpacing={1.2}
             className={tenorSans.className}
           >
-            "Are not two sparrows sold for a penny? Yet not one of them will
-            fall to the ground outside your Father's care. And even the very
-            hairs of your head are all numbered. So don't be afraid; you are
-            worth more than many sparrows."
+            &ldquo;Are not two sparrows sold for a penny? Yet not one of them
+            will fall to the ground outside your Father&apos;s care. And even
+            the very hairs of your head are all numbered. So don&apos;t be
+            afraid; you are worth more than many sparrows.&rdquo;
             <br />
             &mdash;Matthew 10:29-31
           </Container>

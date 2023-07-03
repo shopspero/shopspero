@@ -11,7 +11,7 @@ export default function NotFound() {
         </Heading>
       </Center>
       <Container maxWidth={900} p={5} textAlign="center">
-        Looks like we couldn't find the page you were looking for :(
+        Looks like we couldn&apos;t find the page you were looking for :(
       </Container>
     </Box>
   );

@@ -88,7 +88,7 @@ export default function Home() {
               </Center>
             </Box>
             <Text width="50%">
-              We're dedicated to bridging{' '}
+              We&apos;re dedicated to bridging{' '}
               <Text as="b">fashion and mission</Text>. As a Christian
               organization, our heart is to advance the gospel through apparel
               that is empowered by biblical truth and vision. We aim to produce
@@ -105,11 +105,11 @@ export default function Home() {
         <Container maxWidth={900} mt={5} mb={5}>
           <HStack spacing={5}>
             <Text width="50%">
-              In Latin, the word "spero" means <Text as="b">"to hope"</Text>.
-              Our vision is inspired by Matthew 10:29-31, where something as
-              insignificant as a sparrow will be remembered and cared for. We
-              want to expose the poverty in these neglected communities through
-              an innovative medium.{' '}
+              In Latin, the word &ldquo;spero&rdquo; means{' '}
+              <Text as="b">&lsquo;to hope&rdquo;</Text>. Our vision is inspired
+              by Matthew 10:29-31, where something as insignificant as a sparrow
+              will be remembered and cared for. We want to expose the poverty in
+              these neglected communities through an innovative medium.{' '}
               <Text as="b">
                 The goal of Spero is to bring hope to the hopeless and light
                 into darkness.

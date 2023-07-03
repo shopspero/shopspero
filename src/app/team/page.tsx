@@ -23,11 +23,12 @@ export default function Team() {
         </Heading>
       </Center>
       <Container maxWidth={900} p={5}>
-        <Text textAlign="center">
+        <Text>
           Spero is comprised of a diverse group of Christians who all choose to
           use their talents and skills to glorify God through their work on this
           team. This staff strives to sharpen one another and inspire others to
-          carry out God's mission. Meet the staff that makes Spero a reality.
+          carry out God&apos;s mission. Meet the staff that makes Spero a
+          reality.
         </Text>
         <VStack spacing={5} pt={5} pb={5}>
           {staffData.map((staff) => (
@@ -49,9 +50,9 @@ export default function Team() {
       </Center>
       <Container maxWidth={900} p={5}>
         Interesting in working with an amazingly creative team who loves God?
-        We're always looking for new members! If you're excited about using your
-        creative talents to design apparel and merchandise that glorifies God,
-        shoot us an email at{' '}
+        We&apos;re always looking for new members! If you&apos;re excited about
+        using your creative talents to design apparel and merchandise that
+        glorifies God, shoot us an email at{' '}
         <Link
           as={NextLink}
           href="mailto:shopspero@gmail.com"
