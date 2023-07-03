@@ -1,14 +1,13 @@
 'use client';
 
 import {
+  Box,
   Container,
-  Flex,
-  Text,
-  VStack,
   Heading,
   HStack,
-  Box,
+  Text,
   useBoolean,
+  VStack,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 
