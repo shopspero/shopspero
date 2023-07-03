@@ -106,7 +106,7 @@ export default function Home() {
           <HStack spacing={5}>
             <Text width="50%">
               In Latin, the word &ldquo;spero&rdquo; means{' '}
-              <Text as="b">&lsquo;to hope&rdquo;</Text>. Our vision is inspired
+              <Text as="b">&ldquo;to hope&rdquo;</Text>. Our vision is inspired
               by Matthew 10:29-31, where something as insignificant as a sparrow
               will be remembered and cared for. We want to expose the poverty in
               these neglected communities through an innovative medium.{' '}
