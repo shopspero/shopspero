@@ -1,5 +1,5 @@
 import {
-  FullnessHoodieDescription,
+  FullnessDescription,
   Psalm139Description,
   SalvationDescription,
 } from '@/app/designs/descriptions/descriptions';
@@ -34,13 +34,13 @@ const designData: DesignInfo[] = [
     ],
   },
   {
-    id: 'fullness-hoodie',
-    name: 'Fullness Hoodie',
-    description: <FullnessHoodieDescription />,
+    id: 'fullness',
+    name: 'Fullness',
+    description: <FullnessDescription />,
     imgs: [
-      '/images/designs/fullness-hoodie-1.jpg',
-      '/images/designs/fullness-hoodie-2.jpg',
-      '/images/designs/fullness-hoodie-3.jpg',
+      '/images/designs/fullness-1.jpg',
+      '/images/designs/fullness-2.jpg',
+      '/images/designs/fullness-3.jpg',
     ],
   },
 ];

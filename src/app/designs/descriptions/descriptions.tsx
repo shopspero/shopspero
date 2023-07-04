@@ -1,10 +1,10 @@
 'use client';
 
-import FullnessHoodie from '@/app/designs/descriptions/fullness-hoodie.mdx';
+import FullnessHoodie from '@/app/designs/descriptions/fullness.mdx';
 import Psalm139 from '@/app/designs/descriptions/psalm-139.mdx';
 import Salvation from '@/app/designs/descriptions/salvation.mdx';
 
-export function FullnessHoodieDescription() {
+export function FullnessDescription() {
   return <FullnessHoodie />;
 }
 
