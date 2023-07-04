@@ -1,4 +1,4 @@
-import { DesignInfo } from '@/app/designs/components/Design';
+import { DesignInfo } from '@/components/Design';
 import { Text } from '@chakra-ui/react';
 
 const designData: DesignInfo[] = [

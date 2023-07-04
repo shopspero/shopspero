@@ -1,4 +1,4 @@
-import { StaffInfo } from '@/app/team/components/Staff';
+import { StaffInfo } from '@/components/Staff';
 
 const staffData: StaffInfo[] = [
   {

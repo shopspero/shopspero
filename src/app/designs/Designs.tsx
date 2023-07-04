@@ -1,6 +1,6 @@
 'use client';
 
-import Design from '@/app/designs/components/Design';
+import Design from '@/components/Design';
 import designData from '@/app/designs/design-data';
 import {
   Box,

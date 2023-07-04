@@ -1,6 +1,6 @@
 'use client';
 
-import Staff from '@/app/team/components/Staff';
+import Staff from '@/components/Staff';
 import staffData from '@/app/team/staff-data';
 import {
   Box,
