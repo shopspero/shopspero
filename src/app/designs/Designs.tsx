@@ -12,7 +12,7 @@ export default function Designs() {
           Designs
         </Heading>
       </Center>
-      <Center>
+      <Center mt={5} mb={5}>
         <Grid
           gap={3}
           templateColumns={{
