@@ -1,5 +1,6 @@
 'use client';
 
+import { StaffInfo } from '@/app/team/staff-data';
 import {
   Box,
   Container,
@@ -10,14 +11,6 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-
-export interface StaffInfo {
-  name: string;
-  role: string;
-  bio: string;
-  img: string;
-  hovImg: string;
-}
 
 export default function Staff(staff: StaffInfo) {
   const [hover, setHover] = useBoolean();

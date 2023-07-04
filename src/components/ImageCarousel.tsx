@@ -54,7 +54,7 @@ export default function Carousel({
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {srcs.map((src) => (
           <Box key={src} width={width} height="100%">
-            <Image width={width} src={src} />
+            <Image width={width} src={src} alt={src} />
           </Box>
         ))}
       </Slider>

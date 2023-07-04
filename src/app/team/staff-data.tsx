@@ -1,4 +1,10 @@
-import { StaffInfo } from '@/components/Staff';
+export interface StaffInfo {
+  name: string;
+  role: string;
+  bio: string;
+  img: string;
+  hovImg: string;
+}
 
 const staffData: StaffInfo[] = [
   {
