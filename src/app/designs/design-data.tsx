@@ -1,6 +1,6 @@
 import {
   FullnessDescription,
-  Psalm139Description,
+  ConfidenceDescription,
   SalvationDescription,
 } from '@/app/designs/descriptions/descriptions';
 import { ReactNode } from 'react';
@@ -24,13 +24,13 @@ const designData: DesignInfo[] = [
     ],
   },
   {
-    id: 'psalm-139',
-    name: 'Psalm 139',
-    description: <Psalm139Description />,
+    id: 'confidence',
+    name: 'Confidence',
+    description: <ConfidenceDescription />,
     imgs: [
-      '/images/designs/psalm-139-1.jpg',
-      '/images/designs/psalm-139-2.jpg',
-      '/images/designs/psalm-139-3.jpg',
+      '/images/designs/confidence-1.jpg',
+      '/images/designs/confidence-2.jpg',
+      '/images/designs/confidence-3.jpg',
     ],
   },
   {

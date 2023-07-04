@@ -1,12 +1,13 @@
 import { DesignInfo } from '@/app/designs/design-data';
 import { Box, Link, Text, useBoolean } from '@chakra-ui/react';
 import Image from 'next/image';
+import NextLink from 'next/link';
 
 export default function DesignThumbnail(design: DesignInfo) {
   const [hover, setHover] = useBoolean();
 
   return (
-    <Link href={`designs/${design.id}`} width={300} height={300}>
+    <Link as={NextLink} href={`designs/${design.id}`} width={300} height={300}>
       <Box
         width={300}
         height={300}

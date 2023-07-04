@@ -6,7 +6,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const settings = {
-  dots: true,
   speed: 250,
   adaptiveHeight: true,
 };
@@ -21,7 +20,7 @@ export default function Carousel({
   const [slider, setSlider] = React.useState<Slider | null>(null);
 
   return (
-    <Box width={width} position="relative" pb={7}>
+    <Box width={width} position="relative">
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"

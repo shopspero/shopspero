@@ -1,6 +1,6 @@
 import designData from '@/app/designs/design-data';
+import DesignPage from '@/app/designs/[id]/DesignPage';
 import { notFound } from 'next/navigation';
-import DesignPage from './DesignPage';
 
 export const dynamicParams = false;
 
