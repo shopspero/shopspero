@@ -13,7 +13,7 @@ import {
 
 const sizes = {
   base: 320,
-  sm: 450,
+  sm: 440,
   md: 600,
 };
 
