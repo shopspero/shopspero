@@ -31,6 +31,9 @@ export default function Carousel({
         top="50%"
         transform={'translate(0%, -50%)'}
         zIndex={2}
+        background="white"
+        _hover={{ background: 'gray.100' }}
+        opacity="85%"
         onClick={() => slider?.slickPrev()}
       >
         <BiLeftArrowAlt />
@@ -44,6 +47,9 @@ export default function Carousel({
         top="50%"
         transform={'translate(0%, -50%)'}
         zIndex={2}
+        background="white"
+        _hover={{ background: 'gray.100' }}
+        opacity="85%"
         onClick={() => slider?.slickNext()}
       >
         <BiRightArrowAlt />

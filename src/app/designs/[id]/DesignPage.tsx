@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 
 const sizes = {
-  base: 320,
+  base: 310,
   sm: 440,
   md: 600,
 };
