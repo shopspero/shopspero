@@ -22,7 +22,16 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </Heading>
     ),
-    p: ({ children }) => <Text mb={3}>{children}</Text>,
+    p: ({ children }) => (
+      <Text as="p" mb={3}>
+        {children}
+      </Text>
+    ),
+    blockquote: ({ children }) => (
+      <Text as="blockquote" fontStyle="italic" mb={3}>
+        {children}
+      </Text>
+    ),
     ...components,
   };
 }

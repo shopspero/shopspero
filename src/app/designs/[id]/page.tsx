@@ -4,11 +4,11 @@ import { notFound } from 'next/navigation';
 
 export const dynamicParams = false;
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return designData;
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
+export function generateMetadata({ params }: { params: { id: string } }) {
   const design = designData.find((design) => design.id === params.id);
   if (design === undefined) {
     notFound();
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default function Page({ params }: { params: { id: string } }) {
   const design = designData.find((design) => design.id === params.id);
   if (design === undefined) {
     notFound();
