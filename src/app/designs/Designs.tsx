@@ -1,6 +1,5 @@
 'use client';
 
-import Design from '@/components/Design';
 import designData from '@/app/designs/design-data';
 import {
   Box,
@@ -20,16 +19,7 @@ export default function Designs() {
         </Heading>
       </Center>
       <Container maxWidth={900} p={5} textAlign="center">
-        <VStack spacing={5} pt={5} pb={5}>
-          {designData.map((design) => (
-            <Design
-              key={design.name}
-              name={design.name}
-              description={design.description}
-              imgs={design.imgs}
-            />
-          ))}
-        </VStack>
+        <VStack spacing={5} pt={5} pb={5}></VStack>
       </Container>
     </Box>
   );

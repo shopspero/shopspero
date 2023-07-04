@@ -1,10 +1,11 @@
 import React from 'react';
-import { Box, IconButton } from '@chakra-ui/react';
+import { Box, IconButton, Image } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Image from 'next/image';
+import { Token } from 'typescript';
+// import Image from 'next/image';
 
 const settings = {
   dots: true,
@@ -17,18 +18,18 @@ export default function Carousel({
   width,
 }: {
   srcs: string[];
-  width: number;
+  width: any;
 }) {
   const [slider, setSlider] = React.useState<Slider | null>(null);
 
   return (
-    <Box width={width} position="relative">
+    <Box width={width} position="relative" pb={7}>
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
         borderRadius="full"
         position="absolute"
-        left={-5}
+        left={4}
         top="50%"
         transform={'translate(0%, -50%)'}
         zIndex={2}
@@ -41,7 +42,7 @@ export default function Carousel({
         aria-label="right-arrow"
         borderRadius="full"
         position="absolute"
-        right={-5}
+        right={4}
         top="50%"
         transform={'translate(0%, -50%)'}
         zIndex={2}
@@ -52,8 +53,8 @@ export default function Carousel({
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {srcs.map((src) => (
-          <Box key={src} width="100%" height="100%">
-            <Image src={src} width={width} height={width} alt="" />
+          <Box key={src} width={width} height="100%">
+            <Image width={width} src={src} />
           </Box>
         ))}
       </Slider>
