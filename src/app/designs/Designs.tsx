@@ -23,8 +23,8 @@ export default function Designs() {
           }}
         >
           {designData.map((design) => (
-            <GridItem>
-              <DesignThumbnail {...design} key={design.id} />
+            <GridItem key={design.id}>
+              <DesignThumbnail {...design} />
             </GridItem>
           ))}
         </Grid>
