@@ -4,8 +4,6 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Token } from 'typescript';
-// import Image from 'next/image';
 
 const settings = {
   dots: true,
