@@ -40,4 +40,4 @@ Builds an optimized version of the app for production.
 
 This project is automatically built and deployed from the `main` branch of this repository using [Vercel](https://vercel.com/).
 
-<b>Any pull request against the `main` branch will also trigger a deploy preview, which allows you to preview your changes before merging.</b>
+Any pull request against the `main` branch will also trigger a deploy preview, which allows you to preview your changes before merging.
