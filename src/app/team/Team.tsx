@@ -45,7 +45,7 @@ export default function Team() {
         </Heading>
       </Center>{' '}
       <Text mb={5}>
-        Interesting in working with an amazingly creative team who loves God?
+        Interested in working with an amazingly creative team who loves God?
         We&apos;re recruiting for Fall 2023! If you&apos;re excited about using
         your creative talents to design apparel and merchandise that glorifies
         God, fill out our interest form{' '}
