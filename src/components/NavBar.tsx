@@ -52,7 +52,7 @@ export default function NavBar() {
         <Flex align="center" justify="space-between">
           {/* Logo */}
           <Link as={NextLink} href="/" _hover={{ textDecoration: 'none' }}>
-            <HStack spacing={5}>
+            <HStack spacing={3}>
               <Image src="/images/logo.png" width={25} height={25} alt="logo" />
               <Text fontWeight={500}>SPERO</Text>
             </HStack>
