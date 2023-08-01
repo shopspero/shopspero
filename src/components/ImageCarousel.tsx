@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, IconButton, Image } from '@chakra-ui/react';
+import { Box, IconButton } from '@chakra-ui/react';
+import Image from 'next/image';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -57,7 +58,7 @@ export default function Carousel({
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {srcs.map((src) => (
           <Box key={src} width={width} height="100%">
-            <Image width={width} src={src} alt={src} />
+            <Image width={600} height={600} src={src} alt={src} />
           </Box>
         ))}
       </Slider>
