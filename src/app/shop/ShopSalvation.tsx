@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  Box,
   Button,
   Center,
   Container,
@@ -11,9 +12,24 @@ import {
   Select,
   Text,
   VStack,
+  Wrap,
+  WrapItem,
 } from '@chakra-ui/react';
+import ImageCarousel from '@/components/ImageCarousel';
 import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
+
+const sizes = {
+  base: 310,
+  sm: 440,
+  md: 600,
+};
+
+const images = [
+  '/images/designs/salvation-1.jpg',
+  '/images/designs/salvation-2.jpg',
+  '/images/designs/salvation-3.jpg',
+];
 
 export default function Shop() {
   const router = useRouter();
@@ -22,9 +38,16 @@ export default function Shop() {
   const [size, setSize] = useState('undefined');
   const [pickupOrShip, setPickupOrShip] = useState('undefined');
   const [errorMessage, setErrorMessage] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   async function handleSubmit(event: FormEvent) {
+    // Prevent default or multiple submissions
     event.preventDefault();
+    if (submitted) {
+      return;
+    }
+    setSubmitted(true);
+
     try {
       const response = await fetch('/api/checkout', {
         method: 'post',
@@ -48,56 +71,83 @@ export default function Shop() {
   }
 
   return (
-    <Container maxWidth={900} textAlign="center">
+    <Container maxWidth={1300} textAlign="center">
       <Center p={10}>
         <Heading as="h1" size="2xl">
           Order the Salvation Crewneck
         </Heading>
       </Center>
-      <form onSubmit={handleSubmit}>
-        <VStack gap={3}>
-          <FormControl as="fieldset" isRequired={true}>
-            <FormLabel as="legend">Color</FormLabel>
-            <Select
-              onChange={(e) => setColor(e.target.value)}
-              placeholder="Select color"
-            >
-              <option value="oatmeal">Oatmeal Heather</option>
-              <option value="navy">Navy</option>
-            </Select>
-          </FormControl>
-          <FormControl as="fieldset" isRequired={true}>
-            <FormLabel as="legend">Size</FormLabel>
-            <Select
-              onChange={(e) => setSize(e.target.value)}
-              placeholder="Select size"
-            >
-              <option value="s">S</option>
-              <option value="m">M</option>
-              <option value="l">L</option>
-              <option value="xl">XL</option>
-            </Select>
-          </FormControl>
-          <FormControl as="fieldset" isRequired={true}>
-            <FormLabel as="legend">Pickup or delivery option</FormLabel>
-            <Select
-              onChange={(e) => setPickupOrShip(e.target.value)}
-              placeholder="Select option"
-            >
-              <option value="pickup">
-                Pickup on Sproul for no additional cost
-              </option>
-              <option value="ship">
-                Ship the product to me for an additional $8
-              </option>
-            </Select>
-          </FormControl>
-        </VStack>
-        <HStack pt={4} gap={5}>
-          <Button type="submit">Checkout</Button>
-          <Text color="red">{errorMessage}</Text>
-        </HStack>
-      </form>
+      <Wrap
+        spacing={10}
+        direction="row"
+        align="center"
+        justify="center"
+        mt={5}
+        mb={5}
+      >
+        <WrapItem>
+          <ImageCarousel width={sizes} srcs={images} />
+        </WrapItem>
+        <WrapItem maxWidth={600}>
+          <VStack align="left" gap={10}>
+            <Box textAlign="left">
+              There is much abstract Christian jargon that is not clearly
+              defined, one of them being &ldquo;salvation.&rdquo; We wanted to
+              clearly and biblically define &ldquo;salvation&rdquo; because it
+              is a fundamental component of the Gospel. Here, we define it with
+              a phrase we collectively agreed upon (being delivered from
+              God&apos;s wrath through Jesus and His life, sacrificial death,
+              and resurrection) and back it up with Scripture.
+            </Box>
+            <Box>
+              <form onSubmit={handleSubmit}>
+                <VStack gap={3}>
+                  <FormControl as="fieldset" isRequired={true}>
+                    <FormLabel as="legend">Color</FormLabel>
+                    <Select
+                      onChange={(e) => setColor(e.target.value)}
+                      placeholder="Select color"
+                    >
+                      <option value="oatmeal">Oatmeal Heather</option>
+                      <option value="navy">Navy</option>
+                    </Select>
+                  </FormControl>
+                  <FormControl as="fieldset" isRequired={true}>
+                    <FormLabel as="legend">Size</FormLabel>
+                    <Select
+                      onChange={(e) => setSize(e.target.value)}
+                      placeholder="Select size"
+                    >
+                      <option value="s">S</option>
+                      <option value="m">M</option>
+                      <option value="l">L</option>
+                      <option value="xl">XL</option>
+                    </Select>
+                  </FormControl>
+                  <FormControl as="fieldset" isRequired={true}>
+                    <FormLabel as="legend">Pickup or delivery option</FormLabel>
+                    <Select
+                      onChange={(e) => setPickupOrShip(e.target.value)}
+                      placeholder="Select option"
+                    >
+                      <option value="pickup">
+                        Pickup on Sproul for no additional cost
+                      </option>
+                      <option value="ship">
+                        Ship the product to me for an additional $8
+                      </option>
+                    </Select>
+                  </FormControl>
+                </VStack>
+                <HStack pt={4} gap={5}>
+                  <Button type="submit">Checkout</Button>
+                  <Text color="red">{errorMessage}</Text>
+                </HStack>
+              </form>
+            </Box>
+          </VStack>
+        </WrapItem>
+      </Wrap>
     </Container>
   );
 }
