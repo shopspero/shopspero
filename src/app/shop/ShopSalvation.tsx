@@ -68,6 +68,7 @@ export default function Shop() {
     } catch (e) {
       setErrorMessage('Checkout request failed');
     }
+    setSubmitted(false);
   }
 
   return (
