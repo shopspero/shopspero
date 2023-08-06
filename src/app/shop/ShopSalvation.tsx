@@ -1,9 +1,43 @@
 'use client';
 
-import { Box, Center, Container, Heading, Link, Text } from '@chakra-ui/react';
-import NextLink from 'next/link';
+import {
+  Button,
+  Center,
+  Container,
+  FormControl,
+  Heading,
+  Text,
+} from '@chakra-ui/react';
+import { useRouter } from 'next/navigation';
+import { FormEvent } from 'react';
 
 export default function Shop() {
+  const router = useRouter();
+
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'post',
+        body: JSON.stringify({
+          productId: 'salvation-navy-m',
+          includeShipping: true,
+        }),
+        headers: { 'content-type': 'application/json' },
+      });
+      const responseBody = await response.json();
+      if (responseBody['checkoutUrl'] !== undefined) {
+        router.push(responseBody['checkoutUrl']);
+      } else if (responseBody['error'] !== undefined) {
+        console.error(responseBody['error']);
+      } else {
+        throw Error('Checkout request failed');
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   return (
     <Container maxWidth={900} textAlign="center">
       <Center p={10}>
@@ -14,15 +48,11 @@ export default function Shop() {
       <Text mb={5}>
         Fill out the form below to order our Salvation Crewneck!
       </Text>
-      <Center>
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSeDLK6WAOCNxaUBoiOCjinPYjplGcTVz-Mfr1fhEUNmsOwKyw/viewform?embedded=true"
-          width="640"
-          height="2451"
-        >
-          Loading…
-        </iframe>
-      </Center>
+      <form onSubmit={handleSubmit}>
+        <FormControl>
+          <Button type="submit">Submit</Button>
+        </FormControl>
+      </form>
     </Container>
   );
 }
