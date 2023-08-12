@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
       line_items: [{ price: priceId, quantity: 1 }],
       mode: 'payment',
       success_url: `http://${request.headers.get('host')}/shop?success=true`,
-      cancel_url: `http://${request.headers.get('host')}/shop?canceled=true`,
+      cancel_url: `http://${request.headers.get('host')}/shop`,
       expires_at: Math.floor(Date.now() / 1000) + 2700,
     };
     if (requestBody.includeShipping) {
