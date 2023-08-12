@@ -87,8 +87,8 @@ export default function Shop() {
             </Heading>
           </Center>
           <Text mb={5}>
-            You'll receive a confirmation email shortly. Feel free to contact us
-            at{' '}
+            You&apos;ll receive a confirmation email shortly. Feel free to
+            contact us at{' '}
             <Link
               as={NextLink}
               href="mailto:shopspero@gmail.com"

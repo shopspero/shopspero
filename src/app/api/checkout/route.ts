@@ -55,7 +55,8 @@ export async function POST(request: NextRequest) {
       t.update(inventoryRef, { stock: stock - 1 });
       return priceId;
     });
-  } catch (_) {
+  } catch (e) {
+    console.error(`Reserving inventory in /api/checkout failed: ${e}`);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -83,17 +84,36 @@ export async function POST(request: NextRequest) {
     }
     session = await stripe.checkout.sessions.create(sessionParams);
   } catch (e) {
-    console.error(e);
+    console.error(`Creating a checkout session in /api/checkout failed: ${e}`);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
     );
   }
   if (session.url === null) {
+    console.error(`Checkout session missing URL in /api/checkout`);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
     );
   }
+
+  // Record checkout session
+  try {
+    db.collection('orders').doc(session.id).set({
+      product_id: requestBody.productId,
+      paid: false,
+    });
+  } catch (e) {
+    console.error(
+      `Failed to checkout session ${session.id} in /api/checkout: ${e}`
+    );
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+
+  // Return checkout URL
   return NextResponse.json({ checkoutUrl: session.url }, { status: 200 });
 }
