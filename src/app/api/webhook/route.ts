@@ -17,7 +17,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 const webhookSecret: string = process.env.STRIPE_WEBHOOK_SECRET!;
 
 /**
- * On success, asynchronously update the order.
+ * On success, update the order.
  */
 async function handleSuccess(session: Stripe.Checkout.Session) {
   try {
@@ -34,7 +34,7 @@ async function handleSuccess(session: Stripe.Checkout.Session) {
 }
 
 /**
- * On failure, asynchronously update stock and delete the order.
+ * On failure, update stock and delete the order.
  */
 async function handleFailure(session: Stripe.Checkout.Session) {
   try {
@@ -85,12 +85,12 @@ export async function POST(request: NextRequest) {
     case 'checkout.session.completed':
     // Fall through
     case 'checkout.session.async_payment_succeeded':
-      handleSuccess(event.data.object as Stripe.Checkout.Session);
+      await handleSuccess(event.data.object as Stripe.Checkout.Session);
       break;
     case 'checkout.session.expired':
     // Fall through
     case 'checkout.session.async_payment_failed':
-      handleFailure(event.data.object as Stripe.Checkout.Session);
+      await handleFailure(event.data.object as Stripe.Checkout.Session);
       break;
     default:
       console.error(`Unhandled event type ${event.type} in /api/webhook`);
