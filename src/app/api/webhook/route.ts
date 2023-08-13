@@ -38,14 +38,19 @@ async function handleSuccess(session: Stripe.Checkout.Session) {
  */
 async function handleFailure(session: Stripe.Checkout.Session) {
   try {
-    const orderRef = db.collection('orders').doc(session.id);
     await db.runTransaction(async (t) => {
+      // Get order doc
+      const orderRef = db.collection('orders').doc(session.id);
       const orderDoc = await t.get(orderRef);
-      const productId = await orderDoc.get('product_id');
-      const inventoryRef = db.collection('inventory').doc(productId);
-      const inventoryDoc = t.get(inventoryRef);
-      const stock = (await inventoryDoc).get('stock');
-      t.update(inventoryRef, { stock: stock + 1 });
+
+      // Get inventory doc
+      const inventoryRef = db
+        .collection('inventory')
+        .doc(orderDoc.get('product_id'));
+      const inventoryDoc = await t.get(inventoryRef);
+
+      // Restore inventory and delete order
+      t.update(inventoryRef, { stock: inventoryDoc.get('stock') + 1 });
       t.delete(orderRef);
     });
   } catch (e) {
