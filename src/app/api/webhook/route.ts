@@ -74,7 +74,14 @@ export async function POST(request: NextRequest) {
       webhookSecret
     );
   } catch (e) {
-    return new NextResponse(`Webhook Error: ${e}`, { status: 400 });
+    return new NextResponse(`Webhook Error: ${e}`, {
+      status: 400,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'content-type, stripe-signature',
+      },
+    });
   }
 
   // Handle event
@@ -95,7 +102,14 @@ export async function POST(request: NextRequest) {
         break;
     }
   } catch (e) {
-    return new NextResponse(`Webhook Error: ${e}`, { status: 500 });
+    return new NextResponse(`Webhook Error: ${e}`, {
+      status: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'content-type, stripe-signature',
+      },
+    });
   }
 
   return NextResponse.json(
