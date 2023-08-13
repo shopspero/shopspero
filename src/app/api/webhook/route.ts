@@ -39,11 +39,8 @@ async function handleSuccess(session: Stripe.Checkout.Session) {
 async function handleFailure(session: Stripe.Checkout.Session) {
   try {
     const orderRef = db.collection('orders').doc(session.id);
-
-    // Update stock
     await db.runTransaction(async (t) => {
       // Get order doc
-      const orderRef = db.collection('orders').doc(session.id);
       const orderDoc = await t.get(orderRef);
 
       // Get inventory doc
@@ -54,10 +51,8 @@ async function handleFailure(session: Stripe.Checkout.Session) {
 
       // Restore inventory and delete order
       t.update(inventoryRef, { stock: inventoryDoc.get('stock') + 1 });
+      t.delete(orderRef);
     });
-
-    // Delete stock
-    await orderRef.delete();
   } catch (e) {
     console.error(
       `Failed to record failed checkout ${session.id} in /api/webhook: ${e}`
