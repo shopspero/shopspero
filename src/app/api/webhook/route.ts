@@ -24,7 +24,7 @@ async function handleSuccess(session: Stripe.Checkout.Session) {
     await db.collection('orders').doc(session.id).update({
       customer_details: session.customer_details,
       shipping_details: session.shipping_details,
-      paid: true,
+      payment_status: session.payment_status,
     });
   } catch (e) {
     console.error(
@@ -38,21 +38,22 @@ async function handleSuccess(session: Stripe.Checkout.Session) {
  */
 async function handleFailure(session: Stripe.Checkout.Session) {
   try {
-    await db.runTransaction(async (t) => {
-      // Get order doc
-      const orderRef = db.collection('orders').doc(session.id);
-      const orderDoc = await t.get(orderRef);
+    await db.collection('orders').doc(session.id).delete();
+    // await db.runTransaction(async (t) => {
+    //   // Get order doc
+    //   const orderRef = db.collection('orders').doc(session.id);
+    //   const orderDoc = await t.get(orderRef);
 
-      // Get inventory doc
-      const inventoryRef = db
-        .collection('inventory')
-        .doc(orderDoc.get('product_id'));
-      const inventoryDoc = await t.get(inventoryRef);
+    //   // Get inventory doc
+    //   const inventoryRef = db
+    //     .collection('inventory')
+    //     .doc(orderDoc.get('product_id'));
+    //   const inventoryDoc = await t.get(inventoryRef);
 
-      // Restore inventory and delete order
-      t.update(inventoryRef, { stock: inventoryDoc.get('stock') + 1 });
-      t.delete(orderRef);
-    });
+    //   // Restore inventory and delete order
+    //   t.update(inventoryRef, { stock: inventoryDoc.get('stock') + 1 });
+    //   t.delete(orderRef);
+    // });
   } catch (e) {
     console.error(
       `Failed to record failed checkout ${session.id} in /api/webhook: ${e}`

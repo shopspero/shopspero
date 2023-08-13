@@ -101,8 +101,9 @@ export async function POST(request: NextRequest) {
   // Record checkout session
   try {
     db.collection('orders').doc(session.id).set({
+      created: session.created,
       product_id: requestBody.productId,
-      paid: false,
+      payment_status: 'unpaid',
     });
   } catch (e) {
     console.error(
