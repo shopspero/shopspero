@@ -43,8 +43,6 @@ async function handleFailure(session: Stripe.Checkout.Session) {
       const orderRef = db.collection('orders').doc(session.id);
       const orderDoc = await t.get(orderRef);
 
-      console.log(orderDoc);
-
       // Get inventory doc
       const inventoryRef = db
         .collection('inventory')
