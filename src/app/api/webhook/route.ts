@@ -78,28 +78,24 @@ export async function POST(request: NextRequest) {
   }
 
   // Handle event
-  switch (event.type) {
-    case 'checkout.session.completed':
-    // Fall through
-    case 'checkout.session.async_payment_succeeded':
-      try {
+  try {
+    switch (event.type) {
+      case 'checkout.session.completed':
+      // Fall through
+      case 'checkout.session.async_payment_succeeded':
         await handleSuccess(event.data.object as Stripe.Checkout.Session);
-      } catch (e) {
-        return new NextResponse(`Webhook Error: ${e}`, { status: 500 });
-      }
-      break;
-    case 'checkout.session.expired':
-    // Fall through
-    case 'checkout.session.async_payment_failed':
-      try {
+        break;
+      case 'checkout.session.expired':
+      // Fall through
+      case 'checkout.session.async_payment_failed':
         await handleFailure(event.data.object as Stripe.Checkout.Session);
-      } catch (e) {
-        return new NextResponse(`Webhook Error: ${e}`, { status: 500 });
-      }
-      break;
-    default:
-      console.error(`Unhandled event type ${event.type} in /api/webhook`);
-      break;
+        break;
+      default:
+        console.error(`Unhandled event type ${event.type} in /api/webhook`);
+        break;
+    }
+  } catch (e) {
+    return new NextResponse(`Webhook Error: ${e}`, { status: 500 });
   }
 
   return NextResponse.json(
