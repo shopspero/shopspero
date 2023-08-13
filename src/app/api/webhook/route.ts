@@ -57,7 +57,7 @@ async function handleFailure(session: Stripe.Checkout.Session) {
     });
 
     // Delete stock
-    orderRef.delete();
+    await orderRef.delete();
   } catch (e) {
     console.error(
       `Failed to record failed checkout ${session.id} in /api/webhook: ${e}`
