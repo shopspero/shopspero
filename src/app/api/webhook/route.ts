@@ -30,6 +30,7 @@ async function handleSuccess(session: Stripe.Checkout.Session) {
     console.error(
       `Failed to record successful checkout ${session.id} in /api/webhook: ${e}`
     );
+    throw e;
   }
 }
 
@@ -57,6 +58,7 @@ async function handleFailure(session: Stripe.Checkout.Session) {
     console.error(
       `Failed to record failed checkout ${session.id} in /api/webhook: ${e}`
     );
+    throw e;
   }
 }
 
@@ -80,12 +82,20 @@ export async function POST(request: NextRequest) {
     case 'checkout.session.completed':
     // Fall through
     case 'checkout.session.async_payment_succeeded':
-      await handleSuccess(event.data.object as Stripe.Checkout.Session);
+      try {
+        await handleSuccess(event.data.object as Stripe.Checkout.Session);
+      } catch (e) {
+        return new NextResponse(`Webhook Error: ${e}`, { status: 500 });
+      }
       break;
     case 'checkout.session.expired':
     // Fall through
     case 'checkout.session.async_payment_failed':
-      await handleFailure(event.data.object as Stripe.Checkout.Session);
+      try {
+        await handleFailure(event.data.object as Stripe.Checkout.Session);
+      } catch (e) {
+        return new NextResponse(`Webhook Error: ${e}`, { status: 500 });
+      }
       break;
     default:
       console.error(`Unhandled event type ${event.type} in /api/webhook`);
