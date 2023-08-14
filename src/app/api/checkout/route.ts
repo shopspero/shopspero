@@ -44,15 +44,15 @@ export async function POST(request: NextRequest) {
   // Reserve inventory and get priceId
   let priceId: string;
   try {
-    const inventoryRef = db.collection('inventory').doc(requestBody.productId);
+    const productRef = db.collection('products').doc(requestBody.productId);
     priceId = await db.runTransaction(async (t) => {
-      const inventoryDoc = await t.get(inventoryRef);
-      const priceId = inventoryDoc.get('price_id');
-      const stock = inventoryDoc.get('stock');
+      const productDoc = await t.get(productRef);
+      const priceId = productDoc.get('price_id');
+      const stock = productDoc.get('stock');
       if (stock <= 0) {
         return null;
       }
-      t.update(inventoryRef, { stock: stock - 1 });
+      t.update(productRef, { stock: stock - 1 });
       return priceId;
     });
   } catch (e) {

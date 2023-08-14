@@ -50,14 +50,14 @@ async function handleFailure(session: Stripe.Checkout.Session) {
       // Get order doc
       const orderDoc = await t.get(orderRef);
 
-      // Get inventory doc
-      const inventoryRef = db
-        .collection('inventory')
+      // Get product doc
+      const productRef = db
+        .collection('products')
         .doc(orderDoc.get('product_id'));
-      const inventoryDoc = await t.get(inventoryRef);
+      const productDoc = await t.get(productRef);
 
       // Restore inventory and delete order
-      t.update(inventoryRef, { stock: inventoryDoc.get('stock') + 1 });
+      t.update(productRef, { stock: productDoc.get('stock') + 1 });
       t.delete(orderRef);
     });
   } catch (e) {
