@@ -16,6 +16,12 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 });
 const webhookSecret: string = process.env.STRIPE_WEBHOOK_SECRET!;
 
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST',
+  'Access-Control-Allow-Headers': 'content-type, stripe-signature',
+};
+
 /**
  * On success, update the order.
  */
@@ -76,11 +82,7 @@ export async function POST(request: NextRequest) {
   } catch (e) {
     return new NextResponse(`Webhook Error: ${e}`, {
       status: 400,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Headers': 'content-type, stripe-signature',
-      },
+      headers: corsHeaders,
     });
   }
 
@@ -104,11 +106,7 @@ export async function POST(request: NextRequest) {
   } catch (e) {
     return new NextResponse(`Webhook Error: ${e}`, {
       status: 500,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Headers': 'content-type, stripe-signature',
-      },
+      headers: corsHeaders,
     });
   }
 
@@ -116,11 +114,7 @@ export async function POST(request: NextRequest) {
     { received: true },
     {
       status: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Headers': 'content-type, stripe-signature',
-      },
+      headers: corsHeaders,
     }
   );
 }
