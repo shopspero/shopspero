@@ -22,6 +22,11 @@ export default function Staff(staff: StaffInfo) {
           style={{
             justifySelf: 'flex-start',
             flex: '0 1 40%',
+            position: "relative",
+            width: "250px",
+            height: "250px",
+            overflow: "hidden",
+            borderRadius: "50%",
           }}
         >
           <Image
@@ -29,7 +34,7 @@ export default function Staff(staff: StaffInfo) {
             width={250}
             height={250}
             alt={staff.name}
-            style={{ borderRadius: '50%' }}
+            style={{ borderRadius: '50%', width: "100%", height: "100%", objectFit: "cover" }}
             onMouseEnter={setHover.on}
             onMouseLeave={setHover.off}
           />
