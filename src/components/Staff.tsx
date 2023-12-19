@@ -7,14 +7,11 @@ import {
   Heading,
   HStack,
   Text,
-  useBoolean,
   VStack,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 
 export default function Staff(staff: StaffInfo) {
-  const [hover, setHover] = useBoolean();
-
   return (
     <Container maxWidth={700}>
       <HStack spacing={5}>
@@ -25,13 +22,13 @@ export default function Staff(staff: StaffInfo) {
           }}
         >
           <Image
-            src={hover ? staff.hovImg : staff.img}
+            src={staff.img}
             width={250}
             height={250}
             alt={staff.name}
-            style={{ borderRadius: '50%' }}
-            onMouseEnter={setHover.on}
-            onMouseLeave={setHover.off}
+            style={{
+              borderRadius: '50%',
+            }}
           />
         </Box>
         <VStack align="flex-start" flex="1 1 60%">

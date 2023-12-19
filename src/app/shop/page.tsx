@@ -1,9 +1,9 @@
-import ShopSalvation from '@/app/shop/ShopSalvation';
+import ShopClosed from '@/app/shop/ShopClosed';
 
 export const metadata = {
   title: 'Shop - Spero',
 };
 
 export default function Page() {
-  return <ShopSalvation />;
+  return <ShopClosed />;
 }

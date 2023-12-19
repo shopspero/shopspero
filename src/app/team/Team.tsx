@@ -29,32 +29,46 @@ export default function Team() {
       </Text>
       <VStack spacing={5} mt={5} mb={5}>
         {staffData.map((staff) => (
-          <Staff
-            key={staff.img}
-            name={staff.name}
-            role={staff.role}
-            bio={staff.bio}
-            img={staff.img}
-            hovImg={staff.hovImg}
-          />
+          <Staff {...staff} key={staff.img} />
         ))}
       </VStack>
       <Center p={10}>
         <Heading as="h1" size="2xl" textAlign="center">
           Join Us
         </Heading>
-      </Center>{' '}
+      </Center>
       <Text mb={5}>
-        Interested in working with an amazingly creative team who loves God?
-        We&apos;re recruiting for Fall 2023! If you&apos;re excited about using
-        your creative talents to design apparel and merchandise that glorifies
-        God, fill out our interest form{' '}
-        <Link as={NextLink} href="/interest" variant="underline" isExternal>
-          here
+        Interesting in working with an amazingly creative team who loves God?
+        We&apos;re always looking for new members! If you&apos;re excited about
+        using your creative talents to design apparel and merchandise that
+        glorifies God, shoot us an email at{' '}
+        <Link
+          as={NextLink}
+          href="mailto:shopspero@gmail.com"
+          variant="underline"
+          isExternal
+        >
+          shopspero@gmail.com
+        </Link>{' '}
+        or send us a message on{' '}
+        <Link
+          as={NextLink}
+          href="https://www.instagram.com/shopspero/"
+          variant="underline"
+          isExternal
+        >
+          Instagram
+        </Link>{' '}
+        or{' '}
+        <Link
+          as={NextLink}
+          href="https://www.facebook.com/shopspero/"
+          variant="underline"
+          isExternal
+        >
+          Facebook
         </Link>
-        , and we&apos;ll reach out with more information when our application
-        opens. We have roles in design, marketing, operations, and web
-        development.
+        . We have roles in design, marketing, operations, and web development.
       </Text>
     </Container>
   );
