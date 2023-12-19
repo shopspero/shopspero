@@ -7,7 +7,6 @@ import {
   Heading,
   HStack,
   Text,
-  useBoolean,
   VStack,
 } from '@chakra-ui/react';
 import Image from 'next/image';
