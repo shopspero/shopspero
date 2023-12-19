@@ -51,6 +51,7 @@ export default function Home() {
             width={900}
             height={600}
             alt="Team"
+            priority={true}
             style={{
               position: 'absolute',
               left: '50%',
