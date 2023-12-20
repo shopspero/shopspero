@@ -2,6 +2,7 @@ import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 
 const navLinks = [
+  { title: 'SPERO', href: '/' },
   { title: 'TEAM', href: '/team' },
   { title: 'DESIGNS', href: '/designs' },
   { title: 'SHOP', href: '/shop' },
@@ -14,7 +15,7 @@ export default function ExternalLayout({
 }) {
   return (
     <>
-      <NavBar title="SPERO" links={navLinks} />
+      <NavBar links={navLinks} />
       <main>{children}</main>
       <Footer />
     </>

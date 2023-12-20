@@ -1,30 +1,30 @@
 'use client';
 
-import { AbsoluteCenter, Button } from '@chakra-ui/react';
+import { AbsoluteCenter, Button, Heading } from '@chakra-ui/react';
 import NavBar from '@/components/NavBar';
 import { SessionProvider, signIn, useSession } from 'next-auth/react';
 
 const navLinks = [
-  { title: 'INVENTORY', href: 'admin/inventory' },
-  { title: 'ORDERS', href: 'admin/orders' },
+  { title: 'ADMIN', href: '/admin' },
+  { title: 'ORDERS', href: '/admin/orders' },
+  { title: 'PRODUCTS', href: '/admin/products' },
   { title: 'SIGN OUT', href: '/admin/sign-out' },
 ];
 
 function Login({ children }: { children: React.ReactNode }) {
-  const { data: session } = useSession();
-  if (session) {
+  const { data: session, status } = useSession();
+
+  if (status === 'loading') {
+    return;
+  } else if (status === 'authenticated' && session) {
     return (
       <>
-        <NavBar title={'ADMIN'} links={navLinks} />
+        <NavBar links={navLinks} />
         {children}
       </>
     );
   } else {
-    return (
-      <AbsoluteCenter>
-        <Button onClick={() => signIn()}>Sign in</Button>
-      </AbsoluteCenter>
-    );
+    signIn();
   }
 }
 

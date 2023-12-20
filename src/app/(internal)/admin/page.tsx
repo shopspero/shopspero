@@ -1,5 +1,5 @@
-'use client';
+import { redirect } from 'next/navigation';
 
-export default function Component() {
-  return <>Hello</>;
+export default function Page() {
+  redirect('/admin/orders');
 }

@@ -1,5 +1,5 @@
-import NotFound from '@/app/(external)/[...not-found]/NotFound';
+import { notFound } from 'next/navigation';
 
 export default function Page() {
-  return <NotFound />;
+  notFound();
 }
