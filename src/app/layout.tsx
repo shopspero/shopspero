@@ -1,8 +1,5 @@
 import { Providers } from '@/app/providers';
 
-import NavBar from '@/components/NavBar';
-import Footer from '@/components/Footer';
-
 export const metadata = {
   title: 'Spero',
   description:
@@ -28,9 +25,7 @@ export default function RootLayout({
               gridTemplateRows: 'auto 1fr auto',
             }}
           >
-            <NavBar />
-            <main>{children}</main>
-            <Footer />
+            {children}
           </div>
         </Providers>
       </body>

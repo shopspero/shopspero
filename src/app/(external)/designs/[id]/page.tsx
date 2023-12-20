@@ -1,5 +1,5 @@
-import designData from '@/app/designs/design-data';
-import DesignPage from '@/app/designs/[id]/DesignPage';
+import designData from '@/app/(external)/designs/design-data';
+import DesignPage from '@/app/(external)/designs/[id]/DesignPage';
 import { notFound } from 'next/navigation';
 
 export const dynamicParams = false;

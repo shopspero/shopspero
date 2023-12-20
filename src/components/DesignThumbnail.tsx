@@ -1,4 +1,4 @@
-import { DesignInfo } from '@/app/designs/design-data';
+import { DesignInfo } from '@/app/(external)/designs/design-data';
 import { Box, Link, Text, useBoolean } from '@chakra-ui/react';
 import Image from 'next/image';
 import NextLink from 'next/link';

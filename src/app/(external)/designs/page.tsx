@@ -1,4 +1,4 @@
-import Designs from '@/app/designs/Designs';
+import Designs from '@/app/(external)/designs/Designs';
 
 export const metadata = {
   title: 'Designs - Spero',

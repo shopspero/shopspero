@@ -13,7 +13,7 @@ import {
   SalvationDescription,
   SperoBearDescription,
   WalkOnWaterDescription,
-} from '@/app/designs/descriptions/descriptions';
+} from '@/app/(external)/designs/descriptions/descriptions';
 import { ReactNode } from 'react';
 
 export interface DesignInfo {

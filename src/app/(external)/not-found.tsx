@@ -1,4 +1,4 @@
-import NotFound from '@/app/not-found/NotFound';
+import NotFound from '@/app/(external)/not-found/NotFound';
 
 export const metadata = {
   title: 'Not Found - Spero',

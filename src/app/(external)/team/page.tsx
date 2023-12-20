@@ -1,4 +1,4 @@
-import Team from '@/app/team/Team';
+import Team from '@/app/(external)/team/Team';
 
 export const metadata = {
   title: 'Team - Spero',

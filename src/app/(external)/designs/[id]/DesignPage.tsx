@@ -1,6 +1,6 @@
 'use client';
 
-import { DesignInfo } from '@/app/designs/design-data';
+import { DesignInfo } from '@/app/(external)/designs/design-data';
 import ImageCarousel from '@/components/ImageCarousel';
 import {
   Box,

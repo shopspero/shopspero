@@ -1,6 +1,6 @@
 'use client';
 
-import { StaffInfo } from '@/app/team/staff-data';
+import { StaffInfo } from '@/app/(external)/team/staff-data';
 import {
   Box,
   Container,

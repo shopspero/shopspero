@@ -1,6 +1,6 @@
 'use client';
 
-import designData from '@/app/designs/design-data';
+import designData from '@/app/(external)/designs/design-data';
 import DesignThumbnail from '@/components/DesignThumbnail';
 import { Center, Container, Grid, GridItem, Heading } from '@chakra-ui/react';
 
