@@ -20,12 +20,6 @@ interface LinkInfo {
   href: string;
 }
 
-const Links: LinkInfo[] = [
-  { title: 'TEAM', href: '/team' },
-  { title: 'DESIGNS', href: '/designs' },
-  { title: 'SHOP', href: '/shop' },
-];
-
 const NavLink = (link: LinkInfo) => (
   <Link
     as={NextLink}
@@ -43,7 +37,10 @@ const NavLink = (link: LinkInfo) => (
   </Link>
 );
 
-export default function NavBar() {
+export default function NavBar({
+  title,
+  links,
+}: Readonly<{ title: string; links: LinkInfo[] }>) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -53,7 +50,7 @@ export default function NavBar() {
         <Link as={NextLink} href="/" _hover={{ textDecoration: 'none' }}>
           <HStack spacing={3}>
             <Image src="/images/logo.png" width={25} height={25} alt="logo" />
-            <Text fontWeight={500}>SPERO</Text>
+            <Text fontWeight={500}>{title}</Text>
           </HStack>
         </Link>
 
@@ -64,7 +61,7 @@ export default function NavBar() {
           display={{ base: 'none', md: 'flex' }}
         >
           <HStack as="nav" spacing={7}>
-            {Links.map((link) => (
+            {links.map((link) => (
               <NavLink key={link.title} title={link.title} href={link.href} />
             ))}
           </HStack>
@@ -87,8 +84,8 @@ export default function NavBar() {
       <Collapse in={isOpen}>
         <Box mt={3} display={{ md: 'none' }}>
           <VStack as="nav" align="flex-end">
-            {Links.map((link) => (
-              <NavLink key={link.title} title={link.title} href={link.href} />
+            {links.map((link) => (
+              <NavLink key={link.title} {...link} />
             ))}
           </VStack>
         </Box>
