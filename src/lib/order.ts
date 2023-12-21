@@ -10,11 +10,11 @@ if (!getApps().length) {
 const db = getFirestore();
 
 export interface Order {
-  id: string;
-  product_id: string;
-  created: number;
-  payment_status: 'unpaid' | 'unpaid';
-  fulfillment_status: 'unfulfilled' | 'fulfilled';
+  id?: string;
+  product_id?: string;
+  created?: number;
+  payment_status?: 'unpaid' | 'paid';
+  fulfillment_status?: 'unfulfilled' | 'fulfilled';
   checkout_id?: string;
   name?: string;
   email?: string;
@@ -37,5 +37,58 @@ export async function addOrder(order: Order) {
   } catch (e) {
     console.error(`addOrder(${order}) failed: ${e}`);
     return false;
+  }
+}
+
+export async function upsertOrder(order: Order) {
+  try {
+    const { id, ...rest } = order;
+    await db.collection('orders').doc(id!).set(rest);
+    return true;
+  } catch (e) {
+    console.error(`upsertOrder(${order}) failed: ${e}`);
+    return false;
+  }
+}
+
+export async function cancelOrder(orderId: string) {
+  try {
+    const orderRef = db.collection('orders').doc(orderId);
+    await db.runTransaction(async (t) => {
+      // Get order doc
+      const orderDoc = await t.get(orderRef);
+
+      // Get product doc
+      const productRef = db
+        .collection('products')
+        .doc(orderDoc.get('product_id'));
+      const productDoc = await t.get(productRef);
+
+      // Restore inventory and delete order
+      t.update(productRef, { stock: productDoc.get('stock') + 1 });
+      t.delete(orderRef);
+    });
+    return true;
+  } catch (e) {
+    console.error(`cancelOrder(${orderId}) failed: ${e}`);
+    return false;
+  }
+}
+
+export async function getOrderIdFromCheckoutId(
+  checkoutId: string
+): Promise<{ orderId?: string; status: 'success' | 'error' }> {
+  try {
+    const snapshot = await db
+      .collection('orders')
+      .where('checkout_id', '==', checkoutId)
+      .get();
+    if (snapshot.docs.length < 1) {
+      return { status: 'error' };
+    }
+    return { orderId: snapshot.docs[0].id, status: 'success' };
+  } catch (e) {
+    console.error(`getOrderIdFromCheckoutId(${checkoutId}) failed: ${e}`);
+    return { status: 'error' };
   }
 }

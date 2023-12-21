@@ -46,7 +46,7 @@ export default function Products() {
 
   function ProductRow(product: Product) {
     const [editing, setEditing] = useState(false);
-    const [priceId, setPriceId] = useState(product.priceId);
+    const [priceId, setPriceId] = useState(product.price_id);
     const [stock, setStock] = useState(product.stock.toString());
 
     return (
@@ -80,7 +80,7 @@ export default function Products() {
               aria-label="Cancel edit"
               icon={<CloseIcon />}
               onClick={() => {
-                setPriceId(product.priceId);
+                setPriceId(product.price_id);
                 setStock(product.stock.toString());
                 setEditing(false);
               }}
@@ -100,7 +100,7 @@ export default function Products() {
               onClick={() => {
                 handleUpsert({
                   id: product.id,
-                  priceId: priceId,
+                  price_id: priceId,
                   stock: parseInt(stock),
                 });
               }}
@@ -173,7 +173,7 @@ export default function Products() {
                 onClick={() => {
                   handleUpsert({
                     id: productId,
-                    priceId: priceId,
+                    price_id: priceId,
                     stock: parseInt(stock),
                   });
                 }}

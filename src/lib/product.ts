@@ -11,7 +11,7 @@ const db = getFirestore();
 
 export interface Product {
   id: string;
-  priceId: string;
+  price_id: string;
   stock: number;
 }
 
@@ -19,7 +19,7 @@ export async function getProducts(): Promise<Product[]> {
   return (await db.collection('products').get()).docs.map((doc) => {
     return {
       id: doc.id,
-      priceId: doc.get('price_id') as string,
+      price_id: doc.get('price_id') as string,
       stock: doc.get('stock') as number,
     };
   });
@@ -27,10 +27,8 @@ export async function getProducts(): Promise<Product[]> {
 
 export async function upsertProduct(product: Product) {
   try {
-    await db.collection('products').doc(product.id).set({
-      price_id: product.priceId,
-      stock: product.stock,
-    });
+    const { id, ...rest } = product;
+    await db.collection('products').doc(product.id).set(rest);
     return true;
   } catch (e) {
     console.error(`upsertProduct(${product}) failed: ${e}`);

@@ -1,3 +1,9 @@
+import {
+  cancelOrder,
+  getOrderIdFromCheckoutId,
+  upsertOrder,
+} from '@/lib/order';
+import { constructEvent } from '@/lib/stripe';
 import { cert, getApps, initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import { NextRequest, NextResponse } from 'next/server';
@@ -11,11 +17,6 @@ if (!getApps().length) {
 
 const db = getFirestore();
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2022-11-15',
-});
-const webhookSecret: string = process.env.STRIPE_WEBHOOK_SECRET!;
-
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST',
@@ -23,93 +24,92 @@ const corsHeaders = {
 };
 
 /**
- * On success, update the order.
+ * For successful payment, update the order.
  */
-async function handleSuccess(session: Stripe.Checkout.Session) {
-  try {
-    await db.collection('orders').doc(session.id).update({
-      customer_details: session.customer_details,
-      shipping_details: session.shipping_details,
-      payment_status: session.payment_status,
-    });
-  } catch (e) {
-    console.error(
-      `Failed to record successful checkout ${session.id} in /api/webhook: ${e}`
-    );
-    throw e;
+async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
+  const { orderId, status } = await getOrderIdFromCheckoutId(session.id);
+  if (status !== 'success' || !orderId) {
+    return false;
   }
+
+  const name = session.customer_details?.name;
+  const email = session.customer_details?.email;
+  const phone = session.customer_details?.phone;
+  const line1 = session.customer_details?.address?.line1;
+  const line2 = session.customer_details?.address?.line2;
+  const city = session.customer_details?.address?.city;
+  const state = session.customer_details?.address?.state;
+  const country = session.customer_details?.address?.country;
+  const postal_code = session.customer_details?.address?.postal_code;
+
+  return await upsertOrder({
+    id: orderId,
+    payment_status: 'paid',
+    name: name ? name : undefined,
+    email: email ? email : undefined,
+    phone: phone ? phone : undefined,
+    address: {
+      line1: line1 ? line1 : undefined,
+      line2: line2 ? line2 : undefined,
+      city: city ? city : undefined,
+      state: state ? state : undefined,
+      country: country ? country : undefined,
+      postal_code: postal_code ? postal_code : undefined,
+    },
+  });
 }
 
 /**
- * On failure, update stock and delete the order.
+ * For failed payment, update stock and delete the order.
  */
-async function handleFailure(session: Stripe.Checkout.Session) {
-  try {
-    const orderRef = db.collection('orders').doc(session.id);
-    await db.runTransaction(async (t) => {
-      // Get order doc
-      const orderDoc = await t.get(orderRef);
-
-      // Get product doc
-      const productRef = db
-        .collection('products')
-        .doc(orderDoc.get('product_id'));
-      const productDoc = await t.get(productRef);
-
-      // Restore inventory and delete order
-      t.update(productRef, { stock: productDoc.get('stock') + 1 });
-      t.delete(orderRef);
-    });
-  } catch (e) {
-    console.error(
-      `Failed to record failed checkout ${session.id} in /api/webhook: ${e}`
-    );
-    throw e;
+async function handleFailedPayment(session: Stripe.Checkout.Session) {
+  const { orderId, status } = await getOrderIdFromCheckoutId(session.id);
+  if (status !== 'success' || !orderId) {
+    return false;
   }
+  return await cancelOrder(orderId);
 }
 
 export async function POST(request: NextRequest) {
-  const sig = request.headers.get('stripe-signature');
-
   // Verify request signature
-  let event;
-  try {
-    event = stripe.webhooks.constructEvent(
-      await request.text(),
-      sig!,
-      webhookSecret
-    );
-  } catch (e) {
-    return new NextResponse(`Webhook Error: ${e}`, {
+  const { event, status } = await constructEvent(request);
+  if (status !== 'success' || !event) {
+    return new NextResponse('Webhook error', {
       status: 400,
       headers: corsHeaders,
     });
   }
 
   // Handle event
-  try {
-    switch (event.type) {
-      case 'checkout.session.completed':
-      // Fall through
-      case 'checkout.session.async_payment_succeeded':
-        await handleSuccess(event.data.object as Stripe.Checkout.Session);
-        break;
-      case 'checkout.session.expired':
-      // Fall through
-      case 'checkout.session.async_payment_failed':
-        await handleFailure(event.data.object as Stripe.Checkout.Session);
-        break;
-      default:
-        console.error(`Unhandled event type ${event.type} in /api/webhook`);
-        break;
-    }
-  } catch (e) {
+  let success: boolean;
+  switch (event.type) {
+    case 'checkout.session.completed':
+    // Fall through
+    case 'checkout.session.async_payment_succeeded':
+      success = await handleSuccessfulPayment(
+        event.data.object as Stripe.Checkout.Session
+      );
+      break;
+    case 'checkout.session.expired':
+    // Fall through
+    case 'checkout.session.async_payment_failed':
+      success = await handleFailedPayment(
+        event.data.object as Stripe.Checkout.Session
+      );
+      break;
+    default:
+      success = false;
+      console.error(`Unhandled event type ${event.type} in /api/webhook`);
+      break;
+  }
+
+  if (!success) {
+    console.error(`Failed to handle ${event} in /api/webhook`);
     return new NextResponse(`Webhook Error: ${e}`, {
       status: 500,
       headers: corsHeaders,
     });
   }
-
   return NextResponse.json(
     { received: true },
     {
