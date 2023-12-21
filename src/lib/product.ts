@@ -1,8 +1,5 @@
-'use server';
-
 import { cert, getApps, initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
-import { auth } from '@/lib/auth';
 
 if (!getApps().length) {
   initializeApp({
@@ -19,10 +16,6 @@ export interface Product {
 }
 
 export async function getProducts(): Promise<Product[]> {
-  const session = await auth();
-  if (!session) {
-    return [];
-  }
   return (await db.collection('products').get()).docs.map((doc) => {
     return {
       id: doc.id,
@@ -33,10 +26,6 @@ export async function getProducts(): Promise<Product[]> {
 }
 
 export async function upsertProduct(product: Product) {
-  const session = await auth();
-  if (!session) {
-    return false;
-  }
   try {
     await db.collection('products').doc(product.id).set({
       price_id: product.priceId,
@@ -50,10 +39,6 @@ export async function upsertProduct(product: Product) {
 }
 
 export async function deleteProduct(productId: string) {
-  const session = await auth();
-  if (!session) {
-    return false;
-  }
   try {
     await db.collection('products').doc(productId).delete();
     return true;

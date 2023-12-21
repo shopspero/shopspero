@@ -15,12 +15,8 @@ import {
   Input,
 } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
-import {
-  deleteProduct,
-  getProducts,
-  Product,
-  upsertProduct,
-} from '@/lib/product';
+import { getProducts, upsertProduct, deleteProduct } from '@/actions/admin';
+import { Product } from '@/lib/product';
 import {
   AddIcon,
   CheckIcon,

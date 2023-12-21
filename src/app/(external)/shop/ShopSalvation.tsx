@@ -21,7 +21,7 @@ import ImageCarousel from '@/components/ImageCarousel';
 import NextLink from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FormEvent, useState } from 'react';
-import { checkoutWithStripe } from '@/lib/checkout';
+import { checkoutWithStripe } from '@/actions/checkout';
 
 const sizes = {
   base: 310,

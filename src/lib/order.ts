@@ -1,8 +1,5 @@
-'use server';
-
 import { cert, getApps, initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
-import { auth } from '@/lib/auth';
 
 if (!getApps().length) {
   initializeApp({

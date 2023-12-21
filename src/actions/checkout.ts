@@ -3,7 +3,7 @@
 import { auth } from '@/lib/auth';
 import { reserveInventory } from '@/lib/product';
 import Stripe from 'stripe';
-import { addOrder } from './order';
+import { addOrder } from '../lib/order';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2022-11-15',
