@@ -33,7 +33,7 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
     return false;
   }
 
-  let order: Order = {};
+  let order: Order = { id: orderId };
   if (session.customer_details?.name) {
     order.name = session.customer_details.name;
   }
@@ -113,7 +113,11 @@ export async function POST(request: NextRequest) {
   }
 
   if (!success) {
-    console.error(`Failed to handle ${event} in /api/webhook`);
+    console.error(
+      `Failed to handle checkout session in /api/webhook: ${
+        event.data.object as Stripe.Checkout.Session
+      }`
+    );
     return new NextResponse('Webhook error', {
       status: 500,
       headers: corsHeaders,
