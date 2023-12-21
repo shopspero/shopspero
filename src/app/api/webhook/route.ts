@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
 
   if (!success) {
     console.error(`Failed to handle ${event} in /api/webhook`);
-    return new NextResponse(`Webhook Error: ${e}`, {
+    return new NextResponse('Webhook error', {
       status: 500,
       headers: corsHeaders,
     });
