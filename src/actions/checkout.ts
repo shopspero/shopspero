@@ -36,6 +36,7 @@ export async function checkoutWithStripe(
     product_id: productId,
     created: session.created,
     payment_status: 'unpaid',
+    fulfillment_option: includeShipping ? 'delivery' : 'pickup',
     fulfillment_status: 'unfulfilled',
     checkout_id: session.id,
   });

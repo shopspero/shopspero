@@ -43,25 +43,25 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
   if (session.customer_details?.phone) {
     order.phone = session.customer_details.phone;
   }
-  if (session.customer_details?.address) {
+  if (session.shipping_details?.address) {
     order.address = {};
-    if (session.customer_details.address.line1) {
-      order.address.line1 = session.customer_details.address.line1;
+    if (session.shipping_details.address.line1) {
+      order.address.line1 = session.shipping_details.address.line1;
     }
-    if (session.customer_details.address.line2) {
-      order.address.line2 = session.customer_details.address.line2;
+    if (session.shipping_details.address.line2) {
+      order.address.line2 = session.shipping_details.address.line2;
     }
-    if (session.customer_details.address.city) {
-      order.address.city = session.customer_details.address.city;
+    if (session.shipping_details.address.city) {
+      order.address.city = session.shipping_details.address.city;
     }
-    if (session.customer_details.address.state) {
-      order.address.state = session.customer_details.address.state;
+    if (session.shipping_details.address.state) {
+      order.address.state = session.shipping_details.address.state;
     }
-    if (session.customer_details.address.country) {
-      order.address.country = session.customer_details.address.country;
+    if (session.shipping_details.address.country) {
+      order.address.country = session.shipping_details.address.country;
     }
-    if (session.customer_details.address.postal_code) {
-      order.address.postal_code = session.customer_details.address.postal_code;
+    if (session.shipping_details.address.postal_code) {
+      order.address.postal_code = session.shipping_details.address.postal_code;
     }
   }
 

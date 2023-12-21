@@ -11,9 +11,10 @@ const db = getFirestore();
 
 export interface Order {
   id?: string;
-  product_id?: string;
   created?: number;
+  product_id?: string;
   payment_status?: 'unpaid' | 'paid';
+  fulfillment_option?: 'pickup' | 'delivery';
   fulfillment_status?: 'unfulfilled' | 'fulfilled';
   checkout_id?: string;
   name?: string;
