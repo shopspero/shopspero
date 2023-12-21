@@ -21,6 +21,7 @@ import ImageCarousel from '@/components/ImageCarousel';
 import NextLink from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FormEvent, useState } from 'react';
+import { checkoutWithStripe } from '@/lib/checkout';
 
 const sizes = {
   base: 310,
@@ -53,25 +54,16 @@ export default function Shop() {
     setSubmitted(true);
     setErrorMessage('');
 
-    try {
-      const response = await fetch('/api/checkout', {
-        method: 'post',
-        body: JSON.stringify({
-          productId: `salvation-${color}-${size}`,
-          includeShipping: pickupOrShip === 'ship',
-        }),
-        headers: { 'content-type': 'application/json' },
-      });
-      const responseBody = await response.json();
-      if (responseBody['checkoutUrl'] !== undefined) {
-        router.push(responseBody['checkoutUrl']);
-      } else if (responseBody['error'] !== undefined) {
-        setErrorMessage(responseBody['error']);
-      } else {
-        throw Error('Checkout request failed');
-      }
-    } catch (e) {
-      setErrorMessage('Checkout request failed');
+    const { checkoutUrl, status } = await checkoutWithStripe(
+      `salvation-${color}-${size}`,
+      pickupOrShip === 'ship'
+    );
+    if (status === 'out of stock') {
+      setErrorMessage('Out of stock');
+    } else if (status !== 'success' || !checkoutUrl) {
+      setErrorMessage('Internal server error');
+    } else {
+      router.push(checkoutUrl);
     }
     setSubmitted(false);
   }

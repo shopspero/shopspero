@@ -44,7 +44,7 @@ export async function upsertProduct(product: Product) {
     });
     return true;
   } catch (e) {
-    console.error(`upsertProduct on ${product} failed: ${e}`);
+    console.error(`upsertProduct(${product}) failed: ${e}`);
     return false;
   }
 }
@@ -52,7 +52,40 @@ export async function upsertProduct(product: Product) {
 export async function deleteProduct(productId: string) {
   const session = await auth();
   if (!session) {
-    return;
+    return false;
   }
-  await db.collection('products').doc(productId).delete();
+  try {
+    await db.collection('products').doc(productId).delete();
+    return true;
+  } catch (e) {
+    console.error(`deleteProduct(${productId}) failed: ${e}`);
+    return false;
+  }
+}
+
+export async function reserveInventory(productId: string): Promise<{
+  priceId?: string;
+  status: 'success' | 'out of stock' | 'error';
+}> {
+  let priceId: string;
+  try {
+    const productRef = db.collection('products').doc(productId);
+    priceId = await db.runTransaction(async (t) => {
+      const productDoc = await t.get(productRef);
+      const priceId = productDoc.get('price_id');
+      const stock = productDoc.get('stock');
+      if (stock <= 0) {
+        return null;
+      }
+      t.update(productRef, { stock: stock - 1 });
+      return priceId;
+    });
+  } catch (e) {
+    console.error(`reserveInventory(${productId}) failed: ${e}`);
+    return { status: 'error' };
+  }
+  if (!priceId) {
+    return { status: 'out of stock' };
+  }
+  return { priceId, status: 'success' };
 }
