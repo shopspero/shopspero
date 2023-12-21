@@ -1,4 +1,5 @@
 import {
+  Order,
   cancelOrder,
   getOrderIdFromCheckoutId,
   upsertOrder,
@@ -32,31 +33,39 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
     return false;
   }
 
-  const name = session.customer_details?.name;
-  const email = session.customer_details?.email;
-  const phone = session.customer_details?.phone;
-  const line1 = session.customer_details?.address?.line1;
-  const line2 = session.customer_details?.address?.line2;
-  const city = session.customer_details?.address?.city;
-  const state = session.customer_details?.address?.state;
-  const country = session.customer_details?.address?.country;
-  const postal_code = session.customer_details?.address?.postal_code;
+  let order: Order = {};
+  if (session.customer_details?.name) {
+    order.name = session.customer_details.name;
+  }
+  if (session.customer_details?.email) {
+    order.email = session.customer_details.email;
+  }
+  if (session.customer_details?.phone) {
+    order.phone = session.customer_details.phone;
+  }
+  if (session.customer_details?.address) {
+    order.address = {};
+    if (session.customer_details.address.line1) {
+      order.address.line1 = session.customer_details.address.line1;
+    }
+    if (session.customer_details.address.line2) {
+      order.address.line2 = session.customer_details.address.line2;
+    }
+    if (session.customer_details.address.city) {
+      order.address.city = session.customer_details.address.city;
+    }
+    if (session.customer_details.address.state) {
+      order.address.state = session.customer_details.address.state;
+    }
+    if (session.customer_details.address.country) {
+      order.address.country = session.customer_details.address.country;
+    }
+    if (session.customer_details.address.postal_code) {
+      order.address.postal_code = session.customer_details.address.postal_code;
+    }
+  }
 
-  return await upsertOrder({
-    id: orderId,
-    payment_status: 'paid',
-    name: name ? name : undefined,
-    email: email ? email : undefined,
-    phone: phone ? phone : undefined,
-    address: {
-      line1: line1 ? line1 : undefined,
-      line2: line2 ? line2 : undefined,
-      city: city ? city : undefined,
-      state: state ? state : undefined,
-      country: country ? country : undefined,
-      postal_code: postal_code ? postal_code : undefined,
-    },
-  });
+  return await upsertOrder(order);
 }
 
 /**
