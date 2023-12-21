@@ -33,7 +33,7 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
     return false;
   }
 
-  let order: Order = { id: orderId };
+  let order: Order = { id: orderId, payment_status: 'paid' };
   if (session.customer_details?.name) {
     order.name = session.customer_details.name;
   }

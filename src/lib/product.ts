@@ -28,7 +28,7 @@ export async function getProducts(): Promise<Product[]> {
 export async function upsertProduct(product: Product) {
   try {
     const { id, ...rest } = product;
-    await db.collection('products').doc(product.id).set(rest);
+    await db.collection('products').doc(product.id).set(rest, { merge: true });
     return true;
   } catch (e) {
     console.error(`upsertProduct(${product}) failed: ${e}`);

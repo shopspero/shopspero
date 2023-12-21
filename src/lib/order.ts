@@ -43,7 +43,7 @@ export async function addOrder(order: Order) {
 export async function upsertOrder(order: Order) {
   try {
     const { id, ...rest } = order;
-    await db.collection('orders').doc(id!).set(rest);
+    await db.collection('orders').doc(id!).set(rest, { merge: true });
     return true;
   } catch (e) {
     console.error(`upsertOrder(${order}) failed: ${e}`);
