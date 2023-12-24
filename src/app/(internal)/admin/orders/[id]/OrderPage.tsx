@@ -49,7 +49,7 @@ export default function OrderPage({ order }: { order: Order }) {
                 router.refresh();
               }}
             >
-              Mark Uncanceled
+              Uncancel Order
             </Button>
           ) : (
             <>
