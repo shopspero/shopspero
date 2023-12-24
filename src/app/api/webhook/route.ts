@@ -5,18 +5,8 @@ import {
   upsertOrder,
 } from '@/lib/order';
 import { constructEvent } from '@/lib/stripe';
-import { cert, getApps, initializeApp } from 'firebase-admin/app';
-import { getFirestore } from 'firebase-admin/firestore';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-
-if (!getApps().length) {
-  initializeApp({
-    credential: cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY!)),
-  });
-}
-
-const db = getFirestore();
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',

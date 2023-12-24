@@ -1,7 +1,7 @@
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2022-11-15',
+  apiVersion: '2023-10-16',
 });
 
 const webhookSecret: string = process.env.STRIPE_WEBHOOK_SECRET!;
@@ -20,7 +20,7 @@ export async function createCheckoutSession(
       mode: 'payment',
       success_url: `${process.env.NEXTAUTH_URL!}/shop?success=true`,
       cancel_url: `${process.env.NEXTAUTH_URL!}/shop`,
-      expires_at: Math.floor(Date.now() / 1000) + 2700,
+      expires_at: Math.floor(Date.now() / 1000) + 1860,
     };
     if (includeShipping) {
       sessionParams.shipping_address_collection = { allowed_countries: ['US'] };
