@@ -45,10 +45,3 @@ export async function checkoutWithStripe(
   }
   return { checkoutUrl: session.url!, status: 'success' };
 }
-
-export async function checkoutManually(productId: string) {
-  const session = await auth();
-  if (!session) {
-    return false;
-  }
-}

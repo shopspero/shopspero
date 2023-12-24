@@ -16,13 +16,18 @@ export interface Product {
 }
 
 export async function getProducts(): Promise<Product[]> {
-  return (await db.collection('products').get()).docs.map((doc) => {
-    return {
-      id: doc.id,
-      price_id: doc.get('price_id') as string,
-      stock: doc.get('stock') as number,
-    };
-  });
+  try {
+    return (await db.collection('products').get()).docs.map((doc) => {
+      return {
+        id: doc.id,
+        price_id: doc.get('price_id') as string,
+        stock: doc.get('stock') as number,
+      };
+    });
+  } catch (e) {
+    console.error(`getProducts() failed: ${e}`);
+    return [];
+  }
 }
 
 export async function upsertProduct(product: Product) {

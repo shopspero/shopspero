@@ -2,6 +2,14 @@
 
 import { auth } from '@/lib/auth';
 import {
+  Order,
+  getOrder as libGetOrder,
+  getOrders as libGetOrders,
+  upsertOrder as libUpsertOrder,
+  cancelOrder as libCancelOrder,
+  uncancelOrder as libUncancelOrder,
+} from '@/lib/order';
+import {
   Product,
   getProducts as libGetProducts,
   upsertProduct as libUpsertProduct,
@@ -30,4 +38,45 @@ export async function deleteProduct(productId: string) {
     return false;
   }
   return libDeleteProduct(productId);
+}
+
+export async function getOrders() {
+  const session = await auth();
+  if (!session) {
+    return [];
+  }
+  return libGetOrders();
+}
+
+export async function getOrder(orderId: string) {
+  const session = await auth();
+  if (!session) {
+    return undefined;
+  }
+  const { order } = await libGetOrder(orderId);
+  return order;
+}
+
+export async function upsertOrder(order: Order) {
+  const session = await auth();
+  if (!session) {
+    return false;
+  }
+  return libUpsertOrder(order);
+}
+
+export async function cancelOrder(orderId: string) {
+  const session = await auth();
+  if (!session) {
+    return false;
+  }
+  return libCancelOrder(orderId);
+}
+
+export async function uncancelOrder(orderId: string) {
+  const session = await auth();
+  if (!session) {
+    return false;
+  }
+  return libUncancelOrder(orderId);
 }

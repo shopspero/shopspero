@@ -1,6 +1,6 @@
 'use client';
 
-import { AbsoluteCenter, Button, Heading } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import NavBar from '@/components/NavBar';
 import { SessionProvider, signIn, useSession } from 'next-auth/react';
 
@@ -21,6 +21,7 @@ function Login({ children }: { children: React.ReactNode }) {
       <>
         <NavBar links={navLinks} />
         {children}
+        <Box p={5} />
       </>
     );
   } else {
