@@ -1,9 +1,7 @@
-'use client';
-
-import { Box, Center, Container, Heading, Link, Text } from '@chakra-ui/react';
+import { Center, Container, Heading, Link, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
-export default function Shop() {
+export default function ShopClosed() {
   return (
     <Container maxWidth={900} textAlign="center">
       <Center p={10}>

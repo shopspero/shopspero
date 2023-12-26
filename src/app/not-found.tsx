@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer';
 import NavBar from '@/components/NavBar';
-import NotFound from '@/components/NotFound';
+import { Box, Center, Container, Heading, Text } from '@chakra-ui/react';
 
 export const metadata = {
   title: 'Not Found - Spero',
@@ -18,7 +18,18 @@ export default function Page() {
     <>
       <NavBar links={navLinks} />
       <main>
-        <NotFound />
+        <Box>
+          <Container maxWidth={900} textAlign="center">
+            <Center p={10}>
+              <Heading as="h1" size="2xl">
+                Uh oh, 404.
+              </Heading>
+            </Center>
+            <Text mb={5}>
+              Looks like we couldn&apos;t find the page you were looking for :(
+            </Text>
+          </Container>
+        </Box>
       </main>
       <Footer />
     </>

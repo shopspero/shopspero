@@ -10,9 +10,9 @@ const navLinks = [
 
 export default function ExternalLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <>
       <NavBar links={navLinks} />

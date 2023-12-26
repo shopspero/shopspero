@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 
-export default function Staff(staff: StaffInfo) {
+export default function Staff(staff: Readonly<StaffInfo>) {
   return (
     <Container maxWidth={700}>
       <HStack spacing={5}>

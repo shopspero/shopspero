@@ -35,7 +35,7 @@ const images = [
   '/images/designs/salvation-3.jpg',
 ];
 
-export default function Shop() {
+export default function ShopSalvation() {
   const success = useSearchParams().get('success');
   const router = useRouter();
 

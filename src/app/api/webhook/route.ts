@@ -85,16 +85,12 @@ export async function POST(request: NextRequest) {
     case 'checkout.session.completed':
     // Fall through
     case 'checkout.session.async_payment_succeeded':
-      success = await handleSuccessfulPayment(
-        event.data.object as Stripe.Checkout.Session
-      );
+      success = await handleSuccessfulPayment(event.data.object);
       break;
     case 'checkout.session.expired':
     // Fall through
     case 'checkout.session.async_payment_failed':
-      success = await handleFailedPayment(
-        event.data.object as Stripe.Checkout.Session
-      );
+      success = await handleFailedPayment(event.data.object);
       break;
     default:
       success = false;

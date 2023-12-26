@@ -1,19 +1,17 @@
-import {
-  AbideDescription,
-  BayAreaDescription,
-  BerkeleyDescription,
-  BlessedToBlessDescription,
-  ConfidenceDescription,
-  FullnessDescription,
-  HopeDescription,
-  IAmThatGirlDescription,
-  MacronDescription,
-  MountainMoverDescription,
-  RedeemedDescription,
-  SalvationDescription,
-  SperoBearDescription,
-  WalkOnWaterDescription,
-} from '@/app/(external)/designs/descriptions/descriptions';
+import Abide from '@/app/(external)/designs/descriptions/abide.mdx';
+import BayArea from '@/app/(external)/designs/descriptions/bay-area.mdx';
+import Berkeley from '@/app/(external)/designs/descriptions/berkeley.mdx';
+import BlessedToBless from '@/app/(external)/designs/descriptions/blessed-to-bless.mdx';
+import Confidence from '@/app/(external)/designs/descriptions/confidence.mdx';
+import Fullness from '@/app/(external)/designs/descriptions/fullness.mdx';
+import Hope from '@/app/(external)/designs/descriptions/hope.mdx';
+import IAmThatGirl from '@/app/(external)/designs/descriptions/i-am-that-girl.mdx';
+import Macron from '@/app/(external)/designs/descriptions/macron.mdx';
+import MountainMover from '@/app/(external)/designs/descriptions/mountain-mover.mdx';
+import Redeemed from '@/app/(external)/designs/descriptions/redeemed.mdx';
+import Salvation from '@/app/(external)/designs/descriptions/salvation.mdx';
+import SperoBear from '@/app/(external)/designs/descriptions/spero-bear.mdx';
+import WalkOnWater from '@/app/(external)/designs/descriptions/walk-on-water.mdx';
 import { ReactNode } from 'react';
 
 export interface DesignInfo {
@@ -27,7 +25,7 @@ const designData: DesignInfo[] = [
   {
     id: 'salvation',
     name: 'Salvation Crewneck',
-    description: <SalvationDescription />,
+    description: <Salvation />,
     imgs: [
       '/images/designs/salvation-1.jpg',
       '/images/designs/salvation-2.jpg',
@@ -37,7 +35,7 @@ const designData: DesignInfo[] = [
   {
     id: 'confidence',
     name: 'Confidence T-Shirt',
-    description: <ConfidenceDescription />,
+    description: <Confidence />,
     imgs: [
       '/images/designs/confidence-1.jpg',
       '/images/designs/confidence-2.jpg',
@@ -47,7 +45,7 @@ const designData: DesignInfo[] = [
   {
     id: 'fullness',
     name: 'Fullness Hoodie',
-    description: <FullnessDescription />,
+    description: <Fullness />,
     imgs: [
       '/images/designs/fullness-1.jpg',
       '/images/designs/fullness-2.jpg',
@@ -57,7 +55,7 @@ const designData: DesignInfo[] = [
   {
     id: 'walk-on-water',
     name: 'Walk on Water Sticker',
-    description: <WalkOnWaterDescription />,
+    description: <WalkOnWater />,
     imgs: [
       '/images/designs/walk-on-water-1.png',
       '/images/designs/walk-on-water-2.jpg',
@@ -67,7 +65,7 @@ const designData: DesignInfo[] = [
   {
     id: 'spero-bear',
     name: 'Spero Bear Sticker',
-    description: <SperoBearDescription />,
+    description: <SperoBear />,
     imgs: [
       '/images/designs/spero-bear-1.png',
       '/images/designs/spero-bear-2.jpg',
@@ -77,7 +75,7 @@ const designData: DesignInfo[] = [
   {
     id: 'mountain-mover',
     name: 'Mountain Mover Sticker',
-    description: <MountainMoverDescription />,
+    description: <MountainMover />,
     imgs: [
       '/images/designs/mountain-mover-1.png',
       '/images/designs/mountain-mover-2.jpg',
@@ -87,7 +85,7 @@ const designData: DesignInfo[] = [
   {
     id: 'redeemed',
     name: 'Redeemed Hoodie',
-    description: <RedeemedDescription />,
+    description: <Redeemed />,
     imgs: [
       '/images/designs/redeemed-1.jpg',
       '/images/designs/redeemed-2.jpg',
@@ -97,7 +95,7 @@ const designData: DesignInfo[] = [
   {
     id: 'abide',
     name: 'Abide Hoodie',
-    description: <AbideDescription />,
+    description: <Abide />,
     imgs: [
       '/images/designs/abide-1.jpg',
       '/images/designs/abide-2.jpg',
@@ -108,7 +106,7 @@ const designData: DesignInfo[] = [
   {
     id: 'hope',
     name: 'Hope Longsleeve',
-    description: <HopeDescription />,
+    description: <Hope />,
     imgs: [
       '/images/designs/hope-1.jpg',
       '/images/designs/hope-2.jpg',
@@ -118,7 +116,7 @@ const designData: DesignInfo[] = [
   {
     id: 'i-am-that-girl',
     name: 'I Am That Girl Hat',
-    description: <IAmThatGirlDescription />,
+    description: <IAmThatGirl />,
     imgs: [
       '/images/designs/i-am-that-girl-1.jpg',
       '/images/designs/i-am-that-girl-2.jpg',
@@ -127,7 +125,7 @@ const designData: DesignInfo[] = [
   {
     id: 'macron',
     name: 'Macron Hoodie',
-    description: <MacronDescription />,
+    description: <Macron />,
     imgs: [
       '/images/designs/macron-1.jpg',
       '/images/designs/macron-2.jpg',
@@ -137,7 +135,7 @@ const designData: DesignInfo[] = [
   {
     id: 'blessed-to-bless',
     name: 'Blessed to Bless Shirt',
-    description: <BlessedToBlessDescription />,
+    description: <BlessedToBless />,
     imgs: [
       '/images/designs/blessed-to-bless-1.jpg',
       '/images/designs/blessed-to-bless-2.jpg',
@@ -146,13 +144,13 @@ const designData: DesignInfo[] = [
   {
     id: 'bay-area',
     name: 'Bay Area Longsleeve',
-    description: <BayAreaDescription />,
+    description: <BayArea />,
     imgs: ['/images/designs/bay-area-1.jpg', '/images/designs/bay-area-2.jpg'],
   },
   {
     id: 'berkeley',
     name: 'Berkeley Hoodie',
-    description: <BerkeleyDescription />,
+    description: <Berkeley />,
     imgs: ['/images/designs/berkeley-1.jpg', '/images/designs/berkeley-2.jpg'],
   },
 ];

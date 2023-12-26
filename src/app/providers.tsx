@@ -1,10 +1,9 @@
 'use client';
 
 import { CacheProvider } from '@chakra-ui/next-js';
-import { ChakraProvider, baseTheme, extendTheme } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
-import { Lexend_Deca } from 'next/font/google';
-import { Tenor_Sans } from 'next/font/google';
+import { Lexend_Deca, Tenor_Sans } from 'next/font/google';
 
 const lexendDeca = Lexend_Deca({ subsets: ['latin'] });
 const tenorSans = Tenor_Sans({ subsets: ['latin'], weight: ['400'] });
@@ -49,7 +48,9 @@ const theme = extendTheme({
   },
 });
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <CacheProvider>
       <ChakraProvider theme={theme}>{children}</ChakraProvider>

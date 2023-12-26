@@ -1,6 +1,5 @@
 'use server';
 
-import { auth } from '@/lib/auth';
 import { addOrder } from '../lib/order';
 import { reserveInventory } from '@/lib/product';
 import { createCheckoutSession } from '@/lib/stripe';
