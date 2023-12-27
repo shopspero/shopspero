@@ -22,16 +22,16 @@ export async function checkoutWithStripe(
   }
 
   // Get Stripe checkout session
-  const { session, status } = await createCheckoutSession(
+  const { session, status: stripeStatus } = await createCheckoutSession(
     priceId,
     includeShipping
   );
-  if (status !== 'success' || !session) {
+  if (stripeStatus !== 'success' || !session) {
     return { status: 'error' };
   }
 
   // Record order with checkout session's id
-  const success = await addOrder({
+  const { status: addStatus } = await addOrder({
     product_id: productId,
     created: session.created,
     payment_status: 'unpaid',
@@ -39,7 +39,7 @@ export async function checkoutWithStripe(
     fulfillment_status: 'unfulfilled',
     checkout_id: session.id,
   });
-  if (!success) {
+  if (addStatus !== 'success') {
     return { status: 'error' };
   }
   return { checkoutUrl: session.url!, status: 'success' };

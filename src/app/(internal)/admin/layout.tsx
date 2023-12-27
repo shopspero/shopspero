@@ -7,6 +7,7 @@ import { SessionProvider, signIn, useSession } from 'next-auth/react';
 const navLinks = [
   { title: 'ADMIN', href: '/admin' },
   { title: 'ORDERS', href: '/admin/orders' },
+  { title: 'LOG ORDER', href: '/admin/log-order' },
   { title: 'PRODUCTS', href: '/admin/products' },
   { title: 'SIGN OUT', href: '/admin/sign-out' },
 ];

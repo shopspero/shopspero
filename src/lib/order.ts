@@ -57,14 +57,16 @@ export async function getOrder(orderId: string): Promise<{
   }
 }
 
-export async function addOrder(order: Order) {
+export async function addOrder(
+  order: Order
+): Promise<{ orderId?: string; status: 'success' | 'error' }> {
   try {
     const { id, ...rest } = order;
-    await db.collection('orders').add(rest);
-    return true;
+    const doc = await db.collection('orders').add(rest);
+    return { orderId: doc.id, status: 'success' };
   } catch (e) {
     console.error(`addOrder(${order}) failed: ${e}`);
-    return false;
+    return { status: 'error' };
   }
 }
 
