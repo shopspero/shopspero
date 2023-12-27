@@ -11,6 +11,8 @@ import {
   IconButton,
   Input,
   Text,
+  Center,
+  Spinner,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { getProducts, upsertProduct, deleteProduct } from '@/actions/admin';
@@ -25,16 +27,18 @@ import {
 
 function ProductRow({
   product,
-  onEdit,
+  onSave,
   onDelete,
 }: {
   product: Product;
-  onEdit: (priceId: string, stock: number) => Promise<boolean>;
+  onSave: (priceId: string, stock: number) => Promise<boolean>;
   onDelete: () => Promise<boolean>;
 }) {
   const [editing, setEditing] = useState(false);
   const [priceId, setPriceId] = useState(product.price_id);
-  const [stock, setStock] = useState(product.stock.toString());
+  const [editPriceId, setEditPriceId] = useState(product.price_id);
+  const [stock, setStock] = useState(product.stock);
+  const [editStock, setEditStock] = useState(product.stock);
 
   let priceIdColumn = <Text>{priceId}</Text>;
   let stockColumn = <Text>{stock}</Text>;
@@ -57,15 +61,16 @@ function ProductRow({
     priceIdColumn = (
       <Input
         width="100%"
-        value={priceId}
-        onChange={(e) => setPriceId(e.target.value)}
+        value={editPriceId}
+        onChange={(e) => setEditPriceId(e.target.value)}
       />
     );
     stockColumn = (
       <Input
         width="100%"
-        value={stock}
-        onChange={(e) => setStock(e.target.value)}
+        type="number"
+        value={editStock}
+        onChange={(e) => setEditStock(parseInt(e.target.value))}
       />
     );
     actionsColumn = (
@@ -74,8 +79,8 @@ function ProductRow({
           aria-label="Cancel edit"
           icon={<CloseIcon />}
           onClick={() => {
-            setPriceId(product.price_id);
-            setStock(product.stock.toString());
+            setEditPriceId(priceId);
+            setEditStock(stock);
             setEditing(false);
           }}
         />
@@ -84,7 +89,9 @@ function ProductRow({
           icon={<CheckIcon />}
           ml={3}
           onClick={async () => {
-            if (await onEdit(priceId, parseInt(stock))) {
+            if (await onSave(editPriceId, editStock)) {
+              setPriceId(editPriceId);
+              setStock(editStock);
               setEditing(false);
             }
           }}
@@ -220,7 +227,7 @@ export default function ProductsTable() {
             <ProductRow
               key={product.id}
               product={product}
-              onEdit={(priceId, stock) =>
+              onSave={(priceId, stock) =>
                 upsertProduct({
                   id: product.id,
                   price_id: priceId,
