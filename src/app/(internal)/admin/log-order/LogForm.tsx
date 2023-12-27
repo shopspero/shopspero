@@ -116,7 +116,9 @@ export default function LogForm() {
             onChange={(e) => setProductId(e.target.value)}
           >
             {productIds.map((productId) => (
-              <option value={productId}>{productId}</option>
+              <option key={productId} value={productId}>
+                {productId}
+              </option>
             ))}
           </Select>
         </FormControl>
