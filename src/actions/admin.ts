@@ -7,7 +7,6 @@ import {
   getOrders as libGetOrders,
   upsertOrder as libUpsertOrder,
   cancelOrder as libCancelOrder,
-  uncancelOrder as libUncancelOrder,
 } from '@/lib/order';
 import {
   Product,
@@ -71,12 +70,4 @@ export async function cancelOrder(orderId: string) {
     return false;
   }
   return libCancelOrder(orderId);
-}
-
-export async function uncancelOrder(orderId: string) {
-  const session = await auth();
-  if (!session) {
-    return false;
-  }
-  return libUncancelOrder(orderId);
 }

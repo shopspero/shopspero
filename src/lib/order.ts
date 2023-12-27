@@ -24,7 +24,12 @@ export interface Order {
 
 export async function getOrders(): Promise<Order[]> {
   try {
-    return (await db.collection('orders').get()).docs.map((doc) => {
+    return (
+      await db
+        .collection('orders')
+        .where('fulfillment_status', '!=', 'canceled')
+        .get()
+    ).docs.map((doc) => {
       return { id: doc.id, ...doc.data() } as Order;
     });
   } catch (e) {
@@ -99,41 +104,6 @@ export async function cancelOrder(orderId: string) {
     return true;
   } catch (e) {
     console.error(`cancelOrder(${orderId}) failed: ${e}`);
-    return false;
-  }
-}
-
-export async function uncancelOrder(orderId: string) {
-  try {
-    const orderRef = db.collection('orders').doc(orderId);
-    return await db.runTransaction(async (t) => {
-      // Get order doc
-      const orderDoc = await t.get(orderRef);
-
-      // Make uncancellation idempotent
-      if (orderDoc.get('fulfillment_status') !== 'canceled') {
-        return false;
-      }
-
-      // Get product doc
-      const productRef = db
-        .collection('products')
-        .doc(orderDoc.get('product_id'));
-      const productDoc = await t.get(productRef);
-
-      // Cannot uncancel if no stock
-      if (productDoc.get('stock') < 1) {
-        return false;
-      }
-
-      // Set order to canceled and restore inventory
-      t.update(orderRef, { fulfillment_status: 'unfulfilled' });
-      t.update(productRef, { stock: productDoc.get('stock') - 1 });
-
-      return true;
-    });
-  } catch (e) {
-    console.error(`uncancelOrder(${orderId}) failed: ${e}`);
     return false;
   }
 }
