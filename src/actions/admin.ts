@@ -87,7 +87,7 @@ export async function manuallyLogOrder(
   }
 
   // Record order
-  let dbOrder = Object.assign({}, order);
+  let dbOrder = { ...order };
   dbOrder.created = Date.now() / 1000;
   dbOrder.payment_status = 'unpaid';
   dbOrder.fulfillment_status = 'unfulfilled';

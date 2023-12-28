@@ -109,29 +109,31 @@ export default function LogForm() {
   return (
     <form onSubmit={handleSubmit}>
       <VStack align="left" gap={3}>
-        <FormControl as="fieldset" isRequired={true}>
-          <FormLabel as="legend">Product ID</FormLabel>
-          <Select
-            placeholder="Select"
-            onChange={(e) => setProductId(e.target.value)}
-          >
-            {productIds.map((productId) => (
-              <option key={productId} value={productId}>
-                {productId}
-              </option>
-            ))}
-          </Select>
-        </FormControl>
-        <FormControl as="fieldset" isRequired={true}>
-          <FormLabel as="legend">Fulfillment option</FormLabel>
-          <Select
-            placeholder="Select"
-            onChange={(e) => setFulfillmentOption(e.target.value!)}
-          >
-            <option value="pickup">pickup</option>
-            <option value="delivery">delivery</option>
-          </Select>
-        </FormControl>
+        <HStack gap={3}>
+          <FormControl as="fieldset" isRequired={true}>
+            <FormLabel as="legend">Product ID</FormLabel>
+            <Select
+              placeholder="Select"
+              onChange={(e) => setProductId(e.target.value)}
+            >
+              {productIds.map((productId) => (
+                <option key={productId} value={productId}>
+                  {productId}
+                </option>
+              ))}
+            </Select>
+          </FormControl>
+          <FormControl as="fieldset" isRequired={true}>
+            <FormLabel as="legend">Fulfillment option</FormLabel>
+            <Select
+              placeholder="Select"
+              onChange={(e) => setFulfillmentOption(e.target.value!)}
+            >
+              <option value="pickup">pickup</option>
+              <option value="delivery">delivery</option>
+            </Select>
+          </FormControl>
+        </HStack>
         <FormControl as="fieldset" isRequired={true}>
           <FormLabel as="legend">Email</FormLabel>
           <Input
@@ -150,6 +152,7 @@ export default function LogForm() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             type="tel"
+            pattern="[0-9]{10}"
           />
         </FormControl>
         <FormControl as="fieldset">
@@ -160,25 +163,33 @@ export default function LogForm() {
           <FormLabel as="legend">Address Line 2</FormLabel>
           <Input value={line2} onChange={(e) => setLine2(e.target.value)} />
         </FormControl>
-        <FormControl as="fieldset">
-          <FormLabel as="legend">Address City</FormLabel>
-          <Input value={city} onChange={(e) => setCity(e.target.value)} />
-        </FormControl>
-        <FormControl as="fieldset">
-          <FormLabel as="legend">Address State</FormLabel>
-          <Input value={state} onChange={(e) => setState(e.target.value)} />
-        </FormControl>
-        <FormControl as="fieldset">
-          <FormLabel as="legend">Address Country</FormLabel>
-          <Input value={country} onChange={(e) => setCountry(e.target.value)} />
-        </FormControl>
-        <FormControl as="fieldset">
-          <FormLabel as="legend">Address Postal Code</FormLabel>
-          <Input
-            value={postalCode}
-            onChange={(e) => setPostalCode(e.target.value)}
-          />
-        </FormControl>
+        <HStack gap={3}>
+          <FormControl as="fieldset">
+            <FormLabel as="legend">Address City</FormLabel>
+            <Input value={city} onChange={(e) => setCity(e.target.value)} />
+          </FormControl>
+          <FormControl as="fieldset">
+            <FormLabel as="legend">Address State</FormLabel>
+            <Input value={state} onChange={(e) => setState(e.target.value)} />
+          </FormControl>
+        </HStack>
+        <HStack gap={3}>
+          <FormControl as="fieldset">
+            <FormLabel as="legend">Address Country</FormLabel>
+            <Input
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+            />
+          </FormControl>
+          <FormControl as="fieldset">
+            <FormLabel as="legend">Address Postal Code</FormLabel>
+            <Input
+              value={postalCode}
+              onChange={(e) => setPostalCode(e.target.value)}
+              pattern="[0-9]{5}"
+            />
+          </FormControl>
+        </HStack>
         <HStack pt={4} gap={5}>
           <Button type="submit">Submit</Button>
           {submitted && <Spinner size="md" />}
