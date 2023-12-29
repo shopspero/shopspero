@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Box, IconButton } from '@chakra-ui/react';
 import Image from 'next/image';
@@ -14,10 +16,10 @@ const settings = {
 export default function Carousel({
   srcs,
   width,
-}: {
+}: Readonly<{
   srcs: string[];
   width: any;
-}) {
+}>) {
   const [slider, setSlider] = React.useState<Slider | null>(null);
 
   return (

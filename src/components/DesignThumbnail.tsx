@@ -1,10 +1,13 @@
-import { DesignInfo } from '@/app/designs/design-data';
-import { Box, Link, Text, useBoolean } from '@chakra-ui/react';
+'use client';
+
+import { DesignInfo } from '@/app/(external)/designs/design-data';
+import { Box, Link, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import NextLink from 'next/link';
+import { useState } from 'react';
 
-export default function DesignThumbnail(design: DesignInfo) {
-  const [hover, setHover] = useBoolean();
+export default function DesignThumbnail(design: Readonly<DesignInfo>) {
+  const [hover, setHover] = useState(false);
 
   return (
     <Link as={NextLink} href={`designs/${design.id}`} width={300} height={300}>
@@ -12,8 +15,8 @@ export default function DesignThumbnail(design: DesignInfo) {
         width={300}
         height={300}
         position="relative"
-        onMouseEnter={setHover.on}
-        onMouseLeave={setHover.off}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
       >
         <Text
           as="h2"
