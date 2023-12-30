@@ -43,13 +43,13 @@ export default function Page() {
               left: '0',
               maxWidth: '30vw',
             }}
+            priority
           />
           <Image
             src="/images/home/team.jpg"
             width={900}
             height={600}
             alt="Team"
-            priority={true}
             style={{
               position: 'absolute',
               left: '50%',
@@ -57,6 +57,8 @@ export default function Page() {
               transform: 'translateX(-50%) translateY(-60%)',
               maxWidth: '80vw',
             }}
+            quality={50}
+            priority
           />
           <Image
             src="/images/home/139.jpg"
@@ -69,6 +71,7 @@ export default function Page() {
               right: '0',
               maxWidth: '30vw',
             }}
+            priority
           />
         </Container>
       </Box>
