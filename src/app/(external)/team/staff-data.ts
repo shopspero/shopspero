@@ -19,29 +19,11 @@ const staffData: StaffInfo[] = [
     img: '/images/team/ryan.jpg',
   },
   {
-    name: 'Leenie Chen',
-    role: 'Design',
-    bio: "Haiii! I'm Leenie, and I recently graduated from Cal with a B.S. in Chemical Biology. My interests include coffee, Jesus, anything art/design-related, ping pong, and Taylor Swift (in no particular order). I joined Spero because I love fashion and getting to engage with the community on campus!",
-    img: '/images/team/leenie.jpg',
-  },
-  {
-    name: 'Nathaniel Irwan',
-    role: 'Marketing',
-    bio: 'Hi! My name is Nathaniel and I am a senior majoring in Business Administration. I am a huge motorsports fan and love to collect cool things like Hot Wheels and Pokémon Cards. I joined Spero to be more involved with the campus community and share the Gospel!',
-    img: '/images/team/nathaniel.jpg',
-  },
-  {
     name: 'Daniel Lee',
     role: 'Operations',
     bio: "Howdy Yall! I'm Daniel and I am a 4th year at UC Berkeley majoring in Cognitive Science! I love to play volleyball and Spikeball and love exploring new places in the Bay Area! I joined Spero because I think it is so cool that I can use clothes as a way to have genuine Gospel conversations and love other people!",
     img: '/images/team/daniel-lee.jpg',
   },
-  // {
-  //   name: 'Julianna Lee',
-  //   role: 'Operations and Marketing',
-  //   bio: "Heyoo I'm Julianna and I'm a third year studying Data Science at Cal. Excited to further the gospel and share the love of Christ through Spero!",
-  //   img: '/images/team/julianna.jpg',
-  // },
   {
     name: 'Jeffrey Liang',
     role: 'Web Development',
@@ -53,12 +35,6 @@ const staffData: StaffInfo[] = [
     role: 'Design and Photography',
     bio: "Hi, my name is Buiry and I'm a sophomore studying Molecular Environmental Biology at Berkeley. I love hot and sweet coffee in the mornings, reading a book in one sitting, and having late night talks with friends. I'm looking forward to being able to spread the gospel and engage in conversations about Jesus through Spero and the power of fashion!",
     img: '/images/team/buiry.jpg',
-  },
-  {
-    name: 'Jay Niere',
-    role: 'Web Development',
-    bio: 'Hey everyone! I am James and I so happen to be a third year EECS major at Berkeley. I enjoy spending time with friends and family, and working on things that involve both technical and creative skills at the same time.',
-    img: '/images/team/jay.jpg',
   },
   {
     name: 'Daniel Oh',
