@@ -19,6 +19,12 @@ const staffData: StaffInfo[] = [
     img: '/images/team/ryan.jpg',
   },
   {
+    name: 'Hogan Kim',
+    role: 'Operations',
+    bio: "I'm Hogan. I love Golf and I love Christ. Amen.",
+    img: '/images/team/hogan.jpg',
+  },
+  {
     name: 'Daniel Lee',
     role: 'Operations',
     bio: "Howdy Yall! I'm Daniel and I am a 4th year at UC Berkeley majoring in Cognitive Science! I love to play volleyball and Spikeball and love exploring new places in the Bay Area! I joined Spero because I think it is so cool that I can use clothes as a way to have genuine Gospel conversations and love other people!",
