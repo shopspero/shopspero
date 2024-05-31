@@ -12,6 +12,7 @@ import Redeemed from '@/app/(external)/designs/descriptions/redeemed.mdx';
 import Salvation from '@/app/(external)/designs/descriptions/salvation.mdx';
 import SperoBear from '@/app/(external)/designs/descriptions/spero-bear.mdx';
 import WalkOnWater from '@/app/(external)/designs/descriptions/walk-on-water.mdx';
+import Trust from '@/app/(external)/designs/descriptions/trust.mdx'
 import { ReactNode } from 'react';
 
 export interface DesignInfo {
@@ -22,6 +23,16 @@ export interface DesignInfo {
 }
 
 const designData: DesignInfo[] = [
+  {
+    id: 'trust',
+    name: 'Trust T-Shirt',
+    description: <Trust />,
+    imgs: [
+      '/images/designs/flowers-1.jpg',
+      '/images/designs/flowers-2.jpg',
+      '/images/designs/flowers-3.jpg',
+    ],
+  },
   {
     id: 'salvation',
     name: 'Salvation Crewneck',
