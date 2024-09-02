@@ -24,18 +24,18 @@ const staffData: StaffInfo[] = [
     bio: "Hey! I'm Ryan and I am a first year studying Computer Science and minoring in business. I love to play Basketball, Guitar, and watching movies. I joined Spero to use the skills that God has given me to serve Him. I also love Spero's designs and I think it is a great way to spread the Gospel so that more can know of Jesus!",
     img: '/images/team/ryan.jpg',
   },
-  {
-    name: 'Daniel Lee',
-    role: 'Operations',
-    bio: "Howdy Yall! I'm Daniel and I am a 4th year at UC Berkeley majoring in Cognitive Science! I love to play volleyball and Spikeball and love exploring new places in the Bay Area! I joined Spero because I think it is so cool that I can use clothes as a way to have genuine Gospel conversations and love other people!",
-    img: '/images/team/daniel-lee.jpg',
-  },
-  {
-    name: 'Jeffrey Liang',
-    role: 'Web Development',
-    bio: "Hey! I'm Jeffrey, fourth-year computer science student at UC Berkeley. In my free time, I enjoy listening to podcasts, reading, solving puzzles, and going on long walks or bike rides. I joined Spero to use my skills to share the gospel on our campus.",
-    img: '/images/team/jeffrey.jpg',
-  },
+  // {
+  //   name: 'Daniel Lee',
+  //   role: 'Operations',
+  //   bio: "Howdy Yall! I'm Daniel and I am a 4th year at UC Berkeley majoring in Cognitive Science! I love to play volleyball and Spikeball and love exploring new places in the Bay Area! I joined Spero because I think it is so cool that I can use clothes as a way to have genuine Gospel conversations and love other people!",
+  //   img: '/images/team/daniel-lee.jpg',
+  // },
+  // {
+  //   name: 'Jeffrey Liang',
+  //   role: 'Web Development',
+  //   bio: "Hey! I'm Jeffrey, fourth-year computer science student at UC Berkeley. In my free time, I enjoy listening to podcasts, reading, solving puzzles, and going on long walks or bike rides. I joined Spero to use my skills to share the gospel on our campus.",
+  //   img: '/images/team/jeffrey.jpg',
+  // },
   {
     name: 'Buiry Min',
     role: 'Design and Photography',
