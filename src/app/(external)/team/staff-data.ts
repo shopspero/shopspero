@@ -7,22 +7,22 @@ export interface StaffInfo {
 
 const staffData: StaffInfo[] = [
   {
-    name: 'Sam Littrell',
-    role: 'CEO',
-    bio: "I'm Sam. I'm a Christian, one who also happens to be a fourth-year EECS major at Berkeley, but aside from my endeavors in computer science, I enjoy reading (the Bible, theology, etc.), listening to podcasts, running, and just hanging out with friends! I joined Spero to help proclaim the Gospel on my campus and make clothes that I'd wear myself.",
-    img: '/images/team/sam.jpg',
+    name: 'Will Park',
+    role: 'Co-President',
+    bio: "Hello I'm Will and I am a first year at UC Berkeley as a pre law student. I love to play volleyball and sports in general. I love Spero and bought their clothing and Sam told me to join so I took the opportunity to do so. I love Jesus!",
+    img: '/images/team/will.jpg',
+  },
+  {
+    name: 'Hogan Kim',
+    role: 'Co-President',
+    bio: "Hi, my name is Hogan and I am a first year at Berkeley majoring in Economics and Data Science. I joined Spero with the goal to bring the Gospel to campus through Christian clothing! My hopes is that Christian clothing would remind people to be more Christ-like, along with starting conversations with many others. I have many hobbies in the fields of Sports( especially golf and basketball), business, and life in general!",
+    img: '/images/team/hogan.jpg',
   },
   {
     name: 'Ryan Amiri',
     role: 'Web Development',
     bio: "Hey! I'm Ryan and I am a first year studying Computer Science and minoring in business. I love to play Basketball, Guitar, and watching movies. I joined Spero to use the skills that God has given me to serve Him. I also love Spero's designs and I think it is a great way to spread the Gospel so that more can know of Jesus!",
     img: '/images/team/ryan.jpg',
-  },
-  {
-    name: 'Hogan Kim',
-    role: 'Operations',
-    bio: "Hi, my name is Hogan and I am a first year at Berkeley majoring in Economics and Data Science. I joined Spero with the goal to bring the Gospel to campus through Christian clothing! My hopes is that Christian clothing would remind people to be more Christ-like, along with starting conversations with many others. I have many hobbies in the fields of Sports( especially golf and basketball), business, and life in general!",
-    img: '/images/team/hogan.jpg',
   },
   {
     name: 'Daniel Lee',
@@ -42,18 +42,12 @@ const staffData: StaffInfo[] = [
     bio: "Hi, my name is Buiry and I'm a sophomore studying Molecular Environmental Biology at Berkeley. I love hot and sweet coffee in the mornings, reading a book in one sitting, and having late night talks with friends. I'm looking forward to being able to spread the gospel and engage in conversations about Jesus through Spero and the power of fashion!",
     img: '/images/team/buiry.jpg',
   },
-  {
-    name: 'Daniel Oh',
-    role: 'Operations and Web Development',
-    bio: 'Hi! My name is Daniel and I am a senior majoring in Data Science. I enjoy lifting and just chilling with others. I hope that through Spero, Christ will be magnified!',
-    img: '/images/team/daniel-oh.jpg',
-  },
-  {
-    name: 'Will Park',
-    role: 'Design and Marketing',
-    bio: "Hello I'm Will and I am a first year at UC Berkeley as a pre law student. I love to play volleyball and sports in general. I love Spero and bought their clothing and Sam told me to join so I took the opportunity to do so. I love Jesus!",
-    img: '/images/team/will.jpg',
-  },
+  // {
+  //   name: 'Daniel Oh',
+  //   role: 'Operations and Web Development',
+  //   bio: 'Hi! My name is Daniel and I am a senior majoring in Data Science. I enjoy lifting and just chilling with others. I hope that through Spero, Christ will be magnified!',
+  //   img: '/images/team/daniel-oh.jpg',
+  // },
   {
     name: 'Sarah Ung',
     role: 'Operations',
