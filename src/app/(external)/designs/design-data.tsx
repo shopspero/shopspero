@@ -13,6 +13,7 @@ import Salvation from '@/app/(external)/designs/descriptions/salvation.mdx';
 import SperoBear from '@/app/(external)/designs/descriptions/spero-bear.mdx';
 import WalkOnWater from '@/app/(external)/designs/descriptions/walk-on-water.mdx';
 import Trust from '@/app/(external)/designs/descriptions/trust.mdx'
+import Justified from '@/app/(external)/designs/descriptions/justified.mdx'
 import { ReactNode } from 'react';
 
 export interface DesignInfo {
@@ -23,6 +24,16 @@ export interface DesignInfo {
 }
 
 const designData: DesignInfo[] = [
+  {
+    id: 'justified',
+    name: 'Justified Hoodie',
+    description: <Justified />,
+    imgs: [
+      '/images/designs/justified-1.jpg',
+      '/images/designs/justified-2.jpg',
+      '/images/designs/justified-3.jpg',
+    ],
+  },
   {
     id: 'trust',
     name: 'Trust T-Shirt',
