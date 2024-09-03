@@ -15,8 +15,8 @@ const staffData: StaffInfo[] = [
   {
     name: 'Hogan Kim',
     role: 'Co-President',
-    bio: "Hi, my name is Hogan and I am a first year at Berkeley majoring in Economics and Data Science. I joined Spero with the goal to bring the Gospel to campus through Christian clothing! My hopes is that Christian clothing would remind people to be more Christ-like, along with starting conversations with many others. I have many hobbies in the fields of Sports( especially golf and basketball), business, and life in general!",
-    img: '/images/team/hogan.jpg',
+    bio: "Hi, my name is Hogie and I am a first year at Berkeley majoring in Economics and Data Science. I joined Spero with the goal to bring the Gospel to campus through Christian clothing! My hopes is that Christian clothing would remind people to be more Christ-like, along with starting conversations with many others. I have many hobbies in the fields of Sports (especially golf and basketball), business, and life in general!",
+    img: '/images/team/hogie.jpg',
   },
   {
     name: 'Ryan Amiri',
