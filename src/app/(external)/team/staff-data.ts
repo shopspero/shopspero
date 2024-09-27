@@ -7,16 +7,10 @@ export interface StaffInfo {
 
 const staffData: StaffInfo[] = [
   {
-    name: 'Will Park',
-    role: 'Co-President',
-    bio: "Hello I'm Will and I am a first year at UC Berkeley as a pre law student. I love to play volleyball and sports in general. I love Spero and bought their clothing and Sam told me to join so I took the opportunity to do so. I love Jesus!",
-    img: '/images/team/will.jpg',
-  },
-  {
     name: 'Hogan Kim',
-    role: 'Co-President',
+    role: 'President',
     bio: "Hi, my name is Hogan and I am a first year at Berkeley majoring in Economics and Data Science. I joined Spero with the goal to bring the Gospel to campus through Christian clothing! My hopes is that Christian clothing would remind people to be more Christ-like, along with starting conversations with many others. I have many hobbies in the fields of Sports (especially golf and basketball), business, and life in general!",
-    img: '/images/team/hogie.jpg',
+    img: '/images/team/hogan.jpg',
   },
   {
     name: 'Ryan Amiri',
