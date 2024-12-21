@@ -75,36 +75,6 @@ const designData: DesignInfo[] = [
     ],
   },
   {
-    id: 'walk-on-water',
-    name: 'Walk on Water Sticker',
-    description: <WalkOnWater />,
-    imgs: [
-      '/images/designs/walk-on-water-1.png',
-      '/images/designs/walk-on-water-2.jpg',
-      '/images/designs/walk-on-water-3.jpg',
-    ],
-  },
-  {
-    id: 'spero-bear',
-    name: 'Spero Bear Sticker',
-    description: <SperoBear />,
-    imgs: [
-      '/images/designs/spero-bear-1.png',
-      '/images/designs/spero-bear-2.jpg',
-      '/images/designs/spero-bear-3.jpg',
-    ],
-  },
-  {
-    id: 'mountain-mover',
-    name: 'Mountain Mover Sticker',
-    description: <MountainMover />,
-    imgs: [
-      '/images/designs/mountain-mover-1.png',
-      '/images/designs/mountain-mover-2.jpg',
-      '/images/designs/mountain-mover-3.jpg',
-    ],
-  },
-  {
     id: 'redeemed',
     name: 'Redeemed Hoodie',
     description: <Redeemed />,
@@ -174,6 +144,36 @@ const designData: DesignInfo[] = [
     name: 'Berkeley Hoodie',
     description: <Berkeley />,
     imgs: ['/images/designs/berkeley-1.jpg', '/images/designs/berkeley-2.jpg'],
+  },
+  {
+    id: 'walk-on-water',
+    name: 'Walk on Water Sticker',
+    description: <WalkOnWater />,
+    imgs: [
+      '/images/designs/walk-on-water-1.png',
+      '/images/designs/walk-on-water-2.jpg',
+      '/images/designs/walk-on-water-3.jpg',
+    ],
+  },
+  {
+    id: 'spero-bear',
+    name: 'Spero Bear Sticker',
+    description: <SperoBear />,
+    imgs: [
+      '/images/designs/spero-bear-1.png',
+      '/images/designs/spero-bear-2.jpg',
+      '/images/designs/spero-bear-3.jpg',
+    ],
+  },
+  {
+    id: 'mountain-mover',
+    name: 'Mountain Mover Sticker',
+    description: <MountainMover />,
+    imgs: [
+      '/images/designs/mountain-mover-1.png',
+      '/images/designs/mountain-mover-2.jpg',
+      '/images/designs/mountain-mover-3.jpg',
+    ],
   },
 ];
 
