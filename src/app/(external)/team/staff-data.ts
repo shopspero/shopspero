@@ -25,6 +25,12 @@ const staffData: StaffInfo[] = [
     img: '/images/team/buiry.jpg',
   },
   {
+    name: 'Alex Mohammad',
+    role: 'Operations',
+    bio: "Alex Mohammed, a second-year Business Major at Northeastern University, is passionate about spreading the love of God through clothing. With a focus on brand management and data science, Alex aims to create meaningful fashion that inspires faith and connection.",
+    img: '/images/team/alex.jpg',
+  },
+  {
     name: 'Sarah Ung',
     role: 'Operations',
     bio: "Hi! I'm Sarah and I'm a junior majoring in Data Science at Berkeley. My interests include baby kittens, going to cafes, exploring food places, and hanging out with friends! I'm excited to glorify God and proclaim Jesus on this campus through Spero.",
