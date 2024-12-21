@@ -15,7 +15,7 @@ const staffData: StaffInfo[] = [
   {
     name: 'Ryan Amiri',
     role: 'Web Development',
-    bio: "Hey! I'm Ryan and I am a first year studying Computer Science and minoring in business. I love to play Basketball, Guitar, and watching movies. I joined Spero to use the skills that God has given me to serve Him. I also love Spero's designs and I think it is a great way to spread the Gospel so that more can know of Jesus!",
+    bio: "Hey! I'm Ryan and I am a second year studying Computer Science. I love to play Basketball, Guitar, and watching movies. I joined Spero to use the skills that God has given me to serve Him. I also love Spero's designs and I think it is a great way to spread the Gospel so that more can know of Jesus!",
     img: '/images/team/ryan.jpg',
   },
   {
