@@ -59,8 +59,8 @@ const designData: DesignInfo[] = [
     name: 'Confidence T-Shirt',
     description: <Confidence />,
     imgs: [
-      '/images/designs/confidence-1.jpg',
       '/images/designs/confidence-2.jpg',
+      '/images/designs/confidence-1.jpg',
       '/images/designs/confidence-3.jpg',
     ],
   },
