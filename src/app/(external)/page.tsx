@@ -29,7 +29,7 @@ export default function Page() {
             zIndex="overlay"
             size={{ base: 'md', sm: 'xl' }}
           >
-            Spero is a team of Cal students with a heart to share the gospel
+            Spero is a team of college students with a heart to share the gospel
             with biblically empowered apparel.
           </Heading>
           <Image
@@ -81,10 +81,10 @@ export default function Page() {
           <Box width="50%">
             <Center>
               <Image
-                src="/images/home/salvation.jpg"
+                src="/images/designs/flowers-1.jpg"
                 width={350}
                 height={525}
-                alt="Salvation crewneck"
+                alt="Trust T-Shirt"
               />
             </Center>
           </Box>
