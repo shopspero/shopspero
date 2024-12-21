@@ -69,8 +69,8 @@ const designData: DesignInfo[] = [
     name: 'Fullness Hoodie',
     description: <Fullness />,
     imgs: [
-      '/images/designs/fullness-1.jpg',
       '/images/designs/fullness-2.jpg',
+      '/images/designs/fullness-1.jpg',
       '/images/designs/fullness-3.jpg',
     ],
   },
