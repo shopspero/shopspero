@@ -10,7 +10,7 @@ export default function ShopClosed() {
         </Heading>
       </Center>
       <Text mb={5}>
-        Our shop is currently closed, but follow us on{' '}
+        Our shop is currently closed, but it&apos;s opening soon! Follow us on{' '}
         <Link
           as={NextLink}
           href="https://www.instagram.com/shopspero/"
