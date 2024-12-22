@@ -28,7 +28,7 @@ export async function createCheckoutSession(
     if (includeShipping) {
       sessionParams.shipping_address_collection = { allowed_countries: ['US'] };
       sessionParams.shipping_options = [
-        { shipping_rate: 'shr_1NaU2fJqn5r7n3JRwn7bfhIc' },
+        { shipping_rate: process.env.SHIPPING_RATE },
       ];
     }
     session = await stripe.checkout.sessions.create(sessionParams);
