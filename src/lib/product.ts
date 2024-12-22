@@ -53,6 +53,7 @@ export async function reserveInventory(productId: string): Promise<{
       const productDoc = await t.get(productRef);
       const priceId = productDoc.get('price_id');
       const stock = productDoc.get('stock');
+      console.log(productDoc, stock)
       if (stock <= 0) {
         return null;
       }

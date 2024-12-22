@@ -122,14 +122,13 @@ export default function ShopJustified() {
             <WrapItem maxWidth={600}>
               <VStack align="left" gap={10}>
                 <Box textAlign="left">
-                  There is much abstract Christian jargon that is not clearly
-                  defined, one of them being &ldquo;salvation.&rdquo; We wanted
-                  to clearly and biblically define &ldquo;salvation&rdquo;
-                  because it is a fundamental component of the Gospel. Here, we
-                  define it with a phrase we collectively agreed upon (being
-                  delivered from God&apos;s wrath through Jesus and His life,
-                  sacrificial death, and resurrection) and back it up with
-                  Scripture.
+                Justification is something that God bestows as a gift which can never be earned or deserved. 
+                God sent forth his only begotten son to be the propitiation of his wrath Jesus has paid the 
+                ransom for us. Not only is the sinner&apos;s guilt transferred to Christ, but in God&apos;s sight, his 
+                merit is given to the sinner. After the transfer takes place, God looks at the sinner and 
+                declares him to be justified. Not because he has been cleared of his sin, but because he has been 
+                redeemed from his sin. When God spares me and gives me the gift of his kingdom and access into heaven, 
+                he does not compromise his own integrity to do it. His righteousness is preserved and maintained throughout.
                 </Box>
                 <Box>
                   <form onSubmit={handleSubmit}>
