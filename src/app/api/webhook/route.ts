@@ -33,7 +33,6 @@ async function sendConfirmationEmail(orderId: string) {
     return;
   }
   const order: Order = orderRes.order;
-  console.log(order);
   try {
     const emailHtml = `
       <div style="font-family: 'Arial', sans-serif; color: #333; background-color: #F9FAFB; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto;">
