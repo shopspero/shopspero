@@ -56,7 +56,7 @@ export default function ShopSalvation() {
 
     const { checkoutUrl, status } = await checkoutWithStripe(
       `salvation-${color}-${size}`,
-      pickupOrShip === 'ship'
+      pickupOrShip
     );
     if (status === 'out of stock') {
       setErrorMessage('Out of stock');

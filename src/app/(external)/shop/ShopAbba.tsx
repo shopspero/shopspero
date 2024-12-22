@@ -55,7 +55,7 @@ export default function ShopAbba() {
 
     const { checkoutUrl, status } = await checkoutWithStripe(
       `abba-${size}`,
-      pickupOrShip === 'ship'
+      pickupOrShip
     );
     if (status === 'out of stock') {
       setErrorMessage('Out of stock');
