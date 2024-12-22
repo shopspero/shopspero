@@ -80,6 +80,8 @@ async function sendConfirmationEmail(orderId: string) {
  * For successful payment, update the order.
  */
 async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
+  console.log("Here in backend!");
+  console.log(session);
   const { orderId, status } = await getOrderIdFromCheckoutId(session.id);
   if (status !== 'success' || !orderId) {
     return false;
