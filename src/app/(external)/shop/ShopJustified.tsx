@@ -20,7 +20,7 @@ import {
 import ImageCarousel from '@/components/ImageCarousel';
 import NextLink from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useEffect } from 'react';
 import { checkoutWithStripe } from '@/actions/checkout';
 
 const sizes = {
@@ -36,13 +36,20 @@ const images = [
 ];
 
 export default function ShopJustified() {
-  const success = useSearchParams().get('success');
+  // const success = useSearchParams().get('success');
   const router = useRouter();
 
   const [size, setSize] = useState('undefined');
   const [pickupOrShip, setPickupOrShip] = useState('undefined');
   const [errorMessage, setErrorMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+
+  const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setSuccess(params.get('success') === 'true');
+  }, []);
 
   async function handleSubmit(event: FormEvent) {
     // Prevent default or multiple submissions

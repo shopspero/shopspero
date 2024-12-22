@@ -1,4 +1,4 @@
-import ShopClosed from '@/app/(external)/shop/ShopClosed';
+// import ShopClosed from '@/app/(external)/shop/ShopClosed';
 import ShopJustified from '@/app/(external)/shop/ShopJustified';
 // import ShopSalvation from '@/app/(external)/shop/ShopSalvation';
 // import ShopAbba from '@/app/(external)/shop/ShopAbba';
