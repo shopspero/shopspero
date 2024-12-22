@@ -70,6 +70,16 @@ export async function addOrder(
   }
 }
 
+export async function deleteOrder(orderId: string) {
+  try {
+    await db.collection('orders').doc(orderId).delete();
+    return true;
+  } catch (e) {
+    console.error(`deleteOrder(${orderId}) failed: ${e}`);
+    return false;
+  }
+}
+
 export async function upsertOrder(order: Order) {
   try {
     const { id, ...rest } = order;

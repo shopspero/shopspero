@@ -1,6 +1,6 @@
 'use client';
 
-import { getOrders } from '@/actions/admin';
+import { getOrders, deleteOrder } from '@/actions/admin';
 import {
   Box,
   HStack,
@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 import { Order } from '@/lib/order';
 import { useEffect, useState } from 'react';
-import { InfoOutlineIcon } from '@chakra-ui/icons';
+import { InfoOutlineIcon, DeleteIcon } from '@chakra-ui/icons';
 import { FaSort, FaSortDown, FaSortUp } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 
@@ -26,7 +26,13 @@ type SortKey =
   | 'fulfillment_option'
   | 'fulfillment_status';
 
-function OrderRow(order: Order) {
+function OrderRow({
+  order,
+  onDelete,
+}: {
+  order: Order;
+  onDelete: () => Promise<Boolean>;
+}) {
   const router = useRouter();
   return (
     <Tr>
@@ -40,6 +46,12 @@ function OrderRow(order: Order) {
           aria-label="Inspect order"
           icon={<InfoOutlineIcon />}
           onClick={() => router.push(`/admin/orders/${order.id}`)}
+        />
+        <IconButton
+          aria-label="Delete order"
+          icon={<DeleteIcon />}
+          ml={3}
+          onClick={onDelete}
         />
       </Td>
     </Tr>
@@ -112,7 +124,18 @@ export default function OrdersTable() {
         </Thead>
         <Tbody>
           {orders.map((order) => (
-            <OrderRow key={order.id} {...order} />
+            <OrderRow key={order.id} onDelete={
+              async() => {
+                if (!order.id) {
+                  return false;
+                }
+                const success = await deleteOrder(order.id)
+                if (success) {
+                  getOrders().then(setOrders);
+                }
+                return success
+              }
+            } order={order} />
           ))}
         </Tbody>
       </Table>

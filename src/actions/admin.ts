@@ -7,6 +7,7 @@ import {
   getOrder as libGetOrder,
   getOrders as libGetOrders,
   upsertOrder as libUpsertOrder,
+  deleteOrder as libDeleteOrder
 } from '@/lib/order';
 import {
   Product,
@@ -63,6 +64,14 @@ export async function upsertOrder(order: Order) {
     return false;
   }
   return libUpsertOrder(order);
+}
+
+export async function deleteOrder(orderId: string) {
+  const session = await auth();
+  if (!session) {
+    return false;
+  }
+  return libDeleteOrder(orderId);
 }
 
 export async function manuallyLogOrder(
