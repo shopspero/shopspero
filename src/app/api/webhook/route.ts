@@ -2,6 +2,7 @@ import {
   Order,
   cancelOrder,
   getOrderIdFromCheckoutId,
+  getOrder,
   upsertOrder,
 } from '@/lib/order';
 import { constructEvent } from '@/lib/stripe';
@@ -26,7 +27,12 @@ const transporter = nodemailer.createTransport({
 /**
  * Sends a neat confirmation email with HTML content.
  */
-async function sendConfirmationEmail(order: Order) {
+async function sendConfirmationEmail(orderId: string) {
+  const orderRes = await getOrder(orderId);
+  if (orderRes.status === "error" || !orderRes.order) {
+    return;
+  }
+  const order: Order = orderRes.order;
   try {
     const emailHtml = `
       <div style="font-family: 'Arial', sans-serif; color: #333; background-color: #F9FAFB; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto;">
@@ -74,9 +80,6 @@ async function sendConfirmationEmail(order: Order) {
  * For successful payment, update the order.
  */
 async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
-  console.log(session)
-  console.log()
-  console.log(session.customer_details)
   const { orderId, status } = await getOrderIdFromCheckoutId(session.id);
   if (status !== 'success' || !orderId) {
     return false;
@@ -113,7 +116,7 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
     }
   }
 
-  await sendConfirmationEmail(order);
+  await sendConfirmationEmail(orderId);
 
   return await upsertOrder(order);
 }
