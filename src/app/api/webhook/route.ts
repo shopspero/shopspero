@@ -7,6 +7,7 @@ import {
 import { constructEvent } from '@/lib/stripe';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import nodemailer from 'nodemailer';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -14,10 +15,55 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'content-type, stripe-signature',
 };
 
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+console.log("Successfully connected to gmail.")
+
+/**
+ * Sends a neat confirmation email with HTML content.
+ */
+async function sendConfirmationEmail(order: Order) {
+  try {
+    console.log("Starting email send");
+    const emailHtml = `
+      <div style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+        <h1 style="color: #007BFF;">Thank you for your purchase, ${order.name}!</h1>
+        <p>We have received your payment and your order is being processed.</p>
+        <h2>Order Details</h2>
+        <ul>
+          <li><strong>Order ID:</strong> ${order.id}</li>
+          <li><strong>Payment Status:</strong> ${order.payment_status}</li>
+        </ul>
+        <p style="margin-top: 20px;">If you have any questions, feel free to contact us at <a href="mailto:${process.env.EMAIL_USER}">${process.env.EMAIL_USER}</a>.</p>
+        <p>In Christ,<br />Shop Spero</p>
+      </div>
+    `;
+
+    await transporter.sendMail({
+      from: `"Shop Spero" <${process.env.EMAIL_USER}>`,
+      to: order.email,
+      subject: 'Your Order Confirmation',
+      html: emailHtml,
+    });
+
+    console.log("Sent confirmation email.");
+
+  }
+  catch (err) {
+    console.error(`Couldn't send confirmation email to ${order.email}:`, err);
+  }
+}
+
 /**
  * For successful payment, update the order.
  */
 async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
+  console.log("Got a new successful payment.")
   const { orderId, status } = await getOrderIdFromCheckoutId(session.id);
   if (status !== 'success' || !orderId) {
     return false;
@@ -54,6 +100,8 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
       order.address.postal_code = session.shipping_details.address.postal_code;
     }
   }
+
+  await sendConfirmationEmail(order);
 
   return await upsertOrder(order);
 }

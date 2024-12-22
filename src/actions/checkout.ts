@@ -6,7 +6,7 @@ import { createCheckoutSession } from '@/lib/stripe';
 
 export async function checkoutWithStripe(
   productId: string,
-  includeShipping: boolean
+  delivery: string
 ): Promise<{
   checkoutUrl?: string;
   status: 'success' | 'out of stock' | 'error';
@@ -24,7 +24,7 @@ export async function checkoutWithStripe(
   // Get Stripe checkout session
   const { session, status: stripeStatus } = await createCheckoutSession(
     priceId,
-    includeShipping
+    delivery === "ship"
   );
   if (stripeStatus !== 'success' || !session) {
     return { status: 'error' };
@@ -35,7 +35,7 @@ export async function checkoutWithStripe(
     product_id: productId,
     created: session.created,
     payment_status: 'unpaid',
-    fulfillment_option: includeShipping ? 'delivery' : 'pickup',
+    fulfillment_option: delivery,
     fulfillment_status: 'unfulfilled',
     checkout_id: session.id,
   });

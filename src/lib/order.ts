@@ -5,7 +5,7 @@ export interface Order {
   created?: number;
   product_id?: string;
   payment_status?: 'unpaid' | 'paid';
-  fulfillment_option?: 'pickup' | 'delivery';
+  fulfillment_option?: string;
   fulfillment_status?: 'unfulfilled' | 'fulfilled' | 'canceled';
   checkout_id?: string;
   name?: string;
