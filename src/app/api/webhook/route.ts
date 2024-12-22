@@ -27,6 +27,7 @@ const transporter = nodemailer.createTransport({
  * Sends a neat confirmation email with HTML content.
  */
 async function sendConfirmationEmail(order: Order) {
+  console.log(order);
   try {
     const emailHtml = `
       <div style="font-family: 'Arial', sans-serif; color: #333; background-color: #F9FAFB; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto;">
@@ -34,7 +35,7 @@ async function sendConfirmationEmail(order: Order) {
           <img src="${process.env.NEXTAUTH_URL}/images/logo.png" alt="Spero Logo" style="max-width: 150px; margin-bottom: 10px;" />
           <h1 style="color: #222; font-size: 24px; font-weight: 600;">Thank you for your purchase, ${order.name}!</h1>
           <p style="font-size: 16px; color: #555;">
-            We have received your payment and your order is being processed. We are sincerely grateful for your support. Thank you for being a part of the Spero community!
+            We have received your payment and your order is being processed. We are grateful for your support and thank you for being a part of the Spero community!
           </p>
         </div>
         <div style="background-color: #FFF; padding: 20px; border: 1px solid #E5E7EB; border-radius: 8px;">
