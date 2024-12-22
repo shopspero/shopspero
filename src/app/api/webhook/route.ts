@@ -22,7 +22,6 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,
   },
 });
-console.log("Successfully connected to gmail.")
 
 /**
  * Sends a neat confirmation email with HTML content.
@@ -50,9 +49,6 @@ async function sendConfirmationEmail(order: Order) {
       subject: 'Your Order Confirmation',
       html: emailHtml,
     });
-
-    console.log("Sent confirmation email.");
-
   }
   catch (err) {
     console.error(`Couldn't send confirmation email to ${order.email}:`, err);
@@ -63,7 +59,6 @@ async function sendConfirmationEmail(order: Order) {
  * For successful payment, update the order.
  */
 async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
-  console.log("Got a new successful payment.")
   console.log(session);
   console.log(session.customer_details);
   const { orderId, status } = await getOrderIdFromCheckoutId(session.id);

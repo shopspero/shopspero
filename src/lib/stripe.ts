@@ -18,6 +18,9 @@ export async function createCheckoutSession(
     let sessionParams: Stripe.Checkout.SessionCreateParams = {
       line_items: [{ price: priceId, quantity: 1 }],
       mode: 'payment',
+      phone_number_collection: {
+        enabled: true,
+      },
       success_url: `${process.env.NEXTAUTH_URL!}/shop?success=true`,
       cancel_url: `${process.env.NEXTAUTH_URL!}/shop`,
       expires_at: Math.floor(Date.now() / 1000) + 1860,
