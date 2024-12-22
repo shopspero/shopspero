@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react';
 import ImageCarousel from '@/components/ImageCarousel';
 import NextLink from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { FormEvent, useState, useEffect } from 'react';
 import { checkoutWithStripe } from '@/actions/checkout';
 
