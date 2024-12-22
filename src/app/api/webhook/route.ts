@@ -28,18 +28,34 @@ const transporter = nodemailer.createTransport({
  */
 async function sendConfirmationEmail(order: Order) {
   try {
-    console.log("Starting email send");
     const emailHtml = `
-      <div style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-        <h1 style="color: #007BFF;">Thank you for your purchase, ${order.name}!</h1>
-        <p>We have received your payment and your order is being processed.</p>
-        <h2>Order Details</h2>
-        <ul>
-          <li><strong>Order ID:</strong> ${order.id}</li>
-          <li><strong>Payment Status:</strong> ${order.payment_status}</li>
-        </ul>
-        <p style="margin-top: 20px;">If you have any questions, feel free to contact us at <a href="mailto:${process.env.EMAIL_USER}">${process.env.EMAIL_USER}</a>.</p>
-        <p>In Christ,<br />Shop Spero</p>
+      <div style="font-family: 'Arial', sans-serif; color: #333; background-color: #F9FAFB; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto;">
+        <div style="text-align: center; margin-bottom: 30px;">
+          <img src="${process.env.NEXTAUTH_URL}/images/logo.png" alt="Spero Logo" style="max-width: 150px; margin-bottom: 10px;" />
+          <h1 style="color: #222; font-size: 24px; font-weight: 600;">Thank you for your purchase, ${order.name}!</h1>
+          <p style="font-size: 16px; color: #555;">
+            We have received your payment and your order is being processed. We are sincerely grateful for your support. Thank you for being a part of the Spero community!
+          </p>
+        </div>
+        <div style="background-color: #FFF; padding: 20px; border: 1px solid #E5E7EB; border-radius: 8px;">
+          <h2 style="color: #222; font-size: 20px; margin-bottom: 10px;">Order Details</h2>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 16px; color: #555;">
+            <li style="margin-bottom: 8px;"><strong>Order ID:</strong> ${order.id}</li>
+            <li style="margin-bottom: 8px;"><strong>Product ID:</strong> ${order.product_id}</li>
+            <li style="margin-bottom: 8px;"><strong>Payment Status:</strong> ${order.payment_status}</li>
+            <li style="margin-bottom: 8px;"><strong>Fulfillment Option:</strong> ${order.fulfillment_option || 'Not specified'}</li>
+            ${order.email ? `<li style="margin-bottom: 8px;"><strong>Email:</strong> ${order.email}</li>` : ''}
+            ${order.phone ? `<li style="margin-bottom: 8px;"><strong>Phone:</strong> ${order.phone}</li>` : ''}
+          </ul>
+        </div>
+        <p style="font-size: 16px; color: #555; margin-top: 20px;">
+          We will be in contact with additional information or follow-ups regarding your order. If you have any questions, feel free to contact us at 
+          <a href="mailto:${process.env.EMAIL_USER}" style="color: #007BFF; text-decoration: none;">${process.env.EMAIL_USER}</a>.
+        </p>
+        <p style="font-size: 16px; color: #555; text-align: center; margin-top: 30px;">
+          In Christ,<br />
+          <strong>Spero</strong>
+        </p>
       </div>
     `;
 
@@ -49,8 +65,7 @@ async function sendConfirmationEmail(order: Order) {
       subject: 'Your Order Confirmation',
       html: emailHtml,
     });
-  }
-  catch (err) {
+  } catch (err) {
     console.error(`Couldn't send confirmation email to ${order.email}:`, err);
   }
 }
