@@ -28,7 +28,7 @@ export async function createCheckoutSession(
       expires_at: Math.floor(Date.now() / 1000) + 1860,
     };
     if (includeShipping) {
-      sessionParams.shipping_address_collection = { allowed_countries: ['US', 'KR'] };
+      sessionParams.shipping_address_collection = { allowed_countries: ['US'] };
       sessionParams.shipping_options = [
         { shipping_rate: process.env.SHIPPING_RATE },
       ];
