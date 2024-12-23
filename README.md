@@ -1,6 +1,6 @@
 # shopspero
 
-This is the website for Spero, a team of Cal students with a heart to share the gospel with biblically empowered apparel.
+This is the website for Spero, a team of college students with a heart to share the gospel with biblically empowered apparel.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

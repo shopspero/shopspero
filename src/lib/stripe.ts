@@ -22,7 +22,6 @@ export async function createCheckoutSession(
       phone_number_collection: {
         enabled: true,
       },
-      currency: 'usd',
       success_url: `${process.env.NEXTAUTH_URL!}/shop?success=true`,
       cancel_url: `${process.env.NEXTAUTH_URL!}/shop`,
       expires_at: Math.floor(Date.now() / 1000) + 1860,
