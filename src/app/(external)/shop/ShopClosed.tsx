@@ -10,7 +10,7 @@ export default function ShopClosed() {
         </Heading>
       </Center>
       <Text mb={5}>
-        Our shop is currently closed, but it&apos;s opening soon! Follow us on{' '}
+        Our shop is currently closed, but it will be opening in Spring 2025! Follow us on{' '}
         <Link
           as={NextLink}
           href="https://www.instagram.com/shopspero/"
@@ -28,7 +28,7 @@ export default function ShopClosed() {
         >
           Facebook
         </Link>{' '}
-        for updates on our next drop!
+        for updates on our next drop coming soon!
       </Text>
     </Container>
   );

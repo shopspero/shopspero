@@ -24,7 +24,6 @@ export interface Order {
 }
 
 export async function getOrders(): Promise<Order[]> {
-  logger.error("Test error on getting orders", {message: {message: "Error", child: {hogan: "kim"}}});
   try {
     return (
       await db
