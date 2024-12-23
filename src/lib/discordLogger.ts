@@ -33,6 +33,25 @@ function stringifyArg(arg: unknown): string {
 }
 
 /**
+ * Returns the current time in EST/EDT formatted as [MM/DD/YYYY h:mm AM/PM EST].
+ */
+function getESTTimestamp(): string {
+    const date = new Date();
+    const dateStr = date.toLocaleString('en-US', {
+      timeZone: 'America/New_York',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+    });
+  
+    return `${dateStr.replace(',', '')} EST`;
+  }
+  
+
+/**
  * Sends a log message to the Discord logs webhook, if allowed.
  */
 async function sendLogToDiscord(level: string, args: unknown[]) {
@@ -41,7 +60,7 @@ async function sendLogToDiscord(level: string, args: unknown[]) {
       return;
     }
   
-    const timestamp = new Date().toISOString();
+    const timestamp = getESTTimestamp();
     const combinedMessage = args.map(stringifyArg).join(' ');
   
     // Discord logs webhook
@@ -192,7 +211,6 @@ export async function sendPurchaseEmbed(order: Order) {
           `Failed to send purchase embed to Discord. Status code: ${res.status} - ${res.statusText}`
         );
       }
-      logger.log("Sent Embed");
     } catch (err) {
       console.error('Failed to send purchase embed (exception thrown):', err);
     }

@@ -67,7 +67,6 @@ async function sendConfirmationEmail(order: Order) {
       subject: 'Your Order Confirmation',
       html: emailHtml,
     });
-    logger.log("Sent Email");
   } catch (err) {
     logger.error(`Couldn't send confirmation email to ${order.email}:`, err);
   }
