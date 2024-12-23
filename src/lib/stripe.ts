@@ -1,4 +1,5 @@
 import Stripe from 'stripe';
+import { logger } from './discordLogger';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2023-10-16',
@@ -33,7 +34,7 @@ export async function createCheckoutSession(
     }
     session = await stripe.checkout.sessions.create(sessionParams);
   } catch (e) {
-    console.error(
+    logger.error(
       `createCheckoutSession(${priceId}, ${includeShipping}) failed: ${e}`
     );
     return { status: 'error' };
@@ -56,7 +57,7 @@ export async function constructEvent(
     );
     return { event, status: 'success' };
   } catch (e) {
-    console.error(`constructEvent(${request}) failed: ${e}`);
+    logger.error(`constructEvent(${request}) failed: ${e}`);
     return { status: 'error' };
   }
 }

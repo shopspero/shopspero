@@ -3,7 +3,7 @@ import { Providers } from '@/app/providers';
 export const metadata = {
   title: 'Spero',
   description:
-    'A UC Berkeley student-run philanthropic fashion company aimed to share the gospel.',
+    'A college student-run philanthropic fashion company aimed to share the gospel.',
 };
 
 export default function RootLayout({

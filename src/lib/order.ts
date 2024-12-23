@@ -1,4 +1,5 @@
 import { db } from '@/lib/firebase';
+import { logger } from './discordLogger';
 
 export interface Order {
   id?: string;
@@ -33,7 +34,7 @@ export async function getOrders(): Promise<Order[]> {
       return { id: doc.id, ...doc.data() } as Order;
     });
   } catch (e) {
-    console.error(`getOrders() failed: ${e}`);
+    logger.error(`getOrders() failed: ${e}`);
     return [];
   }
 }
@@ -52,7 +53,7 @@ export async function getOrder(orderId: string): Promise<{
     }
     return { order: undefined, status: 'success' };
   } catch (e) {
-    console.error(`getOrder(${orderId}) failed: ${e}`);
+    logger.error(`getOrder(${orderId}) failed: ${e}`);
     return { status: 'error' };
   }
 }
@@ -65,7 +66,7 @@ export async function addOrder(
     const doc = await db.collection('orders').add(rest);
     return { orderId: doc.id, status: 'success' };
   } catch (e) {
-    console.error(`addOrder(${order}) failed: ${e}`);
+    logger.error(`addOrder(${order}) failed: ${e}`);
     return { status: 'error' };
   }
 }
@@ -75,7 +76,7 @@ export async function deleteOrder(orderId: string) {
     await db.collection('orders').doc(orderId).delete();
     return true;
   } catch (e) {
-    console.error(`deleteOrder(${orderId}) failed: ${e}`);
+    logger.error(`deleteOrder(${orderId}) failed: ${e}`);
     return false;
   }
 }
@@ -86,7 +87,7 @@ export async function upsertOrder(order: Order) {
     await db.collection('orders').doc(id!).set(rest, { merge: true });
     return true;
   } catch (e) {
-    console.error(`upsertOrder(${order}) failed: ${e}`);
+    logger.error(`upsertOrder(${order}) failed: ${e}`);
     return false;
   }
 }
@@ -115,7 +116,7 @@ export async function cancelOrder(orderId: string) {
     });
     return true;
   } catch (e) {
-    console.error(`cancelOrder(${orderId}) failed: ${e}`);
+    logger.error(`cancelOrder(${orderId}) failed: ${e}`);
     return false;
   }
 }
@@ -133,7 +134,7 @@ export async function getOrderIdFromCheckoutId(
     }
     return { orderId: snapshot.docs[0].id, status: 'success' };
   } catch (e) {
-    console.error(`getOrderIdFromCheckoutId(${checkoutId}) failed: ${e}`);
+    logger.error(`getOrderIdFromCheckoutId(${checkoutId}) failed: ${e}`);
     return { status: 'error' };
   }
 }

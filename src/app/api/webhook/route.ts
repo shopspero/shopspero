@@ -5,6 +5,7 @@ import {
   getOrder,
   upsertOrder,
 } from '@/lib/order';
+import { logger, sendPurchaseEmbed } from '@/lib/discordLogger';
 import { constructEvent } from '@/lib/stripe';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
@@ -27,12 +28,7 @@ const transporter = nodemailer.createTransport({
 /**
  * Sends a neat confirmation email with HTML content.
  */
-async function sendConfirmationEmail(orderId: string) {
-  const orderRes = await getOrder(orderId);
-  if (orderRes.status === "error" || !orderRes.order) {
-    return;
-  }
-  const order: Order = orderRes.order;
+async function sendConfirmationEmail(order: Order) {
   try {
     const emailHtml = `
       <div style="font-family: 'Arial', sans-serif; color: #333; background-color: #F9FAFB; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto;">
@@ -71,8 +67,9 @@ async function sendConfirmationEmail(orderId: string) {
       subject: 'Your Order Confirmation',
       html: emailHtml,
     });
+    logger.log("Sent Email");
   } catch (err) {
-    console.error(`Couldn't send confirmation email to ${order.email}:`, err);
+    logger.error(`Couldn't send confirmation email to ${order.email}:`, err);
   }
 }
 
@@ -118,7 +115,13 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
 
   const res = await upsertOrder(order);
 
-  await sendConfirmationEmail(orderId);
+  const orderRes = await getOrder(orderId);
+  if (orderRes.status === "error" || !orderRes.order) {
+    return res;
+  }
+  order = orderRes.order;
+  await sendConfirmationEmail(order);
+  await sendPurchaseEmbed(order);
 
   return res;
 }
@@ -159,12 +162,12 @@ export async function POST(request: NextRequest) {
       break;
     default:
       success = false;
-      console.error(`Unhandled event type ${event.type} in /api/webhook`);
+      logger.error(`Unhandled event type ${event.type} in /api/webhook`);
       break;
   }
 
   if (!success) {
-    console.error(
+    logger.error(
       `Failed to handle checkout session in /api/webhook: ${
         event.data.object as Stripe.Checkout.Session
       }`

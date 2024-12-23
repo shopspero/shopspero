@@ -1,4 +1,5 @@
 import { db } from '@/lib/firebase';
+import { logger } from './discordLogger';
 
 export interface Product {
   id: string;
@@ -16,7 +17,7 @@ export async function getProducts(): Promise<Product[]> {
       };
     });
   } catch (e) {
-    console.error(`getProducts() failed: ${e}`);
+    logger.error(`getProducts() failed: ${e}`);
     return [];
   }
 }
@@ -27,7 +28,7 @@ export async function upsertProduct(product: Product) {
     await db.collection('products').doc(product.id).set(rest, { merge: true });
     return true;
   } catch (e) {
-    console.error(`upsertProduct(${product}) failed: ${e}`);
+    logger.error(`upsertProduct(${product}) failed: ${e}`);
     return false;
   }
 }
@@ -37,7 +38,7 @@ export async function deleteProduct(productId: string) {
     await db.collection('products').doc(productId).delete();
     return true;
   } catch (e) {
-    console.error(`deleteProduct(${productId}) failed: ${e}`);
+    logger.error(`deleteProduct(${productId}) failed: ${e}`);
     return false;
   }
 }
@@ -53,7 +54,7 @@ export async function reserveInventory(productId: string): Promise<{
       const productDoc = await t.get(productRef);
       const priceId = productDoc.get('price_id');
       const stock = productDoc.get('stock');
-      // console.log(productDoc, stock)
+      // logger.log(productDoc, stock)
       if (stock <= 0) {
         return null;
       }
@@ -61,7 +62,7 @@ export async function reserveInventory(productId: string): Promise<{
       return priceId;
     });
   } catch (e) {
-    console.error(`reserveInventory(${productId}) failed: ${e}`);
+    logger.error(`reserveInventory(${productId}) failed: ${e}`);
     return { status: 'error' };
   }
   if (!priceId) {
