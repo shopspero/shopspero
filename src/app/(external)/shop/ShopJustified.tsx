@@ -122,27 +122,19 @@ export default function ShopJustified() {
             <WrapItem maxWidth={600}>
               <VStack align="left" gap={10}>
                 <Box textAlign="left">
-                Justification is something that God bestows as a gift which can never be earned or deserved. 
-                God sent forth his only begotten son to be the propitiation of his wrath Jesus has paid the 
-                ransom for us. Not only is the sinner&apos;s guilt transferred to Christ, but in God&apos;s sight, his 
-                merit is given to the sinner. After the transfer takes place, God looks at the sinner and 
-                declares him to be justified. Not because he has been cleared of his sin, but because he has been 
-                redeemed from his sin. When God spares me and gives me the gift of his kingdom and access into heaven, 
-                he does not compromise his own integrity to do it. His righteousness is preserved and maintained throughout.
+                The Justified Hoodie was inspired by Romans 3:24-26 which says 
+                &ldquo;justified by his grace as a gift, through the redemption that 
+                is in Christ Jesus, whom God put forward as a propitiation by his blood, 
+                to be received by faith. This was to show God&apos;s righteousness, because 
+                in his divine forbearance he had passed over former sins. It was to show 
+                his righteousness at the present time, so that he might be just and the 
+                justifier of the one who has faith in Jesus.&rdquo; The hoodie reminds us of 
+                God&apos;s grace and how we have been justified at the cost of the precious 
+                blood of Jesus Christ.
                 </Box>
                 <Box>
                   <form onSubmit={handleSubmit}>
                     <VStack gap={3}>
-                      {/* <FormControl as="fieldset" isRequired={true}>
-                        <FormLabel as="legend">Color</FormLabel>
-                        <Select
-                          onChange={(e) => setColor(e.target.value)}
-                          placeholder="Select color"
-                        >
-                          <option value="oatmeal">Oatmeal Heather</option>
-                          <option value="navy">Navy</option>
-                        </Select>
-                      </FormControl> */}
                       <FormControl as="fieldset" isRequired={true}>
                         <FormLabel as="legend">Size</FormLabel>
                         <Select
