@@ -1,96 +1,112 @@
 'use client';
 
-import Image from 'next/image';
+import { Box, Flex, HStack, Link, Text, useColorModeValue } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
 import NextLink from 'next/link';
-import {
-  Box,
-  Flex,
-  HStack,
-  Link,
-  IconButton,
-  useDisclosure,
-  VStack,
-  Collapse,
-  Text,
-} from '@chakra-ui/react';
-import { HamburgerIcon, SmallCloseIcon } from '@chakra-ui/icons';
+import { usePathname } from 'next/navigation'; // Import usePathname
 
-interface LinkInfo {
+// Define the type for a single link
+interface NavLink {
   title: string;
   href: string;
 }
 
-const NavLink = (link: LinkInfo) => (
-  <Link
-    as={NextLink}
-    href={link.href}
-    px={3}
-    py={2}
-    rounded="md"
-    _hover={{
-      textDecoration: 'none',
-      bg: 'gray.100',
-      transitionDuration: '0.2s',
-    }}
-  >
-    <Text>{link.title}</Text>
-  </Link>
-);
+// Define the props for NavBar
+interface NavBarProps {
+  links: NavLink[];
+}
 
-export default function NavBar({ links }: Readonly<{ links: LinkInfo[] }>) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+export default function NavBar() {
+  const [isAtTop, setIsAtTop] = useState(true); // Track if the user is at the top
+  const pathname = usePathname(); // Get the current route
+
+  // Detect if the user is at the top of the page
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsAtTop(window.scrollY === 0); // True if at the top
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Only make the text white when at the top of the home page
+  const isHomePage = pathname === '/'; // Check if we're on the home page
+  const bg = useColorModeValue(isAtTop && isHomePage ? 'transparent' : 'white', 'gray.900'); // Transparent at the top of the home page
+  const color = isAtTop && isHomePage ? 'white' : 'black'; // White text at the top of the home page, black elsewhere
+  const boxShadow = isAtTop && isHomePage ? 'none' : 'sm'; // Shadow when scrolling or not on home page
+
+  const linkStyle = {
+    px: 3,
+    py: 2,
+    fontSize: 'sm',
+    fontWeight: 'medium',
+    _hover: { textDecoration: 'none', color: isAtTop && isHomePage ? 'gray.300' : 'gray.500' },
+  };
 
   return (
-    <Box px={12} py={10}>
-      <Flex align="center" justify="space-between">
-        {/* Logo */}
-        <Link
-          as={NextLink}
-          href={links[0].href}
-          _hover={{ textDecoration: 'none' }}
+    <>
+      {/* Navbar */}
+      <Box
+        position="fixed"
+        top={0}
+        width="100%"
+        zIndex="1000"
+        bg={bg}
+        color={color}
+        boxShadow={boxShadow}
+        transition="background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease"
+        py={3}
+      >
+        <Flex
+          maxWidth="1300px"
+          mx="auto"
+          align="center"
+          justify="space-between"
+          px={8}
         >
-          <HStack spacing={3}>
-            <Image src="/images/logo.png" width={25} height={25} alt="logo" />
-            <Text fontWeight={500}>{links[0].title}</Text>
+          {/* Left Links */}
+          <HStack flex="1" spacing={6}>
+            <Link as={NextLink} href="/about-us" {...linkStyle}>
+              About
+            </Link>
+            <Link as={NextLink} href="/team" {...linkStyle}>
+              Team
+            </Link>
+            <Link as={NextLink} href="/statement-of-faith" {...linkStyle}>
+              Statement of Faith
+            </Link>
           </HStack>
-        </Link>
 
-        {/* Nav items on desktop */}
-        <HStack
-          spacing={8}
-          alignItems="center"
-          display={{ base: 'none', md: 'flex' }}
-        >
-          <HStack as="nav" spacing={7}>
-            {links.slice(1).map((link) => (
-              <NavLink key={link.title} title={link.title} href={link.href} />
-            ))}
+          {/* Center Logo (Clickable) */}
+          <Link as={NextLink} href="/" _hover={{ textDecoration: 'none' }}>
+            <Text
+              fontSize="lg"
+              fontWeight="bold"
+              textAlign="center"
+              letterSpacing="wide"
+            >
+              SPERO
+            </Text>
+          </Link>
+
+          {/* Right Links */}
+          <HStack flex="1" spacing={6} justify="flex-end">
+            <Link as={NextLink} href="/shop" {...linkStyle}>
+              Shop
+            </Link>
+            <Link as={NextLink} href="/designs" {...linkStyle}>
+              Design
+            </Link>
+            <Link as={NextLink} href="/FAQ" {...linkStyle}>
+              FAQ
+            </Link>
           </HStack>
-        </HStack>
+        </Flex>
+      </Box>
 
-        {/* Hamburger icon on mobile */}
-        <IconButton
-          size="md"
-          icon={isOpen ? <SmallCloseIcon /> : <HamburgerIcon />}
-          aria-label="Open Menu"
-          display={{ md: 'none' }}
-          onClick={isOpen ? onClose : onOpen}
-          bg="none"
-          p={2}
-          _hover={{ bg: 'gray.100', transitionDuration: '0.2s' }}
-        />
-      </Flex>
-
-      {/* Nav items on mobile */}
-      <Collapse in={isOpen}>
-        <Box mt={3} display={{ md: 'none' }}>
-          <VStack as="nav" align="flex-end">
-            {links.slice(1).map((link) => (
-              <NavLink key={link.title} {...link} />
-            ))}
-          </VStack>
-        </Box>
-      </Collapse>
-    </Box>
+      {/* Conditional Spacer Box for Non-Home Pages */}
+      {!isHomePage && <Box height="60px" />}
+    </>
   );
 }
