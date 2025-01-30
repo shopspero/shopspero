@@ -7,7 +7,7 @@ export interface StaffInfo {
 
 const staffData: StaffInfo[] = [
   {
-    name: 'Hogan Kim',
+    name: 'Hogan Kimmy',
     role: 'President',
     bio: "Hi, my name is Hogan and I am a second year at Berkeley majoring in Economics and Data Science. I joined Spero with the goal to bring the Gospel to campus through Christian clothing! My hopes is that Christian clothing would remind people to be more Christ-like, along with starting conversations with many others.",
     img: '/images/team/hogan.jpg',
