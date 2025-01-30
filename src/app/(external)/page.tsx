@@ -22,7 +22,7 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      {/* Hero Section */}
+      {/* Newest Drop Section */}
       <Box
         position="relative"
         height="100vh"
@@ -63,7 +63,7 @@ export default function Page() {
         </Flex>
       </Box>
 
-      {/* Categories Section */}
+      {/* Campus Section */}
       <Container maxWidth="1300px" py={10}>
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
           <VStack spacing={4}>

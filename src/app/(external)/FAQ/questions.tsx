@@ -25,12 +25,8 @@ import {
       answer: '30% of all profits are donated to various social-good organizations such as Compassion International and Laundry Love.',
     },
     {
-      question: 'Where are your products made?',
-      answer: 'Our products are designed with intentionality and manufactured with high ethical standards.',
-    },
-    {
       question: 'Can I return or exchange an item?',
-      answer: 'Yes, items can be returned or exchanged within 30 days of purchase if they are unused and in their original condition.',
+      answer: 'No, all purchases are final unless there are extenuating circumstances or there is a fault in the clothes.',
     },
   ];
   
