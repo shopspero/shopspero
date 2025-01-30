@@ -7,10 +7,12 @@ export const metadata = {
 };
 
 const navLinks = [
-  { title: 'SPERO', href: '/' },
+  { title: 'ABOUT', href: '/about-us' },
   { title: 'TEAM', href: '/team' },
-  { title: 'DESIGNS', href: '/designs' },
+  { title: 'STATEMENT OF FAITH', href: '/statement-of-faith' },
   { title: 'SHOP', href: '/shop' },
+  { title: 'DESIGNS', href: '/designs' },
+  { title: 'FAQ', href: '/FAQ' },
 ];
 
 export default function Page() {
