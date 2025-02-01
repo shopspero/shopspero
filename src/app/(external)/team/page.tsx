@@ -52,7 +52,7 @@ export default function Page() {
                 objectFit="cover"
                 width="100%"
                 maxWidth="250px" // Ensures consistent size
-                height="auto"
+                height="250px"
               />
               {/* Name and Role */}
               <Heading as="h3" size="md" fontWeight="semibold">
