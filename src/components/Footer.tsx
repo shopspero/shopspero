@@ -15,7 +15,7 @@ import {
   VStack,
   HStack,
 } from '@chakra-ui/react';
-import { FaFacebook, FaInstagram, FaMedium, FaDiscord } from 'react-icons/fa'; // ✅ Import Discord icon
+import { FaFacebook, FaInstagram, FaMedium, FaDiscord } from 'react-icons/fa';
 import { IconType } from 'react-icons/lib';
 import NextLink from 'next/link';
 
