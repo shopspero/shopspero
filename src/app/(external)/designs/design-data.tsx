@@ -105,46 +105,46 @@ const designData: DesignInfo[] = [
       '/images/designs/hope-3.jpg',
     ],
   },
-  {
-    id: 'i-am-that-girl',
-    name: 'I Am That Girl Hat',
-    description: <IAmThatGirl />,
-    imgs: [
-      '/images/designs/i-am-that-girl-1.jpg',
-      '/images/designs/i-am-that-girl-2.jpg',
-    ],
-  },
-  {
-    id: 'macron',
-    name: 'Macron Hoodie',
-    description: <Macron />,
-    imgs: [
-      '/images/designs/macron-1.jpg',
-      '/images/designs/macron-2.jpg',
-      '/images/designs/macron-3.jpg',
-    ],
-  },
-  {
-    id: 'blessed-to-bless',
-    name: 'Blessed to Bless Shirt',
-    description: <BlessedToBless />,
-    imgs: [
-      '/images/designs/blessed-to-bless-1.jpg',
-      '/images/designs/blessed-to-bless-2.jpg',
-    ],
-  },
-  {
-    id: 'bay-area',
-    name: 'Bay Area Longsleeve',
-    description: <BayArea />,
-    imgs: ['/images/designs/bay-area-1.jpg', '/images/designs/bay-area-2.jpg'],
-  },
-  {
-    id: 'berkeley',
-    name: 'Berkeley Hoodie',
-    description: <Berkeley />,
-    imgs: ['/images/designs/berkeley-1.jpg', '/images/designs/berkeley-2.jpg'],
-  },
+  // {
+  //   id: 'i-am-that-girl',
+  //   name: 'I Am That Girl Hat',
+  //   description: <IAmThatGirl />,
+  //   imgs: [
+  //     '/images/designs/i-am-that-girl-1.jpg',
+  //     '/images/designs/i-am-that-girl-2.jpg',
+  //   ],
+  // },
+  // {
+  //   id: 'macron',
+  //   name: 'Macron Hoodie',
+  //   description: <Macron />,
+  //   imgs: [
+  //     '/images/designs/macron-1.jpg',
+  //     '/images/designs/macron-2.jpg',
+  //     '/images/designs/macron-3.jpg',
+  //   ],
+  // },
+  // {
+  //   id: 'blessed-to-bless',
+  //   name: 'Blessed to Bless Shirt',
+  //   description: <BlessedToBless />,
+  //   imgs: [
+  //     '/images/designs/blessed-to-bless-1.jpg',
+  //     '/images/designs/blessed-to-bless-2.jpg',
+  //   ],
+  // },
+  // {
+  //   id: 'bay-area',
+  //   name: 'Bay Area Longsleeve',
+  //   description: <BayArea />,
+  //   imgs: ['/images/designs/bay-area-1.jpg', '/images/designs/bay-area-2.jpg'],
+  // },
+  // {
+  //   id: 'berkeley',
+  //   name: 'Berkeley Hoodie',
+  //   description: <Berkeley />,
+  //   imgs: ['/images/designs/berkeley-1.jpg', '/images/designs/berkeley-2.jpg'],
+  // },
   {
     id: 'walk-on-water',
     name: 'Walk on Water Sticker',

@@ -15,7 +15,7 @@ import {
   VStack,
   HStack,
 } from '@chakra-ui/react';
-import { FaFacebook, FaInstagram, FaMedium } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaMedium, FaDiscord } from 'react-icons/fa';
 import { IconType } from 'react-icons/lib';
 import NextLink from 'next/link';
 
@@ -40,6 +40,11 @@ const socials: SocialInfo[] = [
     label: 'Medium',
     icon: FaMedium,
     href: 'https://shopspero.medium.com/',
+  },
+  {
+    label: 'Discord',
+    icon: FaDiscord,
+    href: 'https://discord.gg/XPGyEFzpzH'
   },
 ];
 
