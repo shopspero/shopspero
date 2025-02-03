@@ -30,9 +30,11 @@ const sizes = {
 };
 
 const images = [
-  '/images/designs/justified-1.jpg',
-  '/images/designs/justified-2.jpg',
-  '/images/designs/justified-3.jpg',
+  // '/images/designs/justified-1.jpg',
+  // '/images/designs/justified-2.jpg',
+  // '/images/designs/justified-3.jpg',
+  "/images/home/currentdrop3.jpg",
+  "/images/home/currentdrop2.jpg",
 ];
 
 export default function ShopJustified() {
