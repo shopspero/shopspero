@@ -28,16 +28,16 @@ export default function AboutPage() {
 
         {/* Team Image */}
         <Box textAlign="center" mb={10}>
-          <Image
+          {/* <Image
             src="/images/home/team.jpg"
             alt="Team Group"
             borderRadius="md"
-            objectFit="contain" /* Ensure the image shrinks without cropping */
+            objectFit="contain" 
             maxHeight="600px"
             maxWidth="100%"
             margin="0 auto"
-          />
-        </Box>
+          /> */}
+        </Box>  
       </Container>
 
       {/* Mission Section */}
