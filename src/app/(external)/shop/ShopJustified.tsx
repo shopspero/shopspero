@@ -144,7 +144,6 @@ export default function ShopJustified() {
                           <option value="s">S</option>
                           <option value="m">M</option>
                           <option value="l">L</option>
-                          <option value="xl">XL</option>
                         </Select>
                       </FormControl>
                       <FormControl as="fieldset" isRequired={true}>
@@ -158,14 +157,8 @@ export default function ShopJustified() {
                           <option value="pickup-berkeley">
                             Pickup from a Spero Member for no additional cost in Berkeley
                           </option>
-                          <option value="pickup-boston">
-                            Pickup from a Spero Member for no additional cost in Boston
-                          </option>
-                          <option value="pickup-irvine">
-                            Pickup from a Spero Member for no additional cost in Irvine
-                          </option>
                           <option value="ship">
-                            Ship the product to me for an additional $8
+                            Ship the product to me for an additional $6
                           </option>
                         </Select>
                       </FormControl>

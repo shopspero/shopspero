@@ -52,7 +52,7 @@ export default function LogForm() {
     if (
       !productId ||
       !email ||
-      (fulfillmentOption != 'pickup' && fulfillmentOption != 'delivery')
+      (fulfillmentOption != 'pickup-berkeley' && fulfillmentOption != 'ship')
     ) {
       setErrorMessage('Invalid product ID, fulfillment option, or email');
       return;
@@ -129,8 +129,8 @@ export default function LogForm() {
               placeholder="Select"
               onChange={(e) => setFulfillmentOption(e.target.value!)}
             >
-              <option value="pickup">pickup</option>
-              <option value="delivery">delivery</option>
+              <option value="pickup-berkeley">Pickup Berkeley</option>
+              <option value="ship">Ship</option>
             </Select>
           </FormControl>
         </HStack>
