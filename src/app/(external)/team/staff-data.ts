@@ -68,14 +68,14 @@ const staffData: StaffInfo[] = [
   },
   {
     name: 'Abby Chung',
-    role: '////',
-    bio: "...",
+    role: "Clothing Designer",
+    bio: "Hi my name is Abby and I’m a second year education major. I joined Spero for the purpose of starting intentional conversation and as an evangelism opportunity for those who don’t know Christ or are just curious about Spero clothing!",
     img: '/images/team/abby_chung.webp',
   },
   {
     name: 'Sarah Lee',
-    role: '////',
-    bio: "...",
+    role: 'UX Designer',
+    bio: "Hi my name is Sarah and I am a second year at UCI studying informatics! I joined Spero for the hope of evangelizing and starting Gospel conversations with those who don’t know Christ. I hope to design clothing that point to the truth!",
     img: '/images/team/sarah_lee.webp',
   },
 ];
