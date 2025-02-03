@@ -50,49 +50,79 @@ export default function Page() {
       </Box>
 
       {/* Campus Section */}
-      <Container maxWidth="1200px" py={10}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+      <Container maxWidth="1400px" py={10}>
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} alignItems="center">
         {/* UC Irvine */}
-        <VStack spacing={4}>
-          <Box width="400px" height="600px" overflow="hidden" borderRadius="8px">
-            <Image
-              src="/images/team/uci_team.webp"
-              alt="UC Irvine"
-              width={400}
-              height={600}
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
-            />
-          </Box>
-          <Heading as="h3" size="lg">UC Irvine</Heading>
-        </VStack>
+        <Box position="relative" width="450px" height="600px" overflow="hidden">
+          <Image
+            src="/images/team/uci_team.webp"
+            alt="UC Irvine"
+            width={450}
+            height={600}
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          />
+          <Heading
+            as="h3"
+            size="lg"
+            color="white"
+            position="absolute"
+            bottom="20px"
+            left="50%"
+            transform="translateX(-50%)"
+            fontWeight="bold"
+            fontSize="2xl"
+          >
+            UC Irvine
+          </Heading>
+        </Box>
 
         {/* UC Berkeley */}
-        <VStack spacing={4}>
-          <Box width="400px" height="600px" overflow="hidden" borderRadius="8px">
-            <Image
-              src="/images/team/BERK_team.webp"
-              alt="UC Berkeley"
-              width={400}
-              height={600}
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
-            />
-          </Box>
-          <Heading as="h3" size="lg">UC Berkeley</Heading>
-        </VStack>
+        <Box position="relative" width="450px" height="600px" overflow="hidden">
+          <Image
+            src="/images/team/BERK_team.webp"
+            alt="UC Berkeley"
+            width={450}
+            height={600}
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          />
+          <Heading
+            as="h3"
+            size="lg"
+            color="white"
+            position="absolute"
+            bottom="20px"
+            left="50%"
+            transform="translateX(-50%)"
+            fontWeight="bold"
+            fontSize="2xl"
+          >
+            UC Berkeley
+          </Heading>
+        </Box>
 
         {/* Northeastern */}
-        <VStack spacing={4}>
-          <Box width="400px" height="600px" overflow="hidden" borderRadius="8px">
-            <Image
-              src="/images/team/NE_team.webp"
-              alt="Northeastern"
-              width={400}
-              height={600}
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
-            />
-          </Box>
-          <Heading as="h3" size="lg">Northeastern</Heading>
-        </VStack>
+        <Box position="relative" width="450px" height="600px" overflow="hidden">
+          <Image
+            src="/images/team/NE_team.webp"
+            alt="Northeastern"
+            width={450}
+            height={600}
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          />
+          <Heading
+            as="h3"
+            size="lg"
+            color="white"
+            position="absolute"
+            bottom="20px"
+            left="50%"
+            transform="translateX(-50%)"
+            fontWeight="bold"
+            fontSize="2xl"
+          >
+            Northeastern
+          </Heading>
+        </Box>
       </SimpleGrid>
     </Container>
     </>
