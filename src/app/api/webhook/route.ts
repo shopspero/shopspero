@@ -168,11 +168,8 @@ export async function POST(request: NextRequest) {
   }
 
   if (!success) {
-    logger.error(
-      `Failed to handle checkout session in /api/webhook: ${
-        event.data.object as Stripe.Checkout.Session
-      }`
-    );
+    const errMessage = `Failed to handle checkout session in /api/webhook: ${JSON.stringify(event.data.object, null, 2)}`
+    logger.error(errMessage);
     return new NextResponse('Webhook error', {
       status: 500,
       headers: corsHeaders,
