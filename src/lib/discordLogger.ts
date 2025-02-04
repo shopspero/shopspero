@@ -71,7 +71,7 @@ async function sendLogToDiscord(level: string, args: unknown[]) {
       avatar_url: BOT_AVATAR_URL,
       content: `[${timestamp}] **[${level.toUpperCase()}]** ${combinedMessage}`,
     };
-
+    console.log(payload);
     try {
 
       const res = await fetch(webhookUrl, {
