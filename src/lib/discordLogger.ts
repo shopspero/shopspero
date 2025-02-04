@@ -55,6 +55,7 @@ function getESTTimestamp(): string {
  * Sends a log message to the Discord logs webhook, if allowed.
  */
 async function sendLogToDiscord(level: string, args: unknown[]) {
+    console.log("Here");
     if (!shouldSendLogToDiscord) {
       // Not in production or no webhook set
       return;

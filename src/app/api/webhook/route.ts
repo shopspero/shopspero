@@ -140,7 +140,9 @@ export async function POST(request: NextRequest) {
   // Verify request signature
   const { event, status } = await constructEvent(request);
   if (status !== 'success' || !event) {
-    return new NextResponse('Webhook error', {
+    const errMessage = "Webhook: Couldn't construct event.";
+    logger.error(errMessage);
+    return new NextResponse(errMessage, {
       status: 400,
       headers: corsHeaders,
     });
