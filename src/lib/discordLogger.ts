@@ -55,7 +55,6 @@ function getESTTimestamp(): string {
  * Sends a log message to the Discord logs webhook, if allowed.
  */
 async function sendLogToDiscord(level: string, args: unknown[]) {
-    console.log("Here", shouldSendLogToDiscord, process.env.NODE_ENV === 'production', !!process.env.DISCORD_LOGS_WEBHOOK_URL, process.env.DISCORD_LOGS_WEBHOOK_URL);
     if (!shouldSendLogToDiscord) {
       // Not in production or no webhook set
       return;
@@ -72,13 +71,15 @@ async function sendLogToDiscord(level: string, args: unknown[]) {
       avatar_url: BOT_AVATAR_URL,
       content: `[${timestamp}] **[${level.toUpperCase()}]** ${combinedMessage}`,
     };
-  
+    console.log("About to send to Discord.")
     try {
       const res = await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
+      console.log("Sent")
+      console.log(res)
       if (!res.ok) {
         console.error(
           `Failed to send log to Discord. Status code: ${res.status} - ${res.statusText}`
