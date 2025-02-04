@@ -29,9 +29,9 @@ const designData: DesignInfo[] = [
     name: 'Justified Hoodie',
     description: <Justified />,
     imgs: [
-      '/images/home/currentdrop.jpg',
-      '/images/home/currentdrop2.jpg',
-      '/images/home/currentdrop3.jpg',
+      "/images/home/currentdrop3.jpg",
+      "/images/home/currentdrop2.jpg",
+      "/images/home/currentdrop.jpg"
     ],
   },
   {
