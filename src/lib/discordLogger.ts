@@ -61,7 +61,8 @@ async function sendLogToDiscord(level: string, args: unknown[]) {
     }
   
     const timestamp = getESTTimestamp();
-    const combinedMessage = "Test"; //args.map(stringifyArg).join(' ');
+    const combinedMessage = args.map(stringifyArg).join(' ');
+    console.log(combinedMessage);
   
     // Discord logs webhook
     const webhookUrl = process.env.DISCORD_LOGS_WEBHOOK_URL as string;
@@ -71,7 +72,7 @@ async function sendLogToDiscord(level: string, args: unknown[]) {
       avatar_url: BOT_AVATAR_URL,
       content: `[${timestamp}] **[${level.toUpperCase()}]** ${combinedMessage}`,
     };
-    console.log(payload)
+
     try {
 
       const res = await fetch(webhookUrl, {
