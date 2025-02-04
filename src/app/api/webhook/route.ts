@@ -171,7 +171,7 @@ export async function POST(request: NextRequest) {
     const errMessage = `Failed to handle checkout session [${event.type}] in /api/webhook`;
     logger.error(errMessage);
     return new NextResponse(errMessage + `: ${JSON.stringify(event.data.object, null, 2)}`, {
-      status: 500,
+      status: 200,
       headers: corsHeaders,
     });
   }
