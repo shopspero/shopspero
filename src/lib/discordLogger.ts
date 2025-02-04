@@ -61,34 +61,25 @@ async function sendLogToDiscord(level: string, args: unknown[]) {
     }
   
     const timestamp = getESTTimestamp();
-    const combinedMessage = args.map(stringifyArg).join(' ');
+    const combinedMessage = "Test"; //args.map(stringifyArg).join(' ');
   
     // Discord logs webhook
     const webhookUrl = process.env.DISCORD_LOGS_WEBHOOK_URL as string;
-    if (!webhookUrl) {
-      console.error("DISCORD_LOGS_WEBHOOK_URL is not set!");
-      return;
-    }
   
     const payload = {
       username: BOT_NAME,
       avatar_url: BOT_AVATAR_URL,
       content: `[${timestamp}] **[${level.toUpperCase()}]** ${combinedMessage}`,
     };
-    console.log("About to send to Discord.")
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 5000);
+
     try {
-      console.log("Trying to send")
+
       const res = await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
-        signal: controller.signal,
       });
-      clearTimeout(timeout);
-      console.log("Sent");
-      console.log(res);
+
       if (!res.ok) {
         console.error(
           `Failed to send log to Discord. Status code: ${res.status} - ${res.statusText}`
@@ -96,8 +87,6 @@ async function sendLogToDiscord(level: string, args: unknown[]) {
       }
     } catch (err) {
       console.error('Failed to send log to Discord (exception thrown):', err);
-    } finally {
-      console.log("Fin");
     }
 }
 
