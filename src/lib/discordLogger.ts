@@ -62,7 +62,6 @@ async function sendLogToDiscord(level: string, args: unknown[]) {
   
     const timestamp = getESTTimestamp();
     const combinedMessage = args.map(stringifyArg).join(' ');
-    console.log(combinedMessage);
   
     // Discord logs webhook
     const webhookUrl = process.env.DISCORD_LOGS_WEBHOOK_URL as string;
