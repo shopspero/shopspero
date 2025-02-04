@@ -73,6 +73,7 @@ async function sendLogToDiscord(level: string, args: unknown[]) {
     };
     console.log("About to send to Discord.")
     try {
+      console.log("Trying to send")
       const res = await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -86,8 +87,10 @@ async function sendLogToDiscord(level: string, args: unknown[]) {
         );
       }
     } catch (err) {
+      console.log("It failed to send")
       console.error('Failed to send log to Discord (exception thrown):', err);
     }
+    console.log("Fin")
 }
 
 export const logger = {
