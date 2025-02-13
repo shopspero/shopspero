@@ -145,8 +145,8 @@ export default function ShopJustified() {
                         <FormLabel as="legend">Size</FormLabel>
                         <Select
                           onChange={(e) => setSize(e.target.value)}
-                          placeholder="Select size">
-                          <option value="s">S</option>
+                          placeholder="Select size (Almost Gone!)">
+                          <option value="s"disabled={true}>S (Out of Stock)</option>
                           <option value="m">M</option>
                           <option value="l">L</option>
                         </Select>
@@ -157,7 +157,7 @@ export default function ShopJustified() {
                         </FormLabel>
                         <Select
                           onChange={(e) => setPickupOrShip(e.target.value)}
-                          placeholder="Select option (Almost Gone!)"
+                          placeholder="Select option"
                         >
                           <option value="pickup-berkeley">
                             Pickup from a Spero Member for no additional cost in Berkeley
