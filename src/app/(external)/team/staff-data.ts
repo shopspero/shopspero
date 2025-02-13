@@ -64,7 +64,7 @@ const staffData: StaffInfo[] = [
     name: 'Nikhil Verghese',
     role: 'Web Developer',
     bio: "I'm Nikhil and I am a second year at Northeastern University pursuing a combined major in CS and Business Administration. I enjoy cooking, music production, piano, and jazz. I joined Spero because I want to be a part of a collective that uses their gifts to give glory to God and to share the good news to other students.",
-    img: '/images/team/nikhil_verghese.webp',
+    img: '/images/team/nikhil.webp',
   },
   {
     name: 'Abby Chung',
