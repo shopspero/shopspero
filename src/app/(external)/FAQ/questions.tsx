@@ -18,7 +18,7 @@ const FAQS = [
   {
     question: 'What does the word "SPERO" mean?',
     answer: <>
-      In Latin, "SPERO" means "to hope." Our vision is inspired by Matthew 10:29-31, which reflects care for the insignificant.<br/><br/>
+      In Latin, &quot;SPERO&quot; means &quot;to hope.&quot; Our vision is inspired by Matthew 10:29-31, which reflects care for the insignificant.<br/><br/>
       {' '}If you want to learn more about our name, check out our{' '}
       <Link href="https://shopspero.medium.com/what-does-spero-mean-8abf8394a91a" color="blue.500" isExternal>
         Medium article
