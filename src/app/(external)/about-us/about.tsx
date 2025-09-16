@@ -77,20 +77,30 @@ export default function AboutPage() {
             <Flex height="400px" alignItems="center">
               <VStack align="start" spacing={6} className={inter.className}>
                 <Text fontSize="lg" color="black" lineHeight="1.6">
-                  We&apos;re dedicated to bridging{' '}
+                  Spero is a{' '}
                   <Text as="span" fontWeight="bold" color="black">
-                    fashion and mission.
+                    gospel-centered clothing brand
                   </Text>{' '}
-                  As a Christian organization, our heart is to advance the gospel
-                  through apparel that is empowered by biblical truth and vision.
-                  We aim to produce intentional designs that spark hope through
-                  everyday wear and conversation. 30% of all profits are donated
-                  to various{' '}
+                  dedicated to creating scripture-based streetwear that serves as
+                  both a statement of faith and a tool for evangelism. Our mission
+                  is to{' '}
                   <Text as="span" fontWeight="bold" color="black">
-                    social-good organizations
+                    spread the Word of God
                   </Text>{' '}
-                  both in and outside of the Bay Area such as Compassion International, Imago Dei Clinic,
-                  Laundry Love, and Hands and Feet.
+                  by incorporating Bible verses into every design and producing
+                  intentional designs that spark hope through everyday wear, spark
+                  conversations with both unbelievers and believers, and
+                  encouraging wearers to live boldly in their faith. As Romans
+                  1:16 states, &ldquo;
+                  <Text as="span" fontWeight="bold" color="black">
+                    It is the power of God that brings salvation.
+                  </Text>
+                  &rdquo; We believe that fashion can be a vessel for faith,
+                  allowing those who wear our clothing to carry the Gospel
+                  wherever they go. 30% of all profits are donated to
+                  Gospel-centered organizations and missionaries that focus on
+                  planting churches in third world countries. Our focus this year
+                  is to support church planting in Haiti!
                 </Text>
               </VStack>
             </Flex>
@@ -106,17 +116,17 @@ export default function AboutPage() {
             <Flex height="400px" alignItems="center">
               <VStack align="start" spacing={6} className={inter.className}>
                 <Text fontSize="lg" color="black" lineHeight="1.6">
-                  In Latin, the word &ldquo;spero&rdquo; means{' '}
+                  In Latin, the word &ldquo;spero&rdquo; means &ldquo;
                   <Text as="span" fontWeight="bold" color="black">
-                    &ldquo;to hope.&rdquo;
-                  </Text>{' '}
-                  Our vision is inspired by Matthew 10:29-31, where something as
-                  insignificant as a sparrow will be remembered and cared for. We
-                  want to expose the poverty in these neglected communities
-                  through an innovative medium.{' '}
-                  <Text as="span" fontWeight="bold" color="black">
-                    The goal of Spero is to bring hope to the hopeless and light into the darkness.
+                    to hope
                   </Text>
+                  .&rdquo; Our vision is deeply rooted in Matthew 10:29–31, where
+                  something as insignificant as a sparrow, worth only a penny, is
+                  valued much greater and cared for by God. This reminds us that
+                  we hope in the living hope, who bridged the gap that once
+                  separated us from Him. We also look up to see sparrows, the
+                  same way we strive to look up to Christ daily as we navigate
+                  through our lives.
                 </Text>
               </VStack>
             </Flex>
