@@ -9,11 +9,8 @@ import {
   Text,
   SimpleGrid,
   Flex,
-  Center,
-  Button,
-  HStack,
+  Center
 } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { Inter } from 'next/font/google';
 import { SPERO_BACKGROUND_RECESSED } from '@/lib/colors';
 
@@ -143,56 +140,6 @@ export default function AboutPage() {
               />
             </Center>
           </SimpleGrid>
-        </Container>
-      </Box>
-
-      {/* PastorGPT Section */}
-      <Box bg={SPERO_BACKGROUND_RECESSED} py={16}>
-        <Container maxW="container.lg">
-          <VStack spacing={8} textAlign="center" className={inter.className}>
-            <Heading
-              as="h2"
-              fontSize={{ base: '3xl', md: '4xl' }}
-              fontWeight="bold"
-              color="black"
-              lineHeight="1.2"
-            >
-              Curious about learning more about Christianity?
-            </Heading>
-            <Text
-              fontSize={{ base: 'lg', md: 'xl' }}
-              color="black"
-              maxW="600px"
-              lineHeight="1.6"
-            >
-              Talk to PastorGPT and ask all your questions!
-            </Text>
-            <Button
-              as="a"
-              href="https://chatgpt.com/g/g-A1ojXxmox-pastor-gpt"
-              target="_blank"
-              rel="noopener noreferrer"
-              size="lg"
-              bg="black"
-              color="white"
-              _hover={{
-                bg: "gray.800",
-                transform: "translateY(-2px)",
-                boxShadow: "lg",
-              }}
-              transition="all 0.2s"
-              px={8}
-              py={6}
-              fontSize="lg"
-              fontWeight="medium"
-              borderRadius="md"
-            >
-              <HStack spacing={2}>
-                <Text>Chat with PastorGPT</Text>
-                <ExternalLinkIcon boxSize={4} />
-              </HStack>
-            </Button>
-          </VStack>
         </Container>
       </Box>
 
