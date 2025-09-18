@@ -1,9 +1,9 @@
-import Oldhome from '@/app/(external)/about-us/oldhome';
+import About from '@/app/(external)/about-us/about';
 
 export default function Page() {
   return (
     <div>
-      <Oldhome />
+      <About />
     </div>
   );
 }
