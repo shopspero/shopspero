@@ -1,4 +1,53 @@
 .sof-card-container {
+    background-color: #D9D9D9;
     display: flex;
-    width: 100%;
+    align-items: center;
+    width: 1350px;
+    height: 450px;
+    position: relative;
+    margin: 40px 0 40px 0;
+}
+
+.sof-card-text {
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+}
+
+.sof-card-title {
+    font-size: 36px;
+}
+
+.sof-card-description {
+    margin-top: 20px;
+    width: 800px;
+    font-size: 18px;
+}
+
+.sof-card-id {
+    display: flex;
+    position: absolute;
+    font-size: 84px;
+    background-color: #F5F5F5;
+    width: 300px;
+    height: 300px;
+    border-radius: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.sof-left {
+    border-radius: 0 150px 150px 0;
+}
+
+.sof-right {
+    border-radius: 150px 0 0 150px;
+}
+
+.sof-id-left {
+    right: 60px;
+}
+
+.sof-id-right {
+    left: 30px;
 }

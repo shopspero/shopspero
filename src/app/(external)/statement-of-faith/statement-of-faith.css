@@ -1,0 +1,25 @@
+.sof-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.sof-header {
+    font-size: 36px;
+    text-align: center;
+    margin: 50px;
+}
+
+.sof-card-wrapper {
+    display: flex;
+    width: 100%;
+}
+.sof-right {
+    justify-content: flex-end;
+}
+
+.sof-left {
+    justify-content: flex-start;
+}
+
