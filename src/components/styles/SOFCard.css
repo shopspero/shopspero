@@ -42,6 +42,10 @@
     border-radius: 0 150px 150px 0;
 }
 
+.sof-left .sof-card-container {
+    flex-direction: row-reverse;
+}
+
 .sof-right {
     border-radius: 150px 0 0 150px;
     flex-direction: row;
@@ -50,7 +54,7 @@
 /* Mobile */
 @media (max-width: 768px) {
     .sof-card-container {
-        flex-direction: column;
+        flex-direction: column !important;
         border-radius: 20px;
         text-align: center;
         padding: 20px;
