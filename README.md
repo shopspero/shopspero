@@ -4,6 +4,10 @@ This is the website for Spero, a team of college students with a heart to share 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Board
+https://shopspero.atlassian.net/jira/software/projects/WEBSITE/boards/1
+Jira board we use to track issues
+
 ## Development
 
 ### Requirements
