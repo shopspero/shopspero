@@ -2,38 +2,40 @@
     background-color: #D9D9D9;
     display: flex;
     align-items: center;
-    width: 1350px;
-    height: 450px;
-    position: relative;
-    margin: 40px 0 40px 0;
+    max-width: 1350px;
+    min-height: 450px;
+    margin: 40px 0;
+    border-radius: 150px;
+    gap: 40px;
+    padding: 40px;
 }
 
 .sof-card-text {
     display: flex;
     flex-direction: column;
-    padding: 60px;
+    gap: 10px;
+    flex: 1;
 }
 
 .sof-card-title {
-    font-size: 36px;
+    font-size: clamp(20px, 4vw, 36px);
 }
 
 .sof-card-description {
-    margin-top: 20px;
-    width: 800px;
-    font-size: 18px;
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: 1.5;
 }
 
 .sof-card-id {
     display: flex;
-    position: absolute;
-    font-size: 84px;
-    background-color: #F5F5F5;
-    width: 300px;
-    height: 300px;
-    border-radius: 300px;
     justify-content: center;
     align-items: center;
+    font-size: clamp(36px, 8vw, 84px);
+    background-color: #F5F5F5;
+    width: clamp(120px, 25vw, 300px);
+    height: clamp(120px, 25vw, 300px);
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .sof-left {
@@ -42,12 +44,24 @@
 
 .sof-right {
     border-radius: 150px 0 0 150px;
+    flex-direction: row;
 }
 
-.sof-id-left {
-    right: 60px;
-}
+/* Mobile */
+@media (max-width: 768px) {
+    .sof-card-container {
+        flex-direction: column;
+        border-radius: 20px;
+        text-align: center;
+        padding: 20px;
+    }
 
-.sof-id-right {
-    left: 30px;
+    .sof-card-id {
+        margin-bottom: 20px;
+    }
+
+    .sof-left,
+    .sof-right {
+        border-radius: 20px;
+    }
 }
