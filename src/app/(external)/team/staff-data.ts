@@ -25,12 +25,6 @@ const staffData: StaffInfo[] = [
     img: '/images/team/michael_dai.webp',
   },
   {
-    name: 'Celine Hill',
-    role: 'Clothing Designer',
-    bio: "Hi, I'm Celine and I'm a sophomore majoring in Cognitive Science. I enjoy exploring new places, going to cafes, and swimming in the ocean. I'm excited to design clothing that shares the gospel and make a meaningful impact on this campus through fashion.",
-    img: '/images/team/celine_hill.webp',
-  },
-  {
     name: 'Buiry Min',
     role: 'Photographer',
     bio: "Hi, my name is Buiry and I'm a junior studying Molecular Environmental Biology at Berkeley. I love hot and sweet coffee in the mornings, reading a book in one sitting, and having late night talks with friends. I'm looking forward to being able to spread the gospel and engage in conversations about Jesus through Spero and the power of fashion!",
@@ -55,12 +49,6 @@ const staffData: StaffInfo[] = [
     img: '/images/team/ryan_amiri.webp',
   },
   {
-    name: 'Alex Mohammad',
-    role: 'Marketing Manager',
-    bio: "Alex Mohammed, a second-year Business Major at Northeastern University, is passionate about spreading the love of God through clothing. With a focus on brand management and data science, Alex aims to create meaningful fashion that inspires faith and connection.",
-    img: '/images/team/alex_mohammad.webp',
-  },
-  {
     name: 'Nikhil Verghese',
     role: 'Web Developer',
     bio: "I'm Nikhil and I am a second year at Northeastern University pursuing a combined major in CS and Business Administration. I enjoy cooking, music production, piano, and jazz. I joined Spero because I want to be a part of a collective that uses their gifts to give glory to God and to share the good news to other students.",
@@ -71,12 +59,6 @@ const staffData: StaffInfo[] = [
     role: "Clothing Designer",
     bio: "Hi my name is Abby and I’m a second year education major. I joined Spero for the purpose of starting intentional conversation and as an evangelism opportunity for those who don’t know Christ or are just curious about Spero clothing!",
     img: '/images/team/abby_chung.webp',
-  },
-  {
-    name: 'Sarah Lee',
-    role: 'UX Designer',
-    bio: "Hi my name is Sarah and I am a second year at UCI studying informatics! I joined Spero for the hope of evangelizing and starting Gospel conversations with those who don’t know Christ. I hope to design clothing that point to the truth!",
-    img: '/images/team/sarah_lee.webp',
   },
 ];
 
