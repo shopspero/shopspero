@@ -34,7 +34,7 @@ export default function Page() {
           zIndex={1}
         >
           <Heading as="h1" fontSize={{ base: "4xl", md: "6xl" }} fontWeight="bold" mb={4}>
-            JUSTIFIED BY GRACE
+            SURPASSING WORTH
           </Heading>
           <Link
             as={NextLink}
