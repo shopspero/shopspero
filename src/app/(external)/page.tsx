@@ -12,6 +12,7 @@ import NextLink from "next/link";
 import Slideshow from "@/components/Slideshow";
 
 export default function Page() {
+  const ORDER_FORM = "https://forms.gle/FrJFo7nuFoG2GWxV6";
   return (
     <>
       {/* Newest Drop Section */}
@@ -34,11 +35,11 @@ export default function Page() {
           zIndex={1}
         >
           <Heading as="h1" fontSize={{ base: "4xl", md: "6xl" }} fontWeight="bold" mb={4}>
-            SURPASSING WORTH
+            THE CALLING
           </Heading>
           <Link
             as={NextLink}
-            href="/shop"
+            href={ORDER_FORM}
             fontSize={{ base: "md", md: "lg" }}
             color="white"
             textDecoration="underline"
