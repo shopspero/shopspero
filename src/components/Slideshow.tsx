@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 
 const images = [
-  "/images/designs/surpassing-worth-4.jpg",
-  "/images/designs/surpassing-worth-2.jpg",
+  "/images/home/the-calling-full-1.jpg",
+  "/images/home/the-calling-full-2.jpg",
 ];
 
 export default function Slideshow() {
