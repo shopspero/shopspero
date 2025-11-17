@@ -1,5 +1,5 @@
 import Product from '@/components/Product';
-
+import Description from "../designs/descriptions/the-calling-reduced.mdx"
 export default function ShopCalling() {
   const imageList = [
     "/images/designs/the-calling-1.jpg",
@@ -18,7 +18,7 @@ export default function ShopCalling() {
 
   const props = {
     name: 'The Calling T-Shirt',
-    description: `placeholder`,
+    description: <Description />,
     price: 35,
     images: imageList,
     sizes: sizes,

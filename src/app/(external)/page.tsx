@@ -13,7 +13,7 @@ import Slideshow from "@/components/Slideshow";
 import { Lexend_Deca } from 'next/font/google';
 
 export default function Page() {
-  const ORDER_FORM = "https://forms.gle/FrJFo7nuFoG2GWxV6";
+  const ORDER_FORM = "/shop";
   return (
     <>
       {/* Newest Drop Section */}

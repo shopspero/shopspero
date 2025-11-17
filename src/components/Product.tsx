@@ -20,7 +20,7 @@ import {
 import ImageCarousel from '@/components/ImageCarousel';
 import NextLink from 'next/link';
 import { useRouter } from 'next/navigation';
-import { FormEvent, useState, useEffect } from 'react';
+import { FormEvent, useState, useEffect, ReactNode } from 'react';
 import { checkoutWithStripe } from '@/actions/checkout';
 
 /**
@@ -32,7 +32,7 @@ interface ProductProps {
   name: string;
 
   /** Detailed description of the product */
-  description: string;
+  description: ReactNode;
 
   /** Price of the product in dollars */
   price: number;
