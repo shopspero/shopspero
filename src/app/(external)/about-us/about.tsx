@@ -23,13 +23,18 @@ export default function AboutPage() {
   return (
     <Box bg="white">
       <Box mb={16}>
-        <Image
-          src="/images/home/team.jpg"
-          alt="Spero Team"
+        <Box
           width="100%"
-          height="500px"
-          objectFit="cover"
-        />
+          aspectRatio={16/5.4}
+          overflow="hidden"
+        >
+          <Image
+            src="/images/team/team.jpg"
+            alt="Spero Team"
+            style={{ objectFit: "cover",
+              objectPosition: "top"}}
+          />
+        </Box>
         <Box bg={SPERO_BACKGROUND_RECESSED} py={12}>
           <Container maxW="container.lg">
             <VStack spacing={6} textAlign="center" className={inter.className}>
