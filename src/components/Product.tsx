@@ -142,7 +142,7 @@ export default function Product({name,description, price, images, sizes, isSoldO
             <WrapItem>
               <ImageCarousel width={pageSizes} srcs={images} />
             </WrapItem>
-            <WrapItem maxWidth={600}>
+            <WrapItem width={600}>
               <VStack align="left" gap={10}>
                 <Box textAlign="left">
                   {description}
