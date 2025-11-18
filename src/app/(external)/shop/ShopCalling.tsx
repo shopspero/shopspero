@@ -5,10 +5,9 @@ import Product from '../../../components/Product'
 
 export default function ShopJustified() {
   const imageList = [
-    "/images/designs/the-calling-1.jpg",
-    "/images/designs/the-calling-2.jpg",
-    "/images/designs/the-calling-3.jpg",
-    "/images/designs/the-calling-4.jpg"
+    "/images/designs/the-calling-5.jpg",
+    "/images/designs/the-calling-6.jpg",
+    "/images/designs/the-calling-7.jpg"
   ];
 
   const sizes = new Map<string, string>([
