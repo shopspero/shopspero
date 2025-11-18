@@ -5,17 +5,25 @@ import {
   Link,
   Container,
   SimpleGrid,
-  VStack, Button, AspectRatio,
+  VStack,
+  Button,
+  AspectRatio,
 } from '@chakra-ui/react';
 import Image from "next/image";
 import NextLink from "next/link";
 import Slideshow from "@/components/Slideshow";
 import { Lexend_Deca } from 'next/font/google';
 
+const lexendDeca = Lexend_Deca({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
 export default function Page() {
   const ORDER_FORM = "https://forms.gle/FrJFo7nuFoG2GWxV6";
+
   return (
-    <>
+    <Box className={lexendDeca.className}>
       {/* Newest Drop Section */}
       <Box position="relative">
         <Slideshow />
@@ -35,7 +43,13 @@ export default function Page() {
           top={0}
           zIndex={1}
         >
-          <Heading as="h1" fontSize={{ base: "4xl", md: "6xl" }} fontWeight="bold" mb={4}>
+          <Heading
+            as="h1"
+            fontSize={{ base: "4xl", md: "6xl" }}
+            fontWeight="bold"
+            mb={4}
+            fontFamily={lexendDeca.style.fontFamily}
+          >
             THE CALLING
           </Heading>
           <Link
@@ -45,11 +59,13 @@ export default function Page() {
             color="white"
             textDecoration="underline"
             _hover={{ color: "gray.300", textDecoration: "none" }}
+            fontFamily={lexendDeca.style.fontFamily}
           >
             SHOP
           </Link>
         </Flex>
       </Box>
+
       <Container maxWidth="1550px" py={10}>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} alignItems="center">
         {/* Trust Drop */}
@@ -62,42 +78,42 @@ export default function Page() {
           verse={"Ephesians 4:1"}
         />
 
-        {/* Surpassing Worth Drop */}
-        <DropPreview
-          imagePath={'/images/designs/surpassing-worth-2.jpg'}
-          altText={'surpassing worth'}
-          header={'Surpassing Worth'}
-          path={'/designs/surpassing-worth'}
-          verse={"Philippians 3:8"}
-        />
+          {/* Surpassing Worth Drop */}
+          <DropPreview
+            imagePath={'/images/designs/surpassing-worth-2.jpg'}
+            altText={'surpassing worth'}
+            header={'Surpassing Worth'}
+            path={'/designs/surpassing-worth'}
+            verse={"Philippians 3:8"}
+          />
 
-        {/* Justified Drop */}
-        <DropPreview
-          imagePath={'/images/home/currentdrop.jpg'}
-          altText={'justified'}
-          header={'Justified'}
-          path={'/designs/justified'}
-          verse={"Romans 3:24-26"}
-        />
-      </SimpleGrid>
-    </Container>
-    </>
+          {/* Justified Drop */}
+          <DropPreview
+            imagePath={'/images/home/currentdrop.jpg'}
+            altText={'justified'}
+            header={'Justified'}
+            path={'/designs/justified'}
+            verse={"Romans 3:24-26"}
+          />
+        </SimpleGrid>
+      </Container>
+    </Box>
   );
 }
 
 interface DropProps {
-  imagePath: string,
-  altText: string,
-  header: string,
-  path: string,
-  buttonText?: string,
-  verse: string
+  imagePath: string;
+  altText: string;
+  header: string;
+  path: string;
+  buttonText?: string;
+  verse: string;
 }
-function DropPreview({imagePath, altText, header, path, buttonText, verse}: DropProps) {
+
+function DropPreview({ imagePath, altText, header, path, buttonText, verse }: DropProps) {
   return (
     <AspectRatio ratio={5 / 7} width="100%">
-      <Box position="relative"
-           overflow="hidden">
+      <Box position="relative" overflow="hidden">
         <Image
           src={imagePath}
           alt={altText}
@@ -120,8 +136,8 @@ function DropPreview({imagePath, altText, header, path, buttonText, verse}: Drop
             color={"#cccccc"}
             fontWeight="400"
             fontSize="md"
-            fontFamily="Lexend Deca"
             mb={2}
+            fontFamily={lexendDeca.style.fontFamily}
           >
             {verse}
           </Heading>
@@ -131,16 +147,18 @@ function DropPreview({imagePath, altText, header, path, buttonText, verse}: Drop
             color="white"
             fontWeight="bold"
             fontSize="2xl"
-            fontFamily="Lexend Deca"
             mb={5}
+            fontFamily={lexendDeca.style.fontFamily}
           >
             {header}
           </Heading>
           <Link href={path}>
-            <Button>{buttonText ?? "Learn More"}</Button>
+            <Button fontFamily={lexendDeca.style.fontFamily}>
+              {buttonText ?? "Learn More"}
+            </Button>
           </Link>
         </Box>
       </Box>
     </AspectRatio>
-  )
+  );
 }
