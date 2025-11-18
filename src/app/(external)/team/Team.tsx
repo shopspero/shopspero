@@ -32,7 +32,7 @@ export default function Team() {
           />
           {/* Heading */}
           <Heading as="h1" size="2xl" fontWeight="bold">
-            Who we are
+            Meet the Team
           </Heading>
         </Flex>
         <Text fontSize="lg" color="gray.700" textAlign="left">

@@ -67,16 +67,17 @@ export default function Page() {
       </Box>
 
       <Container maxWidth="1550px" py={10}>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} alignItems="center">
-          {/* The Calling Drop */}
-          <DropPreview
-            imagePath={'/images/designs/the-calling-1.jpg'}
-            altText={'calling'}
-            header={'The Calling'}
-            buttonText={'Order Now'}
-            path={ORDER_FORM}
-            verse={"Ephesians 4:1"}
-          />
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} alignItems="center">
+        {/* Trust Drop */}
+        <DropPreview
+          // imagePath={'/images/designs/the-calling-1.jpg'}
+          imagePath={'/images/image.png'}
+          altText={'calling'}
+          header={'The Calling'}
+          buttonText={'Order Now'}
+          path={ORDER_FORM}
+          verse={"Ephesians 4:1"}
+        />
 
           {/* Surpassing Worth Drop */}
           <DropPreview

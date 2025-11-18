@@ -128,7 +128,7 @@ export default function Product({name,description, price, images, sizes, isSoldO
         <Container maxWidth={1300} textAlign="center">
           <Center p={10}>
             <Heading as="h1" size="2xl">
-              Order the {name}
+              Order {name}
             </Heading>
           </Center>
           <Wrap
@@ -144,7 +144,7 @@ export default function Product({name,description, price, images, sizes, isSoldO
             </WrapItem>
             <WrapItem maxWidth={600}>
               <VStack align="left" gap={10}>
-                <Box textAlign="left">
+                <Box textAlign="left" whiteSpace="pre-line">
                   {description}
                 </Box>
                 <Box textAlign="left">
@@ -157,13 +157,30 @@ export default function Product({name,description, price, images, sizes, isSoldO
                         <FormLabel as="legend">Size</FormLabel>
                         <Select
                           onChange={(e) => setSize(e.target.value)}
-                          placeholder={isSoldOut ? 'Sold Out!' : 'Select a Size!'}>
+                          placeholder={isSoldOut ? 'Sold Out!' : 'Select a Size!'}
                           isDisabled={isSoldOut}
+                        >
                           {Array.from(sizes).map(([key, value]) => (
                             <option key={key} value={key}>
                               {value}
                             </option>
                           ))}
+                        </Select>
+                      </FormControl>
+                      <FormControl as="fieldset" isRequired={true}>
+                        <FormLabel as="legend">
+                          Pickup or delivery option
+                        </FormLabel>
+                        <Select
+                          onChange={(e) => setPickupOrShip(e.target.value)}
+                          placeholder="Select option"
+                        >
+                          <option value="pickup">
+                            Pickup on Sproul for no additional cost
+                          </option>
+                          <option value="ship">
+                            Ship the product to me for an additional $6
+                          </option>
                         </Select>
                       </FormControl>
                     </VStack>
