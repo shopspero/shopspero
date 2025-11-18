@@ -5,13 +5,15 @@ import {
   Link,
   Container,
   SimpleGrid,
-  VStack,
-} from "@chakra-ui/react";
+  VStack, Button, AspectRatio,
+} from '@chakra-ui/react';
 import Image from "next/image";
 import NextLink from "next/link";
 import Slideshow from "@/components/Slideshow";
+import { Lexend_Deca } from 'next/font/google';
 
 export default function Page() {
+  const ORDER_FORM = "https://forms.gle/FrJFo7nuFoG2GWxV6";
   return (
     <>
       {/* Newest Drop Section */}
@@ -34,11 +36,11 @@ export default function Page() {
           zIndex={1}
         >
           <Heading as="h1" fontSize={{ base: "4xl", md: "6xl" }} fontWeight="bold" mb={4}>
-            JUSTIFIED BY GRACE
+            THE CALLING
           </Heading>
           <Link
             as={NextLink}
-            href="/shop"
+            href={ORDER_FORM}
             fontSize={{ base: "md", md: "lg" }}
             color="white"
             textDecoration="underline"
@@ -48,83 +50,97 @@ export default function Page() {
           </Link>
         </Flex>
       </Box>
+      <Container maxWidth="1550px" py={10}>
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} alignItems="center">
+        {/* Trust Drop */}
+        <DropPreview
+          imagePath={'/images/designs/the-calling-1.jpg'}
+          altText={'calling'}
+          header={'The Calling'}
+          buttonText={'Order Now'}
+          path={ORDER_FORM}
+          verse={"Ephesians 4:1"}
+        />
 
-      {/* Campus Section */}
-      <Container maxWidth="1400px" py={10}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} alignItems="center">
-        {/* UC Irvine */}
-        <Box position="relative" width="450px" height="600px" overflow="hidden">
-          <Image
-            src="/images/team/uci_team.webp"
-            alt="UC Irvine"
-            width={450}
-            height={600}
-            style={{ objectFit: "cover", width: "100%", height: "100%" }}
-          />
-          <Heading
-            as="h3"
-            size="lg"
-            color="white"
-            position="absolute"
-            bottom="20px"
-            left="50%"
-            transform="translateX(-50%)"
-            fontWeight="bold"
-            fontSize="2xl"
-          >
-            UC Irvine
-          </Heading>
-        </Box>
+        {/* Surpassing Worth Drop */}
+        <DropPreview
+          imagePath={'/images/designs/surpassing-worth-2.jpg'}
+          altText={'surpassing worth'}
+          header={'Surpassing Worth'}
+          path={'/designs/surpassing-worth'}
+          verse={"Philippians 3:8"}
+        />
 
-        {/* UC Berkeley */}
-        <Box position="relative" width="450px" height="600px" overflow="hidden">
-          <Image
-            src="/images/team/BERK_team.webp"
-            alt="UC Berkeley"
-            width={450}
-            height={600}
-            style={{ objectFit: "cover", width: "100%", height: "100%" }}
-          />
-          <Heading
-            as="h3"
-            size="lg"
-            color="white"
-            position="absolute"
-            bottom="20px"
-            left="50%"
-            transform="translateX(-50%)"
-            fontWeight="bold"
-            fontSize="2xl"
-          >
-            UC Berkeley
-          </Heading>
-        </Box>
-
-        {/* Northeastern */}
-        <Box position="relative" width="450px" height="600px" overflow="hidden">
-          <Image
-            src="/images/team/NE_team.webp"
-            alt="Northeastern"
-            width={450}
-            height={600}
-            style={{ objectFit: "cover", width: "100%", height: "100%" }}
-          />
-          <Heading
-            as="h3"
-            size="lg"
-            color="white"
-            position="absolute"
-            bottom="20px"
-            left="50%"
-            transform="translateX(-50%)"
-            fontWeight="bold"
-            fontSize="2xl"
-          >
-            Northeastern
-          </Heading>
-        </Box>
+        {/* Justified Drop */}
+        <DropPreview
+          imagePath={'/images/home/currentdrop.jpg'}
+          altText={'justified'}
+          header={'Justified'}
+          path={'/designs/justified'}
+          verse={"Romans 3:24-26"}
+        />
       </SimpleGrid>
     </Container>
     </>
   );
+}
+
+interface DropProps {
+  imagePath: string,
+  altText: string,
+  header: string,
+  path: string,
+  buttonText?: string,
+  verse: string
+}
+function DropPreview({imagePath, altText, header, path, buttonText, verse}: DropProps) {
+  return (
+    <AspectRatio ratio={5 / 7} width="100%">
+      <Box position="relative"
+           overflow="hidden">
+        <Image
+          src={imagePath}
+          alt={altText}
+          width={450}
+          height={600}
+          style={{ objectFit: "cover", width: "100%", height: "100%" }}
+        />
+        <Box
+          position="absolute"
+          bottom="0"
+          left="0"
+          w="100%"
+          h="50%"
+          bgGradient="linear(to-t, rgba(0,0,0,0.7), rgba(0,0,0,0))"
+          pointerEvents="none"
+        />
+        <Box position="absolute" bottom="20px" left="20px">
+          <Heading
+            as="p"
+            color={"#cccccc"}
+            fontWeight="400"
+            fontSize="md"
+            fontFamily="Lexend Deca"
+            mb={2}
+          >
+            {verse}
+          </Heading>
+          <Heading
+            as="h3"
+            size="lg"
+            color="white"
+            fontWeight="bold"
+            fontSize="2xl"
+            fontFamily="Lexend Deca"
+            mb={5}
+          >
+            {header}
+          </Heading>
+          <Link href={path}>
+            <Button>{buttonText ?? "Learn More"}</Button>
+          </Link>
+        </Box>
+      </Box>
+    </AspectRatio>
+  )
 }

@@ -1,6 +1,7 @@
-import ShopClosed from '@/app/(external)/shop/ShopClosed';
-import ShopJustified from '@/app/(external)/shop/ShopJustified';
+// import ShopClosed from '@/app/(external)/shop/ShopClosed';
+// import ShopJustified from '@/app/(external)/shop/ShopJustified';
 // import ShopSalvation from '@/app/(external)/shop/ShopSalvation';
+import ShopCalling from '@/app/(external)/shop/ShopCalling';
 // import ShopAbba from '@/app/(external)/shop/ShopAbba';
 
 export const metadata = {
@@ -10,6 +11,6 @@ export const metadata = {
 export default function Page() {
   // return <ShopAbba />
   // return <ShopSalvation />
-  // return <ShopJustified />
-  return <ShopClosed />;
+  return <ShopCalling />
+  // return <ShopClosed />;
 }

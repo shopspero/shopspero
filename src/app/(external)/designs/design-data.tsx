@@ -14,6 +14,8 @@ import SperoBear from '@/app/(external)/designs/descriptions/spero-bear.mdx';
 import WalkOnWater from '@/app/(external)/designs/descriptions/walk-on-water.mdx';
 import Trust from '@/app/(external)/designs/descriptions/trust.mdx'
 import Justified from '@/app/(external)/designs/descriptions/justified.mdx'
+import Worth from '@/app/(external)/designs/descriptions/surpassing-worth.mdx'
+import Calling from '@/app/(external)/designs/descriptions/the-calling.mdx'
 import { ReactNode } from 'react';
 
 export interface DesignInfo {
@@ -24,6 +26,26 @@ export interface DesignInfo {
 }
 
 const designData: DesignInfo[] = [
+  {
+    id: 'the-calling',
+    name: 'The Calling T-Shirt',
+    description: <Calling  />,
+    imgs: [
+      "/images/designs/the-calling-1.jpg",
+      "/images/designs/the-calling-2.jpg",
+      "/images/designs/the-calling-3.jpg"
+    ],
+  },
+  {
+    id: 'surpassing-worth',
+    name: 'Surpassing Worth Hoodie',
+    description: <Worth  />,
+    imgs: [
+      "/images/designs/surpassing-worth-1.jpg",
+      "/images/designs/surpassing-worth-2.jpg",
+      "/images/designs/surpassing-worth-3.jpg"
+    ],
+  },
   {
     id: 'justified',
     name: 'Justified Hoodie',
