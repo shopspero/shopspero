@@ -18,7 +18,7 @@ export default function ShopJustified() {
   ]);
 
   const props = {
-    name: 'The Calling',
+    name: '"The Calling"',
     description: 'Spero\'s "The Calling" tee is inspired by Ephesians 4:1-3, where Paul \n' +
       'urges believers to "walk in a manner worthy of the calling we have received," \n' +
       'with all humility, gentleness, patience, and love, eager to maintain the unity \n' +
