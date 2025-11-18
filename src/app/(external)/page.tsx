@@ -53,7 +53,7 @@ export default function Page() {
           </Heading>
           <Link
             as={NextLink}
-            href={ORDER_FORM}
+            href="/shop"
             fontSize={{ base: "md", md: "lg" }}
             color="white"
             textDecoration="underline"
@@ -69,11 +69,11 @@ export default function Page() {
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} alignItems="center">
         {/* Trust Drop */}
         <DropPreview
-          imagePath={'/images/designs/the-calling-2.jpg'}
+          imagePath={'/images/designs/the-calling-8.jpg'}
           altText={'calling'}
           header={'The Calling'}
           buttonText={'Order Now'}
-          path={ORDER_FORM}
+          path={'/shop'}
           verse={"Ephesians 4:1"}
         />
 
