@@ -40,7 +40,7 @@ export default function Page() {
           </Heading>
           <Link
             as={NextLink}
-            href={ORDER_FORM}
+            href="/shop"
             fontSize={{ base: "md", md: "lg" }}
             color="white"
             textDecoration="underline"
