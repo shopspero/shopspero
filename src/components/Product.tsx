@@ -144,7 +144,7 @@ export default function Product({name,description, price, images, sizes, isSoldO
             </WrapItem>
             <WrapItem maxWidth={600}>
               <VStack align="left" gap={10}>
-                <Box textAlign="left">
+                <Box textAlign="left" whiteSpace="pre-line">
                   {description}
                 </Box>
                 <Box textAlign="left">
@@ -179,7 +179,7 @@ export default function Product({name,description, price, images, sizes, isSoldO
                             Pickup on Sproul for no additional cost
                           </option>
                           <option value="ship">
-                            Ship the product to me for an additional $8
+                            Ship the product to me for an additional $6
                           </option>
                         </Select>
                       </FormControl>
