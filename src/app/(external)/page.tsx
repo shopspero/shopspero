@@ -58,7 +58,7 @@ export default function Page() {
           altText={'calling'}
           header={'The Calling'}
           buttonText={'Order Now'}
-          path={ORDER_FORM}
+          path={'/shop'}
           verse={"Ephesians 4:1"}
         />
 
