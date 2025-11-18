@@ -48,7 +48,6 @@ export default function Page() {
             fontSize={{ base: "4xl", md: "6xl" }}
             fontWeight="bold"
             mb={4}
-            fontFamily={lexendDeca.style.fontFamily}
           >
             THE CALLING
           </Heading>
@@ -70,8 +69,7 @@ export default function Page() {
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} alignItems="center">
         {/* Trust Drop */}
         <DropPreview
-          // imagePath={'/images/designs/the-calling-1.jpg'}
-          imagePath={'/images/image.png'}
+          imagePath={'/images/designs/the-calling-2.jpg'}
           altText={'calling'}
           header={'The Calling'}
           buttonText={'Order Now'}
