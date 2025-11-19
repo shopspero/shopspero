@@ -48,7 +48,6 @@ export default function Page() {
             fontSize={{ base: "4xl", md: "6xl" }}
             fontWeight="bold"
             mb={4}
-            fontFamily={lexendDeca.style.fontFamily}
           >
             THE CALLING
           </Heading>
