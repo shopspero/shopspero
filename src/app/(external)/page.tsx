@@ -69,7 +69,7 @@ export default function Page() {
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} alignItems="center">
         {/* Trust Drop */}
         <DropPreview
-          imagePath={'/images/designs/the-calling-8.jpg'}
+          imagePath={'/images/designs/the-calling-1.jpg'}
           altText={'calling'}
           header={'The Calling'}
           buttonText={'Order Now'}
