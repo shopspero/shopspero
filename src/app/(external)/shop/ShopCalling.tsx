@@ -23,7 +23,7 @@ export default function ShopJustified() {
     images: imageList,
     sizes: sizes,
     stripeId: 'calling',
-    isSoldOut: false
+    isSoldOut: true
   }
   return (
     <>
