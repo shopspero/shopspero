@@ -2,7 +2,7 @@ export const metadata = {
   title: 'Designs - Spero',
 };
 
-import designData from '@/app/(external)/designs/design-data';
+import { designList } from '@/app/(external)/designs/design-data';
 import DesignThumbnail from '@/components/DesignThumbnail';
 import { Center, Container, Grid, GridItem, Heading } from '@chakra-ui/react';
 
@@ -24,7 +24,7 @@ export default function Page() {
             xl: 'repeat(4, 1fr)',
           }}
         >
-          {designData.map((design) => (
+          {designList.map((design) => (
             <GridItem key={design.id}>
               <DesignThumbnail {...design} />
             </GridItem>

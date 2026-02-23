@@ -51,17 +51,17 @@ export default function Page() {
           >
             THE CALLING
           </Heading>
-          <Link
-            as={NextLink}
+          <NextLink
             href="/shop"
-            fontSize={{ base: "md", md: "lg" }}
-            color="white"
-            textDecoration="underline"
-            _hover={{ color: "gray.300", textDecoration: "none" }}
-            fontFamily={lexendDeca.style.fontFamily}
+            style={{
+              fontSize: "1.125rem",
+              color: "white",
+              textDecoration: "underline",
+              fontFamily: lexendDeca.style.fontFamily,
+            }}
           >
             SHOP
-          </Link>
+          </NextLink>
         </Flex>
       </Box>
 

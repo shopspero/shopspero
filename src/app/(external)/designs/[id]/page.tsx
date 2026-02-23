@@ -1,4 +1,5 @@
-import designData from '@/app/(external)/designs/design-data';
+import designData from '@/app/(external)/designs/design-data-with-mdx';
+import { designIds, designNames } from '@/app/(external)/designs/design-data';
 import { notFound } from 'next/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
 import {
@@ -15,24 +16,33 @@ const sizes = {
   sm: 440,
   md: 600,
 };
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return designData;
+  return [...designIds];
 }
 
-export function generateMetadata({ params }: { params: { id: string } }) {
-  const design = designData.find((design) => design.id === params.id);
-  if (design === undefined) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const name = designNames[id];
+  if (name === undefined) {
     notFound();
   }
   return {
-    title: `${design.name} - Spero`,
+    title: `${name} - Spero`,
   };
 }
 
-export default function Page({ params }: Readonly<{ params: { id: string } }>) {
-  const design = designData.find((design) => design.id === params.id);
+export default async function Page({
+  params,
+}: Readonly<{ params: Promise<{ id: string }> }>) {
+  const { id } = await params;
+  const design = designData.find((d) => d.id === id);
   if (design === undefined) {
     notFound();
   }

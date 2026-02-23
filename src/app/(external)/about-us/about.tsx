@@ -200,9 +200,6 @@ export default function AboutPage() {
           </VStack>
         </Container>
       </Box>
-
-      {/* Bottom Border */}
-      <Box height="2px" bg="blue.500" width="100%" />
     </Box>
   );
 }

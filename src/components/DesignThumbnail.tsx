@@ -1,12 +1,12 @@
 'use client';
 
-import { DesignInfo } from '@/app/(external)/designs/design-data';
+import type { DesignSummary } from '@/app/(external)/designs/design-data';
 import { Box, Link, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import { useState } from 'react';
 
-export default function DesignThumbnail(design: Readonly<DesignInfo>) {
+export default function DesignThumbnail(design: Readonly<DesignSummary>) {
   const [hover, setHover] = useState(false);
 
   return (
