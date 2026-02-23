@@ -7,8 +7,11 @@ export const metadata = {
   title: 'Inspect Order - Spero',
 };
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const order = await getOrder(params.id);
+export default async function Page({
+  params,
+}: Readonly<{ params: Promise<{ id: string }> }>) {
+  const { id } = await params;
+  const order = await getOrder(id);
   if (!order) {
     notFound();
   }

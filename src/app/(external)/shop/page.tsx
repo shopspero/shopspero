@@ -8,6 +8,8 @@ export const metadata = {
   title: 'Shop - Spero',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function Page() {
   // return <ShopAbba />
   // return <ShopSalvation />

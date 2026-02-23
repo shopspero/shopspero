@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    mdxRs: true,
-  },
+  pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+  transpilePackages: ['@mdx-js/react', '@next/mdx'],
   redirects: () => {
     return [
       {
