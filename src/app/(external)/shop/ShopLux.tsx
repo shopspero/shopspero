@@ -26,7 +26,7 @@ export default function ShopLux() {
   const props = {
     name: '"Lux Aeterna" Crewneck',
     description: <Description />,
-    price: 35,
+    price: 50,
     images: imageList,
     sizes: sizes,
     stripeId: 'lux',
