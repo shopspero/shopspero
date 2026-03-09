@@ -17,6 +17,7 @@ export interface DesignInfo extends DesignSummary {
 
 /** Single source: id, name, imgs for each design. */
 export const designList: DesignSummary[] = [
+  { id: 'lux-aeterna', name: 'Lux Aeterna Crewneck', imgs: ['/images/designs/lux-aeterna-6.jpg', '/images/designs/lux-aeterna-2.jpg', '/images/designs/lux-aeterna-3.jpg']},
   { id: 'the-calling', name: 'The Calling T-Shirt', imgs: ['/images/designs/the-calling-1.jpg', '/images/designs/the-calling-2.jpg', '/images/designs/the-calling-3.jpg'] },
   { id: 'surpassing-worth', name: 'Surpassing Worth Hoodie', imgs: ['/images/designs/surpassing-worth-1.jpg', '/images/designs/surpassing-worth-2.jpg', '/images/designs/surpassing-worth-3.jpg'] },
   { id: 'justified', name: 'Justified Hoodie', imgs: ['/images/home/currentdrop3.jpg', '/images/home/currentdrop2.jpg', '/images/home/currentdrop.jpg'] },

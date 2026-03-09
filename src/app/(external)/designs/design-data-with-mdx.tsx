@@ -9,6 +9,7 @@ import Confidence from '@/app/(external)/designs/descriptions/confidence.mdx';
 import Fullness from '@/app/(external)/designs/descriptions/fullness.mdx';
 import Hope from '@/app/(external)/designs/descriptions/hope.mdx';
 import Justified from '@/app/(external)/designs/descriptions/justified.mdx';
+import LuxAeterna from '@/app/(external)/designs/descriptions/lux-aeterna.mdx';
 import MountainMover from '@/app/(external)/designs/descriptions/mountain-mover.mdx';
 import Redeemed from '@/app/(external)/designs/descriptions/redeemed.mdx';
 import Salvation from '@/app/(external)/designs/descriptions/salvation.mdx';
@@ -22,6 +23,7 @@ import type { ReactNode } from 'react';
 
 /** Design id → component name (all strings). */
 const descriptionIdToComponentName: Record<string, string> = {
+  'lux-aeterna': 'LuxAeterna',
   'the-calling': 'Calling',
   'surpassing-worth': 'Worth',
   justified: 'Justified',
@@ -38,6 +40,7 @@ const descriptionIdToComponentName: Record<string, string> = {
 };
 
 const componentByName: Record<string, ReactNode> = {
+  LuxAeterna: <LuxAeterna />,
   Calling: <Calling />,
   Worth: <Worth />,
   Justified: <Justified />,

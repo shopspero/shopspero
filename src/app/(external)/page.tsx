@@ -34,7 +34,7 @@ export default function Page() {
           justifyContent="center"
           alignItems="center"
           height="100vh"
-          bg="rgba(0, 0, 0, 0.5)"
+          bg="rgba(0, 0, 0, 0.3)"
           color="white"
           textAlign="center"
           p={4}
@@ -49,7 +49,7 @@ export default function Page() {
             fontWeight="bold"
             mb={4}
           >
-            THE CALLING
+            LUX AETERNA
           </Heading>
           <NextLink
             href="/shop"
@@ -66,33 +66,35 @@ export default function Page() {
       </Box>
 
       <Container maxWidth="1550px" py={10}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} alignItems="center">
-        {/* Trust Drop */}
-        <DropPreview
-          imagePath={'/images/designs/the-calling-1.jpg'}
-          altText={'calling'}
-          header={'The Calling'}
-          buttonText={'Order Now'}
-          path={'/shop'}
-          verse={"Ephesians 4:1"}
-        />
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} alignItems="center">
+          {/* Lux Drop */}
+          <DropPreview
+              imagePath={'/images/designs/lux-1.jpg'}
+              altText={'lux-aeterna'}
+              header={'Lux Aeterna'}
+              buttonText={'Order Now'}
+              path={'/shop'}
+              verse={"Isaiah 60:19-21"}
+            />
+
+          {/* Trust Drop */}
+          <DropPreview
+            imagePath={'/images/designs/the-calling-2.jpg'}
+            altText={'calling'}
+            header={'The Calling'}
+            path={'/designs/the-calling'}
+            verse={"Ephesians 4:1"}
+            objectPosition="calc(50% - 50px) center"
+          />
 
           {/* Surpassing Worth Drop */}
           <DropPreview
-            imagePath={'/images/designs/surpassing-worth-2.jpg'}
+            imagePath={'/images/designs/surpassing-worth-1.jpg'}
             altText={'surpassing worth'}
             header={'Surpassing Worth'}
             path={'/designs/surpassing-worth'}
             verse={"Philippians 3:8"}
-          />
-
-          {/* Justified Drop */}
-          <DropPreview
-            imagePath={'/images/home/currentdrop.jpg'}
-            altText={'justified'}
-            header={'Justified'}
-            path={'/designs/justified'}
-            verse={"Romans 3:24-26"}
+            objectPosition="calc(50% - 100px) center"
           />
         </SimpleGrid>
       </Container>
@@ -107,9 +109,10 @@ interface DropProps {
   path: string;
   buttonText?: string;
   verse: string;
+  objectPosition?: string;
 }
 
-function DropPreview({ imagePath, altText, header, path, buttonText, verse }: DropProps) {
+function DropPreview({ imagePath, altText, header, path, buttonText, verse, objectPosition }: DropProps) {
   return (
     <AspectRatio ratio={5 / 7} width="100%">
       <Box position="relative" overflow="hidden">
@@ -118,7 +121,7 @@ function DropPreview({ imagePath, altText, header, path, buttonText, verse }: Dr
           alt={altText}
           width={450}
           height={600}
-          style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          style={{ objectFit: "cover", width: "100%", height: "100%", objectPosition: objectPosition ?? "center" }}
         />
         <Box
           position="absolute"
