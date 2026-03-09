@@ -69,7 +69,7 @@ export default function Page() {
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} alignItems="center">
           {/* Lux Drop */}
           <DropPreview
-              imagePath={'/images/designs/lux-1.jpg'}
+              imagePath={'/images/designs/lux-aeterna-1.jpg'}
               altText={'lux-aeterna'}
               header={'Lux Aeterna'}
               buttonText={'Order Now'}
