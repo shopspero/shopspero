@@ -15,9 +15,11 @@ import {
 import staffData, { StaffInfo } from '@/app/(external)/team/staff-data';
 import { useState } from 'react';
 
+const sections = {'executive': 'Executive Team', 'developer': 'Web Development Team', 'designer': 'Clothing Design Team', 'photographer': 'Photography Team'};
+
 export default function Team() {
   const [curCard, setCurCard] = useState<StaffInfo | null>(null);
-
+  
   return (
     <Box bg="white" color="black" py={10}>
       {/* Header Section */}
@@ -44,40 +46,49 @@ export default function Team() {
 
       {/* Team Grid */}
       <Container maxW="container.lg">
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
-          {staffData.map((staff) => (
-            <VStack
-              key={staff.name}
-              spacing={4}
-              align="center"
-              onClick={()=>{setCurCard(staff)}}
-            >
-              {/* Profile Image */}
-              <Image
-                src={staff.img}
-                alt={staff.name}
-                borderRadius="md"
-                objectFit="cover"
-                width="100%"
-                maxWidth="250px"
-                height="250px"
-                _hover={{
-                  cursor: "pointer",
-                  transform: "translateY(-2px)",
-                  boxShadow: "md",
-                  transition: "all 0.2s",
-                }}
-              />
-              {/* Name and Role */}
-              <Heading as="h3" size="md" fontWeight="semibold">
-                {staff.name}
+        {Object.entries(sections).map(([key, label]) => {
+          const members = staffData.filter((s) => s.section === key);
+          if (members.length === 0) return null;
+          return (
+            <Box key={key} mb={14}>
+              <Heading as="h2" size="lg" fontWeight="bold" mb={6}>
+                {label}
               </Heading>
-              <Text fontSize="sm" color="gray.600">
-                {staff.role}
-              </Text>
-            </VStack>
-          ))}
-        </SimpleGrid>
+              <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
+                {members.map((staff) => (
+                  <VStack
+                    key={staff.name}
+                    spacing={4}
+                    align="center"
+                    onClick={() => { setCurCard(staff) }}
+                  >
+                    <Image
+                      src={staff.img}
+                      alt={staff.name}
+                      borderRadius="md"
+                      objectFit="cover"
+                      width="100%"
+                      maxWidth="250px"
+                      height="250px"
+                      _hover={{
+                        cursor: "pointer",
+                        transform: "translateY(-2px)",
+                        boxShadow: "md",
+                        transition: "all 0.2s",
+                      }}
+                    />
+                    <Heading as="h3" size="md" fontWeight="semibold">
+                      {staff.name}
+                    </Heading>
+                    <Text fontSize="sm" color="gray.600">
+                      {staff.role}
+                    </Text>
+                  </VStack>
+                ))}
+              </SimpleGrid>
+            </Box>
+          );
+        })}
       </Container>
 
       {/* Join Us Section */}
