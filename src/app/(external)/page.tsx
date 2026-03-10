@@ -74,27 +74,25 @@ export default function Page() {
               header={'Lux Aeterna'}
               buttonText={'Order Now'}
               path={'/shop'}
-              verse={"Isaiah 60:19-21"}
+              verse={"Isaiah 60"}
             />
 
           {/* Trust Drop */}
           <DropPreview
-            imagePath={'/images/designs/the-calling-2.jpg'}
+            imagePath={'/images/designs/the-calling-1.jpg'}
             altText={'calling'}
             header={'The Calling'}
             path={'/designs/the-calling'}
             verse={"Ephesians 4:1"}
-            objectPosition="calc(50% - 50px) center"
           />
 
           {/* Surpassing Worth Drop */}
           <DropPreview
-            imagePath={'/images/designs/surpassing-worth-1.jpg'}
+            imagePath={'/images/designs/surpassing-worth-2.jpg'}
             altText={'surpassing worth'}
             header={'Surpassing Worth'}
             path={'/designs/surpassing-worth'}
             verse={"Philippians 3:8"}
-            objectPosition="calc(50% - 100px) center"
           />
         </SimpleGrid>
       </Container>
