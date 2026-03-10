@@ -32,14 +32,14 @@ const staffData: StaffInfo[] = [
     name: 'Abi Cho',
     role: 'Chief Marketing Officer',
     bio: "Hi, my name is Abi, and I’m a second year majoring in Legal Studies at UC Berkeley, hoping to become a lawyer in the future. I saw Spero as an avenue of witnessing through the clothing they make, and I joined because I wanted to use my interest in fashion to serve in this unique ministry. Outside of school, I really enjoy anything music related.",
-    img: '/images/team/abi_cho.jpeg',
+    img: '/images/team/abi_cho.jpg',
     section: 'executive',
   },
   {
     name: 'Ryan Amiri',
     role: 'Chief Web Developer',
     bio: "Hi, I’m Ryan, a third-year Computer Science student at Northeastern University pursuing a career in AI and software engineering to build useful, trustworthy technology. I joined Spero to create everyday designs that point people to Jesus and to serve my campus with work that reflects my faith. Outside class I run and love to work from cafes with a matcha, my Bible, and my laptop.",
-    img: '/images/team/ryan_amiri.webp',
+    img: '/images/team/ryan_amiri.jpg',
     section: 'developer',
   },
   {
@@ -53,7 +53,7 @@ const staffData: StaffInfo[] = [
     name: 'Chloe Lee',
     role: 'Clothing Designer',
     bio: "Hi! My name is Chloe, and I’m a first-year student at UC Berkeley majoring in Nutrition and Metabolic Biology, with plans to pursue a career in dentistry. Through Spero, I hope to grow deeper in my walk with Christ and glorify His name by sharing His love with others. In my free time, I enjoy reading, watching good movies, and thrifting.",
-    img: '/images/team/chloe_lee.jpeg',
+    img: '/images/team/chloe_lee.jpg',
     section: 'designer',
   },
   {
