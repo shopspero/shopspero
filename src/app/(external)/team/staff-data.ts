@@ -59,7 +59,7 @@ const staffData: StaffInfo[] = [
   {
     name: 'Lauren Lee',
     role: 'Clothing Designer',
-    bio: "",
+    bio: "Hi, my name is Lauren and I'm a first year majoring in Chemistry at UC Berkeley on a pre-med track. I joined Spero because I want to help fulfill the Great Commission that our Father has called us in to. I hope I can make designs for Spero that profess faith and begin gospel-centered conversations. Outside of class, I enjoy watching films, playing the bass, and baking.",
     img: '/images/team/lauren_lee.jpg',
     section: 'designer',
   },
