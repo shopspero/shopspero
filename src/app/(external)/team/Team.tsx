@@ -15,11 +15,11 @@ import {
 import staffData, { StaffInfo } from '@/app/(external)/team/staff-data';
 import { useState } from 'react';
 
-const sections = {'executive': 'Executive Team', 'developer': 'Web Development Team', 'designer': 'Clothing Design Team', 'photographer': 'Photography Team'};
+const sections = { 'executive': 'Executives', 'developer': 'Web Development', 'designer': 'Design', 'photographer': 'Media' };
 
 export default function Team() {
   const [curCard, setCurCard] = useState<StaffInfo | null>(null);
-  
+
   return (
     <Box bg="white" color="black" py={10}>
       {/* Header Section */}
@@ -67,6 +67,7 @@ export default function Team() {
                       alt={staff.name}
                       borderRadius="md"
                       objectFit="cover"
+                      objectPosition={staff.objectPosition || "top"}
                       width="100%"
                       maxWidth="250px"
                       height="250px"
@@ -125,7 +126,7 @@ export default function Team() {
       </Container>
       {
         curCard !== null && (
-          <Modal isOpen={!!curCard} onClose={()=> setCurCard(null)} isCentered={true} size={"xl"}>
+          <Modal isOpen={!!curCard} onClose={() => setCurCard(null)} isCentered={true} size={"xl"}>
             <ModalOverlay />
             <ModalContent>
               <ModalHeader display={"flex"} alignItems={"center"} gap={3}>
@@ -140,6 +141,7 @@ export default function Team() {
                     alt={curCard.name}
                     borderRadius="md"
                     objectFit="cover"
+                    objectPosition={curCard.objectPosition || "top"}
                     width="100%"
                     minWidth="180px"
                     height="180px"

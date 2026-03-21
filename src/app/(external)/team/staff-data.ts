@@ -4,6 +4,7 @@ export interface StaffInfo {
   bio: string;
   img: string;
   section: string;
+  objectPosition?: string;
 }
 
 const staffData: StaffInfo[] = [
@@ -11,35 +12,35 @@ const staffData: StaffInfo[] = [
     name: 'Hogan Kim',
     role: 'Chief Executive Officer',
     bio: "Hi, my name is Hogan and I’m a third-year student at UC Berkeley pursuing Economics and Data Science, passionate about entering corporate finance. My goal for Spero is to create daily Gospel-wear that evangelizes and reminds believers to be the aroma of Christ wherever they go. My hobbies include sports (especially golf), food reviewing, and reading.",
-    img: '/images/team/hogan_kim.jpeg',
+    img: '/images/team/hogan_kim.webp',
     section: 'executive',
   },
   {
     name: 'Ethan Yang',
     role: 'Chief Operating Officer',
     bio: "Hi! My name is Ethan, and I'm currently studying Computer Science & Data Science at UC Berkeley. Spero is something I'm deeply passionate about, and it's genuinely one of the few things I love to pour my time and effort into. I truly believe that our clothing can open opportunities for Christians to share the Gospel truth to others, which I've personally experienced firsthand. Beyond that, my hope is that wearing Spero would serve as a constant reminder of His goodness and to be the aroma of Christ wherever we go.",
-    img: '/images/team/ethan_yang.jpeg',
+    img: '/images/team/ethan_yang.webp',
     section: 'executive',
   },
   {
     name: 'Michael Dai',
     role: 'Chief Financial Officer',
     bio: "Hi, my name is Michael and I am a second year at Berkeley triple majoring in Electrical Engineering and Computer Science, Data Science, and Economics. My hobbies are baking, cooking, and going to the gym. It has been a joy to use God-given talents to spread His word. I hope that Spero will be a source of expression for Christian students on campus to share their faith in Jesus.",
-    img: '/images/team/michael_dai.jpeg',
+    img: '/images/team/michael_dai.webp',
     section: 'executive',
   },
   {
     name: 'Abi Cho',
     role: 'Chief Marketing Officer',
     bio: "Hi, my name is Abi, and I’m a second year majoring in Legal Studies at UC Berkeley, hoping to become a lawyer in the future. I saw Spero as an avenue of witnessing through the clothing they make, and I joined because I wanted to use my interest in fashion to serve in this unique ministry. Outside of school, I really enjoy anything music related.",
-    img: '/images/team/abi_cho.jpg',
+    img: '/images/team/abi_cho.webp',
     section: 'executive',
   },
   {
     name: 'Ryan Amiri',
     role: 'Chief Web Developer',
     bio: "Hi, I’m Ryan, a third-year Computer Science student at Northeastern University pursuing a career in AI and software engineering to build useful, trustworthy technology. I joined Spero to create everyday designs that point people to Jesus and to serve my campus with work that reflects my faith. Outside class I run and love to work from cafes with a matcha, my Bible, and my laptop.",
-    img: '/images/team/ryan_amiri.jpg',
+    img: '/images/team/ryan_amiri.webp',
     section: 'developer',
   },
   {
@@ -53,15 +54,17 @@ const staffData: StaffInfo[] = [
     name: 'Chloe Lee',
     role: 'Clothing Designer',
     bio: "Hi! My name is Chloe, and I’m a first-year student at UC Berkeley majoring in Nutrition and Metabolic Biology, with plans to pursue a career in dentistry. Through Spero, I hope to grow deeper in my walk with Christ and glorify His name by sharing His love with others. In my free time, I enjoy reading, watching good movies, and thrifting.",
-    img: '/images/team/chloe_lee.jpg',
+    img: '/images/team/chloe_lee.webp',
     section: 'designer',
+    objectPosition: 'center 15%',
   },
   {
     name: 'Lauren Lee',
     role: 'Clothing Designer',
     bio: "",
-    img: '/images/team/lauren_lee.jpg',
+    img: '/images/team/lauren_lee.webp',
     section: 'designer',
+    objectPosition: 'center 15%',
   },
   {
     name: 'Bella Cha',
@@ -69,12 +72,13 @@ const staffData: StaffInfo[] = [
     bio: "Hi, my name is Bella, and I'm studying Cognitive Science at UC Berkeley (currently on a gap year), with an interest in pursuing UI/UX design. Spero has allowed me to use clothing as a creative way to reflect and share the Gospel in daily life. In my free time, I enjoy baking, hiking, and exploring new cafes.",
     img: '/images/team/bella_cha.webp',    
     section: 'designer',
+    objectPosition: 'center 65%',
   },    
   {
     name: 'Kay Karsono',
     role: 'Photographer',
     bio: "Hi, I'm Kay, a senior at UC Berkeley. I joined Spero to use my passion for photography to glorify God and share His love through visual storytelling. In my free time, I enjoy exploring new places, capturing moments through my camera, and spending time with friends and family.",
-    img: '/images/team/kay_karsono.jpeg',
+    img: '/images/team/kay_karsono.webp',
     section: 'photographer',
   },
 ];

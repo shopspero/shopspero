@@ -16,6 +16,7 @@ import {
 import { Inter } from 'next/font/google';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { SPERO_BACKGROUND_RECESSED } from '@/lib/colors';
+import NextImage from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,14 +26,18 @@ export default function AboutPage() {
       <Box mb={16}>
         <Box
           width="100%"
-          aspectRatio={16/5.4}
+          aspectRatio={16 / 5.4}
           overflow="hidden"
+          position="relative"
         >
-          <Image
-            src="/images/team/team.jpg"
+          <NextImage
+            src="/images/team/team.webp"
             alt="Spero Team"
-            style={{ objectFit: "cover",
-              objectPosition: "top"}}
+            fill
+            style={{
+              objectFit: "cover",
+              objectPosition: "top"
+            }}
           />
         </Box>
         <Box bg={SPERO_BACKGROUND_RECESSED} py={12}>
