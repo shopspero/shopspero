@@ -35,6 +35,8 @@ export default function AboutPage() {
             alt="Spero Team"
             fill
             priority
+            sizes="100vw"
+            quality={100}
             style={{
               objectFit: "cover",
               objectPosition: "top"
