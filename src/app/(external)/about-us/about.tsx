@@ -31,10 +31,12 @@ export default function AboutPage() {
           position="relative"
         >
           <NextImage
-            src="/images/team/team.jpg"
+            src="/images/team/team.webp"
             alt="Spero Team"
             fill
             priority
+            sizes="100vw"
+            quality={100}
             style={{
               objectFit: "cover",
               objectPosition: "top"
