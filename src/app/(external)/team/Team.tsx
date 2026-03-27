@@ -1,12 +1,17 @@
 'use client';
+
 import {
   Box,
   Container,
   Flex,
   Heading,
   Image,
-  Modal, ModalBody, ModalCloseButton,
-  ModalContent, ModalFooter, ModalHeader,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
   ModalOverlay,
   SimpleGrid,
   Text,
@@ -15,7 +20,12 @@ import {
 import staffData, { StaffInfo } from '@/app/(external)/team/staff-data';
 import { useState } from 'react';
 
-const sections = { 'executive': 'Executives', 'developer': 'Web Development', 'designer': 'Design', 'photographer': 'Media' };
+const sections = {
+  executive: 'Executives',
+  developer: 'Web Development',
+  designer: 'Design',
+  photographer: 'Media',
+};
 
 export default function Team() {
   const [curCard, setCurCard] = useState<StaffInfo | null>(null);
@@ -29,8 +39,8 @@ export default function Team() {
           <Image
             src="/images/logo.png"
             alt="Spero Logo"
-            boxSize="50px" // Adjust size as needed
-            mr={3} // Spacing between the logo and heading
+            boxSize="50px"
+            mr={3}
           />
           {/* Heading */}
           <Heading as="h1" size="2xl" fontWeight="bold">
@@ -45,10 +55,11 @@ export default function Team() {
       </Container>
 
       {/* Team Grid */}
-      <Container maxW="container.lg">
+      <Container maxW="container.lg" textAlign="center">
         {Object.entries(sections).map(([key, label]) => {
           const members = staffData.filter((s) => s.section === key);
           if (members.length === 0) return null;
+
           return (
             <Box key={key} mb={14}>
               <Heading as="h2" size="lg" fontWeight="bold" mb={6}>
@@ -60,22 +71,24 @@ export default function Team() {
                     key={staff.name}
                     spacing={4}
                     align="center"
-                    onClick={() => { setCurCard(staff) }}
+                    onClick={() => {
+                      setCurCard(staff);
+                    }}
                   >
                     <Image
                       src={staff.img}
                       alt={staff.name}
                       borderRadius="md"
                       objectFit="cover"
-                      objectPosition={staff.objectPosition || "top"}
+                      objectPosition={staff.objectPosition || 'top'}
                       width="100%"
                       maxWidth="250px"
                       height="250px"
                       _hover={{
-                        cursor: "pointer",
-                        transform: "translateY(-2px)",
-                        boxShadow: "md",
-                        transition: "all 0.2s",
+                        cursor: 'pointer',
+                        transform: 'translateY(-2px)',
+                        boxShadow: 'md',
+                        transition: 'all 0.2s',
                       }}
                     />
                     <Heading as="h3" size="md" fontWeight="semibold">
@@ -93,69 +106,80 @@ export default function Team() {
       </Container>
 
       {/* Join Us Section */}
-      <Container maxW="container.lg" mt={20}>
-        <Heading as="h2" size="xl" fontWeight="bold" mb={4} textAlign="left">
+      <Container maxW="container.lg" mt={20} textAlign="center">
+        <Heading as="h2" size="xl" fontWeight="bold" mb={4}>
           Join Us
         </Heading>
-        <Text fontSize="lg" color="gray.700" mb={4} textAlign="left">
+        <Text fontSize="lg" color="gray.700" mb={4}>
           Interested in working with an amazingly creative team who loves God?
           We&apos;re always looking for new members! If you&apos;re excited
           about using your creative talents to glorify God, reach out to us:
         </Text>
-        <Text textAlign="left">
+        <Text>
           Email us at{' '}
           <Text as="span" color="blue.500">
             <a href="mailto:shopspero@gmail.com">shopspero@gmail.com</a>
           </Text>
         </Text>
-        <Text textAlign="left">
+        <Text>
           Or message us on{' '}
           <Text as="span" color="blue.500">
-            <a href="https://www.instagram.com/shopspero/" target="_blank">
+            <a href="https://www.instagram.com/shopspero/" target="_blank" rel="noreferrer">
               Instagram
             </a>
           </Text>{' '}
           or{' '}
           <Text as="span" color="blue.500">
-            <a href="https://www.facebook.com/shopspero/" target="_blank">
+            <a href="https://www.facebook.com/shopspero/" target="_blank" rel="noreferrer">
               Facebook
             </a>
           </Text>
           .
         </Text>
       </Container>
-      {
-        curCard !== null && (
-          <Modal isOpen={!!curCard} onClose={() => setCurCard(null)} isCentered={true} size={"xl"}>
-            <ModalOverlay />
-            <ModalContent>
-              <ModalHeader display={"flex"} alignItems={"center"} gap={3}>
-                <Text>{curCard.name} - </Text>
-                <Text fontSize={"sm"} color={"gray.600"}>{curCard.role}</Text>
-              </ModalHeader>
-              <ModalCloseButton />
-              <ModalBody display={"flex"} gap={"25px"}>
-                <Box alignItems="center" display={"flex"} flexDirection={"column"} gap={"5px"}>
-                  <Image
-                    src={curCard.img}
-                    alt={curCard.name}
-                    borderRadius="md"
-                    objectFit="cover"
-                    objectPosition={curCard.objectPosition || "top"}
-                    width="100%"
-                    minWidth="180px"
-                    height="180px"
-                  />
-                </Box>
-                <Text fontSize="sm" color="gray.600">
-                  {curCard.bio}
-                </Text>
-              </ModalBody>
-              <ModalFooter></ModalFooter>
-            </ModalContent>
-          </Modal>
-        )
-      }
+
+      {curCard !== null && (
+        <Modal
+          isOpen={!!curCard}
+          onClose={() => setCurCard(null)}
+          isCentered={true}
+          size={'xl'}
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader display={'flex'} alignItems={'center'} gap={3}>
+              <Text>{curCard.name} - </Text>
+              <Text fontSize={'sm'} color={'gray.600'}>
+                {curCard.role}
+              </Text>
+            </ModalHeader>
+            <ModalCloseButton />
+            <ModalBody display={'flex'} gap={'25px'}>
+              <Box
+                alignItems="center"
+                display={'flex'}
+                flexDirection={'column'}
+                gap={'5px'}
+              >
+                <Image
+                  src={curCard.img}
+                  alt={curCard.name}
+                  borderRadius="md"
+                  objectFit="cover"
+                  objectPosition={curCard.objectPosition || 'top'}
+                  width="100%"
+                  minWidth="180px"
+                  height="180px"
+                />
+              </Box>
+              <Text fontSize="sm" color="gray.600">
+                {curCard.bio}
+              </Text>
+            </ModalBody>
+            <ModalFooter></ModalFooter>
+          </ModalContent>
+        </Modal>
+      )}
     </Box>
-  )
+  );
 }
