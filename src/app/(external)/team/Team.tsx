@@ -13,7 +13,6 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  SimpleGrid,
   Text,
   VStack,
 } from '@chakra-ui/react';
@@ -35,14 +34,12 @@ export default function Team() {
       {/* Header Section */}
       <Container maxW="container.lg" mb={10}>
         <Flex align="center" mb={4}>
-          {/* Logo */}
           <Image
             src="/images/logo.png"
             alt="Spero Logo"
             boxSize="50px"
             mr={3}
           />
-          {/* Heading */}
           <Heading as="h1" size="2xl" fontWeight="bold">
             Meet the Team
           </Heading>
@@ -65,12 +62,14 @@ export default function Team() {
               <Heading as="h2" size="lg" fontWeight="bold" mb={6}>
                 {label}
               </Heading>
-              <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
+
+              <Flex wrap="wrap" justify="center" gap={8}>
                 {members.map((staff) => (
                   <VStack
                     key={staff.name}
                     spacing={4}
                     align="center"
+                    width={{ base: '100%', sm: '190px' }}
                     onClick={() => {
                       setCurCard(staff);
                     }}
@@ -82,8 +81,8 @@ export default function Team() {
                       objectFit="cover"
                       objectPosition={staff.objectPosition || 'top'}
                       width="100%"
-                      maxWidth="250px"
-                      height="250px"
+                      maxWidth="190px"
+                      height="220px"
                       _hover={{
                         cursor: 'pointer',
                         transform: 'translateY(-2px)',
@@ -99,7 +98,7 @@ export default function Team() {
                     </Text>
                   </VStack>
                 ))}
-              </SimpleGrid>
+              </Flex>
             </Box>
           );
         })}
@@ -124,13 +123,21 @@ export default function Team() {
         <Text>
           Or message us on{' '}
           <Text as="span" color="blue.500">
-            <a href="https://www.instagram.com/shopspero/" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.instagram.com/shopspero/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Instagram
             </a>
           </Text>{' '}
           or{' '}
           <Text as="span" color="blue.500">
-            <a href="https://www.facebook.com/shopspero/" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.facebook.com/shopspero/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Facebook
             </a>
           </Text>
@@ -143,23 +150,23 @@ export default function Team() {
           isOpen={!!curCard}
           onClose={() => setCurCard(null)}
           isCentered={true}
-          size={'xl'}
+          size="xl"
         >
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader display={'flex'} alignItems={'center'} gap={3}>
+            <ModalHeader display="flex" alignItems="center" gap={3}>
               <Text>{curCard.name} - </Text>
-              <Text fontSize={'sm'} color={'gray.600'}>
+              <Text fontSize="sm" color="gray.600">
                 {curCard.role}
               </Text>
             </ModalHeader>
             <ModalCloseButton />
-            <ModalBody display={'flex'} gap={'25px'}>
+            <ModalBody display="flex" gap="25px">
               <Box
                 alignItems="center"
-                display={'flex'}
-                flexDirection={'column'}
-                gap={'5px'}
+                display="flex"
+                flexDirection="column"
+                gap="5px"
               >
                 <Image
                   src={curCard.img}
