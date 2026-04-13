@@ -19,8 +19,9 @@ export interface DesignInfo extends DesignSummary {
 export const designList: DesignSummary[] = [
   { id: 'lux-aeterna', name: 'Lux Aeterna Crewneck', imgs: ['/images/designs/lux-aeterna-6.jpg', '/images/designs/lux-aeterna-2.jpg', '/images/designs/lux-aeterna-3.jpg']},
   { id: 'the-calling', name: 'The Calling T-Shirt', imgs: ['/images/designs/the-calling-1.jpg', '/images/designs/the-calling-2.jpg', '/images/designs/the-calling-3.jpg'] },
+  { id: 'tobwy', name: 'To Be With You T-Shirt', imgs: ['/images/designs/2bwy-1.jpg', '/images/designs/2bwy-2.jpg', '/images/designs/2bwy-3.jpg']},
   { id: 'surpassing-worth', name: 'Surpassing Worth Hoodie', imgs: ['/images/designs/surpassing-worth-1.jpg', '/images/designs/surpassing-worth-2.jpg', '/images/designs/surpassing-worth-3.jpg'] },
-  { id: 'justified', name: 'Justified Hoodie', imgs: ['/images/home/currentdrop3.jpg', '/images/home/currentdrop2.jpg', '/images/home/currentdrop.jpg'] },
+  { id: 'justified', name: 'Justified Hoodie', imgs: ['/images/home/currentdrop.jpg', '/images/home/currentdrop2.jpg', '/images/home/currentdrop3.jpg'] },
   { id: 'trust', name: 'Trust T-Shirt', imgs: ['/images/designs/flowers-1.jpg', '/images/designs/flowers-2.jpg', '/images/designs/flowers-3.jpg'] },
   { id: 'salvation', name: 'Salvation Crewneck', imgs: ['/images/designs/salvation-1.jpg', '/images/designs/salvation-2.jpg', '/images/designs/salvation-3.jpg'] },
   { id: 'confidence', name: 'Confidence T-Shirt', imgs: ['/images/designs/confidence-2.jpg', '/images/designs/confidence-1.jpg', '/images/designs/confidence-3.jpg'] },

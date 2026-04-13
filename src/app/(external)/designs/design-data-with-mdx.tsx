@@ -14,6 +14,7 @@ import MountainMover from '@/app/(external)/designs/descriptions/mountain-mover.
 import Redeemed from '@/app/(external)/designs/descriptions/redeemed.mdx';
 import Salvation from '@/app/(external)/designs/descriptions/salvation.mdx';
 import SperoBear from '@/app/(external)/designs/descriptions/spero-bear.mdx';
+import ToBWY from '@/app/(external)/designs/descriptions/tobwy.mdx';
 import Trust from '@/app/(external)/designs/descriptions/trust.mdx';
 import WalkOnWater from '@/app/(external)/designs/descriptions/walk-on-water.mdx';
 import Worth from '@/app/(external)/designs/descriptions/surpassing-worth.mdx';
@@ -25,6 +26,7 @@ import type { ReactNode } from 'react';
 const descriptionIdToComponentName: Record<string, string> = {
   'lux-aeterna': 'LuxAeterna',
   'the-calling': 'Calling',
+  tobwy: 'ToBWY',
   'surpassing-worth': 'Worth',
   justified: 'Justified',
   trust: 'Trust',
@@ -42,6 +44,7 @@ const descriptionIdToComponentName: Record<string, string> = {
 const componentByName: Record<string, ReactNode> = {
   LuxAeterna: <LuxAeterna />,
   Calling: <Calling />,
+  ToBWY: <ToBWY />,
   Worth: <Worth />,
   Justified: <Justified />,
   Trust: <Trust />,
