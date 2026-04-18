@@ -13,7 +13,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { HamburgerIcon, SmallCloseIcon } from '@chakra-ui/icons';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -44,28 +44,32 @@ export default function NavBar({ links }: Readonly<{ links: LinkInfo[] }>) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [isAtTop, setIsAtTop] = useState(true);
+  const [scrollingDown, setScrollingDown] = useState(false);
+  const prevScrollY = useRef(0);
   const pathname = usePathname();
 
-  // Detect if the user is at the top of the page
+  // Detect scroll position and direction
   useEffect(() => {
     const handleScroll = () => {
-      setIsAtTop(window.scrollY === 0);
+      const currentY = window.scrollY;
+      setIsAtTop(currentY === 0);
+      setScrollingDown(currentY > prevScrollY.current);
+      prevScrollY.current = currentY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Check if on home page
+  // Check if on home page or designs page
   const isHomePage = pathname === '/';
+  const isDesignsPage = pathname === '/designs';
 
-  // Dynamically set styling based on scroll/home-page
-  const bg = useColorModeValue(
-    isAtTop && isHomePage ? 'transparent' : 'white',
-    'gray.900'
-  );
-  const color = isAtTop && isHomePage ? 'white' : 'black';
-  const boxShadow = isAtTop && isHomePage ? 'none' : 'sm';
+  // Dynamically set styling based on scroll/page
+  const isTransparent = (isAtTop && isHomePage) || (isDesignsPage && scrollingDown);
+  const bg = useColorModeValue(isTransparent ? 'transparent' : 'white', 'gray.900');
+  const color = isTransparent ? 'white' : 'black';
+  const boxShadow = isTransparent ? 'none' : 'sm';
 
   // Split links for left and right sections on desktop
   const half = Math.ceil(links.length / 2);
@@ -80,7 +84,7 @@ export default function NavBar({ links }: Readonly<{ links: LinkInfo[] }>) {
     fontWeight: 'medium',
     _hover: {
       textDecoration: 'none',
-      color: isAtTop && isHomePage ? 'gray.300' : 'gray.500',
+      color: isTransparent ? 'gray.300' : 'gray.500',
     },
   };
 
@@ -196,7 +200,7 @@ export default function NavBar({ links }: Readonly<{ links: LinkInfo[] }>) {
       </Box>
 
       {/* Spacer below navbar so content isn't hidden */}
-      {!isHomePage && <Box height="60px" />}
+      {!isHomePage && !isDesignsPage && <Box height="60px" />}
     </>
   );
 }

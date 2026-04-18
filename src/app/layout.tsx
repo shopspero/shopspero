@@ -1,4 +1,5 @@
 import { Providers } from '@/app/providers';
+import './globals.css';
 
 export const metadata = {
   title: 'Spero',
