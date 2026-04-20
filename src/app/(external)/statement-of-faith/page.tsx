@@ -1,76 +1,243 @@
-import { Container } from '@chakra-ui/react';
-import SOFCard, { SOFPOSITION } from '@/components/SOFCard';
+'use client';
 
-export const metadata = {
-  title: 'Statement of Faith - Spero',
-};
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import "./statement-of-faith.css";
 
-import "./statement-of-faith.css"
+interface Slide {
+  id: number;
+  number: string;
+  title: string;
+  content: string;
+  verse: string;
+  verseReference: string;
+  image: string;
+  points: string[];
+}
 
-const sofCards = [
+const slides: Slide[] = [
+  {
+    id: 0,
+    number: "01",
+    title: "Gospel",
+    content: "The Gospel is the good news about Jesus Christ. It's the most important message in all of human history - that God loves you and has made a way for you to know Him.",
+    verse: "For God so loved the world that He gave His one and only Son, that whoever believes in Him shall not perish but have eternal life.",
+    verseReference: "John 3:16",
+    image: "/images/statement-of-faith/gospel.jpg",
+    points: [
+      "The Gospel means 'good news'",
+      "It's about God's love and salvation",
+      "Available to everyone who believes"
+    ]
+  },
   {
     id: 1,
-    title: "The Bible is Inspired by God & Without Error",
-    position: SOFPOSITION.LEFT,
-    content: `We believe that Almighty God has revealed all that is necessary to life and salvation in the sixty-six books of Holy Scripture, which are the Word of God. The Scriptures of both the Old and New Testaments, being God-breathed, are infallible and inerrant in all their parts and are, therefore, trustworthy in all that they affirm concerning history, science, doctrine, ethics, religious practice, or any other topic. The authority of the Bible is derived from its Author and not from the opinions of men. While we believe in the ongoing power and ministry of the Holy Spirit in regenerating, equipping, illuminating, leading, and teaching God's people, we also believe in the final authority and sufficiency of the Bible over all areas of faith and practice.`
+    number: "02",
+    title: "God's Love",
+    content: "Before you were born, God knew you and loved you. His love isn't based on what you do - it's based on who He is. God created you with intention and purpose because He wanted a relationship with you.",
+    verse: "But God demonstrates His own love for us in this: While we were still sinners, Christ died for us.",
+    verseReference: "Romans 5:8",
+    image: "/images/statement-of-faith/gods-love.jpg",
+    points: [
+      "God's love is unconditional",
+      "You were created with purpose",
+      "His desire is relationship with you"
+    ]
   },
   {
     id: 2,
-    title: "There is One True God",
-    position: SOFPOSITION.RIGHT,
-    content: `We believe in the one true and living God, in three Persons: the Father, the Son and the Holy Spirit, who is invisible, personal, omnipresent, eternal, dependent on none, unchanging, truthful, trustworthy, almighty, sovereign, omniscient, righteous, holy, good, loving, merciful, long-suffering and gracious.`
+    number: "03",
+    title: "The Problem",
+    content: "Sin entered the world and created a gap between humanity and God. This isn't just about 'being bad' - it's a fundamental brokenness that affects everyone. We all fall short of God's perfect standard.",
+    verse: "For all have sinned and fall short of the glory of God.",
+    verseReference: "Romans 3:23",
+    image: "/images/statement-of-faith/the-problem.jpg",
+    points: [
+      "Sin separates us from God",
+      "Everyone has sinned",
+      "We cannot fix this ourselves"
+    ]
   },
   {
     id: 3,
-    title: "The Lord Jesus Christ is Fully God & Fully Human",
-    position: SOFPOSITION.LEFT,
-    content: `The Lord Jesus Christ, the Son of God, has always existed. He too is without beginning or end (Revelation 1:8). In order to complete His earthly sacrificial mission, He became human by being born of a virgin, conceived by the Holy Spirit (Matthew 1:23; Luke 1:31, 35). He lived a perfect life, absolutely without sin (Hebrews 7:26; 1 Peter 2:22). While on earth He worked many miracles through the anointing of the Holy Spirit (Acts 2:22, 10:38). In order to restore fallen mankind, He died on the cross as a substitute for the sins of every person (1 Corinthians 15:3, 2 Corinthians 5:21). He was raised from the dead by the supernatural power of God (Matthew 28:6; Luke 24:38, 1 Corinthians 6:14, 15:4). Since His resurrection He has been exalted, and is seated at the right hand of God (Acts 1:9, 11, 2:33; Philippians 2:9-11; Hebrews 1:3).`
+    number: "04",
+    title: "The Solution",
+    content: "God loved us so much that He sent Jesus to earth. Jesus lived a perfect life, died on the cross to pay the penalty for our sins, and rose from the dead. He took our punishment so we could have a relationship with God.",
+    verse: "Christ died for our sins according to the Scriptures, He was buried, He was raised on the third day.",
+    verseReference: "1 Corinthians 15:3-4",
+    image: "/images/statement-of-faith/the-solution.jpg",
+    points: [
+      "Jesus lived a perfect life",
+      "He died in our place",
+      "He rose again, defeating death"
+    ]
   },
   {
     id: 4,
-    title: "The Fall of Humankind in Sin",
-    position: SOFPOSITION.RIGHT,
-    content: "\"Just as through one man sin entered into the world, and death through sin, and so sin spread through all men\" (Romans 5:12). One of the immediate effects of the Fall was that mankind was separated from God. In the Garden of Eden, Adam and Eve had perfect communion and fellowship with God. When they rebelled against Him, that fellowship was broken. Because of the Fall, death became a reality, and all creation was subject to it. \"For the wages of sin is death, but the free gift of God is eternal life in Christ Jesus our Lord.\" (Romans 6:23)"
+    number: "05",
+    title: "Your Response",
+    content: "Salvation is a free gift from God. You can't earn it through good works or religious activity. All you need to do is believe in Jesus, confess your need for Him, and accept His forgiveness.",
+    verse: "If you declare with your mouth, 'Jesus is Lord,' and believe in your heart that God raised Him from the dead, you will be saved.",
+    verseReference: "Romans 10:9",
+    image: "/images/statement-of-faith/your-response.jpg",
+    points: [
+      "Salvation is a free gift",
+      "Believe and confess Jesus as Lord",
+      "Accept God's forgiveness"
+    ]
   },
   {
     id: 5,
-    title: "The Salvation of Humankind in Christ",
-    position: SOFPOSITION.LEFT,
-    content: "God made a way through His Son, Jesus Christ. Romans 5:8 says, \"But God demonstrates His own love for us in that while we were still sinners Christ died for us!\" You receive this gift of salvation by faith alone. Ephesians 2:8 says, \"For by grace you are saved, through faith, and this not from yourselves; it is God's gift-not from works, so that no one can boast.\" Jesus Christ died in our place when He was crucified on the cross. We deserved to be the ones placed on that cross to die because we are the ones who live sinful lives. But Christ took the punishment on Himself in our place—He substituted Himself for us and took what we rightly deserved. \"God made him who had no sin to be sin for us, so that in him we might become the righteousness of God\" (2 Corinthians 5:21)."
-  },
-  {
-    id: 6,
-    title: "The Role of the Holy Spirit",
-    position: SOFPOSITION.RIGHT,
-    content: "The Holy Spirit is the seal of man's salvation (John 14:26-27; Eph. 1:13). He teaches us (John 16:13) and brings revelation to us (John 14:26; Rom. 8:26-27). He also works out sanctification in our lives by God's Word, helping us become more like Jesus (Eph. 5:26; 1 Pet. 1:2); and gives spiritual gifts to us so that we might represent God's kingdom to the fullest within our communities (Acts 2:1-21; 1 Cor. 12:4-11; Acts 4:27-31; Heb. 2:2-4; Eph. 4:7-16; 1 Pet. 4:10-11)."
-  },
-  {
-    id: 7,
-    title: "The Blessed Hope of Christ's Return",
-    position: SOFPOSITION.LEFT,
-    content: "Titus 2:12–13 teaches us \"to live self-controlled, upright and godly lives in this present age, while we wait for the blessed hope—the appearance of the glory of our great God and Savior, Jesus Christ.\" We will be blessed beyond measure when we see Christ. The trials of this life will be over, and we will see that \"our present sufferings are not worth comparing with the glory that will be revealed in us\" (Romans 8:18). The bodies of those who have died will be raised to be joined with their souls, and then the bodies of those believers still living on earth will be changed into a body like the Lord's resurrection body."
+    number: "06",
+    title: "New Life",
+    content: "When you accept Jesus, you become a new creation. Your past is forgiven, your identity changes, and you begin a journey of growth. God's Spirit lives in you, guiding and empowering you to live with purpose and hope.",
+    verse: "Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!",
+    verseReference: "2 Corinthians 5:17",
+    image: "/images/statement-of-faith/new-life.jpg",
+    points: [
+      "You become a new creation",
+      "Your past is forgiven",
+      "Begin a journey of transformation"
+    ]
   }
 ];
 
+const slideVariants = {
+  enter: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 },
+};
+
 export default function Page() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [hoverSide, setHoverSide] = useState<'left' | 'right' | null>(null);
+  const cooldown = useRef(false);
+
+  const goNext = () => setActiveSlide((i) => Math.min(i + 1, slides.length - 1));
+  const goPrev = () => setActiveSlide((i) => Math.max(i - 1, 0));
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Trackpad horizontal swipe via wheel event
+  const handleWheel = (e: React.WheelEvent) => {
+    if (cooldown.current) return;
+    if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
+    if (Math.abs(e.deltaX) < 20) return;
+
+    cooldown.current = true;
+    if (e.deltaX > 0) goNext();
+    else goPrev();
+    setTimeout(() => { cooldown.current = false; }, 600);
+  };
+
+  // Click left/right half to navigate
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const mid = e.currentTarget.getBoundingClientRect().width / 2;
+    if (e.nativeEvent.offsetX < mid) goPrev();
+    else goNext();
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const threshold = 180;
+    if (e.clientX < threshold) setHoverSide('left');
+    else if (e.clientX > window.innerWidth - threshold) setHoverSide('right');
+    else setHoverSide(null);
+  };
+
+  const slide = slides[activeSlide];
+
   return (
-    <div className={"sof-page"}>
-      <span className={"sof-header"}>
-        Statement of Faith
-      </span>
-      {sofCards.map((card, index) => (
-        <div
-          className={"sof-card-wrapper" + (index % 2 === 0 ? " sof-left" : " sof-right")}
-          key={index}>
-          <SOFCard
-            id={card.id}
-            title={card.title}
-            position={card.position}
+    <div className="sof-page">
+      {/* Static page title */}
+      <div className="sof-title-section">
+        <h2 className="sof-title">The Gospel Journey</h2>
+      </div>
+
+      {/* Animated slide number + title */}
+      <div className="sof-subtitle-section">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeSlide}
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 12 }}
+            transition={{ duration: 0.25 }}
           >
-            {card.content}
-          </SOFCard>
+            <p className="sof-slide-number">{slide.number}</p>
+            <h3 className="sof-slide-title">{slide.title}</h3>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Slide content */}
+      <div
+        className="sof-viewport"
+        onWheel={handleWheel}
+        onClick={handleClick}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={() => setHoverSide(null)}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeSlide}
+            variants={slideVariants}
+            initial="enter"
+            animate="visible"
+            exit="exit"
+            transition={{ duration: 0.3 }}
+            className="sof-slide-inner"
+          >
+            <div className="sof-slide-grid">
+              {/* Left — description + points */}
+              <div className="sof-slide-content">
+                <p>{slide.content}</p>
+                <div className="sof-points">
+                  {slide.points.map((point, idx) => (
+                    <div key={idx} className="sof-point">
+                      <span className="sof-bullet">•</span>
+                      <p className="sof-point-text">{point}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Center — image */}
+              <div className="sof-slide-image-wrapper">
+                <img src={slide.image} alt={slide.title} />
+                <div className="sof-image-overlay" />
+              </div>
+
+              {/* Right — verse */}
+              <div className="sof-slide-verse">
+                <p className="sof-verse-text">"{slide.verse}"</p>
+                <p className="sof-verse-ref">— {slide.verseReference}</p>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Hover side overlays */}
+        <div className={`sof-hover-overlay sof-hover-left${hoverSide === 'left' && activeSlide > 0 ? ' sof-hover-visible' : ''}`} />
+        <div className={`sof-hover-overlay sof-hover-right${hoverSide === 'right' && activeSlide < slides.length - 1 ? ' sof-hover-visible' : ''}`} />
+
+        {/* Dot position indicators */}
+        <div className="sof-dots">
+          {slides.map((_, index) => (
+            <div
+              key={index}
+              className={`sof-dot ${activeSlide === index ? 'sof-dot-active' : 'sof-dot-inactive'}`}
+            />
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }
