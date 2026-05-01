@@ -27,7 +27,7 @@ export default function ShopGodIsLove() {
   ]);
 
   const props = {
-    name: '"God is Love" Crewneck',
+    name: '"God is Love" T-Shirt',
     description: <Description />,
     price: 35,
     images: imageList,
