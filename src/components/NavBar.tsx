@@ -64,6 +64,7 @@ export default function NavBar({ links }: Readonly<{ links: LinkInfo[] }>) {
   // Check if on home page or designs page
   const isHomePage = pathname === '/';
   const isDesignsPage = pathname === '/designs';
+  const isAboutPage = pathname === '/about-us';
 
   // Dynamically set styling based on scroll/page
   const isTransparent = (isAtTop && isHomePage) || (isDesignsPage && scrollingDown);
