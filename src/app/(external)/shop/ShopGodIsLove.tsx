@@ -16,8 +16,7 @@ function Description() {
 
 export default function ShopGodIsLove() {
   const imageList = [
-    '/images/designs/god-love-2.jpg',
-    '/images/designs/god-love-3.jpg',
+    '/images/designs/IG2.1.jpg',
   ];
 
   const sizes = new Map<string, string>([
