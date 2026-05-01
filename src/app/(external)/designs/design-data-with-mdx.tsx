@@ -6,6 +6,7 @@
 import Abide from '@/app/(external)/designs/descriptions/abide.mdx';
 import Calling from '@/app/(external)/designs/descriptions/the-calling.mdx';
 import Confidence from '@/app/(external)/designs/descriptions/confidence.mdx';
+import GodIsLove from '@/app/(external)/designs/descriptions/god-is-love.mdx';
 import Fullness from '@/app/(external)/designs/descriptions/fullness.mdx';
 import Hope from '@/app/(external)/designs/descriptions/hope.mdx';
 import Justified from '@/app/(external)/designs/descriptions/justified.mdx';
@@ -24,6 +25,7 @@ import type { ReactNode } from 'react';
 
 /** Design id → component name (all strings). */
 const descriptionIdToComponentName: Record<string, string> = {
+  'god-is-love': 'GodIsLove',
   'lux-aeterna': 'LuxAeterna',
   'the-calling': 'Calling',
   tobwy: 'ToBWY',
@@ -42,6 +44,7 @@ const descriptionIdToComponentName: Record<string, string> = {
 };
 
 const componentByName: Record<string, ReactNode> = {
+  GodIsLove: <GodIsLove />,
   LuxAeterna: <LuxAeterna />,
   Calling: <Calling />,
   ToBWY: <ToBWY />,

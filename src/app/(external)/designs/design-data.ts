@@ -17,6 +17,7 @@ export interface DesignInfo extends DesignSummary {
 
 /** Single source: id, name, imgs for each design. */
 export const designList: DesignSummary[] = [
+  { id: 'god-is-love', name: 'God is Love Crewneck', imgs: ['/images/designs/god-is-love-4.jpg', '/images/designs/god-love-2.jpg', '/images/designs/god-love-3.jpg'] },
   { id: 'lux-aeterna', name: 'Lux Aeterna Crewneck', imgs: ['/images/designs/lux-aeterna-6.jpg', '/images/designs/lux-aeterna-2.jpg', '/images/designs/lux-aeterna-3.jpg']},
   { id: 'the-calling', name: 'The Calling T-Shirt', imgs: ['/images/designs/the-calling-1.jpg', '/images/designs/the-calling-2.jpg', '/images/designs/the-calling-3.jpg'] },
   { id: 'tobwy', name: 'To Be With You T-Shirt', imgs: ['/images/designs/2bwy-3.jpg', '/images/designs/2bwy-2.jpg', '/images/designs/2bwy-1.jpg']},
