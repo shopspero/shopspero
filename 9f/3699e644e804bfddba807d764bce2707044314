@@ -1,0 +1,14 @@
+src/app/(external)/shop/ShopGodIsLove.tsx
+  h_f8be4732416941 30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.1",
+  "base_commit_sha": "9f3699e644e804bfddba807d764bce2707044314",
+  "prompts": {},
+  "humans": {
+    "h_f8be4732416941": {
+      "author": "Nikhil Verghese"
+    }
+  }
+}
