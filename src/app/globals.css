@@ -1,0 +1,134 @@
+/* ============================================================
+   Spero — Design Tokens
+   Reverent + monochrome editorial.
+   ============================================================ */
+
+:root {
+  /* Color */
+  --ink: #1a1a1a;
+  --ink-soft: #2a2a2a;
+  --ink-mute: #6b6b6b;
+  --ink-faint: #999;
+  --paper: #ffffff;
+  --cream: #f6f3ee;
+  --bone: #f4f2ee;
+  --sand: #ebe6dc;
+  --line: #e8e4dc;
+  --line-soft: #f0ece4;
+
+  /* Type families */
+  --font-serif: 'Tenor Sans', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Lexend Deca', system-ui, -apple-system, sans-serif;
+
+  /* Type scale */
+  --fs-eyebrow: 10px;
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-base: 16px;
+  --fs-lg: clamp(18px, 1.4vw, 22px);
+  --fs-xl: clamp(20px, 2vw, 26px);
+  --fs-2xl: clamp(24px, 2.6vw, 32px);
+  --fs-3xl: clamp(28px, 3.4vw, 44px);
+  --fs-4xl: clamp(34px, 4.6vw, 56px);
+  --fs-5xl: clamp(40px, 6vw, 72px);
+  --fs-6xl: clamp(48px, 8vw, 96px);
+
+  /* Letter spacing */
+  --ls-tight: -0.01em;
+  --ls-base: 0;
+  --ls-wide: 0.05em;
+  --ls-wider: 0.18em;
+  --ls-widest: 0.32em;
+  --ls-eyebrow: 0.4em;
+
+  /* Line height */
+  --lh-tight: 1.05;
+  --lh-base: 1.5;
+  --lh-relaxed: 1.7;
+  --lh-loose: 1.85;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 160px;
+
+  /* Layout */
+  --max-w-text: 640px;
+  --max-w-content: 1100px;
+  --max-w-page: 1600px;
+  --gutter: 32px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 250ms;
+  --dur-base: 600ms;
+  --dur-slow: 900ms;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reusable editorial utilities */
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 400;
+  margin: 0;
+}
+
+.serif-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: var(--ls-wide);
+  color: var(--ink);
+  text-transform: uppercase;
+  line-height: var(--lh-tight);
+  margin: 0;
+}
+
+.cta-link {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: var(--fs-lg);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 6px;
+  transition: letter-spacing var(--dur-base) var(--ease-out);
+}
+
+.cta-link:hover { letter-spacing: 0.24em; }
+
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-fade linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% entry 50%;
+  }
+}
+
+@keyframes reveal-fade {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

@@ -2,11 +2,7 @@
 
 import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-
-import { Lexend_Deca, Tenor_Sans } from 'next/font/google';
-
-const lexendDeca = Lexend_Deca({ subsets: ['latin'] });
-const tenorSans = Tenor_Sans({ subsets: ['latin'], weight: ['400'] });
+import { lexendDeca, tenorSans } from '@/app/fonts';
 
 const theme = extendTheme({
   styles: {

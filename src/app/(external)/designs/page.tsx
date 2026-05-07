@@ -24,32 +24,43 @@ function parseDesignName(name: string): { title: string; subtitle: string } {
   };
 }
 
+// Editorial rhythm: every 5th tile is a full-width feature.
+// 16 designs → indices 0, 5, 10, 15 are features; the rest pair up.
+function isFullWidth(index: number): boolean {
+  return index % 5 === 0;
+}
+
 export default function Page() {
   return (
     <div className="designs-page">
-      {designList.map((design) => {
-        const { title, subtitle } = parseDesignName(design.name);
-        return (
-          <section key={design.id} className="designs-hero">
-            <Image
-              src={design.imgs[0]}
-              alt={design.name}
-              fill
-              className="designs-hero-image"
-              sizes="100vw"
-            />
-            <div className="designs-hero-overlay" />
-            <div className="designs-hero-content">
-              <p className="designs-hero-subtitle">{subtitle}</p>
-              <h2 className="designs-hero-title">{title}</h2>
-              <Link href={`/designs/${design.id}`} className="designs-hero-btn">
-                DISCOVER
-              </Link>
-            </div>
-          </section>
-        );
-      })}
-
+      <div className="designs-grid">
+        {designList.map((design, i) => {
+          const { title, subtitle } = parseDesignName(design.name);
+          const full = isFullWidth(i);
+          return (
+            <Link
+              key={design.id}
+              href={`/designs/${design.id}`}
+              className={`designs-tile ${full ? 'designs-tile-full' : 'designs-tile-half'}`}
+              style={{ animationDelay: `${(i % 4) * 80}ms` }}
+            >
+              <div className="designs-tile-image-wrap">
+                <Image
+                  src={design.imgs[0]}
+                  alt={design.name}
+                  fill
+                  className="designs-tile-image"
+                  sizes={full ? '100vw' : '(max-width: 768px) 100vw, 50vw'}
+                />
+              </div>
+              <div className="designs-tile-caption">
+                <p className="designs-tile-subtitle">{subtitle}</p>
+                <h2 className="designs-tile-title">{title}</h2>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

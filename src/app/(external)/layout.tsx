@@ -5,9 +5,8 @@ const navLinks = [
   { title: 'ABOUT', href: '/about-us' },
   { title: 'TEAM', href: '/team' },
   { title: 'STATEMENT OF FAITH', href: '/statement-of-faith' },
-  { title: 'SHOP', href: '/shop' },
   { title: 'DESIGNS', href: '/designs' },
-  { title: 'FAQ', href: '/FAQ' },
+  { title: 'SHOP', href: '/shop' },
 ];
 
 export default function ExternalLayout({
