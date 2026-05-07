@@ -110,6 +110,10 @@ export default function AboutPage() {
         <div className="about-mission-overlay" />
         <div className="about-mission-content">
           <p className="eyebrow about-mission-eyebrow">Our Mission</p>
+          <p className="about-mission-subheader">
+            Romans 1:16 — &ldquo;For I am not ashamed of the gospel, for it is the power of
+            God for salvation to everyone who believes.&rdquo;
+          </p>
           <p className="about-mission-statement">
             To spread the Word of God by incorporating scripture into intentional designs —
             sparking hope, conversation, and bold living for Christ through everyday wear.

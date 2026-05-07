@@ -164,6 +164,18 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
+.about-mission-subheader {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(15px, 1.4vw, 18px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 720px;
+  margin: 0;
+}
+
 .about-mission-statement {
   font-family: var(--font-serif);
   font-size: clamp(22px, 3vw, 38px);

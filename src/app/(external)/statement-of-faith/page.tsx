@@ -19,14 +19,14 @@ const chapters: Chapter[] = [
   {
     number: '01',
     title: 'The Gospel',
-    body: "The Gospel is the good news about Jesus Christ — the most important message in all of human history. That God loves you and has made a way for you to know Him.",
-    verse: 'For God so loved the world that He gave His one and only Son, that whoever believes in Him shall not perish but have eternal life.',
-    verseRef: 'John 3:16',
+    body: "The Gospel is the good news about Jesus Christ. It is the message that while we were helpless and lost, God acted to save. God sent His Son to live a perfect, sinless life so that He could stand in our place as a substitute for our sins. Jesus lived the life we failed to live and died the death we deserved, satisfying God's justice so that we could be forgiven.",
+    verse: 'In this is love, not that we have loved God but that he loved us and sent his Son to be the propitiation for our sins.',
+    verseRef: '1 John 4:10',
     image: '/images/statement-of-faith/gospel.jpg',
     points: [
-      'The Gospel means "good news"',
-      "It's about God's love and salvation",
-      'Available to everyone who believes',
+      'God requires perfection, which we cannot obtain',
+      "Jesus Christ satisfied God's righteous requirements",
+      'Trust Him as your only hope for salvation',
     ],
   },
   {
@@ -45,7 +45,7 @@ const chapters: Chapter[] = [
   {
     number: '03',
     title: 'The Problem',
-    body: "Sin entered the world and created a gap between humanity and God. This isn't just about being bad — it's a fundamental brokenness that affects everyone. We all fall short of God's perfect standard.",
+    body: "Sin entered the world, separating humanity from God. This isn't just about 'being bad' — our problem is a corrupt nature that is in rebellion against God's authority, preferring our own rules to His perfect design. We all fall short of God's perfect standard.",
     verse: 'For all have sinned and fall short of the glory of God.',
     verseRef: 'Romans 3:23',
     image: '/images/statement-of-faith/the-problem.jpg',
@@ -58,9 +58,9 @@ const chapters: Chapter[] = [
   {
     number: '04',
     title: 'The Solution',
-    body: 'God loved us so much that He sent Jesus to earth. Jesus lived a perfect life, died on the cross to pay the penalty for our sins, and rose from the dead. He took our punishment so we could have a relationship with God.',
-    verse: 'Christ died for our sins according to the Scriptures, He was buried, He was raised on the third day.',
-    verseRef: '1 Corinthians 15:3-4',
+    body: 'Out of His abundant grace, God sent His only Son, Jesus Christ, to live out a perfect life in our stead, and take upon Himself all the punishment for our brokenness. He bore our sins upon the cross, that we may freely receive His righteousness.',
+    verse: 'For our sake he made him to be sin who knew no sin, so that in him we might become the righteousness of God.',
+    verseRef: '2 Corinthians 5:21',
     image: '/images/statement-of-faith/the-solution.jpg',
     points: [
       'Jesus lived a perfect life',
@@ -71,8 +71,8 @@ const chapters: Chapter[] = [
   {
     number: '05',
     title: 'Your Response',
-    body: "Salvation is a free gift from God. You can't earn it through good works or religious activity. All you need to do is believe in Jesus, confess your need for Him, and accept His forgiveness.",
-    verse: "If you declare with your mouth, 'Jesus is Lord,' and believe in your heart that God raised Him from the dead, you will be saved.",
+    body: "Salvation is the free gift of God. It is not the result of our good works, but Christ's finished work on the cross. In response, we are called to believe in the name of Jesus, confess and repent of our sins, and surrender our lives to His lordship.",
+    verse: "If you confess with your mouth, 'Jesus is Lord,' and believe in your heart that God raised Him from the dead, you will be saved.",
     verseRef: 'Romans 10:9',
     image: '/images/statement-of-faith/your-response.jpg',
     points: [
@@ -84,14 +84,14 @@ const chapters: Chapter[] = [
   {
     number: '06',
     title: 'New Life',
-    body: "When you accept Jesus, you become a new creation. Your past is forgiven, your identity changes, and you begin a journey of growth. God's Spirit lives in you, guiding and empowering you to live with purpose and hope.",
-    verse: 'Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!',
+    body: "Following Jesus is the beginning of a transformed life. When we trust in Christ, we are not just forgiven; we are made new. The Holy Spirit dwells within us, giving us new desires to love God and serve others. While we still face struggles, we now walk with the assurance that nothing can separate us from His love. We no longer live for our own glory, but for the one who died and rose again to make us His own!",
+    verse: 'Therefore, if anyone is in Christ, he is a new creation. The old has passed away; behold, the new has come.',
     verseRef: '2 Corinthians 5:17',
     image: '/images/statement-of-faith/new-life.jpg',
     points: [
-      'You become a new creation',
-      'Your past is forgiven',
-      'Begin a journey of transformation',
+      'You are a new creation in Christ',
+      'The Holy Spirit leads and helps you grow',
+      'The Father holds you fast in His grace',
     ],
   },
 ];

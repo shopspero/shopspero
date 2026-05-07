@@ -23,7 +23,7 @@ export interface DesignInfo extends DesignSummary {
 
 /** Single source: id, name, imgs, verse for each design. */
 export const designList: DesignSummary[] = [
-  { id: 'god-is-love',     name: 'God is Love Crewneck',      verse: '1 John 4:8',          imgs: ['/images/designs/god-is-love-4.jpg', '/images/designs/god-love-2.jpg', '/images/designs/god-love-3.jpg'], colorway: 'Cream', isCurrent: true },
+  { id: 'god-is-love',     name: 'God is Love T-Shirt',       verse: '1 John 4:8',          imgs: ['/images/designs/god-is-love-4.jpg', '/images/designs/god-love-2.jpg', '/images/designs/god-love-3.jpg'], colorway: 'Cream', isCurrent: true },
   { id: 'lux-aeterna',     name: 'Lux Aeterna Crewneck',      verse: 'Isaiah 60:19-21',     imgs: ['/images/designs/lux-aeterna-6.jpg', '/images/designs/lux-aeterna-2.jpg', '/images/designs/lux-aeterna-3.jpg'], colorway: 'Gray' },
   { id: 'the-calling',     name: 'The Calling T-Shirt',       verse: 'Ephesians 4:1-3',     imgs: ['/images/designs/the-calling-1.jpg', '/images/designs/the-calling-2.jpg', '/images/designs/the-calling-3.jpg'], colorway: 'Washed Black' },
   { id: 'tobwy',           name: 'To Be With You T-Shirt',    verse: 'John 15:5-7',         imgs: ['/images/designs/2bwy-3.jpg', '/images/designs/2bwy-2.jpg', '/images/designs/2bwy-1.jpg'], colorway: 'Washed Gray' },
