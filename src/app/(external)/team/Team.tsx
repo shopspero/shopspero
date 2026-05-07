@@ -23,6 +23,7 @@ const sections = {
   executive: 'Executives',
   developer: 'Web Development',
   designer: 'Design',
+  admin: 'Admin',
   photographer: 'Media',
 };
 
