@@ -1,23 +1,7 @@
-'use client';
-
-import { Tenor_Sans } from 'next/font/google';
-const tenorSans = Tenor_Sans({ subsets: ['latin'], weight: ['400'] });
-
-import {
-  Box,
-  Container,
-  VisuallyHidden,
-  Button,
-  Link,
-  Wrap,
-  WrapItem,
-  Center,
-  VStack,
-  HStack,
-} from '@chakra-ui/react';
+import Link from 'next/link';
 import { FaFacebook, FaInstagram, FaMedium, FaDiscord } from 'react-icons/fa';
 import { IconType } from 'react-icons/lib';
-import NextLink from 'next/link';
+import './styles/Footer.css';
 
 interface SocialInfo {
   label: string;
@@ -26,88 +10,68 @@ interface SocialInfo {
 }
 
 const socials: SocialInfo[] = [
-  {
-    label: 'Instagram',
-    icon: FaInstagram,
-    href: 'https://www.instagram.com/shopspero/',
-  },
-  {
-    label: 'Facebook',
-    icon: FaFacebook,
-    href: 'https://www.facebook.com/shopspero/',
-  },
-  {
-    label: 'Medium',
-    icon: FaMedium,
-    href: 'https://shopspero.medium.com/',
-  },
-  {
-    label: 'Discord',
-    icon: FaDiscord,
-    href: 'https://discord.gg/XPGyEFzpzH'
-  },
+  { label: 'Instagram', icon: FaInstagram, href: 'https://www.instagram.com/shopspero/' },
+  { label: 'Facebook',  icon: FaFacebook,  href: 'https://www.facebook.com/shopspero/' },
+  { label: 'Medium',    icon: FaMedium,    href: 'https://shopspero.medium.com/' },
+  { label: 'Discord',   icon: FaDiscord,   href: 'https://discord.gg/XPGyEFzpzH' },
 ];
 
-const SocialButton = (social: SocialInfo) => (
-  <Link as="a" href={social.href} isExternal>
-    <Button
-      size="lg"
-      p={0}
-      rounded="full"
-      bg="none"
-      _hover={{ bg: 'gray.100', transitionDuration: '0.2s' }}
-    >
-      <VisuallyHidden>{social.label}</VisuallyHidden>
-      <social.icon />
-    </Button>
-  </Link>
-);
+const navLinks = [
+  { label: 'Designs', href: '/designs' },
+  { label: 'Shop', href: '/shop' },
+  { label: 'About', href: '/about-us' },
+  { label: 'Team', href: '/team' },
+  { label: 'Statement of Faith', href: '/statement-of-faith' },
+];
 
 export default function Footer() {
   return (
-    <Box as="footer" fontSize="xs">
-      <Wrap justify="center" align="flex-end" pl={10} pr={10} pt={10}>
-        <WrapItem ml={0} mr="auto">
-          <Container
-            maxWidth={500}
-            lineHeight={1.2}
-            letterSpacing={1.2}
-            className={tenorSans.className}
-          >
-            &ldquo;Are not two sparrows sold for a penny? Yet not one of them
-            will fall to the ground outside your Father&apos;s care. And even
-            the very hairs of your head are all numbered. So don&apos;t be
-            afraid; you are worth more than many sparrows.&rdquo;
-            <br />
-            &mdash;Matthew 10:29-31
-          </Container>
-        </WrapItem>
-        <WrapItem gap={1}>
-          <VStack>
-            <HStack>
-              {socials.map((social) => (
-                <SocialButton
-                  key={social.label}
-                  label={social.label}
-                  icon={social.icon}
+    <footer className="spero-footer">
+      <div className="spero-footer-inner">
+        <div className="spero-footer-col spero-footer-col--brand">
+          <Link href="/" className="spero-footer-mark">SPERO</Link>
+          <p className="spero-footer-tagline">
+            A college student-run, gospel-centered apparel project.
+          </p>
+        </div>
+
+        <nav className="spero-footer-col">
+          <p className="eyebrow">Explore</p>
+          <ul className="spero-footer-links">
+            {navLinks.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href}>{l.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="spero-footer-col">
+          <p className="eyebrow">Connect</p>
+          <a href="mailto:shopspero@gmail.com" className="spero-footer-email">
+            shopspero@gmail.com
+          </a>
+          <ul className="spero-footer-socials">
+            {socials.map((social) => (
+              <li key={social.label}>
+                <a
                   href={social.href}
-                />
-              ))}
-            </HStack>
-            <Link
-              as={NextLink}
-              href="mailto:shopspero@gmail.com"
-              variant="underline"
-              isExternal
-            >
-              shopspero@gmail.com
-            </Link>
-          </VStack>
-        </WrapItem>
-      </Wrap>
-      <Center p={2} fontWeight={300}>
-        &#169; {new Date().getFullYear()} Spero
-      </Center>
-    </Box>
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                >
+                  <social.icon />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="spero-footer-bar">
+        <p>© {new Date().getFullYear()} Spero</p>
+        <p className="spero-footer-verse">Matthew 10:29-31</p>
+      </div>
+    </footer>
   );
 }

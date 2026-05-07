@@ -1,73 +1,46 @@
 'use client';
 
-import {
-  Box,
-  Button,
-  Center,
-  Container,
-  FormControl,
-  FormLabel,
-  Heading,
-  HStack,
-  Link,
-  Select,
-  Spinner,
-  Text,
-  VStack,
-  Wrap,
-  WrapItem,
-} from '@chakra-ui/react';
-import ImageCarousel from '@/components/ImageCarousel';
-import NextLink from 'next/link';
+import { useState, useEffect, FormEvent, ReactNode } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { FormEvent, useState, useEffect, ReactNode } from 'react';
 import { checkoutWithStripe } from '@/actions/checkout';
+import './styles/Product.css';
 
-/**
- * Props for reusable product component
- */
 interface ProductProps {
-
   /** Name of the product */
   name: string;
-
   /** Detailed description of the product */
   description: ReactNode;
-
   /** Price of the product in dollars */
   price: number;
-
   /** Array of image URLs for the product */
   images: string[];
-
-  /**
-   * Available sizes for the product.
-   * The key represents the size label (e.g., "S", "M", "L")
-   * and the value represents a human-readable size description (e.g., "Small", "Medium", "Large").
-   */
+  /** Available sizes — key is the size code (S/M/L), value is human-readable */
   sizes: Map<string, string>;
-
-  /** Product name in stripe ex. 'justified' */
+  /** Product slug used for stripe — e.g. 'god-is-love' */
   stripeId: string;
-
   /** Whether the product is currently sold out */
   isSoldOut: boolean;
 }
 
-export default function Product({name,description, price, images, sizes, isSoldOut, stripeId}: ProductProps){
-  // const success = useSearchParams().get('success');
+export default function Product({
+  name,
+  description,
+  price,
+  images,
+  sizes,
+  isSoldOut,
+  stripeId,
+}: ProductProps) {
   const router = useRouter();
 
-  const [size, setSize] = useState('undefined');
-  const [pickupOrShip, setPickupOrShip] = useState('undefined');
+  const [size, setSize] = useState('');
+  const [pickupOrShip, setPickupOrShip] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [success, setSuccess] = useState(false);
-  const pageSizes = {
-    base: 310,
-    sm: 440,
-    md: 600,
-  };
+  const [activeImage, setActiveImage] = useState(0);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -75,11 +48,8 @@ export default function Product({name,description, price, images, sizes, isSoldO
   }, []);
 
   async function handleSubmit(event: FormEvent) {
-    // Prevent default or multiple submissions
     event.preventDefault();
-    if (submitted) {
-      return;
-    }
+    if (submitted) return;
     setSubmitted(true);
     setErrorMessage('');
 
@@ -97,105 +67,132 @@ export default function Product({name,description, price, images, sizes, isSoldO
     setSubmitted(false);
   }
 
-  return (
-    <>
-      {/* If success, show order confirmation page */}
-      {success && (
-        <Container maxWidth={900} textAlign="center">
-          <Center p={10}>
-            <Heading as="h1" size="2xl">
-              Your order has been placed!
-            </Heading>
-          </Center>
-          <Text mb={5}>
-            You&apos;ll receive a confirmation email shortly. Feel free to
-            contact us at{' '}
-            <Link
-              as={NextLink}
-              href="mailto:shopspero@gmail.com"
-              variant="underline"
-              isExternal
-            >
-              shopspero@gmail.com
-            </Link>{' '}
-            with any questions.
-          </Text>
-        </Container>
-      )}
+  if (success) {
+    return (
+      <div className="shop-success">
+        <p className="eyebrow">Thank You</p>
+        <h1 className="shop-success-title">Your order has been placed.</h1>
+        <p className="shop-success-body">
+          You&apos;ll receive a confirmation email shortly. Reach out to{' '}
+          <Link href="mailto:shopspero@gmail.com" className="shop-link-inline">
+            shopspero@gmail.com
+          </Link>{' '}
+          with any questions.
+        </p>
+        <Link href="/designs" className="cta-link">
+          Back to the Collection
+        </Link>
+      </div>
+    );
+  }
 
-      {/* If not success, show order page */}
-      {!success && (
-        <Container maxWidth={1300} textAlign="center">
-          <Center p={10}>
-            <Heading as="h1" size="2xl">
-              Order {name}
-            </Heading>
-          </Center>
-          <Wrap
-            spacing={10}
-            direction="row"
-            align="center"
-            justify="center"
-            mt={5}
-            mb={5}
-          >
-            <WrapItem>
-              <ImageCarousel width={pageSizes} srcs={images} />
-            </WrapItem>
-            <WrapItem maxWidth={600}>
-              <VStack align="left" gap={10}>
-                <Box textAlign="left" whiteSpace="pre-line">
-                  {description}
-                </Box>
-                <Box textAlign="left">
-                  Price: ${price}
-                </Box>
-                <Box>
-                  <form onSubmit={handleSubmit}>
-                    <VStack gap={3}>
-                      <FormControl as="fieldset" isRequired={true}>
-                        <FormLabel as="legend">Size</FormLabel>
-                        <Select
-                          onChange={(e) => setSize(e.target.value)}
-                          placeholder={isSoldOut ? 'Sold Out!' : 'Select a Size!'}
-                          isDisabled={isSoldOut}
-                        >
-                          {Array.from(sizes).map(([key, value]) => (
-                            <option key={key} value={key}>
-                              {value}
-                            </option>
-                          ))}
-                        </Select>
-                      </FormControl>
-                      <FormControl as="fieldset" isRequired={true}>
-                        <FormLabel as="legend">
-                          Pickup or delivery option
-                        </FormLabel>
-                        <Select
-                          onChange={(e) => setPickupOrShip(e.target.value)}
-                          placeholder="Select option"
-                        >
-                          <option value="pickup">
-                            Pickup on Sproul for no additional cost
-                          </option>
-                          <option value="ship">
-                            Ship the product to me for an additional $6
-                          </option>
-                        </Select>
-                      </FormControl>
-                    </VStack>
-                    <HStack pt={4} gap={5}>
-                      <Button type="submit" isDisabled={isSoldOut}>Checkout</Button>
-                      {submitted && <Spinner size="md" />}
-                      <Text color="red">{errorMessage}</Text>
-                    </HStack>
-                  </form>
-                </Box>
-              </VStack>
-            </WrapItem>
-          </Wrap>
-        </Container>
-      )}
-    </>
+  return (
+    <article className="shop-product">
+      <div className="shop-product-grid">
+        {/* Gallery */}
+        <div className="shop-gallery">
+          <div className="shop-gallery-main">
+            <Image
+              src={images[activeImage]}
+              alt={`${name} — image ${activeImage + 1}`}
+              fill
+              priority
+              className="shop-gallery-main-image"
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            />
+          </div>
+          {images.length > 1 && (
+            <div className="shop-gallery-thumbs">
+              {images.map((src, i) => (
+                <button
+                  key={src}
+                  type="button"
+                  className={`shop-gallery-thumb ${i === activeImage ? 'is-active' : ''}`}
+                  onClick={() => setActiveImage(i)}
+                  aria-label={`View image ${i + 1}`}
+                >
+                  <Image
+                    src={src}
+                    alt=""
+                    fill
+                    sizes="80px"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Detail panel */}
+        <div className="shop-detail">
+          <p className="eyebrow">Spero Collection</p>
+          <h1 className="shop-name">{name}</h1>
+          <p className="shop-price">${price}</p>
+
+          <div className="shop-divider" />
+
+          <div className="shop-description">{description}</div>
+
+          <form className="shop-form" onSubmit={handleSubmit}>
+            <fieldset className="shop-field">
+              <legend className="shop-field-label">Size</legend>
+              <div className="shop-sizes">
+                {Array.from(sizes).map(([key, value]) => (
+                  <button
+                    type="button"
+                    key={key}
+                    className={`shop-size-pill ${size === key ? 'is-active' : ''}`}
+                    onClick={() => setSize(key)}
+                    disabled={isSoldOut}
+                    aria-pressed={size === key}
+                  >
+                    {value}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset className="shop-field">
+              <legend className="shop-field-label">Delivery</legend>
+              <div className="shop-delivery">
+                <label className={`shop-delivery-option ${pickupOrShip === 'pickup' ? 'is-active' : ''}`}>
+                  <input
+                    type="radio"
+                    name="delivery"
+                    value="pickup"
+                    checked={pickupOrShip === 'pickup'}
+                    onChange={() => setPickupOrShip('pickup')}
+                  />
+                  <span className="shop-delivery-title">Pickup on Sproul</span>
+                  <span className="shop-delivery-meta">Free</span>
+                </label>
+                <label className={`shop-delivery-option ${pickupOrShip === 'ship' ? 'is-active' : ''}`}>
+                  <input
+                    type="radio"
+                    name="delivery"
+                    value="ship"
+                    checked={pickupOrShip === 'ship'}
+                    onChange={() => setPickupOrShip('ship')}
+                  />
+                  <span className="shop-delivery-title">Ship to me</span>
+                  <span className="shop-delivery-meta">+ $6</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <button
+              type="submit"
+              className="shop-checkout-btn"
+              disabled={isSoldOut || !size || !pickupOrShip || submitted}
+            >
+              {isSoldOut ? 'Sold Out' : submitted ? 'Loading…' : 'Checkout'}
+            </button>
+
+            {errorMessage && <p className="shop-error">{errorMessage}</p>}
+          </form>
+        </div>
+      </div>
+    </article>
   );
 }
