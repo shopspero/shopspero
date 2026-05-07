@@ -1,245 +1,376 @@
-/* ========== Page Wrapper ========== */
 .about-page {
-  background: #fff;
+  background: var(--paper);
+  color: var(--ink);
 }
 
-/* ========== SECTION 1 — HERO ========== */
-.about-hero {
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  padding: 0 0 60px 0;
-}
-
-.about-hero-image {
+/* ===== Cover ===== */
+.about-cover {
   position: relative;
-  width: 47%;
-  flex-shrink: 0;
-  height: 100%;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
   overflow: hidden;
 }
 
-.about-hero-content {
-  flex: 1;
-  padding: 48px 64px;
+.about-cover-image {
+  object-fit: cover;
+  object-position: center 25%;
 }
 
-.about-hero-heading {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 400;
-  line-height: 1.1;
-  color: #000;
-  margin: 0 0 24px;
-  font-family: Georgia, 'Times New Roman', serif;
+.about-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.25) 40%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 1;
 }
 
-.about-hero-sub {
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  color: #111;
-  line-height: 1.65;
-  margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  max-width: 480px;
-}
-
-/* ========== SECTION 2 — SPERO NAME ========== */
-.about-spero {
-  display: flex;
-  align-items: stretch;
-  min-height: 60vh;
-}
-
-.about-spero-text {
-  width: 47%;
-  flex-shrink: 0;
-  padding: 80px 72px;
+.about-cover-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  text-align: right;
+  color: #fff;
+  text-align: center;
+  padding: 32px;
+  gap: 16px;
 }
 
-.about-spero-heading {
-  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
-  font-weight: 400;
-  color: #000;
-  margin: 0 0 28px;
-  font-family: Georgia, 'Times New Roman', serif;
-}
-
-.about-spero-body {
-  font-size: clamp(0.875rem, 1.1vw, 1rem);
-  color: #111;
-  line-height: 1.75;
+.about-cover-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
   margin: 0;
-  max-width: 520px;
-  font-family: Georgia, 'Times New Roman', serif;
-  text-align: right;
+  opacity: 0.85;
+  font-weight: 400;
 }
 
-.about-spero-image {
-  position: relative;
-  flex: 1;
-  min-height: 400px;
-  overflow: hidden;
+.about-cover-title {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 7vw, 96px);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin: 0;
+  line-height: 1;
 }
 
-/* ========== SECTION 3 — MISSION ========== */
-.about-mission {
+.about-cover-sub {
+  font-family: var(--font-serif);
+  font-size: clamp(15px, 1.5vw, 19px);
+  letter-spacing: 0.04em;
+  line-height: 1.55;
+  max-width: 560px;
+  margin: 8px 0 0;
+  opacity: 0.92;
+}
+
+/* ===== Etymology ===== */
+.about-etymology {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 160px 32px 140px;
+  text-align: center;
   display: flex;
-  align-items: stretch;
-  min-height: 60vh;
-  margin-top: 80px;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.about-etymology-word {
+  font-family: var(--font-serif);
+  font-size: clamp(56px, 12vw, 144px);
+  font-weight: 400;
+  letter-spacing: 0;
+  margin: 0;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.about-etymology-word em {
+  font-style: italic;
+  letter-spacing: -0.02em;
+}
+
+.about-etymology-body {
+  font-family: var(--font-serif);
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 8px 0 0;
+  max-width: 640px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.about-etymology-citation {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 16px 0 0;
+  font-weight: 400;
+}
+
+/* ===== Mission full-bleed ===== */
+.about-mission-fullbleed {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 520px;
+  overflow: hidden;
 }
 
 .about-mission-image {
-  position: relative;
-  width: 47%;
-  flex-shrink: 0;
-  min-height: 420px;
-  overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-mission-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.3) 60%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  z-index: 1;
 }
 
 .about-mission-content {
-  flex: 1;
-  padding: 72px 64px;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  text-align: center;
+  padding: 32px 48px;
+  color: #fff;
+  gap: 24px;
 }
 
-.about-mission-heading {
-  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+.about-mission-eyebrow {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.about-mission-statement {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3vw, 38px);
   font-weight: 400;
-  color: #000;
-  margin: 0 0 24px;
-  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  max-width: 920px;
+  margin: 0;
 }
 
-.about-mission-body {
-  font-size: clamp(0.875rem, 1.1vw, 1rem);
-  color: #111;
-  line-height: 1.7;
-  margin: 0 0 20px;
-  font-family: Georgia, 'Times New Roman', serif;
+/* ===== Beliefs / Three-column ===== */
+.about-beliefs {
+  padding: 140px 32px;
+  background: var(--paper);
 }
 
-.about-mission-body:last-child {
-  margin-bottom: 0;
+.about-beliefs-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px;
+  max-width: var(--max-w-content);
+  margin: 0 auto;
 }
 
-/* ========== SECTION 4 — PASTOR GPT ========== */
-.about-pastorgpt {
-  width: 100%;
-  background: #f8fafc;
-  padding: 96px 32px;
+.about-beliefs-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+
+.about-beliefs-body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ===== FAQ ===== */
+.about-faq {
+  background: var(--cream);
+  padding: 140px 32px;
+}
+
+.about-faq-header {
+  text-align: center;
+  margin-bottom: 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 24px;
-  margin-top: 80px;
+  gap: 14px;
 }
 
-.about-pastorgpt-heading {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 700;
-  color: #0f172a;
-  line-height: 1.2;
-  max-width: 640px;
+.about-faq-title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 400;
+  letter-spacing: 0.04em;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.05;
 }
 
-.about-pastorgpt-sub {
-  font-size: 1.1rem;
-  color: #334155;
-  max-width: 520px;
-  line-height: 1.6;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+.about-faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 800px;
+  border-top: 1px solid var(--line);
 }
 
-.about-pastorgpt-btn {
-  display: inline-flex;
+.about-faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.about-faq-q {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 28px 0;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 8px;
-  padding: 14px 32px;
-  background: #000;
-  color: #fff;
-  font-size: 0.9rem;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: clamp(16px, 1.6vw, 18px);
+  letter-spacing: 0.02em;
+  color: var(--ink);
   font-weight: 500;
-  letter-spacing: 0.05em;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.about-faq-q:hover { color: var(--ink-mute); }
+
+.about-faq-q-text { flex: 1; padding-right: 32px; }
+
+.about-faq-q-icon {
+  font-family: var(--font-sans);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--ink-mute);
+  width: 24px;
+  text-align: center;
+}
+
+.about-faq-a-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 400ms var(--ease-out);
+}
+
+.about-faq-item.is-open .about-faq-a-wrap {
+  grid-template-rows: 1fr;
+}
+
+.about-faq-a {
+  overflow: hidden;
+}
+
+.about-faq-item.is-open .about-faq-a {
+  padding-bottom: 28px;
+}
+
+.about-faq-a {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  font-weight: 300;
+  max-width: 720px;
+}
+
+.about-faq-a > * {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  font-weight: inherit;
+}
+
+.about-faq-inline-link {
+  color: var(--ink);
+  border-bottom: 1px solid currentColor;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: opacity var(--dur-fast) var(--ease-out);
 }
 
-.about-pastorgpt-btn:hover {
-  background: #1a1a1a;
-  transform: translateY(-2px);
+.about-faq-inline-link:hover { opacity: 0.7; }
+
+.about-faq-foot {
+  text-align: center;
+  margin: 48px 0 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-mute);
+  font-weight: 300;
 }
 
-.about-pastorgpt-btn svg {
-  width: 16px;
-  height: 16px;
+/* ===== Closing scripture ===== */
+.about-closing {
+  padding: 140px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background: var(--paper);
 }
 
-/* ========== Responsive ========== */
+.about-closing-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3.2vw, 36px);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 920px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.about-closing-cite {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0;
+  font-weight: 400;
+}
+
 @media (max-width: 768px) {
-  .about-hero {
-    flex-direction: column;
-    min-height: auto;
+  .about-etymology { padding: 80px 24px 64px; gap: 24px; }
+  .about-mission-fullbleed { height: 70vh; min-height: 440px; }
+  .about-mission-content { padding: 24px; gap: 16px; }
+  .about-beliefs { padding: 80px 24px; }
+  .about-beliefs-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
-
-  .about-hero {
-    height: auto;
-    min-height: 100vh;
-    padding: 40px 24px;
-    flex-direction: column;
-  }
-
-  .about-hero-image {
-    width: 100%;
-    height: 56vw;
-    min-height: 240px;
-  }
-
-  .about-hero-content {
-    padding: 36px 24px;
-  }
-
-  .about-spero {
-    flex-direction: column;
-  }
-
-  .about-spero-text {
-    width: 100%;
-    padding: 48px 24px;
-    border-right: none;
-  }
-
-  .about-spero-image {
-    min-height: 300px;
-  }
-
-  .about-mission {
-    flex-direction: column;
-    margin-top: 40px;
-  }
-
-  .about-mission-image {
-    width: 100%;
-    min-height: 300px;
-  }
-
-  .about-mission-content {
-    padding: 48px 24px;
-  }
-
-  .about-pastorgpt {
-    margin-top: 40px;
-  }
+  .about-faq { padding: 80px 24px; }
+  .about-faq-q { padding: 22px 0; font-size: 17px; }
+  .about-faq-q-text { padding-right: 16px; }
+  .about-closing { padding: 80px 24px; }
 }
