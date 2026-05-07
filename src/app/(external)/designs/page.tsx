@@ -3,34 +3,53 @@ export const metadata = {
 };
 
 import { designList } from '@/app/(external)/designs/design-data';
-import DesignThumbnail from '@/components/DesignThumbnail';
-import { Center, Container, Grid, GridItem, Heading } from '@chakra-ui/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import './designs.css';
+
+const garmentTypes = ['Hoodie', 'T-Shirt', 'Crewneck', 'Sticker', 'Longsleeve'];
+
+function parseDesignName(name: string): { title: string; subtitle: string } {
+  const words = name.split(' ');
+  const lastWord = words[words.length - 1];
+  if (garmentTypes.includes(lastWord)) {
+    return {
+      title: words.slice(0, -1).join(' ').toUpperCase(),
+      subtitle: lastWord + ' Collection',
+    };
+  }
+  return {
+    title: name.toUpperCase(),
+    subtitle: 'Spero Collection',
+  };
+}
 
 export default function Page() {
   return (
-    <Container maxWidth={1300}>
-      <Center pt={10} pb={10} pl={5} pr={5}>
-        <Heading as="h1" size="2xl" textAlign="center">
-          Designs
-        </Heading>
-      </Center>
-      <Center mt={5} mb={5}>
-        <Grid
-          gap={3}
-          templateColumns={{
-            base: 'repeat(1, 1fr)',
-            md: 'repeat(2, 1fr)',
-            lg: 'repeat(3, 1fr)',
-            xl: 'repeat(4, 1fr)',
-          }}
-        >
-          {designList.map((design) => (
-            <GridItem key={design.id}>
-              <DesignThumbnail {...design} />
-            </GridItem>
-          ))}
-        </Grid>
-      </Center>
-    </Container>
+    <div className="designs-page">
+      {designList.map((design) => {
+        const { title, subtitle } = parseDesignName(design.name);
+        return (
+          <section key={design.id} className="designs-hero">
+            <Image
+              src={design.imgs[0]}
+              alt={design.name}
+              fill
+              className="designs-hero-image"
+              sizes="100vw"
+            />
+            <div className="designs-hero-overlay" />
+            <div className="designs-hero-content">
+              <p className="designs-hero-subtitle">{subtitle}</p>
+              <h2 className="designs-hero-title">{title}</h2>
+              <Link href={`/designs/${design.id}`} className="designs-hero-btn">
+                DISCOVER
+              </Link>
+            </div>
+          </section>
+        );
+      })}
+
+    </div>
   );
 }

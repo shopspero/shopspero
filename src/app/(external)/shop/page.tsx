@@ -1,8 +1,5 @@
 // import ShopClosed from '@/app/(external)/shop/ShopClosed';
-// import ShopJustified from '@/app/(external)/shop/ShopJustified';
-// import ShopSalvation from '@/app/(external)/shop/ShopSalvation';
-//import ShopCalling from '@/app/(external)/shop/ShopCalling';
-import ShopLux from '@/app/(external)/shop/ShopLux';
+import ShopGodIsLove from '@/app/(external)/shop/ShopGodIsLove';
 // import ShopAbba from '@/app/(external)/shop/ShopAbba';
 
 export const metadata = {
@@ -12,9 +9,6 @@ export const metadata = {
 export const dynamic = 'force-dynamic';
 
 export default function Page() {
-  // return <ShopAbba />
-  // return <ShopSalvation />
-  // return <ShopJustified />
-  return <ShopLux />
+  return <ShopGodIsLove />;
   // return <ShopClosed />;
 }

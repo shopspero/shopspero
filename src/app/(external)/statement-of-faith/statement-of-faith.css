@@ -1,25 +1,239 @@
+/* ========== Page Wrapper ========== */
 .sof-page {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px);
+  background-color: #f8fafc;
 }
 
-.sof-header {
-    font-size: 36px;
-    text-align: center;
-    margin: 50px;
+/* ========== Title Section ========== */
+.sof-title-section {
+  width: 100%;
+  padding: 32px 24px 16px;
+  text-align: center;
+  flex-shrink: 0;
 }
 
-.sof-card-wrapper {
-    display: flex;
-    width: 100%;
-}
-.sof-right {
-    justify-content: flex-end;
-}
-
-.sof-left {
-    justify-content: flex-start;
+.sof-title {
+  font-size: clamp(3rem, 7vw, 5rem);
+  color: #1e293b;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 300;
+  margin: 0;
+  line-height: 1.1;
 }
 
+/* ========== Animated Slide Label ========== */
+.sof-subtitle-section {
+  width: 100%;
+  padding: 0 24px 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.sof-slide-number {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+}
+
+.sof-slide-title {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  color: #0f172a;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: normal;
+  margin: 0;
+  line-height: 1.15;
+}
+
+/* ========== Slide Viewport ========== */
+.sof-viewport {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  padding-bottom: 56px; /* space for dot indicators */
+  user-select: none;
+}
+
+.sof-slide-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 48px;
+  min-height: 500px;
+}
+
+/* ========== 3-Column Grid ========== */
+.sof-slide-grid {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 6fr 3fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* ========== Left Column — Description ========== */
+.sof-slide-content {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.sof-slide-content p {
+  margin: 0 0 12px;
+}
+
+.sof-points {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sof-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.sof-bullet {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+.sof-point-text {
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ========== Center Column — Image ========== */
+.sof-slide-image-wrapper {
+  aspect-ratio: 4 / 5;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.sof-slide-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sof-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(2, 6, 23, 0.4),
+    rgba(2, 6, 23, 0.25),
+    rgba(2, 6, 23, 0.4)
+  );
+  pointer-events: none;
+}
+
+/* ========== Right Column — Verse ========== */
+.sof-slide-verse {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.75;
+}
+
+.sof-verse-text {
+  font-style: italic;
+  margin: 0 0 12px;
+}
+
+.sof-verse-ref {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ========== Hover Side Overlays ========== */
+.sof-hover-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 320px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 50;
+}
+
+.sof-hover-left {
+  left: 0;
+  background: radial-gradient(ellipse at left center, rgba(0, 0, 0, 0.18) 0%, transparent 75%);
+}
+
+.sof-hover-right {
+  right: 0;
+  background: radial-gradient(ellipse at right center, rgba(0, 0, 0, 0.18) 0%, transparent 75%);
+}
+
+.sof-hover-visible {
+  opacity: 1;
+}
+
+/* ========== Dot Position Indicators ========== */
+.sof-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.sof-dot {
+  height: 6px;
+  border-radius: 9999px;
+  transition: all 0.35s ease;
+}
+
+.sof-dot-inactive {
+  width: 6px;
+  background-color: #cbd5e1;
+}
+
+.sof-dot-active {
+  width: 24px;
+  background-color: #475569;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .sof-slide-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-bottom: 16px;
+  }
+
+  .sof-slide-inner {
+    align-items: flex-start;
+    padding: 16px 20px;
+    overflow-y: auto;
+  }
+
+  .sof-slide-image-wrapper {
+    aspect-ratio: 16 / 9;
+  }
+
+  .sof-nav {
+    padding: 0 20px;
+  }
+}

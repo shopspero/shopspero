@@ -1,0 +1,106 @@
+.designs-page {
+  width: 100%;
+}
+
+.designs-hero {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.designs-hero-image {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.designs-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.2) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.designs-hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 48px 64px;
+  color: white;
+}
+
+.designs-hero-subtitle {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: 0 0 8px;
+}
+
+.designs-hero-title {
+  font-size: 1.6rem;
+  font-weight: 200;
+  letter-spacing: 0.2em;
+  margin: 0 0 24px;
+}
+
+.designs-hero-btn {
+  display: inline-block;
+  padding: 10px 28px;
+  background: white;
+  color: black;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.designs-hero-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  color: black;
+}
+
+.designs-about {
+  padding: 80px 32px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.designs-about-heading {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+  color: #1a1a1a;
+}
+
+.designs-about-text {
+  color: #bbb;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.8;
+  margin: 0 0 16px;
+}
+
+@media (max-width: 768px) {
+  .designs-hero {
+    height: 70vh;
+  }
+
+  .designs-hero-content {
+    padding: 0 24px 40px;
+  }
+
+  .designs-hero-title {
+    font-size: 1.2rem;
+  }
+}

@@ -49,7 +49,7 @@ export default function Page() {
             fontWeight="bold"
             mb={4}
           >
-            LUX AETERNA
+            God is Love
           </Heading>
           <NextLink
             href="/shop"
@@ -67,13 +67,21 @@ export default function Page() {
 
       <Container maxWidth="1550px" py={10}>
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} alignItems="center">
+          {/* God is Love Drop */}
+          <DropPreview
+            imagePath={'/images/designs/god-is-love-1.jpg'}
+            altText={'god-is-love'}
+            header={'God is Love'}
+            buttonText={'Order Now'}
+            path={'/shop'}
+            verse={"1 John 4:8"}
+          />
           {/* Lux Drop */}
           <DropPreview
               imagePath={'/images/designs/lux-aeterna-1.jpg'}
               altText={'lux-aeterna'}
               header={'Lux Aeterna'}
-              buttonText={'Order Now'}
-              path={'/shop'}
+              path={'/designs/lux-aeterna'}
               verse={"Isaiah 60"}
             />
 
@@ -86,14 +94,6 @@ export default function Page() {
             verse={"Ephesians 4:1"}
           />
 
-          {/* Surpassing Worth Drop */}
-          <DropPreview
-            imagePath={'/images/designs/surpassing-worth-2.jpg'}
-            altText={'surpassing worth'}
-            header={'Surpassing Worth'}
-            path={'/designs/surpassing-worth'}
-            verse={"Philippians 3:8"}
-          />
         </SimpleGrid>
       </Container>
     </Box>
