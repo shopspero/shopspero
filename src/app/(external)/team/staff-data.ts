@@ -61,7 +61,7 @@ const staffData: StaffInfo[] = [
   {
     name: 'Lauren Lee',
     role: 'Clothing Designer',
-    bio: "",
+    bio: "Hi, my name is Lauren and I'm a first year majoring in Chemistry at UC Berkeley on a pre-med track. I joined Spero because I want to help fulfill the Great Commission that our Father has called us in to. I hope I can make designs for Spero that profess faith and begin gospel-centered conversations. Outside of class, I enjoy watching films, playing the bass, and baking.",
     img: '/images/team/lauren.JPG',
     section: 'designer',
     objectPosition: 'center 15%',
@@ -69,7 +69,7 @@ const staffData: StaffInfo[] = [
   {
     name: 'Sharon Choi',
     role: 'Clothing Designer',
-    bio: "",
+    bio: "Hello! My name is Sharon, and I'm studying English & Film at UC Berkeley. I enjoy worshipping our God through artistic mediums, which is why I find Spero's blend of creative expression and evangelism so rewarding. I pray that through our pieces, we will make visible even the smallest glimmer of our Father's beauty to those who have not yet met Him. Aside from design, I love storytelling, sketching, and playing the drums.",
     img: '/images/team/sharon.JPG',
     section: 'designer',
   },
@@ -84,7 +84,7 @@ const staffData: StaffInfo[] = [
   {
     name: 'Mabel Kim',
     role: 'Admin',
-    bio: "",
+    bio: "Hi, I’m Mabel and I’m a first year at UC Berkeley studying Integrative Biology and Business. My interests include exploring, eating, and reading. I deeply resonate with Spero’s mission and heart for evangelism and pray that our clothing can be one way to spread His good word on campus!",
     img: '/images/team/mabel.JPG',
     section: 'admin',
   },
@@ -98,7 +98,7 @@ const staffData: StaffInfo[] = [
   {
     name: 'Kaylin Kim',
     role: 'Photographer',
-    bio: "",
+    bio: "Hi! My name is Kaylin, and I’m majoring in Integrative Biology at UC Berkeley with hopes of becoming a nurse in the future. I joined Spero because I deeply resonate with the mission of evangelism and wanted to serve in a community that reflects this heart by using creativity and clothing to share Christ’s love with others. Outside of Spero, I love spending quality time with friends, eating yummy food, and of course photography. Through our clothing, I hope we are all encouraged to live boldly in our faith and reflect His love to the people around us!",
     img: '/images/team/Kaylin.JPG',
     section: 'photographer',
   },
