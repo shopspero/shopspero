@@ -2,7 +2,7 @@
 
 import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import { lexendDeca, tenorSans } from '@/app/fonts';
+import { cormorant, lexendDeca } from '@/app/fonts';
 
 const theme = extendTheme({
   styles: {
@@ -12,7 +12,7 @@ const theme = extendTheme({
   },
   components: {
     Heading: {
-      baseStyle: tenorSans.style,
+      baseStyle: cormorant.style,
     },
     Link: {
       variants: {

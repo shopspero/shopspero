@@ -1,4 +1,5 @@
 import { Providers } from '@/app/providers';
+import { cormorant, lexendDeca } from '@/app/fonts';
 import './globals.css';
 
 export const metadata = {
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${lexendDeca.variable} ${cormorant.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>

@@ -16,9 +16,8 @@
   --line: #e8e4dc;
   --line-soft: #f0ece4;
 
-  /* Type families */
-  --font-serif: 'Tenor Sans', Georgia, 'Times New Roman', serif;
-  --font-sans:  'Lexend Deca', system-ui, -apple-system, sans-serif;
+  /* Type families — actual values are injected by next/font via the
+     classNames on <html> in layout.tsx (see src/app/fonts.ts). */
 
   /* Type scale */
   --fs-eyebrow: 10px;
