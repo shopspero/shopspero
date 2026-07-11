@@ -118,7 +118,13 @@
   color: var(--ink-mute) !important;
 }
 
-@media (max-width: 768px) {
+/* Tablet (640–1023px): keep 3 columns, tighten the gap */
+@media (max-width: 1023px) {
+  .spero-footer-inner { gap: 32px; }
+}
+
+/* Mobile (≤639px): single column */
+@media (max-width: 639px) {
   .spero-footer { padding: 36px 20px 16px; }
   .spero-footer-inner {
     grid-template-columns: 1fr;

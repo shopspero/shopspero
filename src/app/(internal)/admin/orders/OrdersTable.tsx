@@ -5,10 +5,12 @@ import {
   Box,
   HStack,
   IconButton,
+  Stack,
   Table,
   TableContainer,
   Tbody,
   Td,
+  Text,
   Th,
   Thead,
   Tr,
@@ -26,7 +28,7 @@ type SortKey =
   | 'fulfillment_option'
   | 'fulfillment_status';
 
-function OrderRow({
+function OrderActions({
   order,
   onDelete,
 }: {
@@ -35,6 +37,30 @@ function OrderRow({
 }) {
   const router = useRouter();
   return (
+    <>
+      <IconButton
+        aria-label="Inspect order"
+        icon={<InfoOutlineIcon />}
+        onClick={() => router.push(`/admin/orders/${order.id}`)}
+      />
+      <IconButton
+        aria-label="Delete order"
+        icon={<DeleteIcon />}
+        ml={3}
+        onClick={onDelete}
+      />
+    </>
+  );
+}
+
+function OrderRow({
+  order,
+  onDelete,
+}: {
+  order: Order;
+  onDelete: () => Promise<Boolean>;
+}) {
+  return (
     <Tr>
       <Td>{order.email}</Td>
       <Td>{order.product_id}</Td>
@@ -42,19 +68,43 @@ function OrderRow({
       <Td>{order.fulfillment_option}</Td>
       <Td>{order.fulfillment_status}</Td>
       <Td textAlign="right">
-        <IconButton
-          aria-label="Inspect order"
-          icon={<InfoOutlineIcon />}
-          onClick={() => router.push(`/admin/orders/${order.id}`)}
-        />
-        <IconButton
-          aria-label="Delete order"
-          icon={<DeleteIcon />}
-          ml={3}
-          onClick={onDelete}
-        />
+        <OrderActions order={order} onDelete={onDelete} />
       </Td>
     </Tr>
+  );
+}
+
+/* Mobile (<640px) card — one labeled stack per order. */
+function OrderCard({
+  order,
+  onDelete,
+}: {
+  order: Order;
+  onDelete: () => Promise<Boolean>;
+}) {
+  const fields: [string, string | undefined][] = [
+    ['Email', order.email],
+    ['Product ID', order.product_id],
+    ['Payment Status', order.payment_status],
+    ['Fulfillment Option', order.fulfillment_option],
+    ['Fulfillment Status', order.fulfillment_status],
+  ];
+  return (
+    <Box borderWidth="1px" borderRadius="md" p={4}>
+      <Stack gap={2}>
+        {fields.map(([label, value]) => (
+          <Box key={label}>
+            <Text fontSize="xs" color="gray.500" textTransform="uppercase">
+              {label}
+            </Text>
+            <Text wordBreak="break-word">{value || '—'}</Text>
+          </Box>
+        ))}
+        <HStack justify="flex-end" pt={2}>
+          <OrderActions order={order} onDelete={onDelete} />
+        </HStack>
+      </Stack>
+    </Box>
   );
 }
 
@@ -90,6 +140,19 @@ export default function OrdersTable() {
     }
   }
 
+  function deleteHandler(order: Order) {
+    return async () => {
+      if (!order.id) {
+        return false;
+      }
+      const success = await deleteOrder(order.id);
+      if (success) {
+        getOrders().then(setOrders);
+      }
+      return success;
+    };
+  }
+
   function SortedHeader({ name, id }: { name: string; id: SortKey }) {
     let sortIcon = <FaSort />;
     if (id === sortKey) {
@@ -110,35 +173,42 @@ export default function OrdersTable() {
   }
 
   return (
-    <TableContainer>
-      <Table variant="simple">
-        <Thead>
-          <Tr>
-            <SortedHeader name="Email" id="email" />
-            <SortedHeader name="Product ID" id="product_id" />
-            <SortedHeader name="Payment Status" id="payment_status" />
-            <SortedHeader name="Fulfillment Option" id="fulfillment_option" />
-            <SortedHeader name="Fulfillment Status" id="fulfillment_status" />
-            <Th textAlign="right">Actions</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {orders.map((order) => (
-            <OrderRow key={order.id} onDelete={
-              async() => {
-                if (!order.id) {
-                  return false;
-                }
-                const success = await deleteOrder(order.id)
-                if (success) {
-                  getOrders().then(setOrders);
-                }
-                return success
-              }
-            } order={order} />
-          ))}
-        </Tbody>
-      </Table>
-    </TableContainer>
+    <>
+      {/* Tablet and up: full sortable table */}
+      <TableContainer display={{ base: 'none', sm: 'block' }}>
+        <Table variant="simple">
+          <Thead>
+            <Tr>
+              <SortedHeader name="Email" id="email" />
+              <SortedHeader name="Product ID" id="product_id" />
+              <SortedHeader name="Payment Status" id="payment_status" />
+              <SortedHeader name="Fulfillment Option" id="fulfillment_option" />
+              <SortedHeader name="Fulfillment Status" id="fulfillment_status" />
+              <Th textAlign="right">Actions</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {orders.map((order) => (
+              <OrderRow
+                key={order.id}
+                onDelete={deleteHandler(order)}
+                order={order}
+              />
+            ))}
+          </Tbody>
+        </Table>
+      </TableContainer>
+
+      {/* Mobile: stacked cards */}
+      <Stack display={{ base: 'flex', sm: 'none' }} gap={4}>
+        {orders.map((order) => (
+          <OrderCard
+            key={order.id}
+            order={order}
+            onDelete={deleteHandler(order)}
+          />
+        ))}
+      </Stack>
+    </>
   );
 }

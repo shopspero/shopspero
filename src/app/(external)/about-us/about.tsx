@@ -7,6 +7,16 @@ import './about.css';
 
 type Faq = { id: string; question: string; answer: ReactNode };
 
+const PARTNERS: { name: string; src: string; scale?: number }[] = [
+  { name: 'Abba', src: '/images/partners/abba.jpg', scale: 0.7 },
+  { name: 'FICB', src: '/images/partners/ficb.jpg' },
+  { name: 'Laundry Love', src: '/images/partners/laundry love.png' },
+  { name: 'More Than Bread', src: '/images/partners/more_than_bread.webp' },
+  { name: 'Pillar', src: '/images/partners/pillar.png' },
+  { name: 'SOON', src: '/images/partners/soon.png' },
+  { name: 'UIC', src: '/images/partners/uic.png' },
+];
+
 const FAQS: Faq[] = [
   {
     id: 'what-does-spero-mean',
@@ -147,6 +157,42 @@ export default function AboutPage() {
                 Meet the team.
               </Link>
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="about-partners">
+        <div className="about-partners-inner">
+          <p className="eyebrow">Our Partners</p>
+          <h2 className="about-partners-title">Giving with intention.</h2>
+          <p className="about-partners-body">
+            Each year, Spero partners with a different missionary or organization to direct
+            our profits toward. These partners are chosen carefully to ensure their vision
+            aligns with ours — that they are primarily Gospel-sharing and Gospel-centered
+            in everything they do.
+          </p>
+          <p className="about-partners-body">
+            We also partner with Christian fellowships, ministries, and organizations to
+            host clothing drops and bring Spero apparel into the hands of communities
+            living out the Gospel together.
+          </p>
+        </div>
+
+        <div className="about-partners-marquee" aria-label="Past partners">
+          <div className="about-partners-track">
+            {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((p, i) => (
+              <div className="about-partners-logo" key={`${p.name}-${i}`}>
+                <Image
+                  src={p.src}
+                  alt={p.name}
+                  width={200}
+                  height={100}
+                  className="about-partners-logo-img"
+                  style={p.scale ? { transform: `scale(${p.scale})` } : undefined}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

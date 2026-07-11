@@ -151,7 +151,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 639px) {
   .designs-eyebrow { padding-top: 56px; }
   .designs-pagetitle { margin-bottom: 56px; }
 
@@ -570,7 +570,7 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .dd-header { padding: 140px 24px 64px; }
   .dd-spread,
   .dd-spread--reverse {
@@ -606,7 +606,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 639px) {
   .dd-header { padding: 100px 20px 48px; }
   .dd-spread-image-wrap {
     aspect-ratio: 4 / 5;

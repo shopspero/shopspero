@@ -60,7 +60,14 @@ export default function Carousel({
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {srcs.map((src) => (
           <Box key={src} width={width} height="100%">
-            <Image width={600} height={600} src={src} alt={src} />
+            <Image
+              width={600}
+              height={600}
+              src={src}
+              alt={src}
+              sizes="(max-width: 639px) 310px, (max-width: 1023px) 440px, 600px"
+              style={{ width: '100%', height: 'auto' }}
+            />
           </Box>
         ))}
       </Slider>

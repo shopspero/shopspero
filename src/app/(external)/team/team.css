@@ -259,16 +259,23 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 639px) {
   .team-page { padding: 96px 20px 64px; }
   .team-header { margin-bottom: 64px; }
   .team-section { margin-bottom: 64px; }
   .team-section-eyebrow { margin-bottom: 40px; }
   .team-section-eyebrow::before,
   .team-section-eyebrow::after { display: none; }
+  /* Switch from centered flex to a true 2-up grid (the base grid is
+     display:flex, so grid-template-columns alone had no effect). */
   .team-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 32px 16px;
+  }
+  .team-card {
+    flex: initial;
+    max-width: none;
   }
   .team-join {
     margin-left: -20px;
