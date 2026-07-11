@@ -25,7 +25,7 @@ const drops: DropPreview[] = [
   },
   {
     id: 'lux-aeterna',
-    imagePath: '/images/designs/lux-aeterna-1.jpg',
+    imagePath: '/images/designs/lux-aeterna-7.jpg',
     altText: 'Lux Aeterna drop',
     header: 'Lux Aeterna',
     verse: 'Isaiah 60',
@@ -90,7 +90,11 @@ export default function Page() {
                   alt={drop.altText}
                   fill
                   className="home-drop-image"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes={
+                    drop.size === 'wide'
+                      ? '100vw'
+                      : '(max-width: 639px) 100vw, 50vw'
+                  }
                 />
               </div>
               <div className="home-drop-caption">

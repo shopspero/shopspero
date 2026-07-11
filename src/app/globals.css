@@ -3,6 +3,23 @@
    Reverent + monochrome editorial.
    ============================================================ */
 
+/* ------------------------------------------------------------
+   Responsive breakpoints (canonical — use these everywhere)
+
+     Mobile   ≤ 639px      single column, tightest gutters
+     Tablet   640–1023px   reduced multi-column / intermediate
+     Laptop   1024–1439px  full layout
+     Desktop  ≥ 1440px     full layout, max-width capped
+
+   CSS custom properties can't be used inside media queries, so the
+   two query thresholds below are applied by hand across all stylesheets:
+
+     @media (max-width: 1023px) { ... }   laptop → tablet adjustments
+     @media (max-width: 639px)  { ... }   tablet → mobile stack
+
+   Always author with these two values. Avoid one-off thresholds.
+   ------------------------------------------------------------ */
+
 :root {
   /* Color */
   --ink: #1a1a1a;
@@ -80,6 +97,7 @@ body {
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Reusable editorial utilities */

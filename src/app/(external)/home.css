@@ -9,8 +9,14 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  height: 100svh; /* exclude mobile URL bar so CTA stays in view */
   min-height: 600px;
   overflow: hidden;
+}
+
+/* Short / landscape phones: don't force a tall hero taller than the screen */
+@media (max-height: 600px) {
+  .home-hero { min-height: 0; }
 }
 
 .home-hero-overlay {
@@ -283,7 +289,17 @@
   color: var(--ink);
 }
 
-@media (max-width: 768px) {
+/* Tablet (640–1023px): keep the 2-up drops grid, tighten vertical rhythm */
+@media (max-width: 1023px) {
+  .home-mission { padding: 120px 32px 96px; }
+  .home-drops { padding: 0 24px 120px; }
+  .home-drops-header { margin-bottom: 64px; }
+  .home-drop--wide .home-drop-image-wrap { min-height: 360px; }
+  .home-explore { padding: 110px 24px; }
+}
+
+/* Mobile (≤639px): single column */
+@media (max-width: 639px) {
   .home-mission { padding: 80px 24px 64px; }
   .home-drops { padding: 0 16px 80px; }
   .home-drops-header { margin-bottom: 48px; }

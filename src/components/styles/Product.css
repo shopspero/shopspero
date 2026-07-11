@@ -291,7 +291,7 @@
 
 .shop-link-inline:hover { opacity: 0.7; }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .shop-product { padding: 64px 24px 80px; }
   .shop-product-grid {
     grid-template-columns: 1fr;
@@ -305,7 +305,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 639px) {
   .shop-product { padding: 40px 20px 64px; }
   .shop-success { padding: 80px 24px; }
   .shop-gallery-thumb { width: 64px; height: 76px; }

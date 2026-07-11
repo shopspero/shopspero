@@ -50,7 +50,7 @@ export default function Page() {
                   alt={design.name}
                   fill
                   className="designs-tile-image"
-                  sizes={full ? '100vw' : '(max-width: 768px) 100vw, 50vw'}
+                  sizes={full ? '100vw' : '(max-width: 639px) 100vw, 50vw'}
                 />
               </div>
               <div className="designs-tile-caption">

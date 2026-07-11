@@ -9,6 +9,7 @@ import {
   Input,
   Select,
   Spinner,
+  Stack,
   Text,
   VStack,
 } from '@chakra-ui/react';
@@ -109,7 +110,7 @@ export default function LogForm() {
   return (
     <form onSubmit={handleSubmit}>
       <VStack align="left" gap={3}>
-        <HStack gap={3}>
+        <Stack direction={{ base: 'column', md: 'row' }} gap={3}>
           <FormControl as="fieldset" isRequired={true}>
             <FormLabel as="legend">Product ID</FormLabel>
             <Select
@@ -133,7 +134,7 @@ export default function LogForm() {
               <option value="ship">Ship</option>
             </Select>
           </FormControl>
-        </HStack>
+        </Stack>
         <FormControl as="fieldset" isRequired={true}>
           <FormLabel as="legend">Email</FormLabel>
           <Input
@@ -163,7 +164,7 @@ export default function LogForm() {
           <FormLabel as="legend">Address Line 2</FormLabel>
           <Input value={line2} onChange={(e) => setLine2(e.target.value)} />
         </FormControl>
-        <HStack gap={3}>
+        <Stack direction={{ base: 'column', md: 'row' }} gap={3}>
           <FormControl as="fieldset">
             <FormLabel as="legend">Address City</FormLabel>
             <Input value={city} onChange={(e) => setCity(e.target.value)} />
@@ -172,8 +173,8 @@ export default function LogForm() {
             <FormLabel as="legend">Address State</FormLabel>
             <Input value={state} onChange={(e) => setState(e.target.value)} />
           </FormControl>
-        </HStack>
-        <HStack gap={3}>
+        </Stack>
+        <Stack direction={{ base: 'column', md: 'row' }} gap={3}>
           <FormControl as="fieldset">
             <FormLabel as="legend">Address Country</FormLabel>
             <Input
@@ -189,7 +190,7 @@ export default function LogForm() {
               pattern="[0-9]{5}"
             />
           </FormControl>
-        </HStack>
+        </Stack>
         <HStack pt={4} gap={5}>
           <Button type="submit">Submit</Button>
           {submitted && <Spinner size="md" />}

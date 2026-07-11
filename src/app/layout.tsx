@@ -8,6 +8,12 @@ export const metadata = {
     'A college student-run philanthropic fashion company aimed to share the gospel.',
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover' as const,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

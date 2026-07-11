@@ -59,7 +59,7 @@ export default function Team() {
                       fill
                       className="team-card-image"
                       style={{ objectPosition: staff.objectPosition || 'top' }}
-                      sizes="(max-width: 768px) 50vw, 240px"
+                      sizes="(max-width: 639px) 50vw, 220px"
                     />
                   </div>
                   <h3 className="team-card-name">{staff.name}</h3>
@@ -111,7 +111,7 @@ export default function Team() {
                 fill
                 className="team-modal-image"
                 style={{ objectPosition: curCard.objectPosition || 'top' }}
-                sizes="(max-width: 768px) 100vw, 320px"
+                sizes="(max-width: 639px) 100vw, 280px"
               />
             </div>
             <div className="team-modal-body">
