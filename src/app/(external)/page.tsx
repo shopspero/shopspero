@@ -25,7 +25,7 @@ const drops: DropPreview[] = [
   },
   {
     id: 'lux-aeterna',
-    imagePath: '/images/designs/lux-aeterna-1.jpg',
+    imagePath: '/images/designs/lux-aeterna-7.jpg',
     altText: 'Lux Aeterna drop',
     header: 'Lux Aeterna',
     verse: 'Isaiah 60',
