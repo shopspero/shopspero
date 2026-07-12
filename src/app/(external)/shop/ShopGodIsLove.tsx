@@ -1,6 +1,7 @@
 'use client';
 
 import Product from '../../../components/Product';
+import { designList } from '@/app/(external)/designs/design-data';
 
 function Description() {
   return (
@@ -15,9 +16,8 @@ function Description() {
 }
 
 export default function ShopGodIsLove() {
-  const imageList = [
-    '/images/designs/IG2.1.jpg',
-  ];
+  // Same images as the design page carousel — single source of truth.
+  const imageList = designList.find((d) => d.id === 'god-is-love')!.imgs;
 
   const sizes = new Map<string, string>([
     ['s', 'S'],

@@ -7,14 +7,14 @@ import './about.css';
 
 type Faq = { id: string; question: string; answer: ReactNode };
 
-const PARTNERS: { name: string; src: string; scale?: number }[] = [
-  { name: 'Abba', src: '/images/partners/abba.jpg', scale: 0.7 },
-  { name: 'FICB', src: '/images/partners/ficb.jpg' },
-  { name: 'Laundry Love', src: '/images/partners/laundry love.png' },
-  { name: 'More Than Bread', src: '/images/partners/more_than_bread.webp' },
-  { name: 'Pillar', src: '/images/partners/pillar.png' },
-  { name: 'SOON', src: '/images/partners/soon.png' },
-  { name: 'UIC', src: '/images/partners/uic.png' },
+const PARTNERS: { name: string; fullName: string; src: string }[] = [
+  { name: 'Abba', fullName: 'Abba Modern Dance Group', src: '/images/partners/abba.jpg' },
+  { name: 'FICB', fullName: 'Fellowship in Christ Berkeley', src: '/images/partners/ficb.jpg' },
+  { name: 'Laundry Love', fullName: 'Laundry Love', src: '/images/partners/laundry love.png' },
+  { name: 'More Than Bread', fullName: 'More Than Bread', src: '/images/partners/more_than_bread.webp' },
+  { name: 'Pillar', fullName: 'Pillar Baptist Church', src: '/images/partners/pillar.png' },
+  { name: 'SOON', fullName: 'Soon Movement Global', src: '/images/partners/soon.png' },
+  { name: 'UIC', fullName: 'Unity in Christ Berkeley', src: '/images/partners/uic.png' },
 ];
 
 const FAQS: Faq[] = [
@@ -189,8 +189,8 @@ export default function AboutPage() {
                   width={200}
                   height={100}
                   className="about-partners-logo-img"
-                  style={p.scale ? { transform: `scale(${p.scale})` } : undefined}
                 />
+                <span className="about-partners-logo-tooltip">{p.fullName}</span>
               </div>
             ))}
           </div>
