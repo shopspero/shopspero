@@ -49,8 +49,8 @@
 }
 
 .spero-footer-links a {
-  font-family: var(--font-sans);
-  font-size: 12px;
+  font-family: var(--font-serif);
+  font-size: 15px;
   color: var(--ink);
   text-decoration: none;
   letter-spacing: 0.04em;
@@ -60,8 +60,8 @@
 .spero-footer-links a:hover { opacity: 0.55; }
 
 .spero-footer-email {
-  font-family: var(--font-sans);
-  font-size: 12px;
+  font-family: var(--font-serif);
+  font-size: 15px;
   color: var(--ink);
   text-decoration: none;
   letter-spacing: 0.04em;
