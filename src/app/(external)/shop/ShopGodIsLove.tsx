@@ -32,7 +32,7 @@ export default function ShopGodIsLove() {
     images: imageList,
     sizes,
     stripeId: 'god-is-love',
-    isSoldOut: false,
+    isSoldOut: true,
   };
 
   return <Product {...props} />;
