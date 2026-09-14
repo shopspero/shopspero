@@ -5,12 +5,9 @@ import Image from 'next/image';
 import staffData, { StaffInfo } from '@/app/(external)/team/staff-data';
 import './team.css';
 
-const sections: { key: StaffInfo['section']; label: string }[] = [
-  { key: 'executive', label: 'Executives' },
-  { key: 'developer', label: 'Web Development' },
-  { key: 'designer', label: 'Design' },
-  { key: 'admin', label: 'Admin' },
-  { key: 'photographer', label: 'Media' },
+const sections = [
+  { key: 'executive', label: 'Executive Team' },
+  { key: 'team', label: 'Team' },
 ];
 
 export default function Team() {
@@ -39,11 +36,15 @@ export default function Team() {
       </header>
 
       {sections.map(({ key, label }) => {
-        const members = staffData.filter((s) => s.section === key);
+        const members = staffData.filter(
+          (staff) => !staff.archived && (key === 'executive'
+            ? staff.section === 'executive'
+            : staff.section !== 'executive'),
+        );
         if (members.length === 0) return null;
         return (
           <section key={key} className="team-section">
-            <p className="team-section-eyebrow">{label}</p>
+            <h2 className="team-section-eyebrow">{label}</h2>
             <div className="team-grid">
               {members.map((staff) => (
                 <button

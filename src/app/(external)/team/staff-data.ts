@@ -4,6 +4,7 @@ export interface StaffInfo {
   bio: string;
   img: string;
   section: string;
+  archived?: boolean;
   objectPosition?: string;
 }
 
@@ -38,6 +39,7 @@ const staffData: StaffInfo[] = [
   },
   {
     name: 'Ryan Amiri',
+    archived: true,
     role: 'Chief Web Developer',
     bio: "Hi, I’m Ryan, a third-year Computer Science student at Northeastern University pursuing a career in AI and software engineering to build useful, trustworthy technology. I joined Spero to create everyday designs that point people to Jesus and to serve my campus with work that reflects my faith. Outside class I run and love to work from cafes with a matcha, my Bible, and my laptop.",
     img: '/images/team/ryan_amiri.webp',
@@ -45,6 +47,7 @@ const staffData: StaffInfo[] = [
   },
   {
     name: 'Nikhil Verghese',
+    archived: true,
     role: 'Chief Web Developer',
     bio: "I'm Nikhil and I am a third year at Northeastern University majoring in CS and Finance. I joined Spero because I want to be a part of a collective that uses their gifts to give glory to God and to share the good news to all students.",
     img: '/images/team/nikhil.webp',
@@ -75,7 +78,7 @@ const staffData: StaffInfo[] = [
   },
   {
     name: 'Bella Cha',
-    role: 'Clothing Designer',
+    role: 'Web Designer',
     bio: "Hi, my name is Bella, and I'm studying Cognitive Science at UC Berkeley (currently on a gap year), with an interest in pursuing UI/UX design. Spero has allowed me to use clothing as a creative way to reflect and share the Gospel in daily life. In my free time, I enjoy baking, hiking, and exploring new cafes.",
     img: '/images/team/bella_cha.webp',    
     section: 'designer',
@@ -86,10 +89,11 @@ const staffData: StaffInfo[] = [
     role: 'Admin',
     bio: "Hi, I’m Mabel and I’m a first year at UC Berkeley studying Integrative Biology and Business. My interests include exploring, eating, and reading. I deeply resonate with Spero’s mission and heart for evangelism and pray that our clothing can be one way to spread His good word on campus!",
     img: '/images/team/mabel.JPG',
-    section: 'admin',
+    section: 'executive',
   },
   {
     name: 'Kay Karsono',
+    archived: true,
     role: 'Photographer',
     bio: "Hi, I'm Kay, a senior at UC Berkeley. I joined Spero to use my passion for photography to glorify God and share His love through visual storytelling. In my free time, I enjoy exploring new places, capturing moments through my camera, and spending time with friends and family.",
     img: '/images/team/kay.JPG',
