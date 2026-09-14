@@ -4,7 +4,6 @@ import Footer from '@/components/Footer';
 const navLinks = [
   { title: 'ABOUT', href: '/about-us' },
   { title: 'TEAM', href: '/team' },
-  { title: 'STATEMENT OF FAITH', href: '/statement-of-faith' },
   { title: 'DESIGNS', href: '/designs' },
   { title: 'SHOP', href: '/shop' },
 ];

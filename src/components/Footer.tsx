@@ -21,7 +21,6 @@ const navLinks = [
   { label: 'Shop', href: '/shop' },
   { label: 'About', href: '/about-us' },
   { label: 'Team', href: '/team' },
-  { label: 'Statement of Faith', href: '/statement-of-faith' },
 ];
 
 export default function Footer() {

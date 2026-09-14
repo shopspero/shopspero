@@ -63,11 +63,11 @@
 }
 
 .team-section-eyebrow::before {
-  right: calc(50% + 80px);
+  right: calc(50% + 110px);
 }
 
 .team-section-eyebrow::after {
-  left: calc(50% + 80px);
+  left: calc(50% + 110px);
 }
 
 .team-grid {
