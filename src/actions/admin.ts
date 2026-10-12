@@ -1,6 +1,7 @@
 'use server';
 
 import { auth } from '@/lib/auth';
+import { hasPermission } from '@/lib/permissions';
 import {
   Order,
   addOrder,
@@ -19,7 +20,7 @@ import {
 
 export async function getProducts() {
   const session = await auth();
-  if (!session) {
+  if (!hasPermission(session, 'products')) {
     return [];
   }
   return libGetProducts();
@@ -27,7 +28,7 @@ export async function getProducts() {
 
 export async function upsertProduct(product: Product) {
   const session = await auth();
-  if (!session) {
+  if (!hasPermission(session, 'products')) {
     return false;
   }
   return libUpsertProduct(product);
@@ -35,7 +36,7 @@ export async function upsertProduct(product: Product) {
 
 export async function deleteProduct(productId: string) {
   const session = await auth();
-  if (!session) {
+  if (!hasPermission(session, 'products')) {
     return false;
   }
   return libDeleteProduct(productId);
@@ -43,7 +44,7 @@ export async function deleteProduct(productId: string) {
 
 export async function getOrders() {
   const session = await auth();
-  if (!session) {
+  if (!hasPermission(session, 'orders')) {
     return [];
   }
   return libGetOrders();
@@ -51,7 +52,7 @@ export async function getOrders() {
 
 export async function getOrder(orderId: string) {
   const session = await auth();
-  if (!session) {
+  if (!hasPermission(session, 'orders')) {
     return undefined;
   }
   const { order } = await libGetOrder(orderId);
@@ -60,7 +61,7 @@ export async function getOrder(orderId: string) {
 
 export async function upsertOrder(order: Order) {
   const session = await auth();
-  if (!session) {
+  if (!hasPermission(session, 'orders')) {
     return false;
   }
   return libUpsertOrder(order);
@@ -68,7 +69,7 @@ export async function upsertOrder(order: Order) {
 
 export async function deleteOrder(orderId: string) {
   const session = await auth();
-  if (!session) {
+  if (!hasPermission(session, 'orders')) {
     return false;
   }
   return libDeleteOrder(orderId);
@@ -79,7 +80,7 @@ export async function manuallyLogOrder(
 ): Promise<{ orderId?: string; status: 'success' | 'out of stock' | 'error' }> {
   const session = await auth();
   if (
-    !session ||
+    !hasPermission(session, 'log-order') ||
     !order.product_id ||
     !order.fulfillment_option ||
     !order.email

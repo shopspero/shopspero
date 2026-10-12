@@ -29,10 +29,9 @@ export default function NavBar({ links }: Readonly<{ links: LinkInfo[] }>) {
   }, []);
 
   const isHomePage = pathname === '/';
-  const isAboutPage = pathname === '/about-us';
 
-  // Transparent only over hero images up top (home + about cover).
-  const transparentEligible = isHomePage || isAboutPage;
+  // Transparent only over the hero image up top (home).
+  const transparentEligible = isHomePage;
   const isTransparent = transparentEligible && isAtTop;
 
   const half = Math.ceil(links.length / 2);

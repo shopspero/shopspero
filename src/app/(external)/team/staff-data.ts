@@ -54,14 +54,6 @@ const staffData: StaffInfo[] = [
     section: 'developer',
   },
   {
-    name: 'Chloe Lee',
-    role: 'Clothing Designer',
-    bio: "Hi! My name is Chloe, and I’m a first-year student at UC Berkeley majoring in Nutrition and Metabolic Biology, with plans to pursue a career in dentistry. Through Spero, I hope to grow deeper in my walk with Christ and glorify His name by sharing His love with others. In my free time, I enjoy reading, watching good movies, and thrifting.",
-    img: '/images/team/Chloe.JPG',
-    section: 'designer',
-    objectPosition: 'center 15%',
-  },
-  {
     name: 'Lauren Lee',
     role: 'Clothing Designer',
     bio: "Hi, my name is Lauren and I'm a first year majoring in Chemistry at UC Berkeley on a pre-med track. I joined Spero because I want to help fulfill the Great Commission that our Father has called us in to. I hope I can make designs for Spero that profess faith and begin gospel-centered conversations. Outside of class, I enjoy watching films, playing the bass, and baking.",
@@ -86,7 +78,7 @@ const staffData: StaffInfo[] = [
   },
   {
     name: 'Mabel Kim',
-    role: 'Admin',
+    role: 'Product Manager',
     bio: "Hi, I’m Mabel and I’m a first year at UC Berkeley studying Integrative Biology and Business. My interests include exploring, eating, and reading. I deeply resonate with Spero’s mission and heart for evangelism and pray that our clothing can be one way to spread His good word on campus!",
     img: '/images/team/mabel.JPG',
     section: 'executive',
