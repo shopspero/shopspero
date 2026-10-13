@@ -35,7 +35,7 @@ const chapters: Chapter[] = [
     body: "Before you were born, God knew you and loved you. His love isn't based on what you do — it's based on who He is. God created you with intention and purpose because He wanted a relationship with you.",
     verse: 'But God demonstrates His own love for us in this: While we were still sinners, Christ died for us.',
     verseRef: 'Romans 5:8',
-    image: '/images/designs/god-is-love-1.jpg',
+    image: '/images/designs/god-is-love-4.jpg',
     points: [
       "God's love is unconditional",
       'You were created with purpose',

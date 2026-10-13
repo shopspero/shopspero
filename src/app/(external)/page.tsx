@@ -16,7 +16,7 @@ interface DropPreview {
 const drops: DropPreview[] = [
   {
     id: 'god-is-love',
-    imagePath: '/images/designs/god-is-love-1.jpg',
+    imagePath: '/images/designs/god-is-love-4.jpg',
     altText: 'God is Love drop',
     header: 'God is Love',
     verse: '1 John 4:8',
