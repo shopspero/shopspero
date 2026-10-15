@@ -1,6 +1,67 @@
 {
   "rywansuh@gmail.com": {
     "name": "Ryan",
-    "permissions": ["*"]
+    "title": "chud",
+    "permissions": ["exec"]
+  },
+  "hogankim42@gmail.com": {
+    "name": "Hogan",
+    "title": "chud",
+    "permissions": ["exec"]
+  },
+  "abigailcho@berkeley.edu": {
+    "name": "Abigail",
+    "title": "chud",
+    "permissions": ["exec"]
+  },
+  "laurlee@berkeley.edu": {
+    "name": "Lauren",
+    "title": "chud",
+    "permissions": ["general"]
+  },
+  "Milkyway20202@gmail.com": {
+    "name": "Michael",
+    "title": "chud",
+    "permissions": ["exec"]
+  },
+  "soorimchoi@berkeley.edu": {
+    "name": "Sharon",
+    "title": "chud",
+    "permissions": ["general"]
+  },
+  "mabelkim@berkeley.edu": {
+    "name": "Mabel",
+    "title": "chud",
+    "permissions": ["exec"]
+  },
+  "katiehwang@berkeley.edu": {
+    "name": "Katie",
+    "title": "chud",
+    "permissions": ["general"]
+  },
+  "rsuh@berkeley.edu": {
+    "name": "Ryan",
+    "title": "chud",
+    "permissions": ["general"]
+  },
+  "harampark0619@gmail.com": {
+    "name": "Haram",
+    "title": "chud",
+    "permissions": ["general"]
+  },
+  "ryanamiri05@gmail.com": {
+    "name": "Ryan",
+    "title": "chud",
+    "permissions": ["general"]
+  },
+  "cindyjin7@berkeley.edu": {
+    "name": "Cindy",
+    "title": "chud",
+    "permissions": ["general"]
+  },
+  "kaylin0519kim@berkeley.edu": {
+    "name": "Kaylin",
+    "title": "chud",
+    "permissions": ["general"]
   }
 }

@@ -6,5 +6,6 @@ export function hasPermission(
   permission: Permission
 ): boolean {
   const permissions = session?.user?.permissions ?? [];
-  return permissions.includes('*') || permissions.includes(permission);
+  // exec is a superset: exec users pass every check, including general-gated ones.
+  return permissions.includes('exec') || permissions.includes(permission);
 }

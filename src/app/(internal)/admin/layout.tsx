@@ -8,9 +8,10 @@ import type { Permission } from '@/lib/users';
 
 const allNavLinks: { title: string; href: string; permission?: Permission }[] = [
   { title: 'ADMIN', href: '/admin' },
-  { title: 'ORDERS', href: '/admin/orders', permission: 'orders' },
-  { title: 'LOG ORDER', href: '/admin/log-order', permission: 'log-order' },
-  { title: 'PRODUCTS', href: '/admin/products', permission: 'products' },
+  { title: 'ORDERS', href: '/admin/orders', permission: 'general' },
+  { title: 'LOG ORDER', href: '/admin/log-order', permission: 'general' },
+  { title: 'PRODUCTS', href: '/admin/products', permission: 'general' },
+  { title: 'EXEC', href: '/admin/exec', permission: 'exec' },
   { title: 'SIGN OUT', href: '/admin/sign-out' },
 ];
 

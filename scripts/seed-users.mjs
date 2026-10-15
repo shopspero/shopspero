@@ -26,7 +26,14 @@ async function main() {
       const normalizedEmail = email.toLowerCase();
       await collection.updateOne(
         { email: normalizedEmail },
-        { $set: { email: normalizedEmail, name: entry.name, permissions: entry.permissions } },
+        {
+          $set: {
+            email: normalizedEmail,
+            name: entry.name,
+            title: entry.title,
+            permissions: entry.permissions,
+          },
+        },
         { upsert: true }
       );
       console.log(`Upserted ${normalizedEmail}`);

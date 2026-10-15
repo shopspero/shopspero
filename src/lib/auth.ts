@@ -27,12 +27,14 @@ export const config = {
       if (account?.provider === 'google' && user?.email) {
         const appUser = await getUserByEmail(user.email);
         token.permissions = appUser?.permissions ?? [];
+        token.title = appUser?.title;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
         session.user.permissions = token.permissions ?? [];
+        session.user.title = token.title;
       }
       return session;
     },

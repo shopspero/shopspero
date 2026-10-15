@@ -1,16 +1,19 @@
 import { getDb } from './mongodb';
 
-export type Permission = 'orders' | 'products' | 'log-order' | '*';
+export type Permission = 'general' | 'exec';
 
 export interface AppUser {
   email: string;
   name?: string;
+  // Personal blurb shown on the user's own admin home page, e.g. their role/title.
+  title?: string;
   permissions: Permission[];
 }
 
 interface UserDoc {
   email: string;
   name?: string;
+  title?: string;
   permissions: Permission[];
 }
 
@@ -25,6 +28,7 @@ export async function getUserByEmail(email: string): Promise<AppUser | null> {
   return {
     email: doc.email,
     name: doc.name,
+    title: doc.title,
     permissions: doc.permissions,
   };
 }
