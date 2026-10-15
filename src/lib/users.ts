@@ -1,4 +1,4 @@
-import usersData from './users.json';
+import { getDb } from './mongodb';
 
 export type Permission = 'orders' | 'products' | 'log-order' | '*';
 
@@ -8,22 +8,23 @@ export interface AppUser {
   permissions: Permission[];
 }
 
-type UsersFile = Record<string, { name?: string; permissions: Permission[] }>;
+interface UserDoc {
+  email: string;
+  name?: string;
+  permissions: Permission[];
+}
 
-const users = usersData as UsersFile;
-
-/**
- * Static JSON-backed user allowlist. Swap this implementation for a
- * MongoDB lookup later — callers only depend on this function's signature.
- */
 export async function getUserByEmail(email: string): Promise<AppUser | null> {
-  const entry = users[email.toLowerCase()];
-  if (!entry) {
+  const db = await getDb();
+  const doc = await db
+    .collection<UserDoc>('users')
+    .findOne({ email: email.toLowerCase() });
+  if (!doc) {
     return null;
   }
   return {
-    email: email.toLowerCase(),
-    name: entry.name,
-    permissions: entry.permissions,
+    email: doc.email,
+    name: doc.name,
+    permissions: doc.permissions,
   };
 }
