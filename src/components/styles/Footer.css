@@ -110,6 +110,25 @@
   font-weight: 400;
 }
 
+.spero-footer-bar-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.spero-footer-admin-link {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-decoration: none;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.spero-footer-admin-link:hover { opacity: 0.55; }
+
 .spero-footer-verse {
   font-family: var(--font-serif) !important;
   letter-spacing: 0.18em !important;

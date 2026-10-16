@@ -68,7 +68,12 @@ export default function Footer() {
       </div>
 
       <div className="spero-footer-bar">
-        <p>© {new Date().getFullYear()} Spero</p>
+        <div className="spero-footer-bar-group">
+          <p>© {new Date().getFullYear()} Spero</p>
+          <Link href="/admin" className="spero-footer-admin-link">
+            Staff Login
+          </Link>
+        </div>
         <p className="spero-footer-verse">Matthew 10:29-31</p>
       </div>
     </footer>

@@ -5,23 +5,40 @@ import type {
 } from 'next';
 import type { NextAuthOptions } from 'next-auth';
 import { getServerSession } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
+import { getUserByEmail } from './users';
 
 export const config = {
   providers: [
-    CredentialsProvider({
-      name: 'Credentials',
-      credentials: {
-        password: { label: 'Password', type: 'password' },
-      },
-      async authorize(credentials, req) {
-        if (credentials?.password === process.env.ADMIN_PASSWORD) {
-          return { id: '0', name: 'shopspero', email: 'shopspero@gmail.com' };
-        }
-        return null;
-      },
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ?? '',
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
     }),
   ],
+  callbacks: {
+    async signIn({ account, user }) {
+      if (account?.provider === 'google' && user.email) {
+        // Only allow Google sign-in for users on the allowlist.
+        return !!(await getUserByEmail(user.email));
+      }
+      return false;
+    },
+    async jwt({ token, user, account }) {
+      if (account?.provider === 'google' && user?.email) {
+        const appUser = await getUserByEmail(user.email);
+        token.permissions = appUser?.permissions ?? [];
+        token.title = appUser?.title;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.permissions = token.permissions ?? [];
+        session.user.title = token.title;
+      }
+      return session;
+    },
+  },
   theme: {
     colorScheme: 'light',
     logo: '/images/logo.png',

@@ -71,15 +71,6 @@ export default function AboutPage() {
     <div className="about-page">
       {/* Cover */}
       <section className="about-cover">
-        <Image
-          src="/images/team/team.jpg"
-          alt="The Spero team"
-          fill
-          priority
-          sizes="100vw"
-          className="about-cover-image"
-        />
-        <div className="about-cover-overlay" />
         <div className="about-cover-content">
           <p className="about-cover-eyebrow">Est. Berkeley</p>
           <h1 className="about-cover-title">We are Spero.</h1>
