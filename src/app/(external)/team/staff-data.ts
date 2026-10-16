@@ -86,7 +86,7 @@ const staffData: StaffInfo[] = [
   },
   {
     name: 'Mabel Kim',
-    role: 'Admin',
+    role: 'Operations Head',
     bio: "Hi, I’m Mabel and I’m a first year at UC Berkeley studying Integrative Biology and Business. My interests include exploring, eating, and reading. I deeply resonate with Spero’s mission and heart for evangelism and pray that our clothing can be one way to spread His good word on campus!",
     img: '/images/team/mabel.JPG',
     section: 'executive',
