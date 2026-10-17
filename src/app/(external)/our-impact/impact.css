@@ -1,0 +1,341 @@
+/* Base styles and shared typography */
+.impact-page {
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font-sans);
+}
+.impact-page * {
+  box-sizing: border-box;
+}
+.impact-container {
+  max-width: 1164px;
+  margin: 0 auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+.impact-page p {
+  line-height: 1.85;
+}
+.impact-kicker {
+  font-size: 10px !important;
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+  color: #65615a;
+  margin: 0 0 24px;
+}
+.impact-page h1,
+.impact-page h2,
+.impact-page h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.12;
+  margin: 0;
+}
+.impact-page em {
+  font-weight: 400;
+}
+.impact-page h2 {
+  font-size: clamp(32px, 4.3vw, 54px);
+}
+/* 1. Opening headline */
+.impact-hero {
+  text-align: center;
+  background: var(--cream);
+  padding: 100px 32px 72px;
+}
+.impact-hero h1 {
+  font-size: clamp(46px, 6.8vw, 88px);
+  letter-spacing: -0.025em;
+}
+.impact-lead {
+  max-width: 590px;
+  margin: 30px auto;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+/* Shared links */
+.impact-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding: 9px 0;
+  line-height: 1.5;
+}
+.impact-text-link:hover {
+  opacity: 0.7;
+}
+.impact-page a:focus-visible {
+  outline: 2px solid #665336;
+  outline-offset: 6px;
+}
+/* 2. Centered giving statement */
+.impact-intention {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.impact-intention p:not(.impact-kicker) {
+  max-width: 600px;
+  font-size: 15px;
+  margin: 24px auto 0;
+  color: var(--ink-soft);
+}
+/* 3. Ministry stories */
+.impact-giving {
+  padding-bottom: 40px;
+}
+.impact-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+}
+.impact-section-heading > p {
+  max-width: 350px;
+  font-size: 14px;
+  color: var(--ink-mute);
+  margin: 0;
+}
+.impact-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  padding: 70px 0;
+}
+.impact-story:nth-of-type(even) .impact-story-art {
+  order: 2;
+}
+.impact-story-art {
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px;
+  background: #e8e2d6;
+  position: relative;
+  overflow: hidden;
+}
+.impact-story-art--haiti {
+  background: #e8ece7;
+}
+.impact-story-art--niger {
+  background: #ede0d0;
+}
+.impact-art-top,
+.impact-art-bottom {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
+.impact-art-bottom {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+.impact-country-mark {
+  font-family: var(--font-serif);
+  font-size: clamp(90px, 13vw, 170px);
+  line-height: 1;
+  text-align: center;
+  color: #6c6555;
+  font-style: italic;
+}
+.impact-story-copy {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+.impact-story-copy > * {
+  margin: 0;
+}
+.impact-story-copy > .impact-text-link {
+  margin-top: 8px;
+}
+.impact-organization {
+  font-size: 12px !important;
+  letter-spacing: 0.035em;
+  margin: 0 0 16px;
+  font-weight: 600;
+}
+.impact-story h3 {
+  font-size: clamp(29px, 3vw, 40px);
+}
+.impact-story-copy > p:not(.impact-kicker):not(.impact-organization) {
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.impact-story-copy .impact-story-intro {
+  margin-top: -8px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 19px !important;
+  line-height: 1.55;
+}
+/* 4. Campus and community partners */
+.impact-community {
+  background: var(--cream);
+  padding: 100px 0;
+}
+.impact-partners {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 40px;
+  margin-top: 60px;
+}
+.impact-partner {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.impact-partner-identity {
+  height: 105px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.impact-partner-identity img {
+  height: 58px;
+  width: 100px;
+  object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: multiply;
+}
+.impact-partner-identity .impact-kicker {
+  margin: 0;
+  font-size: 9px !important;
+}
+.impact-partner-monogram {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  color: #6c6555;
+  line-height: 58px;
+}
+.impact-partner h3 {
+  font-size: 25px;
+}
+.impact-partner > p {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+}
+.impact-partner > a {
+  margin-top: auto;
+  font-size: 11px;
+}
+/* 5. Closing message */
+.impact-closing {
+  padding: 100px 24px;
+  text-align: center;
+  background: var(--cream);
+}
+.impact-closing > p:not(.impact-kicker) {
+  max-width: 420px;
+  margin: 24px auto;
+  font-size: 14px;
+}
+/* Ministry photos, overlays, and credits */
+.impact-ministry-photo {
+  object-fit: cover;
+}
+.impact-story-art:has(.impact-ministry-photo) .impact-art-top,
+.impact-story-art:has(.impact-ministry-photo) .impact-art-bottom {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-shadow: 0 1px 5px #000;
+}
+.impact-story-art:has(.impact-ministry-photo)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(#0005, transparent 25%, transparent 75%, #0007);
+  pointer-events: none;
+}
+.impact-photo-credit {
+  display: block;
+  font-size: 10px;
+  color: #65615a;
+  text-underline-offset: 3px;
+}
+/* Tablet adjustments */
+@media (max-width: 1023px) {
+  .impact-story {
+    gap: 32px;
+  }
+  .impact-story-art {
+    min-height: 410px;
+  }
+
+  .impact-partners {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .impact-section-heading {
+    align-items: start;
+  }
+  .impact-hero {
+    padding-top: 80px;
+  }
+}
+/* Mobile adjustments */
+@media (max-width: 639px) {
+  .impact-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .impact-hero {
+    padding: 64px 24px;
+  }
+  .impact-hero h1 {
+    font-size: 46px;
+  }
+  .impact-lead {
+    font-size: 14px;
+  }
+  .impact-intention {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .impact-section-heading {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .impact-story {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 40px 0;
+  }
+  .impact-story:nth-of-type(even) .impact-story-art {
+    order: 0;
+  }
+  .impact-story-art {
+    min-height: 310px;
+  }
+  .impact-country-mark {
+    font-size: 120px;
+  }
+  .impact-community {
+    padding: 64px 0;
+  }
+  .impact-partners {
+    grid-template-columns: 1fr;
+    margin-top: 36px;
+  }
+  .impact-partner-identity {
+    height: 95px;
+  }
+  .impact-closing {
+    padding: 64px 24px;
+  }
+}

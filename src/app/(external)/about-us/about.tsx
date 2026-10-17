@@ -170,6 +170,8 @@ export default function AboutPage() {
           </p>
         </div>
 
+        <div style={{ textAlign: 'center', marginTop: 32 }}><Link href="/our-impact" className="about-faq-inline-link">Explore our impact &rarr;</Link></div>
+
         <div className="about-partners-marquee" aria-label="Past partners">
           <div className="about-partners-track">
             {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((p, i) => (
