@@ -1,39 +1,25 @@
-# Editing the Our Impact page
+# Editing Our Impact
 
-Open this folder in VS Code: src/app/(external)/our-impact.
+- content.ts: current ministries, past ministries, partner descriptions, source credits, and logo paths.
+- page.tsx: intro and section headings.
+- MinistryCard.tsx: shared photo and description layout.
+- PastMinistriesGallery.tsx: previous/next controls and keyboard interaction.
+- impact.css: fonts, spacing, gallery, and responsive layout.
 
-## Where to change things
+## Giving year and order
 
-| File       | What to edit                                                                                                                           |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| content.ts | Ministry stories, partnership descriptions, website links, photo paths, and photo credits.                                             |
-| page.tsx   | Opening and closing text, section headings, and the order/layout of page sections. Numbered comments mark each section.                |
-| impact.css | Fonts, colors, spacing, alignment, and responsive layout. Comments label matching sections; tablet and mobile rules are at the bottom. |
+Update givingYear and currentMinistries together. The current focus is 2026: Trinity Baptist Church, then VGS. Past ministries appear in array order: Grace Academie, then More Than Bread. Keep past entries in pastMinistries to avoid making the page longer. The gallery shows one entry at a time and has left/right buttons and keyboard arrow support; it does not autoplay.
 
-## Change a story or partner
+## Photos and logos
 
-1. Open content.ts.
-2. Find the organization by its name.
-3. Edit the text inside the quotes. Keep the surrounding commas and braces.
-4. Save with Ctrl+S and check http://localhost:3000/our-impact while npm run dev is running.
+All ministry photos in public/images/impact are 1200 x 800 WebP. Crop new ministry photos to the same 3:2 dimensions. Keep alt text, credit, and source together in the photo object. Source credits remain beneath images. Current web-sourced photo reuse permission is unconfirmed; replace with team-approved images or confirm permission before publishing.
 
-The stories and partners lists control display order. Copy an existing entry to add one. Ministry id values must be unique. All fields are required except ones marked with ? in the types at the top of content.ts.
+Trinity: official church website. VGS: secondary-student photo from https://vientiane-gain-glory.xyz/, supplied by the team as the school website. Grace: Peninsula Bible Church's ministry profile. More Than Bread: official website. Exact source links are in content.ts.
 
-## Change a photo
+Partner logos are 600 x 300 WebP canvases, resized with containment so logos are not distorted. Five logos were supplied by the team; UIC uses the existing repository logo. Abba Modern's supplied logo is white on transparent, so darkBackground is true.
 
-Save the image in public/images/impact. Set image in content.ts to /images/impact/your-file.jpg (omit public). Update photoAlt with a short image description and include photoCredit and photoSource. Keep source credits and confirm reuse permission before publishing. Partner logos are currently in public/images/partners.
+## Content and checks
 
-## Links elsewhere in the website
+Descriptions use the team's notes. The Laos entry describes planned tuition aid and supplies; it does not claim funds have already been disbursed. No donation totals or past giving years are invented. The heart-behind-giving and thank-you sections are omitted.
 
-- Header navigation: src/app/(external)/layout.tsx
-- Footer navigation: src/components/Footer.tsx
-- About Us link: src/app/(external)/about-us/about.tsx
-
-## Current design decisions
-
-No section-jump links, location strip, Laos proposal, or “What our giving supports” blocks. The giving statement is centered. Giving years and amounts still need confirmation.
-
-
-## Check before sharing
-
-Run npx tsc --noEmit --incremental false from the SPERO folder to check types. Preview the page at both desktop and narrow widths. Saving files is local; committing records changes, and pushing uploads them for a pull request.
+Preview at /our-impact with npm run dev. Check types with npx tsc --noEmit --incremental false. Test the gallery with buttons and keyboard arrows, including first/last disabled states, and check mobile widths.

@@ -1,119 +1,126 @@
-/** Edit ministry stories and partnerships here. Array order sets display order. */
-export type MinistryStory = {
+export type Ministry = {
   id: string;
-  place: string;
-  category: string;
   name: string;
-  title: string;
-  intro: string;
+  place: string;
   body: string;
-  href: string;
-  /** Country initials appear when no photo is provided. */
-  mark: string;
-  /** Image paths begin with /images/ and refer to files in public/images/. */
-  image?: string;
-  photoCredit?: string;
-  photoSource?: string;
-  photoAlt?: string;
+  href?: string;
+  photo: { src: string; alt: string; credit: string; source: string };
 };
-
 export type CommunityPartner = {
   name: string;
-  kind: string;
   body: string;
   href: string;
-  /** Optional logo. Initials are displayed when omitted. */
-  image?: string;
+  logo: string;
+  darkBackground?: boolean;
+  fullCircle?: boolean;
+  logoStyle?: 'outlined' | 'cropped';
 };
 
-// Draft stories based on the team's supplied notes. Confirm giving years,
-// amounts, and outcomes before adding an annual giving report.
-export const stories: MinistryStory[] = [
+// Update this label and the current list together for each giving year.
+export const givingYear = '2026';
+export const currentMinistries: Ministry[] = [
   {
-    id: 'taiwan',
-    place: 'Taichung, Taiwan',
-    category: 'Equipping church leaders',
+    id: 'trinity',
     name: 'Trinity Baptist Church',
-    title: 'Rooted in a church. Reaching a nation.',
-    intro:
-      'Investing in the people who will carry the gospel into new communities.',
-    body: 'Through Trinity Baptist Church and Pastor Chris Phillips, Spero has supported the training of future church leaders in Taiwan. For men who want to attend seminary, the cost of study can stand in the way of that calling. Our giving helps support this preparation, with the hope that these leaders will plant churches and serve communities across Taiwan.',
+    place: 'Taichung, Taiwan',
+    body: 'This year, Spero is supporting seminary training through Trinity Baptist Church and Pastor Chris Phillips. The church prepares future pastors to plant churches across Taiwan. Our giving helps men who want to pursue this training but need financial support to attend.',
     href: 'https://trinitytaichung.com/',
-    mark: 'TW',
+    photo: {
+      src: '/images/impact/trinity.webp',
+      alt: 'People worshipping together at Trinity Baptist Church in Taichung',
+      credit: 'Trinity Baptist Church',
+      source: 'https://trinitytaichung.com/',
+    },
   },
   {
-    id: 'haiti',
-    place: 'Grand Goâve, Haiti',
-    category: 'Investing in discipleship',
-    name: 'More Than Bread',
-    title: 'Today’s students. Tomorrow’s shepherds.',
-    intro:
-      'Supporting biblical education with a vision that extends beyond the classroom.',
-    body: 'Spero has supported More Than Bread’s work with Pastor Willio to equip future pastors in Haiti. Through biblical training, emerging leaders prepare to teach, disciple, and serve their own communities. Our giving comes alongside this work so that financial barriers do not have the final word in a future pastor’s preparation.',
-    href: 'https://www.mtbhaiti.org/',
-    mark: 'HT',
-    image: '/images/impact/more-than-bread.jpg',
-    photoCredit: 'Photo: More Than Bread',
-    photoSource: 'https://www.mtbhaiti.org/',
-    photoAlt: 'Students studying in a More Than Bread classroom in Haiti',
-  },
-  {
-    id: 'niger',
-    place: 'Niger',
-    category: 'Opening doors to education',
-    name: 'Grace Academie',
-    title: 'An education that reaches generations.',
-    intro:
-      'Coming alongside young women as they learn, grow, and imagine their futures.',
-    body: 'Founded by missionary Aileen Chung, Grace Academie is a Christian secondary school for young women in Niger. Students receive education, room and board, medical care, and transportation to and from their villages at no cost. Spero has given toward this ministry, supporting an education rooted in faith and a vision for the students’ families and communities.',
-    href: 'https://www.gemforniger.org/',
-    mark: 'NE',
-    image: '/images/impact/grace-academie.webp',
-    photoCredit: 'Photo: Peninsula Bible Church / Grace Academie',
-    photoSource:
-      'https://pbc.org/team/grace-education-ministries-grace-academie-niger',
-    photoAlt: 'A group from Grace Academie in Niger',
+    id: 'vgs',
+    href: 'https://vientiane-gain-glory.xyz/',
+    name: 'Vientiane GAIN Glory School',
+    place: 'Vientiane, Laos',
+    body: 'VGS is a Christian school serving grades 1–12 in Laos. Abi visited the school on a missions trip, and it is one of Spero’s focuses this year. We plan to help cover tuition for students who need financial aid and replenish school supplies so more children can attend and continue their education.',
+    photo: {
+      src: '/images/impact/vgs-school.webp',
+      alt: 'VGS secondary students and staff together at school',
+      credit: 'Vientiane GAIN Glory School',
+      source: 'https://vientiane-gain-glory.xyz/',
+    },
   },
 ];
 
+// Display order in the gallery: Grace Academie, then More Than Bread.
+export const pastMinistries: Ministry[] = [
+  {
+    id: 'grace-academie',
+    name: 'Grace Academie',
+    place: 'Niger',
+    body: 'Spero previously supported Grace Academie, a Christian secondary school for young women founded by missionary Aileen Chung. Students receive education, room and board, medical care, and transportation to and from their villages at no cost. Our giving contributed to the school’s work of educating and caring for these students.',
+    href: 'https://www.gemforniger.org/',
+    photo: {
+      src: '/images/impact/grace-academie.webp',
+      alt: 'Students and a visitor at Grace Academie in Niger',
+      credit: 'Peninsula Bible Church / Grace Academie',
+      source:
+        'https://pbc.org/team/grace-education-ministries-grace-academie-niger',
+    },
+  },
+  {
+    id: 'more-than-bread',
+    name: 'More Than Bread',
+    place: 'Grand Goâve, Haiti',
+    body: 'Spero previously supported More Than Bread’s work with Pastor Willio to train future pastors in Haiti. The ministry provides biblical education to prepare leaders to teach, serve their communities, and plant churches. Our giving helped support that training.',
+    href: 'https://www.mtbhaiti.org/',
+    photo: {
+      src: '/images/impact/more-than-bread.webp',
+      alt: 'Students studying in a More Than Bread classroom in Haiti',
+      credit: 'More Than Bread',
+      source: 'https://www.mtbhaiti.org/',
+    },
+  },
+];
+
+// Logos supplied by the team.
 export const partners: CommunityPartner[] = [
   {
     name: 'Abba Modern',
-    kind: 'Dance & testimony',
-    body: 'A Christ-centered dance team at UC Berkeley sharing the gospel through movement and testimony. Our collaboration has also included restock distribution.',
+    body: 'A Christ-centered dance team at UC Berkeley sharing the gospel through dance and testimony. Our collaboration has also included restock distribution.',
     href: 'https://www.instagram.com/abbamodern/',
-    image: '/images/partners/abba.jpg',
+    logo: '/images/impact/partners/abba-modern.webp',
+    darkBackground: true,
   },
   {
     name: 'Laundry Love',
-    kind: 'Practical care',
-    body: 'Helping people with low or no income wash their clothing and bedding through local laundromat partnerships. A practical way to meet neighbors with care and dignity.',
+    body: 'Laundry Love works with local groups and laundromats to cover the cost of washing and drying clothing and bedding for people with low or no income.',
     href: 'https://laundrylove.org/',
-    image: '/images/partners/laundry love.png',
+    logo: '/images/impact/partners/laundry-love.webp',
   },
   {
     name: 'Imago Dei Clinic',
-    kind: 'Community outreach',
-    body: 'A Christian nonprofit bringing naloxone and basic health supplies to neighbors in Berkeley, Oakland, and Emeryville, alongside gospel-centered street outreach.',
-    href: 'https://imagodeiclinic.com/',
+    body: 'A Christian nonprofit providing naloxone and basic health supplies through street outreach in Berkeley, Oakland, and Emeryville.',
+    href: 'https://www.instagram.com/imagodeiclinic/',
+    logo: '/images/impact/partners/imago-dei-circle.png',
+    logoStyle: 'cropped',
+    fullCircle: true,
   },
   {
     name: 'Veritas',
-    kind: 'Campus fellowship',
-    body: 'A Berkeley Christian fellowship connecting students with the life and ministry of Pillar Baptist Church, with an emphasis on belonging to a local church.',
+    body: 'A Berkeley Christian fellowship connected to Pillar Baptist Church, helping students take part in the life of a local church.',
     href: 'https://www.instagram.com/veritas.berkeley/',
+    logo: '/images/impact/partners/veritas-circle.png',
+    logoStyle: 'outlined',
+    fullCircle: true,
   },
   {
     name: 'Unity in Christ',
-    kind: 'Campus connection',
-    body: 'Bringing Berkeley’s Christian fellowships and their leaders together to build relationships and gather the campus community in unity.',
+    body: 'Unity in Christ brings together leaders from Berkeley’s Christian fellowships and hosts events for the campus Christian community.',
     href: 'https://www.instagram.com/uicucb/',
-    image: '/images/partners/uic.png',
+    logo: '/images/impact/partners/unity-in-christ-circle.png',
+    fullCircle: true,
   },
   {
     name: 'Students for Life at Berkeley',
-    kind: 'Campus advocacy',
     body: 'A student organization advocating for life through campus conversations, speaker events, and support resources for students.',
     href: 'https://www.instagram.com/sfl_berkeley/',
+    logo: '/images/impact/partners/students-for-life-circle.png',
+    fullCircle: true,
   },
 ];
