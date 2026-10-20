@@ -511,3 +511,8 @@
   .about-faq-q-text { padding-right: 16px; }
   .about-closing { padding: 80px 24px; }
 }
+
+.about-impact-link {
+  text-align: center;
+  margin-top: var(--space-6);
+}

@@ -170,6 +170,12 @@ export default function AboutPage() {
           </p>
         </div>
 
+        <div className="about-impact-link">
+          <Link href="/our-impact" className="about-faq-inline-link">
+            Explore our impact
+          </Link>
+        </div>
+
         <div className="about-partners-marquee" aria-label="Past partners">
           <div className="about-partners-track">
             {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((p, i) => (
