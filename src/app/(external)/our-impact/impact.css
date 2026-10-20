@@ -1,17 +1,14 @@
-/* Shared styles */
+/* Page layout; typography and spacing use the shared design tokens. */
 .impact-page {
   color: var(--ink);
   background: var(--paper);
   font-family: var(--font-sans);
 }
-.impact-page * {
-  box-sizing: border-box;
-}
 .impact-container {
-  max-width: 1164px;
+  max-width: calc(var(--max-w-content) + 2 * var(--gutter));
   margin: 0 auto;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
 }
 .impact-page h1,
 .impact-page h2,
@@ -30,23 +27,16 @@
 .impact-page p {
   line-height: 1.8;
 }
-.impact-page .impact-kicker {
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #65615a;
-  margin: 0;
-}
 .impact-text-link {
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  font-size: 12px;
+  font-size: var(--fs-xs);
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 6px;
   line-height: 1.6;
-  padding: 8px 0;
+  padding: var(--space-2) 0;
 }
 .impact-text-link:hover {
   opacity: 0.7;
@@ -54,7 +44,7 @@
 .impact-page a:focus-visible,
 .impact-page button:focus-visible,
 .impact-gallery:focus-visible {
-  outline: 2px solid #665336;
+  outline: 2px solid var(--ink);
   outline-offset: 5px;
 }
 .impact-section-heading {
@@ -63,7 +53,7 @@
   align-items: flex-start;
   gap: 20px;
 }
-.impact-section-heading > p:not(.impact-kicker) {
+.impact-section-heading > p:not(.eyebrow) {
   max-width: 620px;
   font-size: 15px;
   color: var(--ink-soft);
@@ -73,11 +63,11 @@
 .impact-hero {
   text-align: center;
   background: var(--cream);
-  padding: 168px 24px 152px;
+  padding: 168px var(--space-5) 152px;
 }
 .impact-hero h1 {
   font-size: clamp(46px, 6.5vw, 84px);
-  margin-top: 24px;
+  margin-top: var(--space-5);
 }
 .impact-lead {
   max-width: 600px;
@@ -92,12 +82,12 @@
 .impact-current-list {
   display: grid;
   gap: 72px;
-  margin-top: 48px;
+  margin-top: var(--space-7);
 }
 .impact-ministry {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 48px;
+  gap: var(--space-7);
   align-items: center;
 }
 .impact-current-list
@@ -109,17 +99,17 @@
   margin: 0;
   min-width: 0;
 }
-.impact-ministry-photo {
-  display: block;
-  width: 100%;
-  height: auto;
+.impact-ministry-image-wrap {
+  position: relative;
   aspect-ratio: 3 / 2;
+}
+.impact-ministry-photo {
   object-fit: cover;
 }
 .impact-ministry-figure figcaption {
-  font-size: 10px;
+  font-size: var(--fs-eyebrow);
   line-height: 1.6;
-  color: #65615a;
+  color: var(--ink-mute);
   margin-top: 10px;
 }
 .impact-ministry-figure figcaption a {
@@ -136,12 +126,12 @@
 .impact-ministry-copy > * {
   margin: 0;
 }
-.impact-ministry-copy > p:not(.impact-kicker) {
-  font-size: 14px;
+.impact-ministry-copy > p:not(.eyebrow) {
+  font-size: var(--fs-sm);
   color: var(--ink-soft);
 }
 .impact-ministry-copy .impact-text-link {
-  margin-top: 8px;
+  margin-top: var(--space-2);
 }
 /* Past giving gallery — one ministry at a time, no autoplay. */
 .impact-past {
@@ -155,18 +145,18 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 12px;
+  gap: var(--space-3);
   margin-bottom: 28px;
 }
 .impact-gallery-controls p {
-  font-size: 12px;
+  font-size: var(--fs-xs);
   letter-spacing: 0.08em;
-  margin: 0 12px 0 0;
+  margin: 0 var(--space-3) 0 0;
 }
 .impact-gallery-controls button {
   width: 44px;
   height: 44px;
-  border: 1px solid #9c9589;
+  border: 1px solid var(--ink-mute);
   background: transparent;
   color: var(--ink);
   font-size: 23px;
@@ -198,7 +188,7 @@
 .impact-partners {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 48px 40px;
+  gap: var(--space-7) 40px;
   margin-top: 80px;
 }
 .impact-partner {
@@ -219,7 +209,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  padding: var(--space-3);
 }
 .impact-partner-logo img {
   display: block;
@@ -253,18 +243,14 @@
   width: 100%;
   text-align: center;
   font-size: 13px;
-  line-height: 1.85;
+  line-height: var(--lh-loose);
   margin: 20px 0;
   color: var(--ink-soft);
-}
-.impact-partner > .impact-text-link {
-  margin-top: auto;
-  font-size: 11px;
 }
 /* Tablet */
 @media (max-width: 1023px) {
   .impact-ministry {
-    gap: 32px;
+    gap: var(--space-6);
   }
   .impact-partners {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -276,11 +262,11 @@
 /* Mobile */
 @media (max-width: 639px) {
   .impact-container {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
   }
   .impact-hero {
-    padding: 112px 24px;
+    padding: 112px var(--space-5);
   }
   .impact-hero h1 {
     font-size: 46px;
@@ -291,12 +277,12 @@
     padding-bottom: 56px;
   }
   .impact-current-list {
-    gap: 48px;
+    gap: var(--space-7);
     margin-top: 36px;
   }
   .impact-ministry {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: var(--space-5);
   }
   .impact-current-list
     > .impact-ministry:nth-child(even)

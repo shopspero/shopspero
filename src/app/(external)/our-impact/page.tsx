@@ -20,7 +20,7 @@ export default function OurImpactPage() {
   return (
     <div className="impact-page">
       <header className="impact-hero">
-        <p className="impact-kicker">Our Impact</p>
+        <p className="eyebrow">Our Impact</p>
         <h1>
           Made with purpose.
           <br />
@@ -39,7 +39,7 @@ export default function OurImpactPage() {
         aria-labelledby="current-title"
       >
         <div className="impact-section-heading">
-          <p className="impact-kicker">Our focus · {givingYear}</p>
+          <p className="eyebrow">Our focus · {givingYear}</p>
           <h2 id="current-title">This year’s ministries</h2>
         </div>
         <div className="impact-current-list">
@@ -56,7 +56,7 @@ export default function OurImpactPage() {
       <section className="impact-past" aria-labelledby="past-title">
         <div className="impact-container">
           <div className="impact-section-heading">
-            <p className="impact-kicker">Past giving</p>
+            <p className="eyebrow">Past giving</p>
             <h2 id="past-title">Ministries we’ve supported</h2>
           </div>
           <PastMinistriesGallery ministries={pastMinistries} />
@@ -69,7 +69,7 @@ export default function OurImpactPage() {
         aria-labelledby="community-title"
       >
         <div className="impact-section-heading">
-          <p className="impact-kicker">Campus & local community</p>
+          <p className="eyebrow">Campus & local community</p>
           <h2 id="community-title">
             One mission.
             <br />

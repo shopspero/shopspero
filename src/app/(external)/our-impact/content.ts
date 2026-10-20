@@ -16,8 +16,8 @@ export type CommunityPartner = {
   logoStyle?: 'outlined' | 'cropped';
 };
 
-// Update this label and the current list together for each giving year.
-export const givingYear = '2026';
+// Keep this list up to date as giving priorities change.
+export const givingYear = new Date().getFullYear();
 export const currentMinistries: Ministry[] = [
   {
     id: 'trinity',
