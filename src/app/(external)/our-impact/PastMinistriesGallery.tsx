@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import MinistryCard from './MinistryCard';
 import type { Ministry } from './content';
 
@@ -45,7 +46,7 @@ export default function PastMinistriesGallery({
           aria-label="Previous ministry"
           aria-controls="past-ministry-slide"
         >
-          ←
+          <FiChevronLeft aria-hidden="true" />
         </button>
         <button
           type="button"
@@ -54,7 +55,7 @@ export default function PastMinistriesGallery({
           aria-label="Next ministry"
           aria-controls="past-ministry-slide"
         >
-          →
+          <FiChevronRight aria-hidden="true" />
         </button>
       </div>
       <div

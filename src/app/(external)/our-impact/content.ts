@@ -23,7 +23,7 @@ export const currentMinistries: Ministry[] = [
     id: 'trinity',
     name: 'Trinity Baptist Church',
     place: 'Taichung, Taiwan',
-    body: 'This year, Spero is supporting seminary training through Trinity Baptist Church and Pastor Chris Phillips. The church prepares future pastors to plant churches across Taiwan. Our giving helps men who want to pursue this training but need financial support to attend.',
+    body: 'This year, Spero is supporting Trinity Baptist Church and Pastor Chris Phillips. Through seminary training, the church equips future pastors to plant new churches throughout the nation of Taiwan. Spero’s proceeds provide financial support for those who desire to receive this training.',
     href: 'https://trinitytaichung.com/',
     photo: {
       src: '/images/impact/trinity.webp',
@@ -37,7 +37,7 @@ export const currentMinistries: Ministry[] = [
     href: 'https://vientiane-gain-glory.xyz/',
     name: 'Vientiane GAIN Glory School',
     place: 'Vientiane, Laos',
-    body: 'VGS is a Christian school serving grades 1–12 in Laos. Abi visited the school on a missions trip, and it is one of Spero’s focuses this year. We plan to help cover tuition for students who need financial aid and replenish school supplies so more children can attend and continue their education.',
+    body: 'VGS is a 1st-12th grade Christian school located in Laos. Our team member Abi visited the school during a mission trip, and it has become one of our primary focuses this year. We plan to help cover the tuition of students who need financial support, and replenish school supplies so that more children can pursue education and grow deeper in Christ.',
     photo: {
       src: '/images/impact/vgs-school.webp',
       alt: 'VGS secondary students and staff together at school',
@@ -53,7 +53,7 @@ export const pastMinistries: Ministry[] = [
     id: 'grace-academie',
     name: 'Grace Academie',
     place: 'Niger',
-    body: 'Spero previously supported Grace Academie, a Christian secondary school for young women founded by missionary Aileen Chung. Students receive education, room and board, medical care, and transportation to and from their villages at no cost. Our giving contributed to the school’s work of educating and caring for these students.',
+    body: 'Spero has previously supported Grace Academie, a Christian secondary school for young women. Founded by missionary Aileen Chung, the academy provides free education, room & board, medical care, and transportation for their students. Our giving contributed to the school’s education programs and student care.',
     href: 'https://www.gemforniger.org/',
     photo: {
       src: '/images/impact/grace-academie.webp',
@@ -82,20 +82,20 @@ export const pastMinistries: Ministry[] = [
 export const partners: CommunityPartner[] = [
   {
     name: 'Abba Modern',
-    body: 'A Christ-centered dance team at UC Berkeley sharing the gospel through dance and testimony. Our collaboration has also included restock distribution.',
+    body: 'A Christ-centered dance team at UC Berkeley that shares the Gospel through dance and testimony.',
     href: 'https://www.instagram.com/abbamodern/',
     logo: '/images/impact/partners/abba-modern.webp',
     darkBackground: true,
   },
   {
     name: 'Laundry Love',
-    body: 'Laundry Love works with local groups and laundromats to cover the cost of washing and drying clothing and bedding for people with low or no income.',
+    body: 'Laundry Love works with local non-profits and laundromats to cover the cost of cleaning clothing & bedding for low-income individuals.',
     href: 'https://laundrylove.org/',
     logo: '/images/impact/partners/laundry-love.webp',
   },
   {
     name: 'Imago Dei Clinic',
-    body: 'A Christian nonprofit providing naloxone and basic health supplies through street outreach in Berkeley, Oakland, and Emeryville.',
+    body: 'A Christian nonprofit that provides naloxone and basic health supplies through street outreach in Berkeley, Oakland, and Emeryville.',
     href: 'https://www.instagram.com/imagodeiclinic/',
     logo: '/images/impact/partners/imago-dei-circle.png',
     logoStyle: 'cropped',
@@ -103,7 +103,7 @@ export const partners: CommunityPartner[] = [
   },
   {
     name: 'Veritas',
-    body: 'A Berkeley Christian fellowship connected to Pillar Baptist Church, helping students take part in the life of a local church.',
+    body: 'Veritas is the Berkeley Christian fellowship under Pillar Baptist Church. This fellowship helps connect college students with a local church and provides spaces for them to seek Christ on a school campus.',
     href: 'https://www.instagram.com/veritas.berkeley/',
     logo: '/images/impact/partners/veritas-circle.png',
     logoStyle: 'outlined',
@@ -111,14 +111,14 @@ export const partners: CommunityPartner[] = [
   },
   {
     name: 'Unity in Christ',
-    body: 'Unity in Christ brings together leaders from Berkeley’s Christian fellowships and hosts events for the campus Christian community.',
+    body: 'UiC brings together leaders from Berkeley’s Christian fellowships by hosting joint events for the Christian campus community.',
     href: 'https://www.instagram.com/uicucb/',
     logo: '/images/impact/partners/unity-in-christ-circle.png',
     fullCircle: true,
   },
   {
     name: 'Students for Life at Berkeley',
-    body: 'A student organization advocating for life through campus conversations, speaker events, and support resources for students.',
+    body: 'A student organization advocating for life through campus conversations, speaker panels, and resources for student support.',
     href: 'https://www.instagram.com/sfl_berkeley/',
     logo: '/images/impact/partners/students-for-life-circle.png',
     fullCircle: true,
