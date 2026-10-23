@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import staffData, { StaffInfo } from '@/app/(external)/team/staff-data';
 import './team.css';
@@ -12,13 +12,28 @@ const sections = [
 
 export default function Team() {
   const [curCard, setCurCard] = useState<StaffInfo | null>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (curCard) {
+      const trigger = document.activeElement as HTMLElement | null;
+      const modal = modalRef.current;
+      const closeButton = modal?.querySelector<HTMLButtonElement>('button');
+      closeButton?.focus();
+      const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Escape') setCurCard(null);
+        if (event.key === 'Tab') {
+          event.preventDefault();
+          closeButton?.focus();
+        }
+      };
+      document.addEventListener('keydown', handleKeyDown);
       const prev = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
       return () => {
         document.body.style.overflow = prev;
+        document.removeEventListener('keydown', handleKeyDown);
+        trigger?.focus();
       };
     }
   }, [curCard]);
@@ -59,7 +74,7 @@ export default function Team() {
                       alt={staff.name}
                       fill
                       className="team-card-image"
-                      style={{ objectPosition: staff.objectPosition || 'top' }}
+                      style={{ objectPosition: staff.objectPosition || 'center' }}
                       sizes="(max-width: 639px) 50vw, 220px"
                     />
                   </div>
@@ -93,9 +108,11 @@ export default function Team() {
           role="presentation"
         >
           <div
+            ref={modalRef}
             className="team-modal"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
+            aria-modal="true"
             aria-label={`${curCard.name} bio`}
           >
             <button
@@ -111,14 +128,22 @@ export default function Team() {
                 alt={curCard.name}
                 fill
                 className="team-modal-image"
-                style={{ objectPosition: curCard.objectPosition || 'top' }}
+                style={{ objectPosition: curCard.objectPosition || 'center' }}
                 sizes="(max-width: 639px) 100vw, 280px"
               />
             </div>
             <div className="team-modal-body">
               <p className="eyebrow">{curCard.role}</p>
               <h3 className="team-modal-name">{curCard.name}</h3>
+              <p className="team-modal-major">{curCard.major}</p>
+              <h4 className="team-modal-label">Why Spero</h4>
               <p className="team-modal-bio">{curCard.bio}</p>
+              {curCard.favoriteBibleVerse && (
+                <>
+                  <h4 className="team-modal-label">Favorite Bible Verse</h4>
+                  <blockquote className="team-modal-verse">{curCard.favoriteBibleVerse}</blockquote>
+                </>
+              )}
             </div>
           </div>
         </div>
