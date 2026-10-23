@@ -16,7 +16,7 @@ const staffData: StaffInfo[] = [
     role: "Chief Executive Officer",
     major: "Economics & Data Science",
     bio: "Spero is a way to share and live the Gospel through everyday wear, spark meaningful conversations about Christ, and remind believers to reflect the light of Christ wherever they go.",
-    favoriteBibleVerse: "\"Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.\" - Matthew 5:16",
+    favoriteBibleVerse: "“Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.” — Matthew 5:16",
     img: "/images/team/hogan-kim.webp",
     section: "executive",
     objectPosition: "center 45%"
@@ -26,7 +26,7 @@ const staffData: StaffInfo[] = [
     role: "Chief Operating Officer",
     major: "Computer Science and Data Science",
     bio: "I truly believe that our clothing can open opportunities for Christians to share the Gospel truth to others. Beyond that, my hope is that wearing Spero would serve as a constant reminder of His goodness and to be the aroma of Christ wherever we go.",
-    favoriteBibleVerse: "\"Know therefore that the Lord your God is God, the faithful God who keeps covenant and steadfast love with those who love him and keep his commandments, to a thousand generations\" Deuteronomy 7:9",
+    favoriteBibleVerse: "“Know therefore that the Lord your God is God, the faithful God who keeps covenant and steadfast love with those who love him and keep his commandments, to a thousand generations” — Deuteronomy 7:9",
     img: "/images/team/ethan-yang.webp",
     section: "executive",
     objectPosition: "center 45%"
@@ -36,7 +36,7 @@ const staffData: StaffInfo[] = [
     role: "Chief Financial Officer",
     major: "Electrical Engineering & Computer Sciences and Economics",
     bio: "Spero is an opportunity to use the education that God has provided me for His glory. I am grateful to be a witness to the work that God is doing through this faithful organization.",
-    favoriteBibleVerse: "\"For I am sure that neither death nor life, nor angels nor rulers, nor things present nor things to come, nor powers, nor height nor depth, nor anything else in all creation, will be able to separate us from the love of God in Christ Jesus our Lord\" - Romans 8:38-39",
+    favoriteBibleVerse: "“For I am sure that neither death nor life, nor angels nor rulers, nor things present nor things to come, nor powers, nor height nor depth, nor anything else in all creation, will be able to separate us from the love of God in Christ Jesus our Lord” — Romans 8:38–39",
     img: "/images/team/michael-dai.webp",
     section: "executive",
     objectPosition: "center 45%"
@@ -46,7 +46,7 @@ const staffData: StaffInfo[] = [
     role: "Chief Marketing Officer",
     major: "Legal Studies",
     bio: "Hi, my name is Abi, and I’m a second year majoring in Legal Studies at UC Berkeley, hoping to become a lawyer in the future. I saw Spero as an avenue of witnessing through the clothing they make, and I joined because I wanted to use my interest in fashion to serve in this unique ministry. Outside of school, I really enjoy anything music related.",
-    favoriteBibleVerse: "Psalm 5:8 Lead me, O LORD, in your righteousness because of my enemies; make your way straight before me. ",
+    favoriteBibleVerse: "“Lead me, O LORD, in your righteousness because of my enemies; make your way straight before me.” — Psalm 5:8",
     img: "/images/team/abigail-cho.webp",
     section: "executive",
     objectPosition: "center 45%"
@@ -76,7 +76,7 @@ const staffData: StaffInfo[] = [
     role: "Clothing Designer",
     major: "Chemistry",
     bio: "I love that Spero focuses on sharing the word of God and professing faith through our designs. It's such a joy to collaborate with fellow brothers and sisters in Christ to work the Gospel into everyday clothing!",
-    favoriteBibleVerse: "\"You will say in that day: 'I will give thanks to you, O LORD, for though you were angry with me, your anger turned away, that you might comfort me. Behold, God is my salvation; I will trust, and will not be afraid; for the LORD GOD is my strength and my song, and he has become my salvation.'\" Isaiah 12:1-2",
+    favoriteBibleVerse: "“You will say in that day: 'I will give thanks to you, O LORD, for though you were angry with me, your anger turned away, that you might comfort me. Behold, God is my salvation; I will trust, and will not be afraid; for the LORD GOD is my strength and my song, and he has become my salvation.'” — Isaiah 12:1–2",
     img: "/images/team/lauren-lee.webp",
     section: "designer",
     objectPosition: "center 45%"
@@ -86,7 +86,7 @@ const staffData: StaffInfo[] = [
     role: "Clothing Designer",
     major: "Cognitive Science",
     bio: "Spero gives my passions a Gospel-centered purpose. I wanted to be part of the mission that gives people the confidence to proclaim themselves as believers and followers of Christ.",
-    favoriteBibleVerse: "\"For the mountains may depart and the hills be removed, but my steadfast love shall not depart from you, and my covenant of peace shall not be removed,” says the Lord, who has compassion on you.\" Isaiah 54:10",
+    favoriteBibleVerse: "“For the mountains may depart and the hills be removed, but my steadfast love shall not depart from you, and my covenant of peace shall not be removed,” says the Lord, who has compassion on you.” — Isaiah 54:10",
     img: "/images/team/katie-hwang.webp",
     section: "designer",
     objectPosition: "center 45%"
@@ -106,7 +106,7 @@ const staffData: StaffInfo[] = [
     role: "Operations",
     major: "Economics",
     bio: "I joined Spero because I want to be part of a Christian community that uses their talents to glorify God through creative work and grow together spiritually. Spero’s mission really resonates with me because it creates opportunities to bring Christ into everyday life and encourages us to walk confidently in our faith through our Scripture-based apparel.",
-    favoriteBibleVerse: "“Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.” - Philippians 4:6-7",
+    favoriteBibleVerse: "“Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.” — Philippians 4:6–7",
     img: "/images/team/cindy-jin.webp",
     section: "operations",
     objectPosition: "center 45%"
@@ -116,7 +116,7 @@ const staffData: StaffInfo[] = [
     role: "Operations",
     major: "Psychology",
     bio: "I see Spero as a creative opportunity to use something as universal as clothing to spread the Gospel and God’s goodness across campus. I love how it encourages people to confidently carry Scripture with them wherever they go.",
-    favoriteBibleVerse: "“Rejoice always, pray without ceasing, give thanks in all circumstances; for this is the will of God in Christ Jesus for you.” 1 Thessalonians 5:16-18",
+    favoriteBibleVerse: "“Rejoice always, pray without ceasing, give thanks in all circumstances; for this is the will of God in Christ Jesus for you.” — 1 Thessalonians 5:16–18",
     img: "/images/team/hailey-cho.webp",
     section: "operations",
     objectPosition: "center 45%"
@@ -126,7 +126,7 @@ const staffData: StaffInfo[] = [
     role: "Photographer",
     major: "Integrative Biology",
     bio: "I joined Spero because I deeply resonate with the mission of evangelism and want to serve in a community that reflects this heart by using creativity and clothing to share Christ’s love with others.",
-    favoriteBibleVerse: "Psalm 94:18- When I said, 'My foot is slipping,' your unfailing love, Lord, supported me",
+    favoriteBibleVerse: "“When I said, 'My foot is slipping,' your unfailing love, Lord, supported me” — Psalm 94:18",
     img: "/images/team/kaylin-kim.webp",
     section: "photographer",
     objectPosition: "center 45%"
