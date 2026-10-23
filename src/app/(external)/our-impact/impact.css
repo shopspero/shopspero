@@ -154,6 +154,9 @@
   margin: 0 var(--space-3) 0 0;
 }
 .impact-gallery-controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 44px;
   height: 44px;
   border: 1px solid var(--ink-mute);
@@ -240,6 +243,9 @@
   font-size: 25px;
 }
 .impact-partner > p {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: normal;
   width: 100%;
   text-align: center;
   font-size: 13px;
@@ -303,4 +309,27 @@
     gap: 36px;
     margin-top: 56px;
   }
+}
+
+/* Match the About page partner-description typography. */
+.impact-section-heading > p:not(.eyebrow),
+.impact-ministry-copy > p:not(.eyebrow),
+.impact-partner > p {
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.7;
+  color: var(--ink-soft);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+/* Match the About page introduction. */
+.impact-lead {
+  font-family: var(--font-serif);
+  font-size: clamp(15px, 1.5vw, 19px);
+  letter-spacing: 0.04em;
+  line-height: 1.55;
+  max-width: 560px;
+  color: var(--ink-soft);
+  font-weight: 400;
 }

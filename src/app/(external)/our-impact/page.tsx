@@ -27,9 +27,9 @@ export default function OurImpactPage() {
           <em>Given with hope.</em>
         </h1>
         <p className="impact-lead">
-          Spero’s proceeds support Christian ministries and local outreach. Here
-          is where we’re focusing our giving this year, along with the
-          organizations we’ve supported in the past.
+          Spero supports various Christian ministries and local outreach
+          organizations. Here are the focuses of our giving this year, alongside
+          the organizations we’ve supported previously.
         </p>
       </header>
 
@@ -57,7 +57,7 @@ export default function OurImpactPage() {
         <div className="impact-container">
           <div className="impact-section-heading">
             <p className="eyebrow">Past giving</p>
-            <h2 id="past-title">Ministries we’ve supported</h2>
+            <h2 id="past-title">Previous ministries</h2>
           </div>
           <PastMinistriesGallery ministries={pastMinistries} />
         </div>

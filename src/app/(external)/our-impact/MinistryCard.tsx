@@ -43,7 +43,7 @@ export default function MinistryCard({
             target="_blank"
             rel="noopener noreferrer"
           >
-            Visit {ministry.name} <span aria-hidden="true">↗</span>
+            Visit {ministry.name}
           </a>
         )}
       </div>
