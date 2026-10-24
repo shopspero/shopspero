@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, type CSSProperties } from 'react';
 import Image from 'next/image';
 import staffData, { StaffInfo } from '@/app/(external)/team/staff-data';
 import './team.css';
@@ -12,28 +12,29 @@ const sections = [
 
 export default function Team() {
   const [curCard, setCurCard] = useState<StaffInfo | null>(null);
-  const modalRef = useRef<HTMLDivElement>(null);
+
+  const closeButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (curCard) {
-      const trigger = document.activeElement as HTMLElement | null;
-      const modal = modalRef.current;
-      const closeButton = modal?.querySelector<HTMLButtonElement>('button');
-      closeButton?.focus();
-      const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') setCurCard(null);
-        if (event.key === 'Tab') {
-          event.preventDefault();
-          closeButton?.focus();
-        }
-      };
-      document.addEventListener('keydown', handleKeyDown);
       const prev = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
+      const previousFocus = document.activeElement as HTMLElement | null;
+      closeButton.current?.focus();
+      const onKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Escape') setCurCard(null);
+        if (event.key === 'Tab') {
+          const body = document.querySelector<HTMLElement>('.team-modal-body');
+          event.preventDefault();
+          if (document.activeElement === closeButton.current) body?.focus();
+          else closeButton.current?.focus();
+        }
+      };
+      document.addEventListener('keydown', onKeyDown);
       return () => {
         document.body.style.overflow = prev;
-        document.removeEventListener('keydown', handleKeyDown);
-        trigger?.focus();
+        document.removeEventListener('keydown', onKeyDown);
+        previousFocus?.focus();
       };
     }
   }, [curCard]);
@@ -44,17 +45,19 @@ export default function Team() {
         <p className="eyebrow">The Team</p>
         <h1 className="team-title">Meet Spero</h1>
         <p className="team-subtitle">
-          A diverse group of Christians using their talents and skills to glorify God
-          through their work — students, designers, developers, and photographers building
-          Spero together.
+          A diverse group of Christians using their talents and skills to
+          glorify God through their work — students, designers, developers, and
+          photographers building Spero together.
         </p>
       </header>
 
       {sections.map(({ key, label }) => {
         const members = staffData.filter(
-          (staff) => !staff.archived && (key === 'executive'
-            ? staff.section === 'executive'
-            : staff.section !== 'executive'),
+          (staff) =>
+            !staff.archived &&
+            (key === 'executive'
+              ? staff.section === 'executive'
+              : staff.section !== 'executive')
         );
         if (members.length === 0) return null;
         return (
@@ -74,7 +77,13 @@ export default function Team() {
                       alt={staff.name}
                       fill
                       className="team-card-image"
-                      style={{ objectPosition: staff.objectPosition || 'center' }}
+                      style={
+                        {
+                          objectPosition: staff.objectPosition || 'top',
+                          '--portrait-scale': staff.portraitScale ?? 1,
+                          '--portrait-offset': staff.portraitOffset ?? '0%',
+                        } as CSSProperties
+                      }
                       sizes="(max-width: 639px) 50vw, 220px"
                     />
                   </div>
@@ -89,12 +98,10 @@ export default function Team() {
 
       <section className="team-join">
         <p className="eyebrow">Join the Team</p>
-        <h2 className="team-join-title">
-          Interested in working with us?
-        </h2>
+        <h2 className="team-join-title">Interested in working with us?</h2>
         <p className="team-join-body">
-          We&apos;re always looking for new members. If you&apos;re excited about using
-          your creative talents to glorify God, reach out.
+          We&apos;re always looking for new members. If you&apos;re excited
+          about using your creative talents to glorify God, reach out.
         </p>
         <a href="mailto:shopspero@gmail.com" className="cta-link">
           Email Us
@@ -108,7 +115,6 @@ export default function Team() {
           role="presentation"
         >
           <div
-            ref={modalRef}
             className="team-modal"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
@@ -116,6 +122,7 @@ export default function Team() {
             aria-label={`${curCard.name} bio`}
           >
             <button
+              ref={closeButton}
               className="team-modal-close"
               onClick={() => setCurCard(null)}
               aria-label="Close"
@@ -128,11 +135,16 @@ export default function Team() {
                 alt={curCard.name}
                 fill
                 className="team-modal-image"
-                style={{ objectPosition: curCard.objectPosition || 'center' }}
-                sizes="(max-width: 639px) 100vw, 280px"
+                style={{ objectPosition: curCard.objectPosition || 'top' }}
+                sizes="(max-width: 639px) 100vw, 240px"
               />
             </div>
-            <div className="team-modal-body">
+            <div
+              className="team-modal-body"
+              tabIndex={0}
+              role="region"
+              aria-label={`${curCard.name} biography`}
+            >
               <p className="eyebrow">{curCard.role}</p>
               <h3 className="team-modal-name">{curCard.name}</h3>
               <p className="team-modal-major">{curCard.major}</p>
