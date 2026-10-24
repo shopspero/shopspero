@@ -92,12 +92,14 @@
   transition: transform var(--dur-fast) var(--ease-out);
 }
 
-.team-card:hover { transform: translateY(-4px); }
+.team-card:hover {
+  transform: translateY(-4px);
+}
 
 .team-card-image-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 5 / 7;
   overflow: hidden;
   background: var(--bone);
   margin-bottom: 2px;
@@ -105,7 +107,10 @@
 
 .team-card-image {
   object-fit: cover;
-  transition: transform 1100ms var(--ease-out), filter 1100ms var(--ease-out);
+
+  transition:
+    transform 1100ms var(--ease-out),
+    filter 1100ms var(--ease-out);
 }
 
 .team-card:hover .team-card-image {
@@ -182,12 +187,12 @@
 .team-modal {
   background: var(--paper);
   width: 100%;
-  max-width: 760px;
-  height: min(640px, 86vh);
-  max-height: 86vh;
+  max-width: 680px;
+  height: min(calc(240px / var(--portrait-aspect-ratio)), 86dvh);
+  max-height: 86dvh;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: min(240px, calc(86dvh * var(--portrait-aspect-ratio))) minmax(0, 1fr);
   position: relative;
   animation: modal-rise 350ms var(--ease-out);
 }
@@ -209,7 +214,9 @@
   transition: background var(--dur-fast) var(--ease-out);
 }
 
-.team-modal-close:hover { background: #fff; }
+.team-modal-close:hover {
+  background: #fff;
+}
 
 .team-modal-image-wrap {
   position: relative;
@@ -220,10 +227,15 @@
   align-self: stretch;
 }
 
-.team-modal-image { object-fit: cover; }
+.team-modal-image {
+  object-fit: contain;
+}
 
 .team-modal-body {
-  padding: 28px 32px;
+  padding: 36px 28px 24px;
+  min-height: 0;
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -241,31 +253,52 @@
 }
 
 .team-modal-bio {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
   color: var(--ink-soft);
   margin: 0;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes modal-rise {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 639px) {
-  .team-page { padding: 96px 20px 64px; }
-  .team-header { margin-bottom: 64px; }
-  .team-section { margin-bottom: 64px; }
-  .team-section-eyebrow { margin-bottom: 40px; }
+  .team-page {
+    padding: 96px 20px 64px;
+  }
+  .team-header {
+    margin-bottom: 64px;
+  }
+  .team-section {
+    margin-bottom: 64px;
+  }
+  .team-section-eyebrow {
+    margin-bottom: 40px;
+  }
   .team-section-eyebrow::before,
-  .team-section-eyebrow::after { display: none; }
+  .team-section-eyebrow::after {
+    display: none;
+  }
   /* Switch from centered flex to a true 2-up grid (the base grid is
      display:flex, so grid-template-columns alone had no effect). */
   .team-grid {
@@ -284,20 +317,35 @@
   }
   .team-modal {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: min(220px, 32dvh) minmax(0, 1fr);
     height: auto;
-    max-height: 92vh;
-    overflow-y: auto;
+    max-height: 88dvh;
   }
   .team-modal-image-wrap {
-    aspect-ratio: 4 / 3;
-    height: auto;
+    height: 100%;
     min-height: 0;
   }
   .team-modal-body {
-    padding: 24px 24px 32px;
+    padding: 20px 24px 24px;
     height: auto;
-    overflow-y: visible;
+    max-height: 50dvh;
+  }
+}
+
+.team-card:focus-visible,
+.team-modal-close:focus-visible,
+.team-modal-body:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .team-card,
+  .team-card-image {
+    transition: none;
+  }
+  .team-modal,
+  .team-modal-backdrop {
+    animation: none;
   }
 }
 
@@ -320,7 +368,14 @@
   line-height: 1.8;
   color: var(--ink-soft);
 }
-.team-card:focus-visible, .team-modal-close:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 5px;
+
+.team-modal-major,
+.team-modal-label {
+  font-family: var(--font-sans);
 }
+.team-modal-verse {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.team-modal-body > * { flex-shrink: 0; }

@@ -4,9 +4,11 @@ import type { Ministry } from './content';
 export default function MinistryCard({
   ministry,
   priority = false,
+  active = true,
 }: {
   ministry: Ministry;
   priority?: boolean;
+  active?: boolean;
 }) {
   return (
     <article className="impact-ministry">
@@ -25,6 +27,7 @@ export default function MinistryCard({
           Photo:{' '}
           <a
             href={ministry.photo.source}
+            tabIndex={active ? undefined : -1}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -40,6 +43,7 @@ export default function MinistryCard({
           <a
             className="impact-text-link"
             href={ministry.href}
+            tabIndex={active ? undefined : -1}
             target="_blank"
             rel="noopener noreferrer"
           >

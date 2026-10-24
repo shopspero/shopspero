@@ -171,8 +171,8 @@ export default function AboutPage() {
         </div>
 
         <div className="about-impact-link">
-          <Link href="/our-impact" className="about-faq-inline-link">
-            Explore our impact
+          <Link href="/our-impact" className="about-impact-cta">
+            Learn more
           </Link>
         </div>
 
