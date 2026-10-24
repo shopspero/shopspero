@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, type CSSProperties } from 'react';
 import Image from 'next/image';
 import staffData, { StaffInfo } from '@/app/(external)/team/staff-data';
 import './team.css';
@@ -110,6 +110,7 @@ export default function Team() {
         >
           <div
             className="team-modal"
+            style={{ '--portrait-aspect-ratio': curCard.photoAspectRatio ?? 2 / 3 } as CSSProperties}
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"

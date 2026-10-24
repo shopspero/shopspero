@@ -188,11 +188,11 @@
   background: var(--paper);
   width: 100%;
   max-width: 680px;
-  height: min(360px, 86dvh);
+  height: min(calc(240px / var(--portrait-aspect-ratio)), 86dvh);
   max-height: 86dvh;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
+  grid-template-columns: min(240px, calc(86dvh * var(--portrait-aspect-ratio))) minmax(0, 1fr);
   position: relative;
   animation: modal-rise 350ms var(--ease-out);
 }
