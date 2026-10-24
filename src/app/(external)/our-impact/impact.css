@@ -169,7 +169,16 @@
   opacity: 0.3;
   cursor: default;
 }
+.impact-gallery-viewport {
+  overflow: hidden;
+}
+.impact-gallery-track {
+  display: flex;
+  transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
 .impact-gallery-slide {
+  flex: 0 0 100%;
+  min-width: 0;
   min-height: 370px;
 }
 .impact-sr-only {
@@ -332,4 +341,8 @@
   max-width: 560px;
   color: var(--ink-soft);
   font-weight: 400;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .impact-gallery-track { transition: none; }
 }

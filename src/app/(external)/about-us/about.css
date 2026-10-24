@@ -516,3 +516,31 @@
   text-align: center;
   margin-top: var(--space-6);
 }
+
+.about-impact-cta {
+  display: inline-block;
+  padding: 8px 0;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  text-decoration-line: underline;
+  text-decoration-color: var(--line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 8px;
+  transition: color var(--dur-fast) var(--ease-out),
+    text-decoration-color var(--dur-fast) var(--ease-out);
+}
+
+.about-impact-cta:hover {
+  color: var(--ink);
+  text-decoration-color: currentColor;
+}
+
+.about-impact-cta:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 6px;
+}
