@@ -99,7 +99,7 @@
 .team-card-image-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 5 / 7;
   overflow: hidden;
   background: var(--bone);
   margin-bottom: 2px;
@@ -254,7 +254,7 @@
 
 .team-modal-bio {
   font-family: var(--font-serif);
-  font-size: 19px;
+  font-size: 14px;
   line-height: 1.6;
   letter-spacing: 0.01em;
   color: var(--ink-soft);
@@ -375,7 +375,7 @@
 }
 .team-modal-verse {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.6;
 }
 .team-modal-body > * { flex-shrink: 0; }

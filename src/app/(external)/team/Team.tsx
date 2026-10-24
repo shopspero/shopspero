@@ -77,7 +77,7 @@ export default function Team() {
                       alt={staff.name}
                       fill
                       className="team-card-image"
-                      style={{ objectPosition: staff.objectPosition || 'center' }}
+                      style={{ objectPosition: 'center 64%' }}
                       sizes="(max-width: 639px) 50vw, 220px"
                     />
                   </div>
