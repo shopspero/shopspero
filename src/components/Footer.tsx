@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaFacebook, FaInstagram, FaMedium } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaMedium, FaDiscord } from 'react-icons/fa';
 import { IconType } from 'react-icons/lib';
 import './styles/Footer.css';
 
@@ -13,6 +13,7 @@ const socials: SocialInfo[] = [
   { label: 'Instagram', icon: FaInstagram, href: 'https://www.instagram.com/shopspero/' },
   { label: 'Facebook',  icon: FaFacebook,  href: 'https://www.facebook.com/shopspero/' },
   { label: 'Medium',    icon: FaMedium,    href: 'https://shopspero.medium.com/' },
+  { label: 'Discord',   icon: FaDiscord,   href: 'https://discord.gg/XPGyEFzpzH' },
 ];
 
 const navLinks = [
