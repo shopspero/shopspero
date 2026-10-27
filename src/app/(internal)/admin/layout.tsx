@@ -11,6 +11,8 @@ const allNavLinks: { title: string; href: string; permission?: Permission }[] = 
   { title: 'ORDERS', href: '/admin/orders', permission: 'general' },
   { title: 'LOG ORDER', href: '/admin/log-order', permission: 'general' },
   { title: 'PRODUCTS', href: '/admin/products', permission: 'general' },
+  { title: 'FINANCES', href: '/admin/finances', permission: 'general' },
+  { title: 'DROP ORDERS', href: '/admin/finances/orders', permission: 'general' },
   { title: 'EXEC', href: '/admin/exec', permission: 'exec' },
   { title: 'SIGN OUT', href: '/admin/sign-out' },
 ];
