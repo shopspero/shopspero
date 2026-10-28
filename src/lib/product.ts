@@ -47,14 +47,20 @@ export async function reserveInventory(productId: string): Promise<{
   priceId?: string;
   status: 'success' | 'out of stock' | 'error';
 }> {
-  let priceId: string;
+  let priceId: string | null;
   try {
     const productRef = db.collection('products').doc(productId);
     priceId = await db.runTransaction(async (t) => {
       const productDoc = await t.get(productRef);
+      if (!productDoc.exists) return null;
       const priceId = productDoc.get('price_id');
       const stock = productDoc.get('stock');
-      // logger.log(productDoc, stock)
+      if (
+        typeof priceId !== 'string' || !priceId.trim() ||
+        !Number.isSafeInteger(stock) || stock < 0
+      ) {
+        throw new Error('Product has invalid price or stock');
+      }
       if (stock <= 0) {
         return null;
       }

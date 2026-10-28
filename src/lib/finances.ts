@@ -161,11 +161,15 @@ export async function getPaginatedOrders(
   const sorted = [...orders].sort(
     (a, b) => parseDate(b.date) - parseDate(a.date)
   );
-  const start = (page - 1) * pageSize;
+  const safePageSize = Number.isSafeInteger(pageSize) && pageSize > 0 ? pageSize : 20;
+  const requestedPage = Number.isSafeInteger(page) && page > 0 ? page : 1;
+  const totalPages = Math.max(1, Math.ceil(sorted.length / safePageSize));
+  const safePage = Math.min(requestedPage, totalPages);
+  const start = (safePage - 1) * safePageSize;
   return {
-    orders: sorted.slice(start, start + pageSize),
+    orders: sorted.slice(start, start + safePageSize),
     total: sorted.length,
-    page,
-    pageSize,
+    page: safePage,
+    pageSize: safePageSize,
   };
 }

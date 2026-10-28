@@ -59,22 +59,48 @@ export default function SheetOrdersTable() {
   const [data, setData] = useState<PaginatedOrders>();
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/api/finances/orders?page=${page}`)
-      .then((res) => res.json())
+    setError('');
+    const controller = new AbortController();
+    fetch(`/api/finances/orders?page=${page}`, { signal: controller.signal })
+      .then((res) => {
+        if (!res.ok) throw new Error('Unable to load drop orders');
+        return res.json();
+      })
       .then((result: PaginatedOrders) => {
         setData(result);
         setLoading(false);
+      })
+      .catch(() => {
+        if (!controller.signal.aborted) {
+          setError('Unable to load drop orders. Please try again.');
+          setLoading(false);
+        }
       });
-  }, [page]);
+    return () => controller.abort();
+  }, [page, attempt]);
 
   const totalPages = data ? Math.max(1, Math.ceil(data.total / data.pageSize)) : 1;
+  const currentPage = data?.page ?? page;
+
+  if (error) {
+    return (
+      <Box p={6} role="alert">
+        <Text>{error}</Text>
+        <Button mt={4} onClick={() => setAttempt((value) => value + 1)}>
+          Try again
+        </Button>
+      </Box>
+    );
+  }
 
   return (
     <>
-      {loading && !data ? (
+      {loading ? (
         <Center p={10}>
           <Spinner />
         </Center>
@@ -129,17 +155,17 @@ export default function SheetOrdersTable() {
 
           <HStack justify="center" mt={6} gap={4}>
             <Button
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              isDisabled={page <= 1}
+              onClick={() => setPage(Math.max(1, currentPage - 1))}
+              isDisabled={currentPage <= 1}
             >
               Previous
             </Button>
             <Text>
-              Page {page} of {totalPages}
+              Page {currentPage} of {totalPages}
             </Text>
             <Button
-              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-              isDisabled={page >= totalPages}
+              onClick={() => setPage(Math.min(totalPages, currentPage + 1))}
+              isDisabled={currentPage >= totalPages}
             >
               Next
             </Button>

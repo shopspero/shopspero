@@ -1,6 +1,5 @@
 import { google, sheets_v4 } from 'googleapis';
 import { unstable_cache } from 'next/cache';
-import { logger } from './discordLogger';
 
 const SPREADSHEET_ID = process.env.GOOGLE_SHEETS_SPREADSHEET_ID ?? '';
 
@@ -60,8 +59,10 @@ export interface SheetDrop {
 
 function parseNumber(value: unknown): number | undefined {
   if (typeof value !== 'string' || value.trim() === '') return undefined;
-  const n = Number(value.replace(/[^0-9.-]/g, ''));
-  return Number.isNaN(n) ? undefined : n;
+  const normalized = value.replace(/[^0-9.-]/g, '');
+  if (!normalized || !/[0-9]/.test(normalized)) return undefined;
+  const n = Number(normalized);
+  return Number.isFinite(n) ? n : undefined;
 }
 
 async function getRange(range: string): Promise<string[][]> {
@@ -73,65 +74,50 @@ async function getRange(range: string): Promise<string[][]> {
 }
 
 async function fetchOrdersSheet(): Promise<SheetOrder[]> {
-  try {
-    const rows = await getRange('Orders!A2:J');
-    return rows
-      .filter((row) => row.some((cell) => cell))
-      .map((row) => ({
-        date: row[0] || undefined,
-        buyer: row[1] || undefined,
-        drop: row[2] || undefined,
-        item: row[3] || undefined,
-        size: row[4] || undefined,
-        qty: parseNumber(row[5]),
-        amount: parseNumber(row[6]),
-        moneyWith: row[7] || undefined,
-        delivered: row[8] || undefined,
-        notes: row[9] || undefined,
-      }));
-  } catch (e) {
-    logger.error(`fetchOrdersSheet() failed: ${e}`);
-    return [];
-  }
+  const rows = await getRange('Orders!A2:J');
+  return rows
+    .filter((row) => row.some((cell) => cell))
+    .map((row) => ({
+      date: row[0] || undefined,
+      buyer: row[1] || undefined,
+      drop: row[2] || undefined,
+      item: row[3] || undefined,
+      size: row[4] || undefined,
+      qty: parseNumber(row[5]),
+      amount: parseNumber(row[6]),
+      moneyWith: row[7] || undefined,
+      delivered: row[8] || undefined,
+      notes: row[9] || undefined,
+    }));
 }
 
 async function fetchCostsSheet(): Promise<SheetCost[]> {
-  try {
-    const rows = await getRange('Costs!A2:F');
-    return rows
-      .filter((row) => row.some((cell) => cell))
-      .map((row) => ({
-        date: row[0] || undefined,
-        drop: row[1] || undefined,
-        what: row[2] || undefined,
-        amount: parseNumber(row[3]),
-        paidBy: row[4] || undefined,
-        notes: row[5] || undefined,
-      }));
-  } catch (e) {
-    logger.error(`fetchCostsSheet() failed: ${e}`);
-    return [];
-  }
+  const rows = await getRange('Costs!A2:F');
+  return rows
+    .filter((row) => row.some((cell) => cell))
+    .map((row) => ({
+      date: row[0] || undefined,
+      drop: row[1] || undefined,
+      what: row[2] || undefined,
+      amount: parseNumber(row[3]),
+      paidBy: row[4] || undefined,
+      notes: row[5] || undefined,
+    }));
 }
 
 async function fetchDropsSheet(): Promise<SheetDrop[]> {
-  try {
-    const rows = await getRange('Drops!A2:G');
-    return rows
-      .filter((row) => row[0])
-      .map((row) => ({
-        drop: row[0],
-        semester: row[1] || undefined,
-        unitsMade: parseNumber(row[2]),
-        price: parseNumber(row[3]),
-        donated: parseNumber(row[4]),
-        charity: row[5] || undefined,
-        status: row[6] || undefined,
-      }));
-  } catch (e) {
-    logger.error(`fetchDropsSheet() failed: ${e}`);
-    return [];
-  }
+  const rows = await getRange('Drops!A2:G');
+  return rows
+    .filter((row) => row[0])
+    .map((row) => ({
+      drop: row[0],
+      semester: row[1] || undefined,
+      unitsMade: parseNumber(row[2]),
+      price: parseNumber(row[3]),
+      donated: parseNumber(row[4]),
+      charity: row[5] || undefined,
+      status: row[6] || undefined,
+    }));
 }
 
 // Cached ~1 minute so repeated page loads/pagination don't re-hit the Sheets API quota.
