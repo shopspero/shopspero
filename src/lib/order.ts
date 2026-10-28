@@ -82,9 +82,11 @@ export async function deleteOrder(orderId: string) {
 }
 
 export async function upsertOrder(order: Order) {
+  // Firestore doc(undefined) creates a new document; edits must identify an order.
+  if (!order.id?.trim()) return false;
   try {
     const { id, ...rest } = order;
-    await db.collection('orders').doc(id!).set(rest, { merge: true });
+    await db.collection('orders').doc(id).set(rest, { merge: true });
     return true;
   } catch (e) {
     logger.error(`upsertOrder(${order}) failed: ${e}`);

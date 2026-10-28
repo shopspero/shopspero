@@ -1,3 +1,4 @@
+import { escapeHtml } from '@/lib/html';
 import {
   Order,
   cancelOrder,
@@ -34,7 +35,7 @@ async function sendConfirmationEmail(order: Order) {
       <div style="font-family: 'Arial', sans-serif; color: #333; background-color: #F9FAFB; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto;">
         <div style="text-align: center; margin-bottom: 30px;">
           <img src="${process.env.NEXTAUTH_URL}/images/logo.png" alt="Spero Logo" style="max-width: 150px; margin-bottom: 10px;" />
-          <h1 style="color: #222; font-size: 24px; font-weight: 600;">Thank you for your purchase, ${order.name}!</h1>
+          <h1 style="color: #222; font-size: 24px; font-weight: 600;">Thank you for your purchase, ${escapeHtml(order.name)}!</h1>
           <p style="font-size: 16px; color: #555;">
             We have received your payment and your order is being processed. We are grateful for your support and thank you for being a part of the Spero community!
           </p>
@@ -42,12 +43,12 @@ async function sendConfirmationEmail(order: Order) {
         <div style="background-color: #FFF; padding: 20px; border: 1px solid #E5E7EB; border-radius: 8px;">
           <h2 style="color: #222; font-size: 20px; margin-bottom: 10px;">Order Details</h2>
           <ul style="list-style: none; padding: 0; margin: 0; font-size: 16px; color: #555;">
-            <li style="margin-bottom: 8px;"><strong>Order ID:</strong> ${order.id}</li>
-            <li style="margin-bottom: 8px;"><strong>Product ID:</strong> ${order.product_id}</li>
-            <li style="margin-bottom: 8px;"><strong>Payment Status:</strong> ${order.payment_status}</li>
-            <li style="margin-bottom: 8px;"><strong>Fulfillment Option:</strong> ${order.fulfillment_option || 'Not specified'}</li>
-            ${order.email ? `<li style="margin-bottom: 8px;"><strong>Email:</strong> ${order.email}</li>` : ''}
-            ${order.phone ? `<li style="margin-bottom: 8px;"><strong>Phone:</strong> ${order.phone}</li>` : ''}
+            <li style="margin-bottom: 8px;"><strong>Order ID:</strong> ${escapeHtml(order.id)}</li>
+            <li style="margin-bottom: 8px;"><strong>Product ID:</strong> ${escapeHtml(order.product_id)}</li>
+            <li style="margin-bottom: 8px;"><strong>Payment Status:</strong> ${escapeHtml(order.payment_status)}</li>
+            <li style="margin-bottom: 8px;"><strong>Fulfillment Option:</strong> ${escapeHtml(order.fulfillment_option || 'Not specified')}</li>
+            ${order.email ? `<li style="margin-bottom: 8px;"><strong>Email:</strong> ${escapeHtml(order.email)}</li>` : ''}
+            ${order.phone ? `<li style="margin-bottom: 8px;"><strong>Phone:</strong> ${escapeHtml(order.phone)}</li>` : ''}
           </ul>
         </div>
         <p style="font-size: 16px; color: #555; margin-top: 20px;">

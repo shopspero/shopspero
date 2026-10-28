@@ -2,6 +2,7 @@
 
 import {
   Box,
+  Button,
   Center,
   Heading,
   Select,
@@ -17,6 +18,7 @@ import {
   Th,
   Thead,
   Tr,
+  Text,
 } from '@chakra-ui/react';
 import { useEffect, useMemo, useState } from 'react';
 import type { FinancesDashboard } from '@/lib/finances';
@@ -35,10 +37,10 @@ function formatMoney(value: number): string {
   return currency.format(value);
 }
 
-function profitColor(value: number): string {
+function profitColor(value: number): string | undefined {
   if (value > 0) return 'status.success';
   if (value < 0) return 'status.danger';
-  return undefined as unknown as string;
+  return undefined;
 }
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
@@ -52,22 +54,44 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 export default function FinancesView() {
   const [dashboard, setDashboard] = useState<FinancesDashboard>();
   const [selectedDrop, setSelectedDrop] = useState<string>('');
+  const [error, setError] = useState('');
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
-    fetch('/api/finances/dashboard')
-      .then((res) => res.json())
+    const controller = new AbortController();
+    setError('');
+    fetch('/api/finances/dashboard', { signal: controller.signal })
+      .then((res) => {
+        if (!res.ok) throw new Error('Unable to load finances. Please try again.');
+        return res.json();
+      })
       .then((data: FinancesDashboard) => {
         setDashboard(data);
         if (data.drops.length > 0) {
           setSelectedDrop(data.drops[0].drop);
         }
+      })
+      .catch(() => {
+        if (!controller.signal.aborted) setError('Unable to load finances. Please try again.');
       });
-  }, []);
+    return () => controller.abort();
+  }, [attempt]);
 
   const selected = useMemo(
     () => dashboard?.drops.find((d) => d.drop === selectedDrop),
     [dashboard, selectedDrop]
   );
+
+  if (error) {
+    return (
+      <Box p={6} role="alert">
+        <Text>{error}</Text>
+        <Button mt={4} onClick={() => setAttempt((value) => value + 1)}>
+          Try again
+        </Button>
+      </Box>
+    );
+  }
 
   if (!dashboard) {
     return (
