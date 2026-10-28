@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <Container maxWidth={1100}>
+    <Container maxWidth="content">
       <Center p={10}>
         <Heading as="h1" size="2xl">
           Finances

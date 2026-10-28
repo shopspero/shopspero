@@ -5,6 +5,7 @@ import NavBar from '@/components/NavBar';
 import { SessionProvider, signIn, useSession } from 'next-auth/react';
 import { hasPermission } from '@/lib/permissions';
 import type { Permission } from '@/lib/users';
+import { useEffect } from 'react';
 
 interface NavLink {
   title: string;
@@ -34,6 +35,10 @@ const allNavLinks: NavLink[] = [
 function Login({ children }: { children: React.ReactNode }) {
   const { data: session, status } = useSession();
 
+  useEffect(() => {
+    if (status === 'unauthenticated') void signIn();
+  }, [status]);
+
   if (status === 'loading') {
     return;
   } else if (status === 'authenticated' && session) {
@@ -47,9 +52,8 @@ function Login({ children }: { children: React.ReactNode }) {
         <Box p={5} />
       </>
     );
-  } else {
-    signIn();
   }
+  return null;
 }
 
 export default function AdminLayout({

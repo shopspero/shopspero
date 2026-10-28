@@ -134,7 +134,7 @@
   justify-content: center;
   text-align: center;
   padding: 32px 48px;
-  color: #fff;
+  color: var(--text-inverse);
   gap: 24px;
 }
 

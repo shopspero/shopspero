@@ -4,7 +4,7 @@
 
 .designs-page {
   width: 100%;
-  background: #fff;
+  background: var(--surface-panel);
 }
 
 .designs-eyebrow {
@@ -13,7 +13,7 @@
   font-size: 11px;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: #999;
+  color: var(--ink-faint);
   font-weight: 400;
 }
 
@@ -22,7 +22,7 @@
   font-size: clamp(28px, 4vw, 44px);
   font-weight: 400;
   letter-spacing: 0.04em;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0 0 96px;
   font-family: var(--font-serif);
 }
@@ -54,7 +54,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: #f4f2ee;
+  background: var(--surface-muted);
 }
 
 .designs-tile-half .designs-tile-image-wrap {
@@ -87,14 +87,14 @@
 
 .designs-tile-half .designs-tile-caption {
   padding: 20px 4px 0;
-  color: #1a1a1a;
+  color: var(--text-primary);
 }
 
 .designs-tile-full .designs-tile-caption {
   position: absolute;
   left: 40px;
   bottom: 40px;
-  color: #fff;
+  color: var(--text-inverse);
   z-index: 2;
   text-shadow: 0 1px 24px rgba(0, 0, 0, 0.4);
 }
@@ -466,7 +466,7 @@
 /* ===== Shop the drop (current only) ===== */
 .dd-shop {
   background: var(--ink);
-  color: #fff;
+  color: var(--text-inverse);
   padding: 140px 32px;
   text-align: center;
   display: flex;
@@ -485,7 +485,7 @@
   text-transform: uppercase;
   margin: 4px 0;
   line-height: 1.05;
-  color: #fff;
+  color: var(--text-inverse);
 }
 
 .dd-shop-sub {
@@ -498,8 +498,8 @@
 }
 
 .dd-shop .cta-link {
-  color: #fff;
-  border-bottom-color: #fff;
+  color: var(--text-inverse);
+  border-bottom-color: var(--text-inverse);
 }
 
 /* ===== Tail (next design) ===== */
