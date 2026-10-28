@@ -20,6 +20,7 @@ const navLinks = [
   { label: 'Designs', href: '/designs' },
   { label: 'Shop', href: '/shop' },
   { label: 'About', href: '/about-us' },
+  { label: 'Our Impact', href: '/our-impact' },
   { label: 'Team', href: '/team' },
 ];
 
@@ -68,7 +69,12 @@ export default function Footer() {
       </div>
 
       <div className="spero-footer-bar">
-        <p>© {new Date().getFullYear()} Spero</p>
+        <div className="spero-footer-bar-group">
+          <p>© {new Date().getFullYear()} Spero</p>
+          <Link href="/admin" className="spero-footer-admin-link">
+            Staff Login
+          </Link>
+        </div>
         <p className="spero-footer-verse">Matthew 10:29-31</p>
       </div>
     </footer>

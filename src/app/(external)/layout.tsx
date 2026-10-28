@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 
 const navLinks = [
   { title: 'ABOUT', href: '/about-us' },
+  { title: 'OUR IMPACT', href: '/our-impact' },
   { title: 'TEAM', href: '/team' },
   { title: 'DESIGNS', href: '/designs' },
   { title: 'SHOP', href: '/shop' },

@@ -3,12 +3,31 @@
 import { Box } from '@chakra-ui/react';
 import NavBar from '@/components/NavBar';
 import { SessionProvider, signIn, useSession } from 'next-auth/react';
+import { hasPermission } from '@/lib/permissions';
+import type { Permission } from '@/lib/users';
 
-const navLinks = [
+interface NavLink {
+  title: string;
+  href?: string;
+  children?: { title: string; href: string }[];
+  permission?: Permission;
+}
+
+// Order drives NavBar's left/right split (first half left, rest right).
+const allNavLinks: NavLink[] = [
   { title: 'ADMIN', href: '/admin' },
-  { title: 'ORDERS', href: '/admin/orders' },
-  { title: 'LOG ORDER', href: '/admin/log-order' },
-  { title: 'PRODUCTS', href: '/admin/products' },
+  { title: 'FINANCES', href: '/admin/finances', permission: 'general' },
+  { title: 'DROP ORDERS', href: '/admin/finances/orders', permission: 'general' },
+  {
+    title: 'ONLINE ORDERS',
+    permission: 'general',
+    children: [
+      { title: 'ORDERS', href: '/admin/orders' },
+      { title: 'LOG ORDER', href: '/admin/log-order' },
+      { title: 'PRODUCTS', href: '/admin/products' },
+    ],
+  },
+  { title: 'EXEC', href: '/admin/exec', permission: 'exec' },
   { title: 'SIGN OUT', href: '/admin/sign-out' },
 ];
 
@@ -18,6 +37,9 @@ function Login({ children }: { children: React.ReactNode }) {
   if (status === 'loading') {
     return;
   } else if (status === 'authenticated' && session) {
+    const navLinks = allNavLinks.filter(
+      (link) => !link.permission || hasPermission(session, link.permission)
+    );
     return (
       <>
         <NavBar links={navLinks} />

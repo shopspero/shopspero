@@ -71,15 +71,6 @@ export default function AboutPage() {
     <div className="about-page">
       {/* Cover */}
       <section className="about-cover">
-        <Image
-          src="/images/team/team.jpg"
-          alt="The Spero team"
-          fill
-          priority
-          sizes="100vw"
-          className="about-cover-image"
-        />
-        <div className="about-cover-overlay" />
         <div className="about-cover-content">
           <p className="about-cover-eyebrow">Est. Berkeley</p>
           <h1 className="about-cover-title">We are Spero.</h1>
@@ -177,6 +168,12 @@ export default function AboutPage() {
             host clothing drops and bring Spero apparel into the hands of communities
             living out the Gospel together.
           </p>
+        </div>
+
+        <div className="about-impact-link">
+          <Link href="/our-impact" className="about-impact-cta">
+            Learn more
+          </Link>
         </div>
 
         <div className="about-partners-marquee" aria-label="Past partners">
