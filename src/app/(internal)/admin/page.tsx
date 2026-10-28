@@ -15,7 +15,7 @@ export default async function Page() {
           Welcome{profile?.name ? `, ${profile.name}` : ''}
         </Heading>
         {profile?.title && (
-          <Text fontSize="lg" color="gray.600">
+          <Text fontSize="lg" color="text.muted">
             {profile.title}
           </Text>
         )}

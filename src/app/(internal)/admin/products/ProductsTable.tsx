@@ -236,7 +236,7 @@ function AddProductRow({
 function CardField({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <Box>
-      <Text fontSize="xs" color="gray.500" textTransform="uppercase">
+      <Text fontSize="xs" color="text.muted" textTransform="uppercase">
         {label}
       </Text>
       {children}
@@ -255,7 +255,7 @@ function ProductCard({
 }) {
   const e = useEditableProduct(product, onSave);
   return (
-    <Box borderWidth="1px" borderRadius="md" p={4}>
+    <Box borderWidth="1px" borderRadius="panel" p={4}>
       <Stack gap={3}>
         <CardField label="Product ID">
           <Text wordBreak="break-word">{product.id}</Text>
@@ -311,7 +311,7 @@ function AddProductCard({
     );
   }
   return (
-    <Box borderWidth="1px" borderRadius="md" p={4}>
+    <Box borderWidth="1px" borderRadius="panel" p={4}>
       <Stack gap={3}>
         <CardField label="Product ID">
           <Input value={a.productId} onChange={(ev) => a.setProductId(ev.target.value)} />

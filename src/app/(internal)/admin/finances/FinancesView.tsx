@@ -36,8 +36,8 @@ function formatMoney(value: number): string {
 }
 
 function profitColor(value: number): string {
-  if (value > 0) return 'green.600';
-  if (value < 0) return 'red.600';
+  if (value > 0) return 'status.success';
+  if (value < 0) return 'status.danger';
   return undefined as unknown as string;
 }
 

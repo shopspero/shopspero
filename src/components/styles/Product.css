@@ -162,7 +162,7 @@
 
 .shop-size-pill.is-active {
   background: var(--ink);
-  color: #fff;
+  color: var(--text-inverse);
   border-color: var(--ink);
 }
 
@@ -220,7 +220,7 @@
 .shop-checkout-btn {
   margin-top: 16px;
   background: var(--ink);
-  color: #fff;
+  color: var(--text-inverse);
   border: 0;
   padding: 18px 32px;
   font-family: var(--font-serif);
@@ -247,7 +247,7 @@
   font-family: var(--font-sans);
   font-size: 12px;
   letter-spacing: 0.04em;
-  color: #b91c1c;
+  color: var(--status-danger);
   margin: 0;
 }
 

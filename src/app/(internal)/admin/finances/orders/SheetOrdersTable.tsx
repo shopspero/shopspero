@@ -40,11 +40,11 @@ function OrderCard({ order }: { order: SheetOrder }) {
     ['Notes', order.notes],
   ];
   return (
-    <Box borderWidth="1px" borderRadius="md" p={4}>
+    <Box borderWidth="1px" borderRadius="panel" p={4}>
       <Stack gap={2}>
         {fields.map(([label, value]) => (
           <Box key={label}>
-            <Text fontSize="xs" color="gray.500" textTransform="uppercase">
+            <Text fontSize="xs" color="text.muted" textTransform="uppercase">
               {label}
             </Text>
             <Text wordBreak="break-word">{value || '—'}</Text>

@@ -215,7 +215,7 @@
 }
 
 .team-modal-close:hover {
-  background: #fff;
+  background: var(--surface-panel);
 }
 
 .team-modal-image-wrap {

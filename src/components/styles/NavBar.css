@@ -19,7 +19,7 @@
 
 .spero-nav--transparent {
   background: transparent;
-  color: #fff;
+  color: var(--text-inverse);
 }
 
 .spero-nav-inner {

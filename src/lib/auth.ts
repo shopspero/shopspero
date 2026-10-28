@@ -9,6 +9,9 @@ import GoogleProvider from 'next-auth/providers/google';
 import { getUserByEmail } from './users';
 
 export const config = {
+  pages: {
+    signIn: '/auth/signin',
+  },
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? '',
