@@ -73,6 +73,65 @@
   transform-origin: left center;
 }
 
+.spero-nav-dropdown {
+  position: relative;
+}
+
+.spero-nav-dropdown-trigger {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.spero-nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 6px 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.spero-nav-dropdown-menu-link {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+.spero-nav-dropdown-menu-link:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.spero-nav-mobile-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.spero-nav-mobile-group-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 12px 0 4px;
+  opacity: 0.5;
+}
+
+.spero-nav-mobile-link--child {
+  padding-left: 16px;
+  font-size: 14px;
+}
+
 .spero-nav-logo {
   font-family: var(--font-serif);
   font-size: 18px;
