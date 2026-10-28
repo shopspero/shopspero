@@ -6,13 +6,27 @@ import { SessionProvider, signIn, useSession } from 'next-auth/react';
 import { hasPermission } from '@/lib/permissions';
 import type { Permission } from '@/lib/users';
 
-const allNavLinks: { title: string; href: string; permission?: Permission }[] = [
+interface NavLink {
+  title: string;
+  href?: string;
+  children?: { title: string; href: string }[];
+  permission?: Permission;
+}
+
+// Order drives NavBar's left/right split (first half left, rest right).
+const allNavLinks: NavLink[] = [
   { title: 'ADMIN', href: '/admin' },
-  { title: 'ORDERS', href: '/admin/orders', permission: 'general' },
-  { title: 'LOG ORDER', href: '/admin/log-order', permission: 'general' },
-  { title: 'PRODUCTS', href: '/admin/products', permission: 'general' },
   { title: 'FINANCES', href: '/admin/finances', permission: 'general' },
   { title: 'DROP ORDERS', href: '/admin/finances/orders', permission: 'general' },
+  {
+    title: 'ONLINE ORDERS',
+    permission: 'general',
+    children: [
+      { title: 'ORDERS', href: '/admin/orders' },
+      { title: 'LOG ORDER', href: '/admin/log-order' },
+      { title: 'PRODUCTS', href: '/admin/products' },
+    ],
+  },
   { title: 'EXEC', href: '/admin/exec', permission: 'exec' },
   { title: 'SIGN OUT', href: '/admin/sign-out' },
 ];
