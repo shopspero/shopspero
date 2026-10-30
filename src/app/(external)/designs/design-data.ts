@@ -13,6 +13,8 @@ export interface DesignSummary {
   verse: string;
   /** Available colorways (e.g. "Cream", "Black, Cream"). Optional for stickers. */
   colorway?: string;
+  /** Optional design-specific garment specifications. */
+  specs?: { label: string; value: string }[];
   /** Currently shoppable on /shop. Drives the "Shop the drop" CTA on the detail page. */
   isCurrent?: boolean;
 }
@@ -23,6 +25,12 @@ export interface DesignInfo extends DesignSummary {
 
 /** Single source: id, name, imgs, verse for each design. */
 export const designList: DesignSummary[] = [
+  { id: 'born-again', name: 'Born Again Hoodie', verse: 'John 3:3', imgs: ['/images/designs/born-again-1.jpg', '/images/designs/born-again-2.jpg', '/images/designs/born-again-3.jpg', '/images/designs/born-again-4.jpg', '/images/designs/born-again-5.jpg', '/images/designs/born-again-6.jpg', '/images/designs/born-again-7.jpg', '/images/designs/born-again-8.jpg'], colorway: 'Burgundy', specs: [
+    { label: 'Verse', value: 'John 3:3' },
+    { label: 'Composition', value: 'Essential heavyweight cotton' },
+    { label: 'Weight', value: '430 GSM' },
+    { label: 'Colorway', value: 'Burgundy' },
+  ] },
   { id: 'god-is-love',     name: 'God is Love T-Shirt',       verse: '1 John 4:8',          imgs: ['/images/designs/god-is-love-4.jpg', '/images/designs/god-love-2.jpg', '/images/designs/IG2.1.jpg'], colorway: 'Cream', isCurrent: true },
   { id: 'lux-aeterna',     name: 'Lux Aeterna Crewneck',      verse: 'Isaiah 60:19-21',     imgs: ['/images/designs/lux-aeterna-7.jpg', '/images/designs/lux-aeterna-6.jpg', '/images/designs/lux-aeterna-2.jpg', '/images/designs/lux-aeterna-3.jpg', '/images/designs/lux-aeterna-1.jpg', '/images/designs/lux-aeterna-4.jpg', '/images/designs/lux-aeterna-5.jpg'], colorway: 'Gray' },
   { id: 'the-calling',     name: 'The Calling T-Shirt',       verse: 'Ephesians 4:1-3',     imgs: ['/images/designs/the-calling-1.jpg', '/images/designs/the-calling-2.jpg', '/images/designs/the-calling-3.jpg', '/images/designs/the-calling-4.jpg', '/images/designs/the-calling-5.jpg', '/images/designs/the-calling-6.jpg', '/images/designs/the-calling-7.jpg', '/images/designs/the-calling-8.jpg'], colorway: 'Washed Black' },
