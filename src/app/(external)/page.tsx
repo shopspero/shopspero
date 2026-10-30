@@ -12,7 +12,8 @@ interface DropPreview {
   size: 'wide' | 'tall';
 }
 
-const drops: DropPreview[] = [
+// Keep the homepage to three featured designs: one wide and two tall.
+const drops: [DropPreview, DropPreview, DropPreview] = [
   {
     id: 'born-again',
     imagePath: '/images/designs/born-again-1.jpg',
@@ -38,15 +39,6 @@ const drops: DropPreview[] = [
     header: 'Lux Aeterna',
     verse: 'Isaiah 60',
     href: '/designs/lux-aeterna',
-    size: 'tall',
-  },
-  {
-    id: 'the-calling',
-    imagePath: '/images/designs/the-calling-1.jpg',
-    altText: 'The Calling drop',
-    header: 'The Calling',
-    verse: 'Ephesians 4:1',
-    href: '/designs/the-calling',
     size: 'tall',
   },
 ];
