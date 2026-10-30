@@ -108,7 +108,7 @@ export default async function Page({
   }
   const { title, subtitle, garment } = parseDesignName(design.name);
   const [primary] = design.imgs;
-  const specs = getSpecs(garment, design.verse, design.colorway);
+  const specs = design.specs ?? getSpecs(garment, design.verse, design.colorway);
 
   const idx = designList.findIndex((d) => d.id === id);
   const next = designList[(idx + 1) % designList.length];

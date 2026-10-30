@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Slideshow from '@/components/Slideshow';
 import './home.css';
 
 interface DropPreview {
@@ -15,13 +14,22 @@ interface DropPreview {
 
 const drops: DropPreview[] = [
   {
+    id: 'born-again',
+    imagePath: '/images/designs/born-again-1.jpg',
+    altText: 'Born Again burgundy hoodies, front and back, on a staircase',
+    header: 'Born Again',
+    verse: 'John 3:3',
+    href: '/designs/born-again',
+    size: 'wide',
+  },
+  {
     id: 'god-is-love',
     imagePath: '/images/designs/god-is-love-4.jpg',
     altText: 'God is Love drop',
     header: 'God is Love',
     verse: '1 John 4:8',
     href: '/shop',
-    size: 'wide',
+    size: 'tall',
   },
   {
     id: 'lux-aeterna',
@@ -48,13 +56,20 @@ export default function Page() {
     <div className="home-page">
       {/* Hero */}
       <section className="home-hero">
-        <Slideshow />
+        <Image
+          src="/images/designs/born-again-1.jpg"
+          alt="Born Again burgundy hoodies, showing the front and back design on a staircase"
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
+        />
         <div className="home-hero-overlay" />
         <div className="home-hero-content">
-          <h1 className="home-hero-title">God is Love</h1>
-          <p className="home-hero-verse">1 John 4:8</p>
-          <Link href="/shop" className="home-hero-cta">
-            Shop the Collection
+          <h1 className="home-hero-title">Born Again</h1>
+          <p className="home-hero-verse">John 3:3</p>
+          <Link href="/designs/born-again" className="home-hero-cta">
+            Explore the Design
           </Link>
         </div>
         <div className="home-hero-scroll-cue" aria-hidden>

@@ -1,6 +1,4 @@
-// import ShopClosed from '@/app/(external)/shop/ShopClosed';
-import ShopGodIsLove from '@/app/(external)/shop/ShopGodIsLove';
-// import ShopAbba from '@/app/(external)/shop/ShopAbba';
+import ShopClosed from '@/app/(external)/shop/ShopClosed';
 
 export const metadata = {
   title: 'Shop - Spero',
@@ -9,6 +7,5 @@ export const metadata = {
 export const dynamic = 'force-dynamic';
 
 export default function Page() {
-  return <ShopGodIsLove />;
-  // return <ShopClosed />;
+  return <ShopClosed />;
 }

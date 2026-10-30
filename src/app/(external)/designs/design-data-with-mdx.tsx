@@ -3,6 +3,7 @@
  * so the list page never loads MDX and next build succeeds.
  */
 
+import BornAgain from '@/app/(external)/designs/descriptions/born-again.mdx';
 import Abide from '@/app/(external)/designs/descriptions/abide.mdx';
 import Calling from '@/app/(external)/designs/descriptions/the-calling.mdx';
 import Confidence from '@/app/(external)/designs/descriptions/confidence.mdx';
@@ -25,6 +26,7 @@ import type { ReactNode } from 'react';
 
 /** Design id → component name (all strings). */
 const descriptionIdToComponentName: Record<string, string> = {
+  'born-again': 'BornAgain',
   'god-is-love': 'GodIsLove',
   'lux-aeterna': 'LuxAeterna',
   'the-calling': 'Calling',
@@ -44,6 +46,7 @@ const descriptionIdToComponentName: Record<string, string> = {
 };
 
 const componentByName: Record<string, ReactNode> = {
+  BornAgain: <BornAgain />,
   GodIsLove: <GodIsLove />,
   LuxAeterna: <LuxAeterna />,
   Calling: <Calling />,
