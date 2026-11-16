@@ -29,7 +29,7 @@ const drops: [DropPreview, DropPreview, DropPreview] = [
     altText: 'God is Love drop',
     header: 'God is Love',
     verse: '1 John 4:8',
-    href: '/shop',
+    href: '/designs/god-is-love',
     size: 'tall',
   },
   {

@@ -6,7 +6,6 @@ const navLinks = [
   { title: 'OUR IMPACT', href: '/our-impact' },
   { title: 'TEAM', href: '/team' },
   { title: 'DESIGNS', href: '/designs' },
-  { title: 'SHOP', href: '/shop' },
 ];
 
 export default function ExternalLayout({
