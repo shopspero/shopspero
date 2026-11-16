@@ -1,6 +1,6 @@
 'use client';
 
-import Product from '../../../components/Product';
+import Product from '@/components/Product';
 import { designList } from '@/app/(external)/designs/design-data';
 
 function Description() {

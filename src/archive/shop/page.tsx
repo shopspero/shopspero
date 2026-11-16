@@ -1,4 +1,4 @@
-import ShopClosed from '@/app/(external)/shop/ShopClosed';
+import ShopClosed from '@/archive/shop/ShopClosed';
 
 export const metadata = {
   title: 'Shop - Spero',

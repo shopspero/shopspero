@@ -1,7 +1,7 @@
 'use client';
 
-import Product from '../../../components/Product'
-import Description from "../designs/descriptions/the-calling-reduced.mdx"
+import Product from '@/components/Product'
+import Description from "@/app/(external)/designs/descriptions/the-calling-reduced.mdx"
 
 
 export default function ShopCalling() {

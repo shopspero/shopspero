@@ -1,6 +1,6 @@
 'use client';
 
-import Product from '../../../components/Product'
+import Product from '@/components/Product'
 function Description() {
   return (
     <div>

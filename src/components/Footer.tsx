@@ -17,7 +17,6 @@ const socials: SocialInfo[] = [
 
 const navLinks = [
   { label: 'Designs', href: '/designs' },
-  { label: 'Shop', href: '/shop' },
   { label: 'About', href: '/about-us' },
   { label: 'Our Impact', href: '/our-impact' },
   { label: 'Team', href: '/team' },
