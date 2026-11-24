@@ -1,6 +1,6 @@
 import { auth } from '@/lib/auth';
 import { hasPermission } from '@/lib/permissions';
-import { getPaginatedOrders } from '@/lib/finances';
+import { getPaginatedOrders } from '../../lib/finances';
 import { NextRequest, NextResponse } from 'next/server';
 
 const PAGE_SIZE = 20;

@@ -1,6 +1,6 @@
 import { google, sheets_v4 } from 'googleapis';
 import { unstable_cache } from 'next/cache';
-import { logger } from './discordLogger';
+import { logger } from '@/lib/discordLogger';
 
 const SPREADSHEET_ID = process.env.GOOGLE_SHEETS_SPREADSHEET_ID ?? '';
 

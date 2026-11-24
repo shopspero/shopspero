@@ -18,6 +18,10 @@ import {
   deleteProduct as libDeleteProduct,
   reserveInventory,
 } from '@/lib/product';
+import {
+  DropRecord,
+  getDropRecords as libGetDropRecords,
+} from '@/lib/dropRecords';
 
 export interface UserProfile {
   name?: string;
@@ -84,6 +88,17 @@ export async function deleteProduct(productId: string) {
     return false;
   }
   return libDeleteProduct(productId);
+}
+
+// Unified, cross-drop order log for the admin Finance tab (and the
+// Dashboards tab's aggregate totals). Backed by MongoDB — see
+// src/lib/dropRecords.ts and scripts/import-drop-records.mjs.
+export async function getDropRecords(): Promise<DropRecord[]> {
+  const session = await auth();
+  if (!hasPermission(session, 'general')) {
+    return [];
+  }
+  return libGetDropRecords();
 }
 
 export async function getOrders() {

@@ -1,6 +1,6 @@
 import { auth } from '@/lib/auth';
 import { hasPermission } from '@/lib/permissions';
-import { getFinancesDashboard } from '@/lib/finances';
+import { getFinancesDashboard } from '../../lib/finances';
 import { NextResponse } from 'next/server';
 
 export async function GET() {

@@ -1,25 +1,20 @@
-import { getCurrentUserProfile } from '@/actions/admin';
-import { Center, Container, Heading, Text } from '@chakra-ui/react';
+import DashboardView from './DashboardView';
+import { Box, Container, Heading } from '@chakra-ui/react';
 
 export const metadata = {
-  title: 'Admin - Spero',
+  title: 'Dashboards - Spero',
 };
 
-export default async function Page() {
-  const profile = await getCurrentUserProfile();
-
+// See src/app/(internal)/admin/finance for the per-order table.
+export default function Page() {
   return (
-    <Container maxWidth={1000} textAlign="center">
-      <Center flexDirection="column" p={10} gap={2}>
+    <Container maxWidth={{ base: '100%', md: '50%' }} mx={0}>
+      <Box py={10}>
         <Heading as="h1" size="2xl">
-          Welcome{profile?.name ? `, ${profile.name}` : ''}
+          Dashboards
         </Heading>
-        {profile?.title && (
-          <Text fontSize="lg" color="gray.600">
-            {profile.title}
-          </Text>
-        )}
-      </Center>
+      </Box>
+      <DashboardView />
     </Container>
   );
 }

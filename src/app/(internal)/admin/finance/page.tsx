@@ -1,19 +1,19 @@
-import OrdersTable from '@/app/(internal)/admin/orders/OrdersTable';
+import FinanceTable from './FinanceTable';
 import { Center, Container, Heading } from '@chakra-ui/react';
 
 export const metadata = {
-  title: 'Orders - Spero',
+  title: 'Finance - Spero',
 };
 
 export default function Page() {
   return (
-    <Container maxWidth={1300}>
+    <Container maxWidth={1200}>
       <Center p={10}>
         <Heading as="h1" size="2xl">
-          Orders
+          Finance
         </Heading>
       </Center>
-      <OrdersTable />
+      <FinanceTable />
     </Container>
   );
 }

@@ -19,7 +19,7 @@ import {
   Tr,
 } from '@chakra-ui/react';
 import { useEffect, useMemo, useState } from 'react';
-import type { FinancesDashboard } from '@/lib/finances';
+import type { FinancesDashboard } from './lib/finances';
 
 const currency = new Intl.NumberFormat('en-US', {
   style: 'currency',

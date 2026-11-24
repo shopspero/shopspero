@@ -1,5 +1,5 @@
 import { Center, Container, Heading } from '@chakra-ui/react';
-import LogForm from '@/app/(internal)/admin/log-order/LogForm';
+import LogForm from './LogForm';
 
 export const metadata = {
   title: 'Log Order - Spero',

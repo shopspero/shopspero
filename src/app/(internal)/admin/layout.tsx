@@ -1,35 +1,24 @@
 'use client';
 
-import { Box } from '@chakra-ui/react';
-import NavBar from '@/components/NavBar';
+import AdminSidebar from '@/components/AdminSidebar';
 import { SessionProvider, signIn, useSession } from 'next-auth/react';
 import { hasPermission } from '@/lib/permissions';
 import type { Permission } from '@/lib/users';
 
 interface NavLink {
   title: string;
-  href?: string;
-  children?: { title: string; href: string }[];
+  href: string;
   permission?: Permission;
 }
 
-// Order drives NavBar's left/right split (first half left, rest right).
+// Old dashboard tabs (Finances, Drop Orders, Online Orders, Exec) are archived
+// in src/archive/admin. The admin section is just Dashboards + Finance for now,
+// both backed by MongoDB (which isn't populated yet).
 const allNavLinks: NavLink[] = [
-  { title: 'ADMIN', href: '/admin' },
-  { title: 'FINANCES', href: '/admin/finances', permission: 'general' },
-  { title: 'DROP ORDERS', href: '/admin/finances/orders', permission: 'general' },
-  {
-    title: 'ONLINE ORDERS',
-    permission: 'general',
-    children: [
-      { title: 'ORDERS', href: '/admin/orders' },
-      { title: 'LOG ORDER', href: '/admin/log-order' },
-      { title: 'PRODUCTS', href: '/admin/products' },
-    ],
-  },
-  { title: 'EXEC', href: '/admin/exec', permission: 'exec' },
-  { title: 'SIGN OUT', href: '/admin/sign-out' },
+  { title: 'DASHBOARDS', href: '/admin' },
+  { title: 'FINANCE', href: '/admin/finance', permission: 'general' },
 ];
+const signOutLink: NavLink = { title: 'SIGN OUT', href: '/admin/sign-out' };
 
 function Login({ children }: { children: React.ReactNode }) {
   const { data: session, status } = useSession();
@@ -41,11 +30,10 @@ function Login({ children }: { children: React.ReactNode }) {
       (link) => !link.permission || hasPermission(session, link.permission)
     );
     return (
-      <>
-        <NavBar links={navLinks} />
-        {children}
-        <Box p={5} />
-      </>
+      <div className="admin-layout">
+        <AdminSidebar links={navLinks} signOutLink={signOutLink} />
+        <main className="admin-content">{children}</main>
+      </div>
     );
   } else {
     signIn();

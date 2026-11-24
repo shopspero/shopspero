@@ -17,8 +17,8 @@ import {
   Tr,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import type { PaginatedOrders } from '@/lib/finances';
-import type { SheetOrder } from '@/lib/sheets';
+import type { PaginatedOrders } from '../lib/finances';
+import type { SheetOrder } from '../lib/sheets';
 
 const currency = new Intl.NumberFormat('en-US', {
   style: 'currency',
